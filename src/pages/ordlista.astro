@@ -1,0 +1,135 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const glossary = [
+  { term: 'AI Agent', description: 'Ett AI-drivet system som autonomt kan utföra uppgifter, fatta beslut och interagera med andra system eller människor. Används i marknadsföring för automatisering av kundtjänst, content creation och datainsamling.', link: '/ai-transformation' },
+  { term: 'Prompt Engineering', description: 'Konsten att skriva instruktioner till AI-modeller för att få bästa möjliga resultat. Kritiskt för effektiv AI-användning i marknadsföring och content creation.', link: '/ai-transformation' },
+  { term: 'RAG', description: 'Retrieval-Augmented Generation - en teknik där AI-modeller kompletteras med företagsspecifik kunskap från databaser eller dokument för mer exakta och relevanta svar.', link: '/ai-transformation' },
+  { term: 'ROAS', description: 'Return on Ad Spend - nyckeltal som visar hur mycket intäkt du får per investerad annons-krona. Beräknas som (Intäkt / Annonskostnad) × 100. Exempel: ROAS 300% betyder 3 kr tillbaka per investerad krona.', link: '/paid-social' },
+  { term: 'Meta Ads', description: 'Facebooks och Instagrams annonsplattform. Omfattar alla annonser på Facebook, Instagram, Messenger och Audience Network. En av världens största annonsplattformar för både B2C och B2B.', link: '/paid-social' },
+  { term: 'CPC', description: 'Cost Per Click - kostnaden för varje klick på din annons. Lägre CPC betyder effektivare annonser. Påverkas av relevans, konkurrens och målgrupp.', link: '/paid-social' },
+  { term: 'CTR', description: 'Click-Through Rate - andelen som klickar på din annons av de som ser den. Högt CTR indikerar relevant annons. Beräknas som (Klick / Visningar) × 100.', link: '/paid-social' },
+  { term: 'Lookalike Audience', description: 'Målgrupper på Meta och andra plattformar som liknar dina befintliga kunder. AI hittar användare med liknande beteenden och intressen som din bästa kundbas.', link: '/paid-social' },
+  { term: 'Conversion Tracking', description: 'Spårning av användares handlingar efter att de klickat på din annons. Viktigt för att mäta kampanjers faktiska värde. Implementeras via pixels eller API.', link: '/paid-social' },
+  { term: 'Attribution', description: 'Fördelning av kredit till olika marknadsföringskanaler för en konvertering. Avgör vilka kanaler som bidrar till försäljning och hur mycket värde varje kanal skapar.', link: '/paid-social' },
+  { term: 'A/B Testing', description: 'Systematisk testning där två varianter av en annons, landningssida eller kampanj jämförs för att identifiera vad som presterar bäst. Grunden för datadrivet beslutsfattande.', link: '/paid-social' },
+  { term: 'Performance Marketing', description: 'Marknadsföring där du betalar baserat på resultat - klick, leads eller försäljning. Fokus på mätbara utfall och ständig optimering.', link: '/paid-social' },
+];
+---
+
+<Layout 
+  title="Ordlista - Marketing- och AI-termer | Adorable"
+  description="Förklaringar av viktiga begrepp inom paid social, AI-transformation och performance marketing. Från ROAS och Meta Ads till Prompt Engineering och AI Agents."
+>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">Ordlista</h1>
+        <p class="hero-intro">
+          Förklaringar av viktiga begrepp inom paid social, AI-transformation och performance marketing.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="glossary-list">
+          {glossary.sort((a, b) => a.term.localeCompare(b.term, 'sv')).map((item) => (
+            <div class="glossary-item">
+              <h2 class="term">{item.term}</h2>
+              <p class="description">{item.description}</p>
+              <a href={item.link} class="link">Läs mer →</a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    background: #fff;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hero {
+    padding: 8rem 0 4rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    margin: 0 0 1rem;
+    line-height: 1.3;
+    color: #000;
+  }
+
+  .hero-intro {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    line-height: 1.7;
+    color: #000;
+  }
+
+  .section {
+    padding: 4rem 0 6rem;
+  }
+
+  .glossary-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .glossary-item {
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .glossary-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .term {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    margin: 0 0 0.75rem;
+    color: #000;
+  }
+
+  .description {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.7;
+    color: #333;
+    margin: 0 0 1rem;
+  }
+
+  .link {
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid #000;
+    transition: opacity 0.2s;
+  }
+
+  .link:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 4rem 0 2rem;
+    }
+
+    .section {
+      padding: 3rem 0 4rem;
+    }
+  }
+</style>
