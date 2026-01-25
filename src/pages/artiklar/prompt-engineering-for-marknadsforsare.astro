@@ -1,0 +1,258 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout 
+  title="Prompt Engineering för marknadsförare – Så skriver du bättre AI-prompts | Adorable"
+  description="Skillnaden mellan medioker och lysande AI-output är ofta din prompt. Lär dig hur du skriver prompts som faktiskt levererar resultat."
+>
+  <main>
+    <article>
+      <header class="hero">
+        <div class="container">
+          <div class="meta">
+            <span class="category">AI-kompetens</span>
+            <time>25 januari 2026</time>
+          </div>
+          <h1 class="title">Prompt Engineering för marknadsförare</h1>
+          <p class="intro">Skillnaden mellan medioker och lysande AI-output är ofta din prompt. Här är allt du behöver veta för att skriva prompts som faktiskt levererar.</p>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="container">
+          <h2>Varför prompt engineering spelar roll</h2>
+          <p>AI-verktyg som ChatGPT och Claude är kraftfulla – men bara om du vet hur du pratar med dem. En dålig prompt ger generisk, oanvändbar output. En bra prompt ger exakt vad du behöver, första gången.</p>
+          <p><strong>Exempel på skillnaden:</strong></p>
+          <ul>
+            <li>❌ Dålig: "Skriv en annonstext"</li>
+            <li>✅ Bra: "Skriv 5 Facebook-annonstexter (max 125 tecken) för vår nya ekologiska hudvårdsserie, riktad till kvinnor 25-40 som värdesätter hållbarhet. Tonen ska vara varm och informativ, inte säljesig."</li>
+          </ul>
+
+          <h2>1. Var specifik med kontext</h2>
+          <p>Ju mer AI vet om din situation, desto bättre blir resultatet.</p>
+          <p><strong>Inkludera alltid:</strong></p>
+          <ul>
+            <li><strong>Målgrupp</strong> – Vem är detta för?</li>
+            <li><strong>Kanal</strong> – LinkedIn, Meta, email, webb?</li>
+            <li><strong>Syfte</strong> – Awareness, leads, försäljning?</li>
+            <li><strong>Ton</strong> – Professionell, lekfull, inspirerande?</li>
+            <li><strong>Längd</strong> – Antal ord, tecken, eller format</li>
+          </ul>
+          <p><strong>Exempel:</strong><br/>
+          "Skriv ett LinkedIn-inlägg (max 150 ord) riktat till B2B-marknadsförare som jobbar med Meta Ads. Syftet är att introducera vår nya guide om ROAS-optimering. Tonen ska vara professionell men tillgänglig, inte akademisk."</p>
+
+          <h2>2. Använd rollbaserade prompts</h2>
+          <p>Be AI:n att anta en specifik roll eller expertis:</p>
+          <ul>
+            <li>"Agera som en erfaren copywriter specialiserad på e-handel..."</li>
+            <li>"Du är en Meta Ads-strateg med 10 års erfarenhet..."</li>
+            <li>"Som en SEO-expert med fokus på B2B-SaaS..."</li>
+          </ul>
+          <p><strong>Varför det fungerar:</strong> AI:n har tränats på text från experter inom olika områden. Genom att specificera rollen aktiverar du rätt "kunskapsområde".</p>
+
+          <h2>3. Be om struktur och format</h2>
+          <p>Specificera exakt hur du vill ha outputen:</p>
+          <ul>
+            <li>"Ge mig svaret som en punktlista med 5 items"</li>
+            <li>"Strukturera som en tabell med kolumnerna: Kanal, Budget, Förväntad ROAS"</li>
+            <li>"Skriv detta som ett email med subject line, intro, 3 bullets och CTA"</li>
+            <li>"Dela upp i 3 sektioner: Problem, Lösning, Nästa steg"</li>
+          </ul>
+          <p><strong>Exempel:</strong><br/>
+          "Skapa 10 ad headlines för vårt nya SaaS-verktyg. Format: en tabell med kolumnerna Headline (max 40 tecken), Hook (vilket smärtpunkt den adresserar), Variant (testbar skillnad från baseline)."</p>
+
+          <h2>4. Använd exempel och referensmaterial</h2>
+          <p>Visa AI:n vad du vill ha genom att ge exempel:</p>
+          <ul>
+            <li><strong>Tonalitet:</strong> "Använd samma ton som detta exempel: [klistra in text]"</li>
+            <li><strong>Struktur:</strong> "Följ samma upplägg som denna artikel: [länk eller text]"</li>
+            <li><strong>Stil:</strong> "Skriv i stil med Ogilvy, inte BuzzFeed"</li>
+          </ul>
+          <p><strong>Pro tip:</strong> Du kan också ge exempel på vad du INTE vill ha:<br/>
+          "Undvik klichéer som 'game-changer', 'revolutionerande', eller 'best-in-class'."</p>
+
+          <h2>5. Iterera och förfina</h2>
+          <p>Den första outputen är sällan perfekt. Använd follow-up prompts:</p>
+          <ul>
+            <li>"Gör version 2 mer konkret med exempel"</li>
+            <li>"Korta ner till 100 ord utan att tappa nyckelpunkterna"</li>
+            <li>"Gör headline mer specifik – inkludera ett nummer eller statistik"</li>
+            <li>"Byt ut jargong mot vardagligt språk"</li>
+          </ul>
+          <p><strong>Workflow-exempel:</strong></p>
+          <ol>
+            <li>Första prompt: Få 5 varianter</li>
+            <li>Välj den bästa</li>
+            <li>Be om 3 förbättrade versioner av den</li>
+            <li>Förfina ytterligare baserat på vad du ser</li>
+          </ol>
+
+          <h2>6. Chain of thought – Låt AI tänka högt</h2>
+          <p>För komplexa uppgifter, be AI:n att visa sitt resonemang:</p>
+          <ul>
+            <li>"Tänk steg-för-steg innan du svarar"</li>
+            <li>"Börja med att analysera målgruppen, sedan formulera budskapet"</li>
+            <li>"Lista först 3 möjliga vinklar, välj sedan den bästa och utveckla den"</li>
+          </ul>
+          <p><strong>Exempel:</strong><br/>
+          "Jag behöver en kampanjstrategi för Q2. Börja med att analysera våra Q1-resultat [data], identifiera vad som fungerade, föreslå sedan 3 strategier för Q2 och rekommendera en med motivering."</p>
+
+          <h2>Vanliga misstag att undvika</h2>
+          <ul>
+            <li><strong>För vaga prompts</strong> – "Skriv något bra om vår produkt"</li>
+            <li><strong>För komplexa prompts</strong> – 500 ord med 15 olika krav</li>
+            <li><strong>Inget sammanhang</strong> – AI vet inte vad du gjorde i förra konversationen</li>
+            <li><strong>Att acceptera första utkastet</strong> – Iterera alltid minst en gång</li>
+            <li><strong>Glömma att faktakolla</strong> – AI hittar på saker ibland</li>
+          </ul>
+
+          <h2>Ready-to-use prompt templates</h2>
+          <p><strong>För annons-copy:</strong><br/>
+          "Skapa [antal] [plattform]-annonstexter (max [tecken]) för [produkt/tjänst]. Målgrupp: [beskriv]. Syfte: [awareness/conversion/retention]. Tona: [beskriv]. Inkludera en klar CTA."</p>
+          
+          <p><strong>För analys:</strong><br/>
+          "Analysera denna [data/rapport] och ge mig: 1) Top 3 insights, 2) Vad fungerade bäst och varför, 3) En konkret rekommendation för nästa steg."</p>
+          
+          <p><strong>För brainstorming:</strong><br/>
+          "Jag behöver [antal] kreativa idéer för [kampanj/innehåll]. Kontext: [beskriv situation]. Begränsningar: [budget/tid/kanal]. Ge varje idé i formatet: Idé, Varför det funkar, Enkel implementation."</p>
+
+          <h2>Nästa steg</h2>
+          <p>Prompt engineering är en färdighet – ju mer du övar, desto bättre blir du.</p>
+          <ol>
+            <li>Spara dina bästa prompts i ett dokument</li>
+            <li>Testa samma prompt i både ChatGPT och Claude – de svarar olika</li>
+            <li>Be kollegor dela sina bästa prompts</li>
+            <li>Experimentera dagligen med små justeringar</li>
+          </ol>
+          <p>Om en månad kommer du skriva prompts som ger 10x bättre resultat än idag.</p>
+
+          <div class="cta">
+            <h3>Vill ni bli bättre på AI som team?</h3>
+            <p>Adorable kör workshops i prompt engineering och praktisk AI-användning för marknadsförare. Skräddarsytt för er verksamhet.</p>
+            <a href="/kontakt" class="button">Boka workshop →</a>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </article>
+  </main>
+</Layout>
+
+<style>
+  main {
+    background: #fff;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hero {
+    padding: 8rem 0 4rem;
+  }
+
+  .meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: #666;
+  }
+
+  .category {
+    font-weight: 500;
+    color: #000;
+  }
+
+  .title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+    line-height: 1.2;
+    color: #000;
+  }
+
+  .intro {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+  }
+
+  .content {
+    padding-bottom: 6rem;
+  }
+
+  .content h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 3rem 0 1.5rem;
+    color: #000;
+  }
+
+  .content h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+    color: #000;
+  }
+
+  .content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+    margin: 0 0 1.5rem;
+  }
+
+  .content ul, .content ol {
+    margin: 0 0 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .content strong {
+    color: #000;
+    font-weight: 600;
+  }
+
+  .cta {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+  }
+
+  .cta h3 {
+    margin-top: 0;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+
+  .button:hover {
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 4rem 0 2rem;
+    }
+  }
+</style>

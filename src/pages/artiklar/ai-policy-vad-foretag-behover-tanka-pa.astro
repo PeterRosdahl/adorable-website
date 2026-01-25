@@ -1,0 +1,314 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout 
+  title="AI-policy: Vad företag behöver tänka på – GDPR, säkerhet och riktlinjer | Adorable"
+  description="AI-verktyg i företaget utan policy är som att ge bort nycklarna till datarummet. Här är ramverket för att implementera AI säkert och ansvarsfullt."
+>
+  <main>
+    <article>
+      <header class="hero">
+        <div class="container">
+          <div class="meta">
+            <span class="category">AI-strategi</span>
+            <time>25 januari 2026</time>
+          </div>
+          <h1 class="title">AI-policy: Vad företag behöver tänka på</h1>
+          <p class="intro">AI-verktyg i företaget utan policy är som att ge bort nycklarna till datarummet. Här är allt du behöver veta för att implementera AI säkert och ansvarsfullt.</p>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="container">
+          <h2>Varför ni behöver en AI-policy – nu</h2>
+          <p>Era medarbetare använder redan ChatGPT, Claude och andra AI-verktyg. Frågan är inte <em>om</em> ni ska tillåta det, utan <em>hur</em> ni säkerställer att det sker på ett säkert och ansvarsfullt sätt.</p>
+          <p><strong>Riskerna utan policy:</strong></p>
+          <ul>
+            <li>Sekretessbrott – Anställda delar konfidentiell data utan att tänka på det</li>
+            <li>GDPR-överträdelser – Personuppgifter i AI-verktyg utan legal grund</li>
+            <li>Varumärkesskada – Publicering av AI-genererat innehåll med faktafel</li>
+            <li>Competitive intel leak – Strategisk information som hamnar i träningsdata</li>
+          </ul>
+          <p>En AI-policy är inte ett hinder. Det är ett ramverk som möjliggör <em>smart</em> användning.</p>
+
+          <h2>1. Dataskydd och GDPR-compliance</h2>
+          <p>Det viktigaste att reglera: vilken data får skickas till AI-verktyg?</p>
+          
+          <h3>Förbjuden data i AI-verktyg</h3>
+          <ul>
+            <li><strong>Personuppgifter</strong> – Namn, e-post, telefonnummer, personnummer</li>
+            <li><strong>Kunddata</strong> – CRM-information, köphistorik, beteendedata</li>
+            <li><strong>Känsliga personuppgifter</strong> – Hälsa, religion, politisk åsikt, etnicitet</li>
+            <li><strong>Affärshemligheter</strong> – Strategier, prissättning, produktplaner</li>
+            <li><strong>Sekretessbelagd information</strong> – NDA-skyddad data från partners</li>
+          </ul>
+
+          <h3>Tillåten data (med anonymisering)</h3>
+          <ul>
+            <li>Aggregerad statistik utan individuell identifiering</li>
+            <li>Offentlig information (redan publicerat innehåll)</li>
+            <li>Anonymiserade exempel (ta bort alla identifierare först)</li>
+            <li>Generiska mallar och strukturer</li>
+          </ul>
+
+          <p><strong>Praktisk regel:</strong> Om du inte skulle publicera informationen på LinkedIn, skicka den inte till ChatGPT.</p>
+
+          <h2>2. Godkända verktyg och licenser</h2>
+          <p>Inte alla AI-verktyg är skapade lika när det gäller datasäkerhet.</p>
+
+          <h3>Enterprise-nivå (rekommenderat för företag)</h3>
+          <ul>
+            <li><strong>ChatGPT Enterprise/Team</strong> – Data används inte för träning, SSO, admin-kontroller</li>
+            <li><strong>Claude Pro för Teams</strong> – Samma nivå av datasäkerhet</li>
+            <li><strong>Microsoft Copilot (365)</strong> – Data stannar i er Microsoft-tenant</li>
+            <li><strong>Google Gemini Enterprise</strong> – Integrerat med Google Workspace</li>
+          </ul>
+
+          <h3>Förbjudna gratisversioner</h3>
+          <p>Gratis-versioner av ChatGPT, Claude, och liknande använder era inputs för att träna modeller. Allt ni skriver kan teoretiskt dyka upp i någon annans output.</p>
+          
+          <p><strong>Policy-rekommendation:</strong><br/>
+          "Företaget tillhandahåller licensierade AI-verktyg med enterprise-säkerhet. Användning av gratis-versioner med företagsrelaterad data är förbjuden."</p>
+
+          <h2>3. Användningsriktlinjer för medarbetare</h2>
+          <p>Gör det tydligt vad som är okej och inte okej.</p>
+
+          <h3>Tillåten användning</h3>
+          <ul>
+            <li><strong>Copywriting</strong> – Utkast till annonstexter, emails, inlägg (med mänsklig granskning)</li>
+            <li><strong>Brainstorming</strong> – Idégenerering, strategiska alternativ</li>
+            <li><strong>Research</strong> – Sammanfatta offentlig information, förklara koncept</li>
+            <li><strong>Kodning</strong> – Generera script, debugging (ej produktionskod utan granskning)</li>
+            <li><strong>Översättningar</strong> – Grundöversättningar av icke-känsligt material</li>
+          </ul>
+
+          <h3>Kräver godkännande</h3>
+          <ul>
+            <li>Publicering av AI-genererat innehåll utan mänsklig redigering</li>
+            <li>Användning av AI för kundkommunikation (chatbots, email-svar)</li>
+            <li>AI-driven beslutfattande (t.ex. automatisk budgetsättning)</li>
+            <li>Integration av AI-verktyg i företagets system</li>
+          </ul>
+
+          <h3>Alltid förbjudet</h3>
+          <ul>
+            <li>Dela konfidentiell företagsinformation</li>
+            <li>Dela kunddata eller personuppgifter</li>
+            <li>Använda AI för att skapa vilseledande innehåll</li>
+            <li>Publicera AI-genererat innehåll som mänskligt skrivet (transparens krävs)</li>
+          </ul>
+
+          <h2>4. Kvalitetskontroll och faktakoll</h2>
+          <p>AI hallucinerar – det är en feature, inte en bug. Därför krävs alltid mänsklig granskning.</p>
+
+          <p><strong>Obligatorisk review innan publicering:</strong></p>
+          <ul>
+            <li>Faktakolla alla statistik och påståenden</li>
+            <li>Verifiera att tonen matchar varumärket</li>
+            <li>Kontrollera att innehållet är relevant och aktuellt</li>
+            <li>Säkerställ att ingen känslig information läckt in</li>
+          </ul>
+
+          <p><strong>Best practice:</strong> Använd AI för första utkast, människa för final version.</p>
+
+          <h2>5. Transparens och märkning</h2>
+          <p>Ska ni berätta att innehåll är AI-genererat?</p>
+
+          <h3>Rekommenderad policy</h3>
+          <ul>
+            <li><strong>Internt:</strong> Transparent användning – team vet när AI används</li>
+            <li><strong>Externt:</strong> Beror på kontext:
+              <ul>
+                <li>Kundtjänstbottar: Ja, märk tydligt</li>
+                <li>Marketing copy: Nej, om mänskligt granskad och äkta</li>
+                <li>Research/rapporter: Ja, om AI gjort analys</li>
+              </ul>
+            </li>
+          </ul>
+
+          <p><strong>Varumärkesskydd:</strong> Allt som publiceras i företagets namn måste uppfylla samma kvalitetsstandard – oavsett om det är AI-genererat eller inte.</p>
+
+          <h2>6. Juridik och äganderätt</h2>
+          <p>Vem äger AI-genererat innehåll?</p>
+
+          <ul>
+            <li><strong>Upphovsrätt:</strong> AI-genererat material är (för närvarande) inte upphovsrättsskyddat i sig. Men om en människa redigerar och kurerar det kan det bli skyddat.</li>
+            <li><strong>Företagets rättigheter:</strong> All AI-output skapad av anställda i tjänsten tillhör företaget.</li>
+            <li><strong>Tredje parts innehåll:</strong> Se till att AI inte genererat plagiat – granska alltid originalitet.</li>
+          </ul>
+
+          <p><strong>Policy-formulering:</strong><br/>
+          "Allt innehåll skapat med AI-verktyg i företagets namn tillhör företaget. Anställda ansvarar för att säkerställa att innehållet inte bryter mot tredje parts upphovsrätt."</p>
+
+          <h2>7. Utbildning och support</h2>
+          <p>En policy är värdelös om ingen vet att den finns.</p>
+
+          <p><strong>Implementationsplan:</strong></p>
+          <ol>
+            <li><strong>Onboarding:</strong> Alla nya medarbetare går igenom AI-policy</li>
+            <li><strong>Workshop:</strong> Praktisk träning i hur man använder AI-verktyg rätt</li>
+            <li><strong>Support:</strong> Tydlig kontaktperson för frågor om AI-användning</li>
+            <li><strong>Updates:</strong> Regelbunden uppdatering när policy utvecklas</li>
+          </ol>
+
+          <p><strong>Gör det lätt att göra rätt:</strong> Ge exempel, mallar och prompt-bibliotek som följer policyn.</p>
+
+          <h2>8. Löpande granskning och uppdatering</h2>
+          <p>AI-landskapet förändras snabbt. Er policy måste hänga med.</p>
+
+          <ul>
+            <li><strong>Kvartalsvis review:</strong> Uppdatera baserat på nya verktyg och regler</li>
+            <li><strong>Incident-rapportering:</strong> Om något går fel, lär av det och justera policy</li>
+            <li><strong>Legal compliance:</strong> Håll koll på EU AI Act och GDPR-uppdateringar</li>
+            <li><strong>Best practice sharing:</strong> Lär av andra företags erfarenheter</li>
+          </ul>
+
+          <h2>Mall: Er första AI-policy (TL;DR-version)</h2>
+          <p><strong>1. Data:</strong> Ingen personlig eller konfidentiell data i AI-verktyg.<br/>
+          <strong>2. Verktyg:</strong> Använd endast företagslicensierade AI-tjänster.<br/>
+          <strong>3. Granskning:</strong> All AI-output måste granskas av människa innan publicering.<br/>
+          <strong>4. Transparens:</strong> Märk AI-genererat innehåll där det är relevant (särskilt kundtjänst).<br/>
+          <strong>5. Utbildning:</strong> Alla som använder AI ska gå igenom företagets riktlinjer.<br/>
+          <strong>6. Support:</strong> Kontakta [person/team] vid frågor.</p>
+
+          <h2>Nästa steg</h2>
+          <ol>
+            <li>Inventera vilka AI-verktyg som redan används (fråga teamet)</li>
+            <li>Upprätta en grundläggande policy baserad på mallen ovan</li>
+            <li>Skaffa enterprise-licenser för godkända verktyg</li>
+            <li>Kommunicera policyn – workshop + skriftlig dokumentation</li>
+            <li>Utvärdera efter 3 månader och justera</li>
+          </ol>
+
+          <p>Det perfekta är det godas fiende. Börja med en enkel policy och förbättra den över tid.</p>
+
+          <div class="cta">
+            <h3>Behöver ni hjälp med AI-policy och implementation?</h3>
+            <p>Adorable hjälper företag att utveckla AI-policies, genomföra workshops och implementera säker AI-användning.</p>
+            <a href="/kontakt" class="button">Boka rådgivning →</a>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </article>
+  </main>
+</Layout>
+
+<style>
+  main {
+    background: #fff;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hero {
+    padding: 8rem 0 4rem;
+  }
+
+  .meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: #666;
+  }
+
+  .category {
+    font-weight: 500;
+    color: #000;
+  }
+
+  .title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+    line-height: 1.2;
+    color: #000;
+  }
+
+  .intro {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+  }
+
+  .content {
+    padding-bottom: 6rem;
+  }
+
+  .content h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 3rem 0 1.5rem;
+    color: #000;
+  }
+
+  .content h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+    color: #000;
+  }
+
+  .content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+    margin: 0 0 1.5rem;
+  }
+
+  .content ul, .content ol {
+    margin: 0 0 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .content strong {
+    color: #000;
+    font-weight: 600;
+  }
+
+  .cta {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+  }
+
+  .cta h3 {
+    margin-top: 0;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+
+  .button:hover {
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 4rem 0 2rem;
+    }
+  }
+</style>
