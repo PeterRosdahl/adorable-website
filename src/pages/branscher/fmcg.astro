@@ -1,0 +1,211 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout 
+  title="FMCG - Konsumentvaror Paid Social & Performance Marketing | Adorable"
+  description="Digital marknadsföring för konsumentvaror. Brand + performance, snabba säljcykler och datadriven retail media för FMCG-branschen."
+>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">FMCG & Konsumentvaror</h1>
+        <p class="hero-intro">
+          Konsumentvarumärken kämpar med fragmenterad medielandskap och kortare beslutsvägar. Utmaningen är att kombinera brand-building med direkt försäljning i snabbrörliga kategorier.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Branschens utmaningar</h2>
+        <ul class="challenge-list">
+          <li>Balansera långsiktig brand-building med kortsiktig försäljning</li>
+          <li>Mäta kampanjeffekt när försäljning sker offline (butik)</li>
+          <li>Intensiv konkurrens och prispress från private label</li>
+          <li>Kort consumer attention span i översvämmad feed</li>
+          <li>Retail media-fragmentering (Amazon, ICA, Coop, etc.)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Hur Adorable hjälper</h2>
+        
+        <div class="service">
+          <h3>Brand + Performance Marketing</h3>
+          <p>Meta och TikTok-kampanjer som bygger varumärke samtidigt som de driver till butik eller e-handel. Kreativ testning i hög hastighet.</p>
+        </div>
+
+        <div class="service">
+          <h3>Retail Media Strategy</h3>
+          <p>Kampanjer på Amazon Ads, ICA Digital och andra retail media-plattformar. Fånga kunder när köpintentionen är som högst.</p>
+        </div>
+
+        <div class="service">
+          <h3>In-Store Attribution & MMM</h3>
+          <p>Koppla digital annonsering till butikköp via loyalty-data och geolocation. Marketing Mix Modeling för att förstå verklig ROAS.</p>
+        </div>
+
+        <div class="service">
+          <h3>AI för Consumer Insights</h3>
+          <p>Analysera social listening, recensioner och konsumentbeteende. Prediktiva modeller för demand forecasting och kampanjoptimering.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Vanliga projekt</h2>
+        <ul class="project-list">
+          <li>Produktlanseringar med omnikanalstrategi</li>
+          <li>TikTok-kampanjer för Gen Z-produkter</li>
+          <li>Retail media-optimering för matvaror och dryck</li>
+          <li>Brand lift studies och attitydmätning</li>
+          <li>Säsongskampanjer (jul, sommar, höst)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section cta">
+      <div class="container">
+        <h2>Låt oss prata om er utmaning</h2>
+        <p>Boka ett möte så diskuterar vi hur Adorable kan hjälpa er växa i konsumentvarumarknaden.</p>
+        <a href="/kontakt" class="button">Kontakta mig →</a>
+      </div>
+    </section>
+
+    <Footer />
+  </main>
+</Layout>
+
+<style>
+  main {
+    background: #fff;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hero {
+    padding: 8rem 0 4rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    margin: 0 0 1.5rem;
+    line-height: 1.3;
+    color: #000;
+  }
+
+  .hero-intro {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .section {
+    padding: 4rem 0;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    margin: 0 0 2rem;
+    color: #000;
+  }
+
+  .challenge-list, .project-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .challenge-list li, .project-list li {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .challenge-list li::before, .project-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #000;
+    font-weight: bold;
+  }
+
+  .service {
+    margin-bottom: 3rem;
+  }
+
+  .service:last-child {
+    margin-bottom: 0;
+  }
+
+  .service h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem;
+    color: #000;
+  }
+
+  .service p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333;
+    margin: 0;
+  }
+
+  .cta {
+    background: #fafafa;
+  }
+
+  .cta h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    color: #000;
+  }
+
+  .cta p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #333;
+    margin: 0 0 2rem;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+
+  .button:hover {
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 4rem 0 2rem;
+    }
+
+    .section {
+      padding: 3rem 0;
+    }
+  }
+</style>

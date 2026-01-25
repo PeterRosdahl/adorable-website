@@ -1,0 +1,211 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout 
+  title="Startups & Scaleups - Performance Marketing & Snabb Tillväxt | Adorable"
+  description="Digital marknadsföring för startups och scaleups. Skalbar paid social, begränsad budget och datadriven tillväxt från 0 till 100."
+>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">Startups & Scaleups</h1>
+        <p class="hero-intro">
+          Tillväxtbolag behöver bevisa product-market fit och skala snabbt med begränsade resurser. Utmaningen är att hitta rätt kanaler och maximera varje marknadsföringskrona.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Branschens utmaningar</h2>
+        <ul class="challenge-list">
+          <li>Begränsad budget med höga förväntningar från investerare</li>
+          <li>Behov av snabba resultat för att bevisa traction</li>
+          <li>Oklar target audience och value proposition</li>
+          <li>Saknar in-house marknadsföringsexpertis</li>
+          <li>Måste skala kampanjer från tusenlappar till miljoner</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Hur Adorable hjälper</h2>
+        
+        <div class="service">
+          <h3>Growth Marketing på Steroider</h3>
+          <p>Snabba tester av kanaler, målgrupper och budskap. Hitta vad som fungerar innan budgeten tar slut. Meta, LinkedIn, Google – eller något helt annat.</p>
+        </div>
+
+        <div class="service">
+          <h3>Skalbar Tracking-infrastruktur</h3>
+          <p>Server-side tracking och data warehouse som växer med er. Bygg rätt från dag 1 istället för att behöva rigga om senare.</p>
+        </div>
+
+        <div class="service">
+          <h3>Fractional CMO & Strategi</h3>
+          <p>Senior marknadsföringsstrategi utan att anställa heltid. Vägled ert team och sätt upp processer som skalar.</p>
+        </div>
+
+        <div class="service">
+          <h3>AI för Early-Stage Automation</h3>
+          <p>Automatisera kundservice, lead qualification och content creation. Gör mer med mindre team.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Vanliga projekt</h2>
+        <ul class="project-list">
+          <li>0 till 1000 betalande kunder på 6 månader</li>
+          <li>Product-market fit testing via paid social</li>
+          <li>App-installationer och onboarding-optimering</li>
+          <li>Fundraising-kampanjer och investor relations</li>
+          <li>Employer branding för att attrahera talang</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section cta">
+      <div class="container">
+        <h2>Låt oss prata om er utmaning</h2>
+        <p>Boka ett möte så diskuterar vi hur Adorable kan hjälpa er skala snabbare.</p>
+        <a href="/kontakt" class="button">Kontakta mig →</a>
+      </div>
+    </section>
+
+    <Footer />
+  </main>
+</Layout>
+
+<style>
+  main {
+    background: #fff;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hero {
+    padding: 8rem 0 4rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    margin: 0 0 1.5rem;
+    line-height: 1.3;
+    color: #000;
+  }
+
+  .hero-intro {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .section {
+    padding: 4rem 0;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    margin: 0 0 2rem;
+    color: #000;
+  }
+
+  .challenge-list, .project-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .challenge-list li, .project-list li {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .challenge-list li::before, .project-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #000;
+    font-weight: bold;
+  }
+
+  .service {
+    margin-bottom: 3rem;
+  }
+
+  .service:last-child {
+    margin-bottom: 0;
+  }
+
+  .service h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem;
+    color: #000;
+  }
+
+  .service p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333;
+    margin: 0;
+  }
+
+  .cta {
+    background: #fafafa;
+  }
+
+  .cta h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    color: #000;
+  }
+
+  .cta p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #333;
+    margin: 0 0 2rem;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+
+  .button:hover {
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 4rem 0 2rem;
+    }
+
+    .section {
+      padding: 3rem 0;
+    }
+  }
+</style>
