@@ -1,0 +1,100 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "pages"
+    label: "Sidor"
+    files:
+      - label: "Startsida"
+        name: "home"
+        file: "src/content/home.md"
+        fields:
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Beskrivning", name: "description", widget: "text" }
+          - { label: "Hero Rubrik", name: "hero_title", widget: "string" }
+          - { label: "Hero Text", name: "hero_text", widget: "text" }
+          
+          - label: "AI-transformation"
+            name: "ai_section"
+            widget: "object"
+            fields:
+              - { label: "Rubrik", name: "title", widget: "string" }
+              - { label: "Intro", name: "intro", widget: "text" }
+              - label: "Tjänster"
+                name: "services"
+                widget: "list"
+                fields:
+                  - { label: "Namn", name: "name", widget: "string" }
+                  - { label: "Beskrivning", name: "description", widget: "text" }
+          
+          - label: "Paid Social"
+            name: "paid_social_section"
+            widget: "object"
+            fields:
+              - { label: "Rubrik", name: "title", widget: "string" }
+              - { label: "Intro", name: "intro", widget: "text" }
+              - label: "Tjänster"
+                name: "services"
+                widget: "list"
+                fields:
+                  - { label: "Namn", name: "name", widget: "string" }
+                  - { label: "Beskrivning", name: "description", widget: "text" }
+          
+          - { label: "Kunder Text", name: "clients_text", widget: "text" }
+
+      - label: "Om"
+        name: "about"
+        file: "src/content/about.md"
+        fields:
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Beskrivning", name: "description", widget: "text" }
+          - { label: "Hero Rubrik", name: "hero_title", widget: "string" }
+          - { label: "Hero Text", name: "hero_text", widget: "text" }
+          - label: "Innehåll"
+            name: "content"
+            widget: "list"
+            fields:
+              - { label: "Rubrik", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "markdown" }
+
+      - label: "Tjänster"
+        name: "services"
+        file: "src/content/services.md"
+        fields:
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Beskrivning", name: "description", widget: "text" }
+          - { label: "Hero Rubrik", name: "hero_title", widget: "string" }
+          - { label: "Hero Text", name: "hero_text", widget: "text" }
+
+      - label: "Kontakt"
+        name: "contact"
+        file: "src/content/contact.md"
+        fields:
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Beskrivning", name: "description", widget: "text" }
+          - { label: "E-post", name: "email", widget: "string" }
+          - { label: "Telefon", name: "phone", widget: "string" }
+          - { label: "Plats", name: "location", widget: "string" }
+
+  - name: "settings"
+    label: "Inställningar"
+    files:
+      - label: "Sociala länkar"
+        name: "social"
+        file: "src/content/social.json"
+        fields:
+          - { label: "X/Twitter", name: "twitter", widget: "string" }
+          - { label: "LinkedIn", name: "linkedin", widget: "string" }
+          - { label: "Threads", name: "threads", widget: "string" }
+      
+      - label: "SEO"
+        name: "seo"
+        file: "src/content/seo.json"
+        fields:
+          - { label: "Site Namn", name: "site_name", widget: "string" }
+          - { label: "Default Beskrivning", name: "default_description", widget: "text" }
+          - { label: "OG Image", name: "og_image", widget: "image" }

@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+/* Custom utilities */
+.btn {
+  @apply px-6 py-3 rounded-lg font-semibold transition-all duration-200;
+}
+
+.btn-primary {
+  @apply bg-teal-500 hover:bg-teal-600 text-white;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 hover:bg-gray-200 text-gray-900;
+}
+
+.section {
+  @apply py-16 md:py-24;
+}
+
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}

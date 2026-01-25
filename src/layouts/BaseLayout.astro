@@ -1,0 +1,75 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { title, description, image = '/og-image.png' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Peter Rosdahl" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.site)} />
+    <meta property="twitter:creator" content="@PeterRosdahl" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Adorable",
+      "description": description,
+      "url": String(Astro.site),
+      "founder": {
+        "@type": "Person",
+        "name": "Peter Rosdahl",
+        "sameAs": [
+          "https://x.com/PeterRosdahl",
+          "https://www.threads.net/@PeterRosdahl",
+          "https://www.linkedin.com/in/peterrosdahl"
+        ]
+      },
+      "foundingDate": "2016",
+      "areaServed": "SE",
+      "serviceType": ["AI-transformation", "Digital marknadsföring", "Paid Social"]
+    })} />
+
+    <!-- AI Optimization -->
+    <meta name="ai:title" content={title} />
+    <meta name="ai:description" content={description} />
+    <meta name="robots" content="index, follow" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

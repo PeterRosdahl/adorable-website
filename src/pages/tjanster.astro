@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    title: 'AI-transformation',
+    description: 'Implementera AI i er verksamhet med strategi och konkreta lösningar.',
+    features: [
+      'AI-strategiworkshops',
+      'Processoptimering med AI',
+      'Custom AI-lösningar',
+      'Utbildning och kompetensutveckling',
+      'Implementation och uppföljning'
+    ],
+    gradient: 'from-teal-500 to-cyan-600'
+  },
+  {
+    title: 'Paid Social',
+    description: 'Optimera era Meta Ads-kampanjer för maximal avkastning.',
+    features: [
+      'Kampanjstrategi och planering',
+      'Annonsoptimering (Meta Ads)',
+      'A/B-testing och analytics',
+      'Målgruppsanalys',
+      'ROI-rapportering'
+    ],
+    gradient: 'from-indigo-500 to-purple-600'
+  },
+  {
+    title: 'Digital strategi',
+    description: 'Långsiktig planering för hållbar digital tillväxt.',
+    features: [
+      'Digital transformationsplan',
+      'Marknadsanalys',
+      'Konkurrentanalys',
+      'Kanalstrategi',
+      'Löpande rådgivning'
+    ],
+    gradient: 'from-pink-500 to-rose-600'
+  }
+];
+---
+
+<BaseLayout
+  title="Tjänster – Adorable"
+  description="AI-transformation, Paid Social och Digital strategi. Tjänster som driver tillväxt och skapar värde."
+>
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="section bg-gradient-to-br from-teal-50 via-white to-purple-50">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="mb-6">Tjänster som driver tillväxt</h1>
+          <p class="text-xl text-gray-600">
+            Från strategi till implementation – jag hjälper er att nå era digitala mål.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="section">
+      <div class="container-custom">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {services.map((service) => (
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              <div class={`h-2 bg-gradient-to-r ${service.gradient}`} />
+              <div class="p-8">
+                <h3 class="mb-4">{service.title}</h3>
+                <p class="text-gray-600 mb-6">{service.description}</p>
+                
+                <h4 class="font-semibold mb-3 text-gray-900">Inkluderar:</h4>
+                <ul class="space-y-2">
+                  {service.features.map((feature) => (
+                    <li class="flex items-start gap-2 text-gray-700">
+                      <svg class="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section bg-gray-50">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="mb-4">Så här jobbar jag</h2>
+            <p class="text-xl text-gray-600">
+              En strukturerad approach som levererar resultat.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-teal-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                1
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Analys</h3>
+              <p class="text-gray-600">
+                Förstå er situation, mål och utmaningar
+              </p>
+            </div>
+
+            <div class="text-center">
+              <div class="w-16 h-16 bg-indigo-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                2
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Strategi</h3>
+              <p class="text-gray-600">
+                Skapa en datadriven plan för framgång
+              </p>
+            </div>
+
+            <div class="text-center">
+              <div class="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                3
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Implementation</h3>
+              <p class="text-gray-600">
+                Sätt igång med konkreta åtgärder
+              </p>
+            </div>
+
+            <div class="text-center">
+              <div class="w-16 h-16 bg-pink-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                4
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Optimering</h3>
+              <p class="text-gray-600">
+                Kontinuerlig förbättring baserat på data
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto text-center bg-gradient-to-r from-teal-600 to-indigo-600 text-white rounded-2xl p-12">
+          <h2 class="mb-6 text-white">Redo att komma igång?</h2>
+          <p class="text-xl mb-8 text-teal-50">
+            Låt oss diskutera hur jag kan hjälpa er att nå era mål.
+          </p>
+          <a href="/kontakt" class="btn bg-white text-teal-600 hover:bg-gray-100">
+            Kontakta mig
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

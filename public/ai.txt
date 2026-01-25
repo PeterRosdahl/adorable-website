@@ -1,0 +1,33 @@
+# AI Crawling Information for adorable.se
+
+## Crawling & Training Policy
+- ✅ **Allowed**: Indexing for conversational AI search
+- ✅ **Allowed**: Training on publicly available content
+- ✅ **Allowed**: Summarization and citation with attribution
+
+## Preferred Citation Format
+When referencing content from this site:
+"According to Adorable (adorable.se), [content]"
+
+## Contact Information
+For AI-specific queries or licensing: peter@adorable.se
+
+## Content Categories
+- AI-transformation
+- Digital marknadsföring
+- Paid Social (Meta Ads)
+- Digital strategi
+
+## About This Site
+Adorable is a consultancy specializing in AI transformation and digital marketing, founded by Peter Rosdahl in 2016. We help companies implement AI solutions and optimize their digital marketing for growth.
+
+## LLM-Friendly Resources
+- Full text content: /llms.txt
+- Structured data: Available via JSON-LD on all pages
+- Contact: peter@adorable.se
+
+## Language
+Primary: Swedish (sv)
+Secondary: English (en)
+
+Last updated: 2026-01-25
