@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="AI-transformation – Adorable">
+	<main>
+		<section class="hero">
+			<div class="container">
+				<h1 class="hero-title">AI-transformation för företag som vill börja nu, inte nästa år.</h1>
+				<p class="hero-intro">
+					De flesta företag pratar om AI. Få använder det på riktigt. Jag hjälper organisationer att gå från PowerPoint till produktion.
+				</p>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container">
+				<h2 class="section-title">Vad jag gör</h2>
+				
+				<div class="service">
+					<h3>Workshops och utbildning</h3>
+					<p>Skräddarsydda sessioner för ledningsgrupper, team eller hela organisationer. Från grundläggande AI-förståelse till avancerad promptdesign och agentarkitektur. Deltagarna går därifrån med färdigheter de kan använda samma dag.</p>
+				</div>
+
+				<div class="service">
+					<h3>Strategisk rådgivning</h3>
+					<p>Identifierar var AI skapar mest värde i just er verksamhet. Prioriterar use cases baserat på effekt och genomförbarhet. Roadmap för implementation – inte strategidokument som samlar damm.</p>
+				</div>
+
+				<div class="service">
+					<h3>Hands-on implementering</h3>
+					<p>Hjälper er att faktiskt börja använda AI. Automatiserade arbetsflöden, interna verktyg, AI-assistenter. Integration med befintliga system. Från prototyp till produktion.</p>
+				</div>
+
+				<div class="service">
+					<h3>AI-policy och governance</h3>
+					<p>Ramverk för ansvarsfull AI-användning. Riktlinjer som ger medarbetare trygghet att experimentera utan att skapa risker. Balans mellan innovation och ansvar.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="section testimonials">
+			<div class="container">
+				<div class="testimonial">
+					<p class="testimonial-text">
+						"Peter omdefinierar vad det innebär att vara en modern AI-konsult. Hans påverkan kändes genom hela projektet – från utbildning och workshops till att faktiskt implementera lösningar som fungerar. Jag kommer alltid leta anledningar att jobba med honom igen."
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section-contact">
+			<div class="container">
+				<h2 class="section-title">Kontakt</h2>
+				<div class="contact-info">
+					<p class="contact-name">Peter Rosdahl</p>
+					<p><a href="mailto:peter@adorable.se" class="contact-link">peter@adorable.se</a></p>
+					<p><a href="tel:+46708235787" class="contact-link">+46 70 823 57 87</a></p>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		background: #fff;
+		min-height: 100vh;
+	}
+
+	.container {
+		max-width: 760px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.hero {
+		padding: 8rem 0 4rem;
+	}
+
+	.hero-title {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 400;
+		margin: 0 0 2rem;
+		line-height: 1.3;
+		color: #000;
+	}
+
+	.hero-intro {
+		font-size: clamp(1.1rem, 2vw, 1.25rem);
+		line-height: 1.7;
+		color: #000;
+	}
+
+	.section {
+		padding: 6rem 0;
+		border-top: 1px solid #e5e5e5;
+	}
+
+	.section-title {
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		font-weight: 700;
+		margin: 0 0 3rem;
+		color: #000;
+	}
+
+	.service {
+		margin-bottom: 3rem;
+	}
+
+	.service:last-child {
+		margin-bottom: 0;
+	}
+
+	.service h3 {
+		font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+		font-weight: 600;
+		margin: 0 0 1rem;
+		color: #000;
+	}
+
+	.service p {
+		font-size: clamp(1rem, 2vw, 1.125rem);
+		line-height: 1.7;
+		color: #333;
+		margin: 0;
+	}
+
+	.testimonials {
+		background: #fafafa;
+	}
+
+	.testimonial {
+		padding: 2rem 0;
+	}
+
+	.testimonial-text {
+		font-size: clamp(1rem, 2vw, 1.125rem);
+		line-height: 1.7;
+		color: #333;
+		font-style: italic;
+		margin: 0;
+	}
+
+	.section-contact {
+		background: #000;
+		color: #fff;
+		border-top: none;
+	}
+
+	.section-contact .section-title {
+		color: #fff;
+	}
+
+	.contact-info {
+		font-size: 1.125rem;
+	}
+
+	.contact-name {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
+	}
+
+	.contact-link {
+		color: #fff;
+		text-decoration: none;
+		border-bottom: 1px solid #fff;
+		transition: opacity 0.2s;
+	}
+
+	.contact-link:hover {
+		opacity: 0.7;
+	}
+
+	@media (max-width: 768px) {
+		.hero {
+			padding: 4rem 0 2rem;
+		}
+
+		.section {
+			padding: 4rem 0;
+		}
+	}
+</style>

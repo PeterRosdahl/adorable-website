@@ -11,20 +11,21 @@ import Layout from '../layouts/Layout.astro';
 				<p class="hero-intro">
 					Jag jobbar med ett fåtal kunder i taget, oftast när saker är lite oklara. Mest av det jobbet sker nära verksamheten – hitta rätt riktning, höja kvaliteten, och hjälpa team att fatta bättre beslut innan de blir dyra.
 				</p>
-				<p class="hero-intro">
-					Målet är att vara tillräckligt nära för att vara användbar, göra jobbet när det hjälper, och backa när teamet har koll.
-				</p>
 			</div>
 		</section>
 
-		<!-- Newsletter -->
-		<section class="section newsletter">
+		<!-- Services -->
+		<section class="section services">
 			<div class="container">
-				<h2 class="section-title">Nyhetsbrev</h2>
-				<p class="newsletter-intro">
-					Få insikter om AI, digital marknadsföring och vad som faktiskt fungerar – i din inkorg.
-				</p>
-				<a href="https://pr.substack.com" target="_blank" class="newsletter-button">Prenumerera via Substack →</a>
+				<div class="service-item">
+					<h2><a href="/ai-transformation">AI-transformation</a></h2>
+					<p>Workshops, utbildning och implementering. Hjälper organisationer att börja använda AI på riktigt – inte bara prata om det.</p>
+				</div>
+
+				<div class="service-item">
+					<h2><a href="/paid-social">Paid Social</a></h2>
+					<p>Meta Ads, LinkedIn, Google Ads. Strategi, uppsättning, optimering. Fokus på resultat som går att mäta.</p>
+				</div>
 			</div>
 		</section>
 
@@ -110,33 +111,44 @@ import Layout from '../layouts/Layout.astro';
 		color: #000;
 	}
 
-	/* Newsletter */
-	.newsletter {
-		background: #fafafa;
-		border-top: none;
+	/* Services */
+	.services {
+		background: #fff;
+	}
+
+	.service-item {
+		margin-bottom: 3rem;
+		padding-bottom: 3rem;
 		border-bottom: 1px solid #e5e5e5;
 	}
 
-	.newsletter-intro {
-		font-size: clamp(1rem, 2vw, 1.125rem);
-		line-height: 1.6;
-		margin-bottom: 2rem;
-		color: #000;
+	.service-item:last-child {
+		border-bottom: none;
+		margin-bottom: 0;
+		padding-bottom: 0;
 	}
 
-	.newsletter-button {
-		display: inline-block;
-		padding: 0.75rem 1.5rem;
-		background: #000;
-		color: #fff;
+	.service-item h2 {
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		font-weight: 700;
+		margin: 0 0 1rem;
+	}
+
+	.service-item h2 a {
+		color: #000;
 		text-decoration: none;
-		font-weight: 500;
-		border-radius: 4px;
 		transition: opacity 0.2s;
 	}
 
-	.newsletter-button:hover {
-		opacity: 0.8;
+	.service-item h2 a:hover {
+		opacity: 0.7;
+	}
+
+	.service-item p {
+		font-size: clamp(1rem, 2vw, 1.125rem);
+		line-height: 1.7;
+		color: #333;
+		margin: 0;
 	}
 
 	/* Testimonials */

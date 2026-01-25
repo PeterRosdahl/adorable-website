@@ -1,38 +1,72 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
 <nav class="nav">
   <div class="container">
     <a href="/" class="logo">Adorable</a>
+    <ul class="nav-links">
+      <li><a href="/ai-transformation" class={currentPath === '/ai-transformation' ? 'active' : ''}>AI-transformation</a></li>
+      <li><a href="/paid-social" class={currentPath === '/paid-social' ? 'active' : ''}>Paid Social</a></li>
+      <li><a href="/om" class={currentPath === '/om' ? 'active' : ''}>Om</a></li>
+      <li><a href="/kontakt" class={currentPath === '/kontakt' ? 'active' : ''}>Kontakt</a></li>
+    </ul>
   </div>
 </nav>
 
 <style>
   .nav {
     background: white;
-    border-bottom: 1px solid #000;
-    padding: 2rem 0;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 1.5rem 0;
   }
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .logo {
     font-family: 'Archivo Black', sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #000;
     text-decoration: none;
     letter-spacing: -0.02em;
   }
 
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    color: #666;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #000;
+  }
+
   @media (max-width: 768px) {
-    .nav {
-      padding: 1.5rem 0;
+    .container {
+      flex-direction: column;
+      gap: 1rem;
     }
-    
-    .logo {
-      font-size: 1.5rem;
+
+    .nav-links {
+      gap: 1rem;
+      font-size: 0.9rem;
     }
   }
 </style>

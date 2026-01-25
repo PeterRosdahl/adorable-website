@@ -1,0 +1,190 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Paid Social – Adorable">
+	<main>
+		<section class="hero">
+			<div class="container">
+				<h1 class="hero-title">Paid social som faktiskt fungerar.</h1>
+				<p class="hero-intro">
+					Datadriven marknadsföring med fokus på det som går att mäta och förbättra. Jag arbetar med hela kedjan – från strategi till daglig optimering.
+				</p>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container">
+				<h2 class="section-title">Vad jag gör</h2>
+				
+				<div class="service">
+					<h3>Kampanjstrategi</h3>
+					<p>Målgruppsanalys, kanaltänk och budgetallokering. Kreativ riktning som balanserar varumärke och konvertering. Inga generiska mallar – strategi som faktiskt passar er verksamhet.</p>
+				</div>
+
+				<div class="service">
+					<h3>Aktivering och optimering</h3>
+					<p>Uppsättning och löpande hantering av kampanjer på Meta (Facebook/Instagram), LinkedIn och Google Ads. A/B-testning, budstrategier och kontinuerlig justering baserat på data.</p>
+				</div>
+
+				<div class="service">
+					<h3>Tracking och mätning</h3>
+					<p>Implementation av konverteringsspårning, attribution och rapporteringsstrukturer. Så att ni vet vad som faktiskt fungerar – inte bara vad som ser bra ut i dashboarden.</p>
+				</div>
+
+				<div class="service">
+					<h3>Audit och analys</h3>
+					<p>Genomlysning av befintliga konton med konkreta rekommendationer. Identifierar läckage, missade möjligheter och problem som går att åtgärda. Inga 50-sidiga rapporter – bara det som spelar roll.</p>
+				</div>
+
+				<div class="service">
+					<h3>Rapportering</h3>
+					<p>Tydliga rapporter som visar resultat, insikter och nästa steg. Fokus på det som driver affären framåt, inte vanity metrics.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="section testimonials">
+			<div class="container">
+				<div class="testimonial">
+					<p class="testimonial-text">
+						"Peter är inte bara extremt skicklig inom paid social – han är också en varm, engagerad och generös person att jobba med. Hans arbete var transformativt för våra kampanjer. En 10/10 upplevelse."
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section-contact">
+			<div class="container">
+				<h2 class="section-title">Kontakt</h2>
+				<div class="contact-info">
+					<p class="contact-name">Peter Rosdahl</p>
+					<p><a href="mailto:peter@adorable.se" class="contact-link">peter@adorable.se</a></p>
+					<p><a href="tel:+46708235787" class="contact-link">+46 70 823 57 87</a></p>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		background: #fff;
+		min-height: 100vh;
+	}
+
+	.container {
+		max-width: 760px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.hero {
+		padding: 8rem 0 4rem;
+	}
+
+	.hero-title {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 400;
+		margin: 0 0 2rem;
+		line-height: 1.3;
+		color: #000;
+	}
+
+	.hero-intro {
+		font-size: clamp(1.1rem, 2vw, 1.25rem);
+		line-height: 1.7;
+		color: #000;
+	}
+
+	.section {
+		padding: 6rem 0;
+		border-top: 1px solid #e5e5e5;
+	}
+
+	.section-title {
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		font-weight: 700;
+		margin: 0 0 3rem;
+		color: #000;
+	}
+
+	.service {
+		margin-bottom: 3rem;
+	}
+
+	.service:last-child {
+		margin-bottom: 0;
+	}
+
+	.service h3 {
+		font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+		font-weight: 600;
+		margin: 0 0 1rem;
+		color: #000;
+	}
+
+	.service p {
+		font-size: clamp(1rem, 2vw, 1.125rem);
+		line-height: 1.7;
+		color: #333;
+		margin: 0;
+	}
+
+	.testimonials {
+		background: #fafafa;
+	}
+
+	.testimonial {
+		padding: 2rem 0;
+	}
+
+	.testimonial-text {
+		font-size: clamp(1rem, 2vw, 1.125rem);
+		line-height: 1.7;
+		color: #333;
+		font-style: italic;
+		margin: 0;
+	}
+
+	.section-contact {
+		background: #000;
+		color: #fff;
+		border-top: none;
+	}
+
+	.section-contact .section-title {
+		color: #fff;
+	}
+
+	.contact-info {
+		font-size: 1.125rem;
+	}
+
+	.contact-name {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
+	}
+
+	.contact-link {
+		color: #fff;
+		text-decoration: none;
+		border-bottom: 1px solid #fff;
+		transition: opacity 0.2s;
+	}
+
+	.contact-link:hover {
+		opacity: 0.7;
+	}
+
+	@media (max-width: 768px) {
+		.hero {
+			padding: 4rem 0 2rem;
+		}
+
+		.section {
+			padding: 4rem 0;
+		}
+	}
+</style>

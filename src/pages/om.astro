@@ -1,0 +1,194 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Om – Adorable">
+	<main>
+		<section class="hero">
+			<div class="container">
+				<h1 class="hero-title">Hej, jag heter Peter Rosdahl.</h1>
+				<p class="hero-intro">
+					Jag driver Adorable – ett enmanskonsultbolag för företag som behöver senior expertis inom paid social och AI-transformation utan att anställa heltid.
+				</p>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container">
+				<h2 class="section-title">Bakgrund</h2>
+				<p class="text">
+					Jag har jobbat med digital marknadsföring sedan 2016. Började med paid social – Meta Ads, LinkedIn, Google Ads – och hjälpte företag att faktiskt få avkastning på sin annonsbudget.
+				</p>
+				<p class="text">
+					2023 började jag experimentera seriöst med AI. Inte för att det var trendigt, utan för att jag såg vad det kunde göra. Idag hjälper jag organisationer att gå från AI-nyfikenhet till faktisk användning.
+				</p>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container">
+				<h2 class="section-title">Hur jag jobbar</h2>
+				<p class="text">
+					Jag jobbar med ett fåtal kunder i taget, oftast när saker är lite oklara. Mest av arbetet sker nära verksamheten – hitta rätt riktning, höja kvaliteten, och hjälpa team att fatta bättre beslut innan de blir dyra.
+				</p>
+				<p class="text">
+					Målet är att vara tillräckligt nära för att vara användbar, göra jobbet när det hjälper, och backa när teamet har koll själva.
+				</p>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container">
+				<h2 class="section-title">Vem jag jobbar med</h2>
+				<p class="text">
+					Kreativbyråer, techbolag, byggföretag, liknadsbolag. Gemensamt är att de behöver senior expertis – men inte en heltidsanställning.
+				</p>
+				<p class="text">
+					Ofta är det företag i en tillväxtfas där rätt kompetens vid rätt tillfälle gör skillnad. Ibland är det etablerade företag som behöver ny expertis för ett specifikt projekt.
+				</p>
+			</div>
+		</section>
+
+		<section class="section newsletter">
+			<div class="container">
+				<h2 class="section-title">Nyhetsbrev</h2>
+				<p class="newsletter-intro">
+					Jag skriver om AI, digital marknadsföring och vad som faktiskt fungerar. Inga säljpitchar, bara insikter från verkligheten.
+				</p>
+				<a href="https://pr.substack.com" target="_blank" class="newsletter-button">Prenumerera via Substack →</a>
+			</div>
+		</section>
+
+		<section class="section section-contact">
+			<div class="container">
+				<h2 class="section-title">Kontakt</h2>
+				<div class="contact-info">
+					<p class="contact-name">Peter Rosdahl</p>
+					<p><a href="mailto:peter@adorable.se" class="contact-link">peter@adorable.se</a></p>
+					<p><a href="tel:+46708235787" class="contact-link">+46 70 823 57 87</a></p>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		background: #fff;
+		min-height: 100vh;
+	}
+
+	.container {
+		max-width: 760px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.hero {
+		padding: 8rem 0 4rem;
+	}
+
+	.hero-title {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 400;
+		margin: 0 0 2rem;
+		line-height: 1.3;
+		color: #000;
+	}
+
+	.hero-intro {
+		font-size: clamp(1.1rem, 2vw, 1.25rem);
+		line-height: 1.7;
+		color: #000;
+	}
+
+	.section {
+		padding: 6rem 0;
+		border-top: 1px solid #e5e5e5;
+	}
+
+	.section-title {
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		font-weight: 700;
+		margin: 0 0 2rem;
+		color: #000;
+	}
+
+	.text {
+		font-size: clamp(1rem, 2vw, 1.125rem);
+		line-height: 1.7;
+		color: #333;
+		margin-bottom: 1.5rem;
+	}
+
+	.text:last-child {
+		margin-bottom: 0;
+	}
+
+	.newsletter {
+		background: #fafafa;
+	}
+
+	.newsletter-intro {
+		font-size: clamp(1rem, 2vw, 1.125rem);
+		line-height: 1.7;
+		margin-bottom: 2rem;
+		color: #333;
+	}
+
+	.newsletter-button {
+		display: inline-block;
+		padding: 0.75rem 1.5rem;
+		background: #000;
+		color: #fff;
+		text-decoration: none;
+		font-weight: 500;
+		border-radius: 4px;
+		transition: opacity 0.2s;
+	}
+
+	.newsletter-button:hover {
+		opacity: 0.8;
+	}
+
+	.section-contact {
+		background: #000;
+		color: #fff;
+		border-top: none;
+	}
+
+	.section-contact .section-title {
+		color: #fff;
+	}
+
+	.contact-info {
+		font-size: 1.125rem;
+	}
+
+	.contact-name {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
+	}
+
+	.contact-link {
+		color: #fff;
+		text-decoration: none;
+		border-bottom: 1px solid #fff;
+		transition: opacity 0.2s;
+	}
+
+	.contact-link:hover {
+		opacity: 0.7;
+	}
+
+	@media (max-width: 768px) {
+		.hero {
+			padding: 4rem 0 2rem;
+		}
+
+		.section {
+			padding: 4rem 0;
+		}
+	}
+</style>
