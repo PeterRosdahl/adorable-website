@@ -1,118 +1,381 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { getContent } from '../utils/content';
-
-const content = getContent('home.md');
+import Layout from '../layouts/Layout.astro';
 ---
 
-<BaseLayout
-  title={content.title}
-  description={content.description}
->
-  <Header />
+<Layout title="Adorable – AI-transformation och digital marknadsföring">
+	<main>
+		<!-- Hero -->
+		<section class="hero">
+			<div class="hero-content">
+				<h1 class="hero-title">
+					<span class="adorable">Adorable</span>
+				</h1>
+				<p class="hero-subtitle">AI-transformation och digital marknadsföring</p>
+				<p class="hero-description">
+					Adorable hjälper företag att implementera AI och optimera sin digitala marknadsföring. Sedan 2016.
+				</p>
+			</div>
+			<div class="hero-bg"></div>
+		</section>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="section bg-gradient-to-br from-teal-50 via-white to-indigo-50">
-      <div class="container-custom">
-        <div class="max-w-4xl mx-auto text-center">
-          <h1 class="mb-6 bg-gradient-to-r from-teal-600 to-indigo-600 bg-clip-text text-transparent">
-            {content.hero_title}
-          </h1>
-          <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            {content.hero_text}
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/kontakt" class="btn btn-primary text-lg">
-              Kom igång
-            </a>
-            <a href="/tjanster" class="btn btn-secondary text-lg">
-              Utforska tjänster
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+		<!-- AI-transformation -->
+		<section class="section section-ai">
+			<div class="container">
+				<h2 class="section-title">AI-transformation</h2>
+				<p class="section-intro">
+					Jag hjälper organisationer att gå från AI-nyfikenhet till faktisk användning. Inte strategidokument som samlar damm – utan konkreta verktyg och arbetssätt som förändrar hur arbetet utförs.
+				</p>
 
-    <!-- AI Transformation -->
-    <section class="section">
-      <div class="container-custom">
-        <div class="max-w-4xl mx-auto">
-          <h2 class="mb-6 text-center">{content.ai_section.title}</h2>
-          <p class="text-xl text-gray-600 mb-12 text-center max-w-3xl mx-auto">
-            {content.ai_section.intro}
-          </p>
+				<div class="services-grid">
+					<div class="service-card">
+						<h3>Workshops och utbildning</h3>
+						<p>Skräddarsydda sessioner för ledningsgrupper, team eller hela organisationer. Från grundläggande förståelse till avancerad promptdesign och agentarkitektur. Deltagarna går därifrån med färdigheter de kan använda samma dag.</p>
+					</div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {content.ai_section.services.map((service: any, idx: number) => {
-              const gradients = [
-                'from-teal-50 to-cyan-50',
-                'from-indigo-50 to-purple-50',
-                'from-pink-50 to-rose-50',
-                'from-amber-50 to-orange-50'
-              ];
-              return (
-                <div class={`p-8 rounded-2xl bg-gradient-to-br ${gradients[idx % 4]}`}>
-                  <h3 class="mb-3">{service.name}</h3>
-                  <p class="text-gray-600">{service.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    </section>
+					<div class="service-card">
+						<h3>Strategisk rådgivning</h3>
+						<p>Identifiering av var AI skapar mest värde i just din verksamhet. Prioritering av use cases baserat på effekt och genomförbarhet. Roadmap för implementation.</p>
+					</div>
 
-    <!-- Paid Social -->
-    <section class="section bg-gray-50">
-      <div class="container-custom">
-        <div class="max-w-4xl mx-auto">
-          <h2 class="mb-6 text-center">{content.paid_social_section.title}</h2>
-          <p class="text-xl text-gray-600 mb-12 text-center max-w-3xl mx-auto">
-            {content.paid_social_section.intro}
-          </p>
+					<div class="service-card">
+						<h3>Hands-on implementering</h3>
+						<p>Byggande av automatiserade arbetsflöden, interna verktyg och AI-assistenter. Integration med befintliga system. Från prototyp till produktion.</p>
+					</div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {content.paid_social_section.services.map((service: any) => (
-              <div class="bg-white p-6 rounded-xl shadow-sm">
-                <h3 class="text-xl font-semibold mb-3">{service.name}</h3>
-                <p class="text-gray-600">{service.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
+					<div class="service-card">
+						<h3>AI-policy och governance</h3>
+						<p>Ramverk för ansvarsfull AI-användning. Riktlinjer som ger medarbetare trygghet att experimentera utan att skapa risker.</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    <!-- Kunder -->
-    <section class="section">
-      <div class="container-custom">
-        <div class="max-w-3xl mx-auto text-center">
-          <h2 class="mb-6">Kunder</h2>
-          <p class="text-xl text-gray-600">
-            {content.clients_text}
-          </p>
-        </div>
-      </div>
-    </section>
+		<!-- Paid Social -->
+		<section class="section section-social">
+			<div class="container">
+				<h2 class="section-title">Paid Social & Performance Marketing</h2>
+				<p class="section-intro">
+					Datadriven marknadsföring med fokus på det som går att mäta och förbättra. Jag arbetar med hela kedjan – från strategi till daglig optimering.
+				</p>
 
-    <!-- CTA Section -->
-    <section class="section bg-gradient-to-r from-teal-600 to-indigo-600 text-white">
-      <div class="container-custom">
-        <div class="max-w-3xl mx-auto text-center">
-          <h2 class="mb-6 text-white">Redo att ta nästa steg?</h2>
-          <p class="text-xl mb-8 text-teal-50">
-            Låt oss prata om hur AI och digital marknadsföring kan accelerera er tillväxt.
-          </p>
-          <a href="/kontakt" class="btn bg-white text-teal-600 hover:bg-gray-100">
-            Kontakta mig
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
+				<div class="services-grid">
+					<div class="service-card">
+						<h3>Kampanjstrategi</h3>
+						<p>Målgruppsanalys, kanaltänk och budgetallokering. Kreativ riktning som balanserar varumärke och konvertering.</p>
+					</div>
 
-  <Footer />
-</BaseLayout>
+					<div class="service-card">
+						<h3>Aktivering och optimering</h3>
+						<p>Uppläggning och löpande hantering av kampanjer på Meta, LinkedIn och Google Ads. A/B-testning, budstrategier och löpande justering av material och data.</p>
+					</div>
+
+					<div class="service-card">
+						<h3>Tracking och mätning</h3>
+						<p>Implementation av konverteringsspårning, attribution och rapporteringsstrukturer. Så att du vet vad som faktiskt fungerar.</p>
+					</div>
+
+					<div class="service-card">
+						<h3>Audit och analys</h3>
+						<p>Genomlysning av befintliga konton med konkreta rekommendationer. Identifiering av läckage, missade möjligheter och analyserbara problem.</p>
+					</div>
+
+					<div class="service-card">
+						<h3>Rapportering</h3>
+						<p>Tydliga rapporter som visar resultat, insikter och nästa steg. Inte dashboards fulla av vanity metrics.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Kunder -->
+		<section class="section section-clients">
+			<div class="container">
+				<h2 class="section-title">Kunder</h2>
+				<p class="clients-text">
+					Kreativtreddag, byggfirm, tech-företag och liknadsbolag som behöver senior expertis utan att anställa.
+				</p>
+			</div>
+		</section>
+
+		<!-- Kontakt -->
+		<section class="section section-contact">
+			<div class="container">
+				<h2 class="section-title">Kontakt</h2>
+				<div class="contact-info">
+					<p class="contact-name">Peter Rosdahl</p>
+					<p><a href="mailto:peter@adorable.se" class="contact-link">peter@adorable.se</a></p>
+					<p><a href="tel:+46708235787" class="contact-link">+46 70 823 57 87</a></p>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	:root {
+		--color-bg: #fafaf8;
+		--color-text: #1a1a1a;
+		--color-accent: #ff4d00;
+		--color-accent-soft: #ff6b2b;
+		--color-subtle: #e8e8e4;
+		--color-card-bg: #ffffff;
+		
+		--font-display: 'Clash Display', 'Archivo Black', -apple-system, BlinkMacSystemFont, sans-serif;
+		--font-body: 'DM Sans', 'Ropa Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+		
+		--spacing-xs: 0.5rem;
+		--spacing-sm: 1rem;
+		--spacing-md: 2rem;
+		--spacing-lg: 4rem;
+		--spacing-xl: 6rem;
+	}
+
+	main {
+		background: var(--color-bg);
+		min-height: 100vh;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 var(--spacing-md);
+	}
+
+	/* Hero */
+	.hero {
+		position: relative;
+		min-height: 90vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		background: linear-gradient(135deg, #fafaf8 0%, #f0f0ec 100%);
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 2;
+		text-align: center;
+		max-width: 900px;
+		padding: var(--spacing-lg) var(--spacing-md);
+		animation: fadeInUp 1s ease-out;
+	}
+
+	.hero-title {
+		font-size: clamp(4rem, 12vw, 10rem);
+		font-weight: 800;
+		margin: 0;
+		line-height: 0.9;
+		letter-spacing: -0.04em;
+	}
+
+	.adorable {
+		display: inline-block;
+		background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-soft) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		animation: gradientShift 8s ease infinite;
+	}
+
+	.hero-subtitle {
+		font-size: clamp(1.2rem, 3vw, 1.8rem);
+		font-weight: 300;
+		margin: var(--spacing-md) 0 var(--spacing-sm);
+		color: var(--color-text);
+		opacity: 0.8;
+	}
+
+	.hero-description {
+		font-size: clamp(1rem, 2vw, 1.2rem);
+		color: var(--color-text);
+		opacity: 0.6;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.hero-bg {
+		position: absolute;
+		inset: 0;
+		opacity: 0.03;
+		background-image: 
+			radial-gradient(circle at 20% 80%, var(--color-accent) 0%, transparent 50%),
+			radial-gradient(circle at 80% 20%, var(--color-accent-soft) 0%, transparent 50%);
+		animation: pulse 12s ease-in-out infinite;
+	}
+
+	/* Section Styles */
+	.section {
+		padding: var(--spacing-xl) 0;
+		position: relative;
+	}
+
+	.section-ai {
+		background: var(--color-card-bg);
+	}
+
+	.section-social {
+		background: var(--color-bg);
+	}
+
+	.section-clients {
+		background: var(--color-card-bg);
+		padding: var(--spacing-lg) 0;
+	}
+
+	.section-contact {
+		background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+		color: var(--color-bg);
+	}
+
+	.section-title {
+		font-size: clamp(2.5rem, 6vw, 4.5rem);
+		font-weight: 800;
+		margin: 0 0 var(--spacing-md);
+		letter-spacing: -0.03em;
+		line-height: 1.1;
+	}
+
+	.section-contact .section-title {
+		color: var(--color-bg);
+	}
+
+	.section-intro {
+		font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+		line-height: 1.6;
+		margin-bottom: var(--spacing-lg);
+		max-width: 800px;
+		opacity: 0.85;
+	}
+
+	/* Services Grid */
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: var(--spacing-md);
+		margin-top: var(--spacing-lg);
+	}
+
+	.service-card {
+		background: var(--color-bg);
+		padding: var(--spacing-md);
+		border-radius: 12px;
+		border: 1px solid var(--color-subtle);
+		transition: all 0.3s ease;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.section-social .service-card {
+		background: var(--color-card-bg);
+	}
+
+	.service-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0%;
+		height: 3px;
+		background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-soft) 100%);
+		transition: width 0.4s ease;
+	}
+
+	.service-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+		border-color: var(--color-accent);
+	}
+
+	.service-card:hover::before {
+		width: 100%;
+	}
+
+	.service-card h3 {
+		font-size: 1.3rem;
+		font-weight: 700;
+		margin: 0 0 var(--spacing-sm);
+		color: var(--color-text);
+	}
+
+	.service-card p {
+		font-size: 1rem;
+		line-height: 1.6;
+		margin: 0;
+		opacity: 0.8;
+	}
+
+	/* Clients */
+	.clients-text {
+		font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+		line-height: 1.6;
+		opacity: 0.85;
+		max-width: 700px;
+	}
+
+	/* Contact */
+	.contact-info {
+		max-width: 500px;
+		font-size: 1.2rem;
+	}
+
+	.contact-name {
+		font-size: 1.8rem;
+		font-weight: 700;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.contact-link {
+		color: var(--color-bg);
+		text-decoration: none;
+		border-bottom: 2px solid transparent;
+		transition: border-color 0.2s ease;
+		opacity: 0.9;
+	}
+
+	.contact-link:hover {
+		border-color: var(--color-accent);
+		opacity: 1;
+	}
+
+	/* Animations */
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes gradientShift {
+		0%, 100% {
+			filter: hue-rotate(0deg);
+		}
+		50% {
+			filter: hue-rotate(20deg);
+		}
+	}
+
+	@keyframes pulse {
+		0%, 100% {
+			opacity: 0.03;
+		}
+		50% {
+			opacity: 0.06;
+		}
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		.services-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.section {
+			padding: var(--spacing-lg) 0;
+		}
+	}
+</style>
