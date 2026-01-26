@@ -24,11 +24,16 @@ const currentPath = Astro.url.pathname;
 <style>
   .nav {
     background: white;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid transparent;
     padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: border-color 0.2s ease;
+  }
+
+  .nav.scrolled {
+    border-bottom-color: #e5e5e5;
   }
 
   .container {
@@ -139,6 +144,7 @@ const currentPath = Astro.url.pathname;
 <script>
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
+  const nav = document.querySelector('.nav');
 
   hamburger?.addEventListener('click', () => {
     const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
@@ -155,4 +161,16 @@ const currentPath = Astro.url.pathname;
       document.body.style.overflow = '';
     });
   });
+
+  // Add border on scroll
+  const handleScroll = () => {
+    if (window.scrollY > 10) {
+      nav?.classList.add('scrolled');
+    } else {
+      nav?.classList.remove('scrolled');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll(); // Check initial state
 </script>
