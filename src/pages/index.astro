@@ -103,40 +103,15 @@ import Layout from '../layouts/Layout.astro';
 				<h2 class="section-title">Branscher jag arbetar med</h2>
 				<p class="section-intro">Jag jobbar med både B2B- och B2C-företag i olika branscher. Några exempel:</p>
 				<div class="industries-list">
-					<span class="industry-tag">Kreativa byråer</span>
-					<span class="industry-tag">Techbolag</span>
-					<span class="industry-tag">Byggföretag</span>
-					<span class="industry-tag">Försäkring</span>
-					<span class="industry-tag">Utbildning</span>
-					<span class="industry-tag">Fastigheter</span>
-					<span class="industry-tag">FMCG</span>
-					<span class="industry-tag">Startups</span>
+					<a href="/branscher/kreativa-byraer" class="industry-tag">Kreativa byråer</a>
+					<a href="/branscher/startups-scaleups" class="industry-tag">Techbolag</a>
+					<a href="/branscher/byggbranschen" class="industry-tag">Byggföretag</a>
+					<a href="/branscher/forsakring" class="industry-tag">Försäkring</a>
+					<a href="/branscher/utbildning" class="industry-tag">Utbildning</a>
+					<a href="/branscher/fastighetsbolag" class="industry-tag">Fastigheter</a>
+					<a href="/branscher/fmcg" class="industry-tag">FMCG</a>
+					<a href="/branscher/startups-scaleups" class="industry-tag">Startups</a>
 				</div>
-			</div>
-		</section>
-
-		<!-- Artiklar -->
-		<section class="section articles-section">
-			<div class="container">
-				<h2 class="section-title">Från bloggen</h2>
-				<div class="articles-grid">
-					<a href="/artiklar/sa-kommer-du-igang-med-ai-pa-foretaget" class="article-card">
-						<span class="article-category">AI-transformation</span>
-						<h3>Så kommer du igång med AI på företaget</h3>
-						<p>En praktisk guide för att börja använda AI i verksamheten.</p>
-					</a>
-					<a href="/artiklar/chatgpt-vs-claude-vs-gemini" class="article-card">
-						<span class="article-category">AI-transformation</span>
-						<h3>ChatGPT vs Claude vs Gemini</h3>
-						<p>Vilken AI-assistent passar ditt företag bäst?</p>
-					</a>
-					<a href="/artiklar/budgetera-for-paid-social" class="article-card">
-						<span class="article-category">Paid Social</span>
-						<h3>Budgetera för paid social</h3>
-						<p>En praktisk modell för att sätta rätt annonsbudget.</p>
-					</a>
-				</div>
-				<a href="/artiklar" class="articles-link">Se alla artiklar →</a>
 			</div>
 		</section>
 
@@ -387,11 +362,19 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.industry-tag {
+		display: inline-block;
 		padding: 0.5rem 1rem;
 		background: #f5f5f5;
 		border-radius: 20px;
 		font-size: 0.95rem;
 		color: #333;
+		text-decoration: none;
+		transition: background 0.2s, color 0.2s;
+	}
+
+	.industry-tag:hover {
+		background: #000;
+		color: #fff;
 	}
 
 	/* Articles section */
