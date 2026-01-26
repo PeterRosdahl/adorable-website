@@ -25,6 +25,10 @@
         e.preventDefault();
         const email = document.getElementById('newsletter-email')?.value;
         if (email) {
+          // Track newsletter signup in Umami
+          if (typeof umami !== 'undefined') {
+            umami.track('newsletter-signup');
+          }
           window.open('https://pr.substack.com/subscribe?email=' + encodeURIComponent(email), '_blank');
         }
       });

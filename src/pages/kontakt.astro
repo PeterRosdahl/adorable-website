@@ -25,6 +25,7 @@ import Layout from '../layouts/Layout.astro';
 					class="contact-form" 
 					action="https://api.web3forms.com/submit" 
 					method="POST"
+					onsubmit="if(typeof umami !== 'undefined') umami.track('contact-form-submit')"
 				>
 					<input type="hidden" name="access_key" value="658f2386-7125-4653-b0ac-5d725aeab234" />
 					<input type="hidden" name="subject" value="Nytt meddelande från adorable.se" />
@@ -77,7 +78,7 @@ import Layout from '../layouts/Layout.astro';
 							</svg>
 							Email
 						</h3>
-						<p><a href="mailto:peter@adorable.se">peter@adorable.se</a></p>
+						<p><a href="mailto:peter@adorable.se" data-umami-event="email-click">peter@adorable.se</a></p>
 						<p class="method-note">Bäst för längre frågor eller om du vill bifoga material.</p>
 					</div>
 
@@ -88,7 +89,7 @@ import Layout from '../layouts/Layout.astro';
 							</svg>
 							Telefon
 						</h3>
-						<p><a href="tel:+46708235787">+46 70 823 57 87</a></p>
+						<p><a href="tel:+46708235787" data-umami-event="phone-click">+46 70 823 57 87</a></p>
 						<p class="method-note">Ring eller skicka SMS. Jag ringer tillbaka om jag inte kan svara.</p>
 					</div>
 
