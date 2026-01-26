@@ -5,6 +5,13 @@ const currentPath = Astro.url.pathname;
 <nav class="nav">
   <div class="container">
     <a href="/" class="logo">Adorable</a>
+    
+    <button class="hamburger" aria-label="Öppna meny" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    
     <ul class="nav-links">
       <li><a href="/ai-transformation" class={currentPath === '/ai-transformation' ? 'active' : ''}>AI-transformation</a></li>
       <li><a href="/paid-social" class={currentPath === '/paid-social' ? 'active' : ''}>Paid Social</a></li>
@@ -20,11 +27,14 @@ const currentPath = Astro.url.pathname;
   .nav {
     background: white;
     border-bottom: 1px solid #e5e5e5;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
 
   .container {
-    max-width: 760px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
@@ -34,10 +44,44 @@ const currentPath = Astro.url.pathname;
 
   .logo {
     font-family: 'Archivo Black', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #000;
     text-decoration: none;
     letter-spacing: -0.02em;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 1001;
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
   }
 
   .nav-links {
@@ -49,9 +93,10 @@ const currentPath = Astro.url.pathname;
   }
 
   .nav-links a {
-    color: #666;
+    color: #555;
     text-decoration: none;
     font-weight: 400;
+    font-size: 0.95rem;
     transition: color 0.2s;
   }
 
@@ -61,14 +106,55 @@ const currentPath = Astro.url.pathname;
   }
 
   @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-      gap: 1rem;
+    .hamburger {
+      display: flex;
     }
 
     .nav-links {
-      gap: 1rem;
-      font-size: 0.9rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: white;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .nav-links.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-links a {
+      font-size: 1.5rem;
+      font-weight: 500;
     }
   }
 </style>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger?.addEventListener('click', () => {
+    const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', String(!isOpen));
+    navLinks?.classList.toggle('open');
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  });
+
+  // Close menu when clicking a link
+  navLinks?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger?.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>

@@ -1,0 +1,211 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout 
+  title="Byggbranschen - AI-transformation för byggföretag | Adorable"
+  description="AI-transformation för byggbranschen. Effektivisera projektledning, automatisera dokumentation och optimera resursplanering med AI."
+>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">Byggbranschen</h1>
+        <p class="hero-intro">
+          Byggbranschen står inför en digital transformation där AI kan revolutionera allt från projektplanering till säkerhet på arbetsplatsen. Vi hjälper er utnyttja den nya tekniken.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Branschens utmaningar</h2>
+        <ul class="challenge-list">
+          <li>Komplexa projekt med många underleverantörer och intressenter</li>
+          <li>Tidskrävande dokumentation och rapportering</li>
+          <li>Resursplanering och schemaläggning över flera projekt</li>
+          <li>Kostnadsöverskridanden och förseningar är vanliga</li>
+          <li>Säkerhet och regelefterlevnad kräver ständig uppmärksamhet</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Hur Adorable hjälper</h2>
+        
+        <div class="service">
+          <h3>AI-driven projektplanering</h3>
+          <p>Använd AI för att optimera tidsplaner, identifiera risker tidigt och förutse förseningar innan de händer. Smartare planering sparar tid och pengar.</p>
+        </div>
+
+        <div class="service">
+          <h3>Automatiserad dokumentation</h3>
+          <p>Låt AI hantera byggdagböcker, statusrapporter och projektdokumentation. Frigör tid för det som faktiskt bygger värde.</p>
+        </div>
+
+        <div class="service">
+          <h3>Intelligent resursallokering</h3>
+          <p>AI-verktyg som optimerar bemanning och materialleveranser över flera projekt samtidigt. Minska slöseri och maximera effektivitet.</p>
+        </div>
+
+        <div class="service">
+          <h3>Prediktivt underhåll</h3>
+          <p>Använd AI för att förutse när maskiner behöver service och undvik kostsamma driftstopp på byggarbetsplatsen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Vanliga projekt</h2>
+        <ul class="project-list">
+          <li>AI-assistenter för projektledare och arbetsledare</li>
+          <li>Automatiserad kvalitetskontroll med bildanalys</li>
+          <li>Chatbots för intern kommunikation och FAQ</li>
+          <li>AI-driven offertgenerering och kostnadsberäkning</li>
+          <li>Säkerhetsövervakning med smart videoanalys</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section cta">
+      <div class="container">
+        <h2>Redo att digitalisera ert byggföretag?</h2>
+        <p>Boka ett möte så diskuterar vi hur AI kan effektivisera era projekt och processer.</p>
+        <a href="/kontakt" class="button">Kontakta mig →</a>
+      </div>
+    </section>
+
+    <Footer />
+  </main>
+</Layout>
+
+<style>
+  main {
+    background: #fff;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hero {
+    padding: 8rem 0 4rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    margin: 0 0 1.5rem;
+    line-height: 1.3;
+    color: #000;
+  }
+
+  .hero-intro {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .section {
+    padding: 4rem 0;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    margin: 0 0 2rem;
+    color: #000;
+  }
+
+  .challenge-list, .project-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .challenge-list li, .project-list li {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .challenge-list li::before, .project-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #000;
+    font-weight: bold;
+  }
+
+  .service {
+    margin-bottom: 3rem;
+  }
+
+  .service:last-child {
+    margin-bottom: 0;
+  }
+
+  .service h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem;
+    color: #000;
+  }
+
+  .service p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333;
+    margin: 0;
+  }
+
+  .cta {
+    background: #fafafa;
+  }
+
+  .cta h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    color: #000;
+  }
+
+  .cta p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #333;
+    margin: 0 0 2rem;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+
+  .button:hover {
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 4rem 0 2rem;
+    }
+
+    .section {
+      padding: 3rem 0;
+    }
+  }
+</style>

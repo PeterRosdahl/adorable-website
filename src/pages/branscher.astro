@@ -3,14 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
 
 const industries = [
-  { name: 'Bank & Finans', slug: 'bank-finans', description: 'Paid social och AI-transformation för finansiella tjänster. Regulatoriska krav möter digital innovation.' },
-  { name: 'Tillverkningsindustri', slug: 'tillverkningsindustri', description: 'B2B-marknadsföring och AI-optimering för tillverkande företag. Från leads till produktion.' },
-  { name: 'FMCG', slug: 'fmcg', description: 'Performance marketing för snabbrörliga konsumentvaror. Brand building möter direct response.' },
-  { name: 'Startups & Scaleups', slug: 'startups-scaleups', description: 'Skalbar marknadsföring för växande företag. Effektiv budgetanvändning och snabb tillväxt.' },
-  { name: 'Kreativa Byråer', slug: 'kreativa-byraer', description: 'White-label paid social och AI-expertis för byråer. Stärk er tjänsteportfölj.' },
-  { name: 'Fastighetsbolag', slug: 'fastighetsbolag', description: 'Digital marknadsföring för fastighetsutveckling och förvaltning. Från projektsäljning till hyresgäster.' },
-  { name: 'Fackförbund', slug: 'fackforbund', description: 'Medlemsrekrytering och engagement genom digital marknadsföring och automation.' },
-  { name: 'Försäkring', slug: 'forsakring', description: 'Performance marketing för försäkringsbolag. Komplext erbjudande, tydlig kommunikation.' },
+  { name: 'Bank & Finans', slug: 'bank-finans', description: 'Paid social och AI-transformation för finansiella tjänster. Regulatoriska krav möter digital innovation.', type: 'paid-social' },
+  { name: 'Byggbranschen', slug: 'byggbranschen', description: 'AI-transformation för byggföretag. Effektivisera projektledning, dokumentation och resursplanering.', type: 'ai' },
+  { name: 'Tillverkningsindustri', slug: 'tillverkningsindustri', description: 'B2B-marknadsföring och AI-optimering för tillverkande företag. Från leads till produktion.', type: 'paid-social' },
+  { name: 'FMCG', slug: 'fmcg', description: 'Performance marketing för snabbrörliga konsumentvaror. Brand building möter direct response.', type: 'paid-social' },
+  { name: 'Startups & Scaleups', slug: 'startups-scaleups', description: 'Skalbar marknadsföring för växande företag. Effektiv budgetanvändning och snabb tillväxt.', type: 'paid-social' },
+  { name: 'Kreativa Byråer', slug: 'kreativa-byraer', description: 'White-label paid social och AI-expertis för byråer. Stärk er tjänsteportfölj.', type: 'paid-social' },
+  { name: 'Fastighetsbolag', slug: 'fastighetsbolag', description: 'Digital marknadsföring för fastighetsutveckling och förvaltning. Från projektsäljning till hyresgäster.', type: 'paid-social' },
+  { name: 'Fackförbund', slug: 'fackforbund', description: 'Medlemsrekrytering och engagement genom digital marknadsföring och automation.', type: 'paid-social' },
+  { name: 'Försäkring', slug: 'forsakring', description: 'Performance marketing för försäkringsbolag. Komplext erbjudande, tydlig kommunikation.', type: 'paid-social' },
+  { name: 'Utbildning', slug: 'utbildning', description: 'AI-transformation för skolor och utbildningsföretag. Personaliserat lärande och smartare administration.', type: 'ai' },
 ];
 ---
 
@@ -33,7 +35,12 @@ const industries = [
         <div class="industries-grid">
           {industries.map((industry) => (
             <a href={`/branscher/${industry.slug}`} class="industry-card">
-              <h2>{industry.name}</h2>
+              <div class="card-header">
+                <h2>{industry.name}</h2>
+                <span class={`badge badge-${industry.type}`}>
+                  {industry.type === 'ai' ? 'AI' : 'Paid Social'}
+                </span>
+              </div>
               <p>{industry.description}</p>
               <span class="arrow">→</span>
             </a>
@@ -99,11 +106,38 @@ const industries = [
     transform: translateX(4px);
   }
 
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
   .industry-card h2 {
     font-size: 1.5rem;
     font-weight: 600;
-    margin: 0 0 0.75rem;
+    margin: 0;
     color: #000;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 3px;
+  }
+
+  .badge-ai {
+    background: #e8f5e9;
+    color: #2e7d32;
+  }
+
+  .badge-paid-social {
+    background: #e3f2fd;
+    color: #1565c0;
   }
 
   .industry-card p {
@@ -133,6 +167,10 @@ const industries = [
 
     .section {
       padding: 3rem 0 4rem;
+    }
+
+    .card-header {
+      flex-wrap: wrap;
     }
   }
 </style>
