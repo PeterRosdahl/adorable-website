@@ -1,0 +1,283 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout 
+  title="Använd AI för att analysera annonsdata | Adorable"
+  description="Lär dig hur AI kan hjälpa dig hitta insikter i annonsdata som tar timmar att upptäcka manuellt. Praktiska exempel och verktyg."
+>
+  <main>
+    <article>
+      <header class="hero">
+        <div class="container">
+          <div class="meta">
+            <span class="category">AI + Paid Social</span>
+          </div>
+          <h1 class="title">Använd AI för att analysera annonsdata</h1>
+          <p class="intro">Du sitter på gigabyte av annonsdata. Men insikterna? De är begravda i spreadsheets. AI kan gräva fram dem på minuter istället för dagar.</p>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="container">
+          <h2>Problemet med manuell dataanalys</h2>
+          <p>De flesta marknadsförare drunknar i data. Meta Ads Manager visar hundratals mätvärden. Google Analytics har tusentals dimensioner. Varje kampanj genererar enorma datamängder.</p>
+          
+          <p>Och ändå fattas beslut baserat på magkänsla. Varför? För att analysera data ordentligt tar tid som ingen har.</p>
+
+          <p>AI förändrar den ekvationen.</p>
+
+          <h2>Vad AI kan göra med din annonsdata</h2>
+          
+          <h3>1. Hitta mönster du missar</h3>
+          <p>Människor är bra på att se uppenbara trender. AI är bra på att hitta subtila korrelationer.</p>
+          
+          <p><strong>Exempel:</strong> En e-handlare upptäckte att annonser med produkter i blå förpackning presterade 23% bättre på söndagar. Ingen hade märkt det manuellt – men AI identifierade mönstret i historisk data.</p>
+
+          <h3>2. Automatiska anomalidetektering</h3>
+          <p>Något ovanligt händer i din data. CTR sjunker plötsligt. ROAS spikar på onsdagar. Manuellt tar det dagar att upptäcka. AI flaggar det i realtid.</p>
+
+          <h3>3. Prediktiv analys</h3>
+          <p>Istället för att bara se vad som hänt kan AI förutspå vad som kommer hända. Vilka kampanjer kommer prestera nästa vecka? Vilken kreativ kommer trötta ut först?</p>
+
+          <h3>4. Naturlig språkfrågor</h3>
+          <p>Istället för att bygga komplexa rapporter kan du fråga: "Vilka annonser har bäst ROAS bland kvinnor 25-34 i Stockholm senaste månaden?" – och få svar direkt.</p>
+
+          <h2>Praktiska verktyg för AI-driven analys</h2>
+          
+          <h3>ChatGPT och Claude för ad hoc-analys</h3>
+          <p>Exportera data från Ads Manager som CSV. Ladda upp till ChatGPT eller Claude. Ställ frågor.</p>
+          
+          <p><strong>Exempelfrågor:</strong></p>
+          <ul>
+            <li>"Vilka tre kampanjer har sämst förhållande mellan kostnad och konverteringar?"</li>
+            <li>"Finns det någon korrelation mellan veckodag och CTR?"</li>
+            <li>"Sammanfatta de viktigaste insikterna från denna data"</li>
+            <li>"Vad borde jag testa nästa baserat på dessa resultat?"</li>
+          </ul>
+
+          <p>Det är förvånansvärt kraftfullt för att snabbt förstå data.</p>
+
+          <h3>Supermetrics + AI</h3>
+          <p>Supermetrics samlar data från alla plattformar till ett ställe. Kombinerat med AI-analys kan du se helhetsbild över kanaler.</p>
+
+          <h3>Power BI / Looker med AI-funktioner</h3>
+          <p>Både Microsoft och Google har byggt in AI i sina BI-verktyg. Natural language queries låter dig ställa frågor på vanlig svenska.</p>
+
+          <h3>Specialiserade martech-verktyg</h3>
+          <p>Verktyg som Triple Whale, Northbeam och Rockerbox använder AI för att analysera annonsdata och attribution automatiskt.</p>
+
+          <h2>Case: Så analyserar du en kampanj med AI</h2>
+          <p>Låt oss gå igenom ett praktiskt exempel:</p>
+
+          <h3>Steg 1: Exportera data</h3>
+          <p>Gå till Meta Ads Manager, välj din tidsperiod, exportera som CSV med relevanta kolumner: kampanjnamn, annonsnamn, spend, impressions, clicks, conversions, conversion value.</p>
+
+          <h3>Steg 2: Ladda upp till AI</h3>
+          <p>Öppna ChatGPT eller Claude. Ladda upp filen. Ge kontext: "Detta är annonsdata från Meta för en e-handlare som säljer kläder. Analysera och ge mig de viktigaste insikterna."</p>
+
+          <h3>Steg 3: Ställ uppföljningsfrågor</h3>
+          <ul>
+            <li>"Vilka annonser borde jag pausa baserat på denna data?"</li>
+            <li>"Finns det mönster i vilken typ av kreativ som fungerar bäst?"</li>
+            <li>"Beräkna ROAS per kampanj och rangordna"</li>
+            <li>"Vad skulle hända med total ROAS om jag stängde av de 3 sämsta kampanjerna?"</li>
+          </ul>
+
+          <h3>Steg 4: Få actionable insights</h3>
+          <p>AI:n kommer ge dig konkreta rekommendationer. Inte bara "kampanj X presterar dåligt" utan "stäng av kampanj X och flytta budget till kampanj Y som har 40% högre ROAS med liknande målgrupp".</p>
+
+          <h2>Bygga en AI-driven analysrutin</h2>
+          <p>För att få verkligt värde behöver du en rutin, inte ad hoc-analys:</p>
+
+          <h3>Daglig snabbcheck (5 min)</h3>
+          <ul>
+            <li>Exportera gårdagens data</li>
+            <li>Fråga AI: "Något ovanligt jag bör veta om?"</li>
+            <li>Reagera på anomalier</li>
+          </ul>
+
+          <h3>Veckoanalys (30 min)</h3>
+          <ul>
+            <li>Exportera veckans data</li>
+            <li>Jämför med föregående vecka</li>
+            <li>Fråga AI: "Vilka trender ser du? Vad bör jag justera?"</li>
+          </ul>
+
+          <h3>Månadsdjupdyk (2 timmar)</h3>
+          <ul>
+            <li>Kombinera data från alla kanaler</li>
+            <li>Låt AI göra fullständig analys</li>
+            <li>Identifiera strategiska förändringar</li>
+          </ul>
+
+          <h2>Begränsningar att vara medveten om</h2>
+          
+          <h3>AI förstår inte affärskontexten</h3>
+          <p>AI vet inte att du just bytte logistikpartner, att det var rea förra veckan, eller att produkten som säljer bäst har lägst marginal. Du måste ge kontext.</p>
+
+          <h3>Korrelation ≠ kausalitet</h3>
+          <p>AI hittar mönster, men alla mönster är inte meningsfulla. Att blå bilder presterar bättre kan vara slump – eller något djupare. Använd omdöme.</p>
+
+          <h3>Datakvalitet är avgörande</h3>
+          <p>Garbage in, garbage out. Om din tracking är bristfällig blir AI-analysen värdelös. Börja alltid med att verifiera datakvaliteten.</p>
+
+          <h2>Avancerade tekniker</h2>
+
+          <h3>Kreativ analys med vision AI</h3>
+          <p>Ladda upp annonsbilder tillsammans med prestandadata. Be AI analysera: "Vilka visuella element korrelerar med hög CTR?" Du kan få insikter om färger, komposition, ansikten – saker som är svåra att kvantifiera annars.</p>
+
+          <h3>Koppling till affärsdata</h3>
+          <p>Kombinera annonsdata med CRM-data. Vilka kampanjer ger kunder med högst livstidsvärde? Vilka kanaler driver återköp? AI kan hitta dessa kopplingar om du ger den tillgång till data.</p>
+
+          <h3>Automatiserade rapporter</h3>
+          <p>Sätt upp flöden där AI automatiskt analyserar data och skickar sammanfattningar. Varje måndag får du ett mail med veckans viktigaste insikter – genererat av AI.</p>
+
+          <h2>Kom igång idag</h2>
+          <ol>
+            <li><strong>Exportera data:</strong> Ta ut senaste månadens annonsdata som CSV</li>
+            <li><strong>Testa AI-analys:</strong> Ladda upp till ChatGPT/Claude, be om insikter</li>
+            <li><strong>Ställ specifika frågor:</strong> Gå djupare på det som är intressant</li>
+            <li><strong>Agera på insikter:</strong> Gör en ändring baserat på vad du lärde dig</li>
+            <li><strong>Bygg rutin:</strong> Gör det till en vana, inte en engångsgrej</li>
+          </ol>
+
+          <p>Data är makt. Men bara om du kan förstå den. AI är nyckeln till att låsa upp värdet i all den data du redan har.</p>
+
+          <div class="cta">
+            <h3>Vill du bygga en AI-driven analysprocess?</h3>
+            <p>Adorable hjälper dig att strukturera din data och implementera AI-verktyg som ger verkliga insikter – inte bara fler siffror.</p>
+            <a href="/kontakt" class="button">Boka ett samtal →</a>
+          </div>
+
+          <p class="published-date"><em>Publicerad: 28 januari 2026</em></p>
+        </div>
+      </div>
+
+      <Footer />
+    </article>
+  </main>
+</Layout>
+
+<style>
+  main {
+    background: #fff;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hero {
+    padding: 8rem 0 4rem;
+  }
+
+  .meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: #666;
+  }
+
+  .category {
+    font-weight: 500;
+    color: #000;
+  }
+
+  .title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+    line-height: 1.2;
+    color: #000;
+  }
+
+  .intro {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+  }
+
+  .content {
+    padding-bottom: 6rem;
+  }
+
+  .content h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 3rem 0 1.5rem;
+    color: #000;
+  }
+
+  .content h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+    color: #000;
+  }
+
+  .content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+    margin: 0 0 1.5rem;
+  }
+
+  .content ul, .content ol {
+    margin: 0 0 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .content strong {
+    color: #000;
+    font-weight: 600;
+  }
+
+  .cta {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+  }
+
+  .cta h3 {
+    margin-top: 0;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+
+  .button:hover {
+    opacity: 0.8;
+  }
+
+  .published-date {
+    margin-top: 4rem;
+    color: #666;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 4rem 0 2rem;
+    }
+  }
+</style>

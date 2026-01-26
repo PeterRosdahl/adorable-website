@@ -2,42 +2,160 @@
 import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
 
-// Artikel-metadata
+// Artikel-metadata grouped by category
 const articles = [
+  // AI-transformation
   {
     title: '5 sätt AI kan automatisera ditt marknadsföringsarbete',
     slug: '5-satt-ai-kan-automatisera-marknadsföring',
     category: 'AI-transformation',
-    date: '2026-01-25',
     excerpt: 'AI är inte längre framtiden – det är nutiden. Här är fem konkreta sätt du kan börja automatisera repetitivt arbete redan idag.'
   },
   {
-    title: 'Prompt Engineering för marknadsförare: En praktisk guide',
+    title: 'Prompt Engineering för marknadsförare',
     slug: 'prompt-engineering-for-marknadsforsare',
     category: 'AI-transformation',
-    date: '2026-01-25',
     excerpt: 'Bättre prompts ger bättre resultat. Lär dig skriva instruktioner som får AI att leverera vad du faktiskt behöver.'
   },
   {
-    title: 'AI-policy: Vad ditt företag behöver tänka på',
+    title: 'AI-policy: Vad företag behöver tänka på',
     slug: 'ai-policy-vad-foretag-behover-tanka-pa',
     category: 'AI-transformation',
-    date: '2026-01-25',
     excerpt: 'Ett ramverk för ansvarsfull AI-användning. Ge medarbetare trygghet att experimentera utan att skapa risker.'
   },
+  {
+    title: 'AI för småföretag: Konkreta användningsfall',
+    slug: 'ai-for-smaforetag-konkreta-anvandningsfall',
+    category: 'AI-transformation',
+    excerpt: 'Praktiska exempel på hur småföretag kan använda AI för att spara tid och pengar. Inga stora investeringar krävs.'
+  },
+  {
+    title: 'Bygg en AI-strategi som faktiskt fungerar',
+    slug: 'bygg-en-ai-strategi-som-fungerar',
+    category: 'AI-transformation',
+    excerpt: 'Steg-för-steg-guide till att skapa en AI-strategi som ger verkliga affärsresultat, inte bara teknisk implementation.'
+  },
+  {
+    title: 'Så kommer du igång med AI på företaget',
+    slug: 'sa-kommer-du-igang-med-ai-pa-foretaget',
+    category: 'AI-transformation',
+    excerpt: 'Praktisk guide för att ta de första stegen med AI. Från verktygsval till pilotprojekt.'
+  },
+  {
+    title: 'AI och GDPR: Vad du måste veta',
+    slug: 'ai-och-gdpr-vad-du-maste-veta',
+    category: 'AI-transformation',
+    excerpt: 'Navigera GDPR-kraven när du implementerar AI. Vad är tillåtet, vad krävs, och hur dokumenterar du rätt?'
+  },
+  {
+    title: 'ChatGPT vs Claude vs Gemini: Vilken AI passar ditt företag?',
+    slug: 'chatgpt-vs-claude-vs-gemini',
+    category: 'AI-transformation',
+    excerpt: 'En jämförelse av de stora språkmodellerna. Styrkor, svagheter och vilken som passar olika användningsfall.'
+  },
+  {
+    title: 'Mät ROI på AI-investeringar',
+    slug: 'mat-roi-pa-ai-investeringar',
+    category: 'AI-transformation',
+    excerpt: 'Hur mäter du egentligen värdet av AI? Praktiska metoder för att räkna på tidsbesparingar och affärsnytta.'
+  },
+  {
+    title: 'Vanliga misstag när företag implementerar AI',
+    slug: 'vanliga-misstag-nar-foretag-implementerar-ai',
+    category: 'AI-transformation',
+    excerpt: 'Sju fallgropar som saboterar AI-projekt – och hur du undviker dem.'
+  },
+  // Paid Social
   {
     title: '5 Meta Ads-misstag som kostar dig pengar',
     slug: '5-meta-ads-misstag',
     category: 'Paid Social',
-    date: '2026-01-25',
     excerpt: 'Vanliga fel som slösar bort din budget. Och hur du fixar dem.'
   },
   {
-    title: 'Så optimerar du ROAS utan att sänka volym',
+    title: 'Optimera ROAS utan att sänka volym',
     slug: 'optimera-roas-utan-att-sanka-volym',
     category: 'Paid Social',
-    date: '2026-01-25',
-    excerpt: 'Högre avkastning behöver inte betyda färre kunder. Här är hur du hittar balansen.'
+    excerpt: 'Högre avkastning behöver inte betyda färre kunder. Här är hur du hittar balansen mellan efficiency och scale.'
+  },
+  {
+    title: 'Attribution i en cookie-less värld',
+    slug: 'attribution-i-en-cookieless-varld',
+    category: 'Paid Social',
+    excerpt: 'Tredjepartscookies försvinner. Så mäter du annonseffekt med server-side tracking och nya metoder.'
+  },
+  {
+    title: 'Budgetera för paid social: En praktisk modell',
+    slug: 'budgetera-for-paid-social',
+    category: 'Paid Social',
+    excerpt: 'Hur mycket ska du lägga på Meta Ads? En konkret modell för att räkna ut rätt budget.'
+  },
+  {
+    title: 'LinkedIn Ads för B2B: Komplett guide 2026',
+    slug: 'linkedin-ads-for-b2b-komplett-guide',
+    category: 'Paid Social',
+    excerpt: 'Allt du behöver veta om LinkedIn-annonsering för B2B. Targeting, format, budgivning och optimering.'
+  },
+  {
+    title: 'Meta Advantage+ Shopping: Så maximerar du resultaten',
+    slug: 'meta-advantage-plus-shopping',
+    category: 'Paid Social',
+    excerpt: 'Metas AI-drivna kampanjtyp kan ge fantastiska resultat – om du sätter upp den rätt.'
+  },
+  {
+    title: 'Creative testing: Hitta annonser som konverterar',
+    slug: 'creative-testing-hitta-annonser-som-konverterar',
+    category: 'Paid Social',
+    excerpt: 'Systematisk creative testing är nyckeln till lönsam annonsering. Så bygger du en testprocess.'
+  },
+  {
+    title: 'Retargeting-strategier som fungerar 2026',
+    slug: 'retargeting-strategier-som-fungerar',
+    category: 'Paid Social',
+    excerpt: 'Retargeting har förändrats. Nya privacy-regler kräver nya strategier för att nå tidigare besökare.'
+  },
+  {
+    title: 'Skalera Meta Ads utan att förstöra ROAS',
+    slug: 'skalera-meta-ads-utan-att-forstora-roas',
+    category: 'Paid Social',
+    excerpt: 'Du har en kampanj som fungerar. Nu vill du spendera mer. Så skalar du utan att effektiviteten kollapsar.'
+  },
+  {
+    title: 'AI-genererade annonser: Bästa praxis',
+    slug: 'ai-genererade-annonser-basta-praxis',
+    category: 'Paid Social',
+    excerpt: 'Använd AI för att skapa annonser snabbare – utan att kompromissa med kvalitet eller varumärke.'
+  },
+  // AI + Paid Social (intersection)
+  {
+    title: 'Automatiserad budgivning: Låt AI optimera dina kampanjer',
+    slug: 'automatiserad-budgivning-lat-ai-optimera',
+    category: 'AI + Paid Social',
+    excerpt: 'AI-driven automatiserad budgivning analyserar miljontals signaler i realtid. Så drar du nytta av det.'
+  },
+  {
+    title: 'Använd AI för att analysera annonsdata',
+    slug: 'anvand-ai-for-att-analysera-annonsdata',
+    category: 'AI + Paid Social',
+    excerpt: 'Du sitter på gigabyte av annonsdata. AI kan gräva fram insikterna på minuter istället för dagar.'
+  },
+  {
+    title: 'Framtidens marknadsförare: Människa + AI',
+    slug: 'framtidens-marknadsforsare-manniska-plus-ai',
+    category: 'AI + Paid Social',
+    excerpt: 'AI ersätter inte marknadsförare – men de som använder AI kommer ersätta de som inte gör det.'
+  },
+  {
+    title: 'Personalisering i stor skala med AI',
+    slug: 'personalisering-i-stor-skala-med-ai',
+    category: 'AI + Paid Social',
+    excerpt: 'AI löser personaliseringens paradox. Individuella upplevelser för miljoner – så fungerar det.'
+  },
+  {
+    title: 'AI-verktyg för social media managers',
+    slug: 'ai-verktyg-for-social-media-managers',
+    category: 'AI + Paid Social',
+    excerpt: 'De bästa AI-verktygen för social media managers 2026. Spara tid på innehåll, analys och community.'
   },
 ];
 ---
@@ -63,7 +181,6 @@ const articles = [
             <article class="article-card">
               <div class="article-meta">
                 <span class="category">{article.category}</span>
-                <time>{new Date(article.date).toLocaleDateString('sv-SE', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
               </div>
               <h2><a href={`/artiklar/${article.slug}`}>{article.title}</a></h2>
               <p class="excerpt">{article.excerpt}</p>
