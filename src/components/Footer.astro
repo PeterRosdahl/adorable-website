@@ -1,43 +1,157 @@
 <footer class="footer">
-  <div class="container">
-    <div class="footer-links">
-      <a href="/om">Om</a>
-      <a href="/kontakt">Kontakt</a>
+  <div class="footer-container">
+    <!-- Newsletter Section -->
+    <div class="newsletter-section">
+      <h3 class="newsletter-heading">Prenumerera på nyhetsbrevet</h3>
+      <p class="newsletter-tagline">Få tips om AI-transformation och digital marknadsföring direkt i inboxen.</p>
+      <form class="newsletter-form" action="#" method="POST">
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="Din e-postadress" 
+          required 
+          class="newsletter-input"
+        />
+        <button type="submit" class="newsletter-button">Prenumerera</button>
+      </form>
     </div>
-    <p class="footer-copy">© 2026 Adorable. Alla rättigheter förbehållna.</p>
+
+    <!-- Bottom Section -->
+    <div class="footer-bottom">
+      <div class="footer-links">
+        <a href="/om">Om</a>
+        <a href="/kontakt">Kontakt</a>
+      </div>
+      <p class="footer-copy">© 2026 Adorable</p>
+    </div>
   </div>
 </footer>
 
 <style>
   .footer {
-    padding: 3rem 0 2rem;
-    margin-top: 4rem;
+    background-color: #000;
+    color: #fff;
+    padding: 4rem 0 3rem;
+    margin-top: 6rem;
   }
 
-  .container {
+  .footer-container {
     max-width: 760px;
     margin: 0 auto;
     padding: 0 2rem;
   }
 
-  .footer-links {
+  /* Newsletter Section */
+  .newsletter-section {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .newsletter-heading {
+    font-family: 'Archivo Black', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.5rem;
     margin-bottom: 0.75rem;
+    color: #fff;
+  }
+
+  .newsletter-tagline {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 500px) {
+    .newsletter-form {
+      flex-direction: row;
+    }
+  }
+
+  .newsletter-input {
+    flex: 1;
+    padding: 0.875rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    background: transparent;
+    color: #fff;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+  }
+
+  .newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .newsletter-input:focus {
+    outline: none;
+    border-color: #fff;
+  }
+
+  .newsletter-button {
+    padding: 0.875rem 1.5rem;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+  }
+
+  .newsletter-button:hover {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .newsletter-button:active {
+    transform: scale(0.98);
+  }
+
+  /* Bottom Section */
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  @media (min-width: 500px) {
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
   }
 
   .footer-links a {
-    color: #888;
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
-    margin-right: 1.5rem;
     font-size: 0.9rem;
     transition: color 0.2s;
   }
 
   .footer-links a:hover {
-    color: #000;
+    color: #fff;
   }
 
   .footer-copy {
-    color: #aaa;
+    color: rgba(255, 255, 255, 0.5);
     font-size: 0.85rem;
     margin: 0;
   }
