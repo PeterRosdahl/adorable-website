@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'Bygg en AI-strategi som faktiskt fungerar' }
+];
 ---
 
 <Layout 
   title="Bygg en AI-strategi som faktiskt fungerar | Adorable"
   description="De flesta AI-strategier misslyckas. Här är ett ramverk för att skapa en strategi som faktiskt leder till resultat – inte bara PowerPoint-slides."
 >
+  <ArticleSchema 
+    title="Bygg en AI-strategi som faktiskt fungerar"
+    description="De flesta AI-strategier misslyckas. Här är ett ramverk för att skapa en strategi som faktiskt leder till resultat – inte bara PowerPoint-slides."
+    url="/artiklar/bygg-en-ai-strategi-som-fungerar"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">AI-transformation</span>
           </div>
@@ -32,7 +46,7 @@ import Footer from '../../components/Footer.astro';
             <li><strong>Ingen budget för förändringsledning:</strong> All budget går till teknik, ingen till att faktiskt använda den</li>
           </ul>
 
-          <p>En bra AI-strategi undviker dessa fallgropar genom att vara affärsdriven, konkret och förankrad.</p>
+          <p>En bra AI-strategi undviker dessa fallgropar genom att vara affärsdriven, konkret och förankrad. Vi går igenom alla dessa i detalj i <a href="/artiklar/vanliga-misstag-nar-foretag-implementerar-ai">Vanliga misstag när företag implementerar AI</a>.</p>
 
           <h2>Ramverk: Fyra delar av en fungerande AI-strategi</h2>
           
@@ -178,7 +192,7 @@ import Footer from '../../components/Footer.astro';
           <p>Första piloten kan vara igång på 4-8 veckor. Bredare utrullning tar 6-12 månader för medelstora organisationer.</p>
 
           <p><strong>Behöver vi anställa AI-experter?</strong></p>
-          <p>Sällan. De flesta företag klarar sig med extern hjälp för implementation och intern kompetenshöjning.</p>
+          <p>Sällan. De flesta företag klarar sig med extern hjälp för implementation och intern kompetenshöjning. Se också <a href="/artiklar/sa-kommer-du-igang-med-ai-pa-foretaget">Så kommer du igång med AI på företaget</a> för praktiska första steg.</p>
 
           <div class="cta">
             <h3>Behöver ni hjälp med AI-strategin?</h3>

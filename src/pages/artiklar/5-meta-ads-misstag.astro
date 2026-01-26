@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: '5 Meta Ads-misstag som kostar dig pengar' }
+];
 ---
 
 <Layout 
   title="5 Meta Ads-misstag som kostar dig pengar – Och hur du fixar dem | Adorable"
   description="Dessa vanliga Meta Ads-misstag äter upp din budget och dränerar ROAS. Här är exakt vad du gör fel och hur du fixar det."
 >
+  <ArticleSchema 
+    title="5 Meta Ads-misstag som kostar dig pengar"
+    description="Dessa vanliga Meta Ads-misstag äter upp din budget och dränerar ROAS. Här är exakt vad du gör fel och hur du fixar det."
+    url="/artiklar/5-meta-ads-misstag"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">Meta Ads</span>
           </div>
@@ -71,6 +85,8 @@ import Footer from '../../components/Footer.astro';
 
           <p><strong>Exempel:</strong> Istället för 5 ad sets (Kvinnor 25-34, 35-44, 45-54 etc), kör ETT ad set med Kvinnor 25-54 och låt algoritmen hitta sweet spot.</p>
 
+          <p>Vill du gå djupare på automatiserad targeting? Läs vår guide om <a href="/artiklar/meta-advantage-plus-shopping">Meta Advantage+ Shopping</a> – Metas mest automatiserade kampanjtyp.</p>
+
           <h2>3. Ingen eller för lite testing</h2>
           <p>Du kör samma creatives i månader och undrar varför ROAS sjunker.</p>
 
@@ -108,6 +124,8 @@ import Footer from '../../components/Footer.astro';
           </ol>
 
           <p><strong>Metric att titta på:</strong> Thumbstop ratio (% som stannar till när de ser din ad). Under 30% = dålig creative.</p>
+
+          <p>Vi har skrivit en hel artikel om detta: <a href="/artiklar/creative-testing-hitta-annonser-som-konverterar">Creative testing – hitta annonser som konverterar</a>.</p>
 
           <h2>4. Dålig Pixel-implementation och conversion tracking</h2>
           <p>Om dina conversions inte trackas rätt, optimerar Meta för fel saker.</p>
@@ -200,6 +218,8 @@ import Footer from '../../components/Footer.astro';
             <li>Mät resultat, iterera</li>
           </ol>
           <p>De flesta ser märkbar förbättring i ROAS bara genom att fixa dessa basics.</p>
+
+          <p>Redo att skala? Läs också <a href="/artiklar/skalera-meta-ads-utan-att-forstora-roas">Skalera Meta Ads utan att förstöra ROAS</a>.</p>
 
           <div class="cta">
             <h3>Vill ni få era Meta Ads-kampanjer granskade?</h3>

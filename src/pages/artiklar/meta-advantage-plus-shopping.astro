@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'Meta Advantage+ Shopping' }
+];
 ---
 
 <Layout 
   title="Meta Advantage+ Shopping: Så maximerar du resultaten | Adorable"
   description="Lär dig hur Meta Advantage+ Shopping-kampanjer fungerar och hur du optimerar dem för maximal ROAS. Konkreta tips för e-handlare."
 >
+  <ArticleSchema 
+    title="Meta Advantage+ Shopping: Så maximerar du resultaten"
+    description="Lär dig hur Meta Advantage+ Shopping-kampanjer fungerar och hur du optimerar dem för maximal ROAS. Konkreta tips för e-handlare."
+    url="/artiklar/meta-advantage-plus-shopping"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">Paid Social</span>
           </div>
@@ -168,6 +182,8 @@ import Footer from '../../components/Footer.astro';
           </ol>
 
           <p>Kombinera algoritmens kraft med mänsklig strategi, så får ni det bästa av två världar.</p>
+
+          <p><strong>Läs också:</strong> <a href="/artiklar/5-meta-ads-misstag">5 Meta Ads-misstag som kostar dig pengar</a> och <a href="/artiklar/skalera-meta-ads-utan-att-forstora-roas">Skalera Meta Ads utan att förstöra ROAS</a>.</p>
 
           <div class="cta">
             <h3>Vill ni optimera era Meta-kampanjer?</h3>

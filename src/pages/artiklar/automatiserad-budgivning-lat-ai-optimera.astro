@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'Automatiserad budgivning: Låt AI optimera' }
+];
 ---
 
 <Layout 
   title="Automatiserad budgivning: Låt AI optimera dina kampanjer | Adorable"
   description="Lär dig hur AI-driven automatiserad budgivning kan maximera dina annonsresultat. Praktisk guide till smart bidding på Meta, TikTok och LinkedIn."
 >
+  <ArticleSchema 
+    title="Automatiserad budgivning: Låt AI optimera dina kampanjer"
+    description="Lär dig hur AI-driven automatiserad budgivning kan maximera dina annonsresultat. Praktisk guide till smart bidding på Meta, TikTok och LinkedIn."
+    url="/artiklar/automatiserad-budgivning-lat-ai-optimera"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">AI + Paid Social</span>
           </div>

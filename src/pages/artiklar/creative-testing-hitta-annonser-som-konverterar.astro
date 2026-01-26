@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'Creative testing: Hitta annonser som konverterar' }
+];
 ---
 
 <Layout 
   title="Creative testing: Hitta annonser som konverterar | Adorable"
   description="Kreativ är den viktigaste faktorn för annonsresultat. Lär dig ett systematiskt ramverk för att testa och hitta annonser som faktiskt konverterar."
 >
+  <ArticleSchema 
+    title="Creative testing: Hitta annonser som konverterar"
+    description="Kreativ är den viktigaste faktorn för annonsresultat. Lär dig ett systematiskt ramverk för att testa och hitta annonser som faktiskt konverterar."
+    url="/artiklar/creative-testing-hitta-annonser-som-konverterar"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">Paid Social</span>
           </div>

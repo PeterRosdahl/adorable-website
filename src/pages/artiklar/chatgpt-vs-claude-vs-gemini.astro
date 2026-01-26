@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'ChatGPT vs Claude vs Gemini' }
+];
 ---
 
 <Layout 
   title="ChatGPT vs Claude vs Gemini: Vilken AI passar ditt företag? | Adorable"
   description="En ärlig jämförelse av de tre största AI-assistenterna. Styrkor, svagheter och vilket som passar bäst för olika användningsfall."
 >
+  <ArticleSchema 
+    title="ChatGPT vs Claude vs Gemini: Vilken AI passar ditt företag?"
+    description="En ärlig jämförelse av de tre största AI-assistenterna. Styrkor, svagheter och vilket som passar bäst för olika användningsfall."
+    url="/artiklar/chatgpt-vs-claude-vs-gemini"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">AI-transformation</span>
           </div>
@@ -223,8 +237,12 @@ import Footer from '../../components/Footer.astro';
 
           <p>Kostnaden för att ha tillgång till flera verktyg är försumbar jämfört med produktivitetsvinsten.</p>
 
+          <p>Oavsett vilket verktyg du väljer, lär dig <a href="/artiklar/prompt-engineering-for-marknadsforsare">prompt engineering</a> för att få ut maximalt värde.</p>
+
           <h2>Framtiden</h2>
           <p>AI-landskapet förändras snabbt. Nya modeller och funktioner släpps löpande. Följ utvecklingen och var beredd att omvärdera era val när marknaden utvecklas.</p>
+
+          <p>Vill du se konkreta användningsfall? Läs <a href="/artiklar/ai-for-smaforetag-konkreta-anvandningsfall">AI för småföretag: Konkreta användningsfall</a>.</p>
 
           <div class="cta">
             <h3>Osäker på vilket verktyg som passar er?</h3>

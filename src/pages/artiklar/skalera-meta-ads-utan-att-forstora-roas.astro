@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'Skalera Meta Ads utan att förstöra ROAS' }
+];
 ---
 
 <Layout 
   title="Skalera Meta Ads utan att förstöra ROAS | Adorable"
   description="Så skalar du upp Meta-annonser utan att effektiviteten kraschar. Lär dig strategier för hållbar tillväxt med bibehållen lönsamhet."
 >
+  <ArticleSchema 
+    title="Skalera Meta Ads utan att förstöra ROAS"
+    description="Så skalar du upp Meta-annonser utan att effektiviteten kraschar. Lär dig strategier för hållbar tillväxt med bibehållen lönsamhet."
+    url="/artiklar/skalera-meta-ads-utan-att-forstora-roas"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">Paid Social</span>
           </div>
@@ -239,6 +253,8 @@ import Footer from '../../components/Footer.astro';
             <li>Ha tydliga trösklar för när ni pausar</li>
             <li>Konsolidera vinnare till ASC när volymen tillåter</li>
           </ol>
+
+          <p><strong>Läs också:</strong> <a href="/artiklar/meta-advantage-plus-shopping">Meta Advantage+ Shopping</a> och <a href="/artiklar/budgetera-for-paid-social">Budgetera för paid social</a>.</p>
 
           <div class="cta">
             <h3>Behöver ni hjälp att skala era kampanjer?</h3>

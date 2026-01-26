@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'Använd AI för att analysera annonsdata' }
+];
 ---
 
 <Layout 
   title="Använd AI för att analysera annonsdata | Adorable"
   description="Lär dig hur AI kan hjälpa dig hitta insikter i annonsdata som tar timmar att upptäcka manuellt. Praktiska exempel och verktyg."
 >
+  <ArticleSchema 
+    title="Använd AI för att analysera annonsdata"
+    description="Lär dig hur AI kan hjälpa dig hitta insikter i annonsdata som tar timmar att upptäcka manuellt. Praktiska exempel och verktyg."
+    url="/artiklar/anvand-ai-for-att-analysera-annonsdata"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">AI + Paid Social</span>
           </div>

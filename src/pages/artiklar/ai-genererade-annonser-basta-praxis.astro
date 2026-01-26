@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'AI-genererade annonser: Bästa praxis' }
+];
 ---
 
 <Layout 
   title="AI-genererade annonser: Bästa praxis | Adorable"
   description="Hur använder du AI för att skapa effektiva annonser? Lär dig bästa praxis för AI-genererad copy, bilder och video – samt fallgroparna att undvika."
 >
+  <ArticleSchema 
+    title="AI-genererade annonser: Bästa praxis"
+    description="Hur använder du AI för att skapa effektiva annonser? Lär dig bästa praxis för AI-genererad copy, bilder och video – samt fallgroparna att undvika."
+    url="/artiklar/ai-genererade-annonser-basta-praxis"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">AI + Paid Social</span>
           </div>

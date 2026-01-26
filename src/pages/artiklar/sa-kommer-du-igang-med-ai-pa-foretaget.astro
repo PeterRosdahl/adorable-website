@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'Så kommer du igång med AI på företaget' }
+];
 ---
 
 <Layout 
   title="Så kommer du igång med AI på företaget – Praktisk guide | Adorable"
   description="Vill du implementera AI i verksamheten men vet inte var du ska börja? Här får du konkreta första steg för att lyckas med AI-transformation."
 >
+  <ArticleSchema 
+    title="Så kommer du igång med AI på företaget"
+    description="Vill du implementera AI i verksamheten men vet inte var du ska börja? Här får du konkreta första steg för att lyckas med AI-transformation."
+    url="/artiklar/sa-kommer-du-igang-med-ai-pa-foretaget"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">AI-transformation</span>
           </div>

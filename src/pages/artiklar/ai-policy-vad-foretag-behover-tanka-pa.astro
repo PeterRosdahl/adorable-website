@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'AI-policy: Vad företag behöver tänka på' }
+];
 ---
 
 <Layout 
   title="AI-policy: Vad företag behöver tänka på – GDPR, säkerhet och riktlinjer | Adorable"
   description="AI-verktyg i företaget utan policy är som att ge bort nycklarna till datarummet. Här är ramverket för att implementera AI säkert och ansvarsfullt."
 >
+  <ArticleSchema 
+    title="AI-policy: Vad företag behöver tänka på"
+    description="AI-verktyg i företaget utan policy är som att ge bort nycklarna till datarummet. Här är ramverket för att implementera AI säkert och ansvarsfullt."
+    url="/artiklar/ai-policy-vad-foretag-behover-tanka-pa"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">AI-strategi</span>
           </div>

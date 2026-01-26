@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'Vanliga misstag när företag implementerar AI' }
+];
 ---
 
 <Layout 
   title="7 vanliga misstag när företag implementerar AI | Adorable"
   description="De flesta AI-projekt misslyckas. Här är de vanligaste misstagen – och hur du undviker dem för en framgångsrik AI-implementation."
 >
+  <ArticleSchema 
+    title="7 vanliga misstag när företag implementerar AI"
+    description="De flesta AI-projekt misslyckas. Här är de vanligaste misstagen – och hur du undviker dem för en framgångsrik AI-implementation."
+    url="/artiklar/vanliga-misstag-nar-foretag-implementerar-ai"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">AI-transformation</span>
           </div>
@@ -83,7 +97,7 @@ import Footer from '../../components/Footer.astro';
             <li><strong>Trygghet:</strong> Kommunicera tydligt att AI är ett verktyg, inte ett hot</li>
           </ul>
 
-          <p><strong>Budget:</strong> Räkna med att minst 20-30% av total AI-investering bör gå till utbildning och förändringsledning.</p>
+          <p><strong>Budget:</strong> Räkna med att minst 20-30% av total AI-investering bör gå till utbildning och förändringsledning. Se även vår guide om <a href="/artiklar/ai-policy-vad-foretag-behover-tanka-pa">AI-policy för företag</a>.</p>
 
           <h2>Misstag 4: Orealistiska förväntningar</h2>
 
@@ -127,7 +141,7 @@ import Footer from '../../components/Footer.astro';
             <li><strong>Undvik perfektionism:</strong> Du behöver inte perfekt data för att börja, men räkna med begränsningar</li>
           </ul>
 
-          <p><strong>Bra första steg:</strong> AI för textgenerering, sammanfattning, idéer – kräver ingen intern data.</p>
+          <p><strong>Bra första steg:</strong> AI för textgenerering, sammanfattning, idéer – kräver ingen intern data. Se <a href="/artiklar/ai-for-smaforetag-konkreta-anvandningsfall">AI för småföretag: konkreta användningsfall</a>.</p>
           <p><strong>Avancerat:</strong> AI för affärsanalys, prediktion – kräver ren, strukturerad data.</p>
 
           <h2>Misstag 6: Inget ansvar eller governance</h2>

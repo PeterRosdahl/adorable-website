@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'AI-verktyg för social media managers' }
+];
 ---
 
 <Layout 
   title="AI-verktyg för social media managers | Adorable"
   description="De bästa AI-verktygen för social media managers. Spara tid på innehåll, analys och community management."
 >
+  <ArticleSchema 
+    title="AI-verktyg för social media managers"
+    description="De bästa AI-verktygen för social media managers. Spara tid på innehåll, analys och community management."
+    url="/artiklar/ai-verktyg-for-social-media-managers"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">AI + Paid Social</span>
           </div>

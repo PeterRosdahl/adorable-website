@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'Prompt Engineering för marknadsförare' }
+];
 ---
 
 <Layout 
   title="Prompt Engineering för marknadsförare – Så skriver du bättre AI-prompts | Adorable"
   description="Skillnaden mellan medioker och lysande AI-output är ofta din prompt. Lär dig hur du skriver prompts som faktiskt levererar resultat."
 >
+  <ArticleSchema 
+    title="Prompt Engineering för marknadsförare"
+    description="Skillnaden mellan medioker och lysande AI-output är ofta din prompt. Lär dig hur du skriver prompts som faktiskt levererar resultat."
+    url="/artiklar/prompt-engineering-for-marknadsforsare"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">AI-kompetens</span>
           </div>
@@ -126,6 +140,8 @@ import Footer from '../../components/Footer.astro';
             <li>Experimentera dagligen med små justeringar</li>
           </ol>
           <p>Om en månad kommer du skriva prompts som ger 10x bättre resultat än idag.</p>
+
+          <p><strong>Relaterat:</strong> Läs också vår jämförelse <a href="/artiklar/chatgpt-vs-claude-vs-gemini">ChatGPT vs Claude vs Gemini</a> och <a href="/artiklar/ai-verktyg-for-social-media-managers">AI-verktyg för social media managers</a>.</p>
 
           <div class="cta">
             <h3>Vill ni bli bättre på AI som team?</h3>

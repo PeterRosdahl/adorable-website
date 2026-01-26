@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'Attribution i en cookie-less värld' }
+];
 ---
 
 <Layout 
   title="Attribution i en cookie-less värld | Adorable"
   description="Tredjepartscookies försvinner. Lär dig hur du mäter marknadsföringseffekt i en värld utan cookies – med praktiska alternativ."
 >
+  <ArticleSchema 
+    title="Attribution i en cookie-less värld"
+    description="Tredjepartscookies försvinner. Lär dig hur du mäter marknadsföringseffekt i en värld utan cookies – med praktiska alternativ."
+    url="/artiklar/attribution-i-en-cookieless-varld"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">Paid Social</span>
           </div>

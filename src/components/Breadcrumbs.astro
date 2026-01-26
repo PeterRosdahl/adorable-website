@@ -1,0 +1,81 @@
+---
+interface Props {
+  items: Array<{
+    name: string;
+    url?: string;
+  }>;
+}
+
+const { items } = Astro.props;
+
+// Generate BreadcrumbList schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": items.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    ...(item.url && { "item": `https://adorable.se${item.url}` })
+  }))
+};
+---
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol>
+    {items.map((item, index) => (
+      <li>
+        {item.url ? (
+          <a href={item.url}>{item.name}</a>
+        ) : (
+          <span aria-current="page">{item.name}</span>
+        )}
+        {index < items.length - 1 && <span class="separator">›</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+<style>
+  .breadcrumbs {
+    margin-bottom: 2rem;
+  }
+
+  ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    font-size: 0.9rem;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  a:hover {
+    color: #000;
+  }
+
+  span[aria-current="page"] {
+    color: #000;
+    font-weight: 500;
+  }
+
+  .separator {
+    color: #999;
+    margin: 0 0.25rem;
+  }
+</style>

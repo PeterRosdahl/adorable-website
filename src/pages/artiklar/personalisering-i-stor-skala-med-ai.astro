@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'Personalisering i stor skala med AI' }
+];
 ---
 
 <Layout 
   title="Personalisering i stor skala med AI | Adorable"
   description="AI gör det möjligt att leverera personaliserade upplevelser till miljoner användare. Så fungerar det i praktiken."
 >
+  <ArticleSchema 
+    title="Personalisering i stor skala med AI"
+    description="AI gör det möjligt att leverera personaliserade upplevelser till miljoner användare. Så fungerar det i praktiken."
+    url="/artiklar/personalisering-i-stor-skala-med-ai"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">AI + Paid Social</span>
           </div>

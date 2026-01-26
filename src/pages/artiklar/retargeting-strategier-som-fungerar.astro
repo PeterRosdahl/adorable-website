@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'Retargeting-strategier som fungerar' }
+];
 ---
 
 <Layout 
   title="Retargeting-strategier som fungerar | Adorable"
   description="Retargeting har förändrats drastiskt. Lär dig vilka strategier som fungerar i en värld med begränsad tracking och hur du maximerar värdet av dina besökare."
 >
+  <ArticleSchema 
+    title="Retargeting-strategier som fungerar"
+    description="Retargeting har förändrats drastiskt. Lär dig vilka strategier som fungerar i en värld med begränsad tracking och hur du maximerar värdet av dina besökare."
+    url="/artiklar/retargeting-strategier-som-fungerar"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">Paid Social</span>
           </div>

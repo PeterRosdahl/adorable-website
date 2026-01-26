@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'Budgetera för paid social' }
+];
 ---
 
 <Layout 
   title="Budgetera för paid social: En praktisk modell | Adorable"
   description="Hur mycket ska du lägga på paid social? Lär dig en praktisk modell för att sätta och fördela din annonsbudget baserat på affärsmål."
 >
+  <ArticleSchema 
+    title="Budgetera för paid social: En praktisk modell"
+    description="Hur mycket ska du lägga på paid social? Lär dig en praktisk modell för att sätta och fördela din annonsbudget baserat på affärsmål."
+    url="/artiklar/budgetera-for-paid-social"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">Paid Social</span>
           </div>

@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'LinkedIn Ads för B2B: Komplett guide' }
+];
 ---
 
 <Layout 
   title="LinkedIn Ads för B2B: Komplett guide | Adorable"
   description="Maximera din B2B-marknadsföring på LinkedIn. Lär dig allt om målgrupper, annonsformat, budstrategier och hur du mäter resultat."
 >
+  <ArticleSchema 
+    title="LinkedIn Ads för B2B: Komplett guide"
+    description="Maximera din B2B-marknadsföring på LinkedIn. Lär dig allt om målgrupper, annonsformat, budstrategier och hur du mäter resultat."
+    url="/artiklar/linkedin-ads-for-b2b-komplett-guide"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">Paid Social</span>
           </div>

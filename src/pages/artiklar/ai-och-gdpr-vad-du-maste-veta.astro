@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'AI och GDPR: Vad du måste veta' }
+];
 ---
 
 <Layout 
   title="AI och GDPR: Vad du måste veta | Adorable"
   description="Kan du använda AI-verktyg utan att bryta mot GDPR? Här är en praktisk guide till compliance när ditt företag implementerar AI."
 >
+  <ArticleSchema 
+    title="AI och GDPR: Vad du måste veta"
+    description="Kan du använda AI-verktyg utan att bryta mot GDPR? Här är en praktisk guide till compliance när ditt företag implementerar AI."
+    url="/artiklar/ai-och-gdpr-vad-du-maste-veta"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">AI-transformation</span>
           </div>

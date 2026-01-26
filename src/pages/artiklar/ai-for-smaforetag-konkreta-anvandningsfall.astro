@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'AI för småföretag: Konkreta användningsfall' }
+];
 ---
 
 <Layout 
   title="AI för småföretag: 10 konkreta användningsfall | Adorable"
   description="Praktiska exempel på hur småföretag kan använda AI för att spara tid och pengar. Inga stora investeringar krävs – bara smarta verktyg."
 >
+  <ArticleSchema 
+    title="AI för småföretag: 10 konkreta användningsfall"
+    description="Praktiska exempel på hur småföretag kan använda AI för att spara tid och pengar. Inga stora investeringar krävs – bara smarta verktyg."
+    url="/artiklar/ai-for-smaforetag-konkreta-anvandningsfall"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">AI-transformation</span>
           </div>
@@ -54,6 +68,8 @@ import Footer from '../../components/Footer.astro';
           <p><strong>Verktyg:</strong> ChatGPT eller Claude räcker. På riktigt. Du behöver inte dyra "AI-skrivverktyg för marknadsföring" – de är i princip samma teknik med en annan prislapp.</p>
           
           <p><strong>Resultat:</strong> Från 0 poster till 3-4 inlägg i veckan utan att det tar all din tid.</p>
+
+          <p>Osäker på vilket verktyg du ska välja? Läs vår jämförelse: <a href="/artiklar/chatgpt-vs-claude-vs-gemini">ChatGPT vs Claude vs Gemini</a>.</p>
 
           <h3>Praktiskt tips: Använd Projects-funktionen</h3>
           <p>Både ChatGPT och Claude har en Projects-funktion där du kan spara varumärkesriktlinjer, tonalitet, exempel och vanliga instruktioner. Då "kommer AI:n ihåg" hur ditt företag kommunicerar mellan samtalen. Det är exakt vad dyra specialverktyg säljer – men du får det gratis i standardprenumerationen.</p>
@@ -143,6 +159,8 @@ import Footer from '../../components/Footer.astro';
           </ul>
 
           <p>Jämför med vad en timmes arbete kostar dig. Om AI sparar 4 timmar i månaden har verktyget betalat sig många gånger om.</p>
+
+          <p>Vill du ta ett mer strukturerat grepp? Läs <a href="/artiklar/bygg-en-ai-strategi-som-fungerar">Bygg en AI-strategi som faktiskt fungerar</a> och undvik <a href="/artiklar/vanliga-misstag-nar-foretag-implementerar-ai">vanliga misstag vid AI-implementation</a>.</p>
 
           <div class="cta">
             <h3>Vill du hitta rätt AI-verktyg för ditt företag?</h3>

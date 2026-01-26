@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: 'Optimera ROAS utan att sänka volym' }
+];
 ---
 
 <Layout 
   title="Optimera ROAS utan att sänka volym – Balansen mellan efficiency och scale | Adorable"
   description="Högre ROAS genom att sänka budgeten är enkelt. Att växa samtidigt som du förbättrar ROAS – det är konsten. Här är hur du gör det."
 >
+  <ArticleSchema 
+    title="Optimera ROAS utan att sänka volym"
+    description="Högre ROAS genom att sänka budgeten är enkelt. Att växa samtidigt som du förbättrar ROAS – det är konsten. Här är hur du gör det."
+    url="/artiklar/optimera-roas-utan-att-sanka-volym"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">Performance Marketing</span>
           </div>

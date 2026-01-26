@@ -1,16 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: '5 sätt AI kan automatisera ditt marknadsföringsarbete' }
+];
 ---
 
 <Layout 
   title="5 sätt AI kan automatisera ditt marknadsföringsarbete | Adorable"
   description="AI är inte längre framtiden – det är nutiden. Här är fem konkreta sätt du kan börja automatisera repetitivt arbete redan idag med ChatGPT, Claude och andra verktyg."
 >
+  <ArticleSchema 
+    title="5 sätt AI kan automatisera ditt marknadsföringsarbete"
+    description="AI är inte längre framtiden – det är nutiden. Här är fem konkreta sätt du kan börja automatisera repetitivt arbete redan idag med ChatGPT, Claude och andra verktyg."
+    url="/artiklar/5-satt-ai-kan-automatisera-marknadsföring"
+  />
   <main>
     <article>
       <header class="hero">
         <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
           <div class="meta">
             <span class="category">AI-transformation</span>
           </div>
