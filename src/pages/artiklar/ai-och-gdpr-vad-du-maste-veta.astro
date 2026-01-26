@@ -1,0 +1,325 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout 
+  title="AI och GDPR: Vad du måste veta | Adorable"
+  description="Kan du använda AI-verktyg utan att bryta mot GDPR? Här är en praktisk guide till compliance när ditt företag implementerar AI."
+>
+  <main>
+    <article>
+      <header class="hero">
+        <div class="container">
+          <div class="meta">
+            <span class="category">AI-transformation</span>
+          </div>
+          <h1 class="title">AI och GDPR: Vad du måste veta</h1>
+          <p class="intro">GDPR och AI – två av de mest diskuterade ämnena i svenskt näringsliv. Kan de fungera tillsammans? Ja, men det kräver eftertanke. Här är en praktisk guide.</p>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="container">
+          <h2>GDPR i korthet</h2>
+          <p>Innan vi dyker in i AI-specifika frågor, låt oss repetera grunderna i GDPR:</p>
+          
+          <ul>
+            <li><strong>Personuppgifter:</strong> All information som kan identifiera en person (namn, e-post, IP-adress, etc.)</li>
+            <li><strong>Behandling:</strong> Allt du gör med personuppgifter (samla, lagra, analysera, dela)</li>
+            <li><strong>Laglig grund:</strong> Du måste ha en giltig anledning att behandla data (samtycke, avtal, berättigat intresse, etc.)</li>
+            <li><strong>Minimering:</strong> Samla bara den data du faktiskt behöver</li>
+            <li><strong>Ändamålsbegränsning:</strong> Använd data bara för det syfte den samlades in för</li>
+          </ul>
+
+          <h2>Tre centrala frågor för AI och GDPR</h2>
+          
+          <h3>1. Vart skickas datan?</h3>
+          <p>När du använder ChatGPT, Claude eller Gemini skickas din input till leverantörens servrar – oftast i USA.</p>
+
+          <p><strong>Varför det spelar roll:</strong></p>
+          <ul>
+            <li>Överföring av personuppgifter till tredjeland kräver särskilda skyddsåtgärder</li>
+            <li>USA har inte "adekvat skyddsnivå" enligt EU-rätt (även om ny lagstiftning förbättrat situationen)</li>
+            <li>Du måste säkerställa att leverantören har lämpliga garantier</li>
+          </ul>
+
+          <p><strong>Vad du kan göra:</strong></p>
+          <ul>
+            <li>Använd företagsversioner av AI-verktyg som har EU-US Data Privacy Framework-certifiering</li>
+            <li>Kontrollera att standardavtalsklausuler (SCC) finns på plats</li>
+            <li>Överväg europeiska alternativ där det finns (t.ex. Mistral för vissa användningsfall)</li>
+          </ul>
+
+          <h3>2. Används datan för träning?</h3>
+          <p>Många AI-modeller tränas på användardata. Det skapar GDPR-problem.</p>
+
+          <p><strong>Varför det är problematiskt:</strong></p>
+          <ul>
+            <li>Träning av AI är en ny behandling som kräver egen laglig grund</li>
+            <li>Du förlorar kontroll över personuppgifter som "bakats in" i modellen</li>
+            <li>Rätten att bli raderad blir svår att tillgodose</li>
+          </ul>
+
+          <p><strong>Så löser du det:</strong></p>
+          <ul>
+            <li><strong>Använd enterprise/företagsversioner:</strong> De flesta leverantörer garanterar att företagsdata inte används för träning</li>
+            <li><strong>Aktivera opt-out:</strong> I gratisversioner kan du ofta stänga av träning i inställningar</li>
+            <li><strong>Läs villkoren:</strong> Kontrollera specifikt vad som gäller för din plan</li>
+          </ul>
+
+          <h3>3. Vilken data matas in?</h3>
+          <p>Det här är ofta den största risken – och den enklaste att kontrollera.</p>
+
+          <p><strong>Data du INTE bör mata in i externa AI-verktyg:</strong></p>
+          <ul>
+            <li>Personnummer</li>
+            <li>Fullständiga kundregister med kontaktuppgifter</li>
+            <li>Hälsoinformation</li>
+            <li>Finansiell information kopplad till identifierbara personer</li>
+            <li>Känsliga personuppgifter (religion, politisk åsikt, sexuell läggning, etc.)</li>
+          </ul>
+
+          <p><strong>Data som oftast är okej:</strong></p>
+          <ul>
+            <li>Anonymiserad information (utan möjlighet att identifiera individer)</li>
+            <li>Aggregerad statistik</li>
+            <li>Allmän affärsinformation</li>
+            <li>Publicerat material</li>
+          </ul>
+
+          <h2>Praktisk checklista för GDPR-compliant AI-användning</h2>
+          
+          <h3>Innan ni börjar använda ett AI-verktyg</h3>
+          <ul>
+            <li>☐ Granska leverantörens DPA (Data Processing Agreement)</li>
+            <li>☐ Kontrollera var data lagras (EU vs tredjeland)</li>
+            <li>☐ Verifiera att data inte används för träning (för er plan)</li>
+            <li>☐ Säkerställ att lämpliga skyddsåtgärder finns för tredjelandsöverföring</li>
+            <li>☐ Uppdatera er behandlingsförteckning med AI-verktyget</li>
+          </ul>
+
+          <h3>När ni använder AI-verktyget</h3>
+          <ul>
+            <li>☐ Utbilda personal i vad som får och inte får matas in</li>
+            <li>☐ Skapa tydliga riktlinjer för AI-användning</li>
+            <li>☐ Anonymisera/pseudonymisera data innan den matas in</li>
+            <li>☐ Logga vilken typ av data som behandlas i AI-verktyget</li>
+          </ul>
+
+          <h3>Löpande</h3>
+          <ul>
+            <li>☐ Granska användningen regelbundet</li>
+            <li>☐ Uppdatera policyer när nya verktyg läggs till</li>
+            <li>☐ Följ upp incidenter och nära-incidenter</li>
+          </ul>
+
+          <h2>Vad säger Integritetsskyddsmyndigheten (IMY)?</h2>
+          <p>IMY har ännu inte utfärdat specifik vägledning för AI-assistenter typ ChatGPT. Men deras allmänna principer gäller:</p>
+
+          <ul>
+            <li>Personuppgiftsansvarig ansvar gäller även när AI-verktyg används</li>
+            <li>Tredjelandsöverföring måste ha stöd i GDPR kapitel 5</li>
+            <li>Ändamålsprincipen gäller – du kan inte använda kunddata för nya syften utan stöd</li>
+          </ul>
+
+          <p>IMY har dock uttalat sig om AI Act och dess samspel med GDPR, och betonat vikten av transparency och mänsklig översyn.</p>
+
+          <h2>AI Act – den nya EU-förordningen</h2>
+          <p>EU:s AI-förordning (AI Act) trädde i kraft 2025 och påverkar hur AI får användas:</p>
+
+          <h3>Vad det innebär för företag</h3>
+          <ul>
+            <li><strong>Högrisksystem:</strong> AI för rekrytering, kreditbedömning, etc. får extra krav</li>
+            <li><strong>Transparenskrav:</strong> Användare ska veta när de interagerar med AI</li>
+            <li><strong>Förbjudna praktiker:</strong> Viss AI-användning är totalförbjuden (t.ex. social scoring)</li>
+          </ul>
+
+          <p>För de flesta företag som använder ChatGPT/Claude för kontorsarbete är kraven milda. Men om ni använder AI för beslut som påverkar människor direkt (rekrytering, kundkategorisering, etc.) – läs på om högriskkraven.</p>
+
+          <h2>Praktiska tips för olika användningsfall</h2>
+
+          <h3>Kundservice med AI</h3>
+          <ul>
+            <li>Informera kunder att de chattar med AI (transparens)</li>
+            <li>Mata inte in hela kundhistorik – sammanfatta istället</li>
+            <li>Undvik att spara konversationer längre än nödvändigt</li>
+          </ul>
+
+          <h3>Dokumentanalys</h3>
+          <ul>
+            <li>Anonymisera personnamn innan du laddar upp dokument</li>
+            <li>Använd pseudonymer: "Kund A" istället för riktiga namn</li>
+            <li>Radera känsliga detaljer som personnummer, adresser</li>
+          </ul>
+
+          <h3>Rekrytering</h3>
+          <ul>
+            <li>Använd AI för jobbannonsformulering, inte kandidatscreening (högriskområde)</li>
+            <li>Om AI används för urval: säkerställ mänsklig översyn av beslut</li>
+            <li>Dokumentera hur AI använts i processen</li>
+          </ul>
+
+          <h3>Marknadsföring</h3>
+          <ul>
+            <li>Generera content utan att mata in kunddata</li>
+            <li>Undvik att ladda upp kundlistor för "personalisering"</li>
+            <li>Aggregerad data (t.ex. "vår målgrupp är 25-40 år") är oftast okej</li>
+          </ul>
+
+          <h2>Vanliga missuppfattningar</h2>
+
+          <p><strong>"Vi har samtycke, så vi kan mata in vad som helst"</strong></p>
+          <p>Fel. Samtycke gäller för ett specifikt ändamål. Att dela kunddata med en AI-leverantör är sannolikt ett nytt ändamål som kräver nytt samtycke eller annan laglig grund.</p>
+
+          <p><strong>"Anonymiserad data är alltid okej"</strong></p>
+          <p>Rätt i princip, men "anonymiserad" har en specifik juridisk betydelse. Om data kan återidentifieras (t.ex. genom att kombinera med annan information) är den pseudonymiserad, inte anonymiserad – och GDPR gäller fortfarande.</p>
+
+          <p><strong>"ChatGPT sparar inte data"</strong></p>
+          <p>Fel. ChatGPT sparar konversationer som standard. I gratisversionen kan de användas för träning. Företagsversioner har andra villkor – läs dem.</p>
+
+          <h2>Rekommenderad approach</h2>
+          <ol>
+            <li><strong>Start med företagsversioner</strong> – De har bättre dataskyddsgarantier</li>
+            <li><strong>Skriv en intern AI-policy</strong> – Tydliggör vad som får och inte får göras</li>
+            <li><strong>Utbilda personalen</strong> – De flesta risker kommer från okunskap, inte illvilja</li>
+            <li><strong>Anonymisera som default</strong> – Ta bort personuppgifter innan AI-behandling</li>
+            <li><strong>Dokumentera</strong> – Uppdatera behandlingsförteckningen, spara DPA:er</li>
+          </ol>
+
+          <div class="cta">
+            <h3>Behöver ni hjälp med AI-compliance?</h3>
+            <p>Adorable hjälper företag att implementera AI på ett sätt som respekterar både GDPR och AI Act. Vi skapar policyer, utbildar personal och säkerställer compliant användning.</p>
+            <a href="/kontakt" class="button">Boka ett samtal →</a>
+          </div>
+
+          <p class="published-date"><em>Publicerad: 28 januari 2026</em></p>
+        </div>
+      </div>
+
+      <Footer />
+    </article>
+  </main>
+</Layout>
+
+<style>
+  main {
+    background: #fff;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hero {
+    padding: 8rem 0 4rem;
+  }
+
+  .meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: #666;
+  }
+
+  .category {
+    font-weight: 500;
+    color: #000;
+  }
+
+  .title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+    line-height: 1.2;
+    color: #000;
+  }
+
+  .intro {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+  }
+
+  .content {
+    padding-bottom: 6rem;
+  }
+
+  .content h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 3rem 0 1.5rem;
+    color: #000;
+  }
+
+  .content h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+    color: #000;
+  }
+
+  .content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+    margin: 0 0 1.5rem;
+  }
+
+  .content ul, .content ol {
+    margin: 0 0 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .content strong {
+    color: #000;
+    font-weight: 600;
+  }
+
+  .cta {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+  }
+
+  .cta h3 {
+    margin-top: 0;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+
+  .button:hover {
+    opacity: 0.8;
+  }
+
+  .published-date {
+    margin-top: 4rem;
+    color: #666;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 4rem 0 2rem;
+    }
+  }
+</style>

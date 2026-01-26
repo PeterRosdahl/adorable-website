@@ -1,0 +1,362 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout 
+  title="ChatGPT vs Claude vs Gemini: Vilken AI passar ditt företag? | Adorable"
+  description="En ärlig jämförelse av de tre största AI-assistenterna. Styrkor, svagheter och vilket som passar bäst för olika användningsfall."
+>
+  <main>
+    <article>
+      <header class="hero">
+        <div class="container">
+          <div class="meta">
+            <span class="category">AI-transformation</span>
+          </div>
+          <h1 class="title">ChatGPT vs Claude vs Gemini: Vilken AI passar ditt företag?</h1>
+          <p class="intro">Det finns dussintals AI-assistenter på marknaden, men tre dominerar företagsanvändning: OpenAI:s ChatGPT, Anthropics Claude och Googles Gemini. Här är en ärlig jämförelse.</p>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="container">
+          <h2>Snabb sammanfattning</h2>
+          <p>Har du bråttom? Här är kortversionen:</p>
+          
+          <ul>
+            <li><strong>ChatGPT:</strong> Bäst på kodning, kreativt skrivande och integration med andra verktyg</li>
+            <li><strong>Claude:</strong> Bäst på långa dokument, analys och noggrannhet</li>
+            <li><strong>Gemini:</strong> Bäst om ni redan använder Google Workspace</li>
+          </ul>
+
+          <p>Läs vidare för detaljerna.</p>
+
+          <h2>ChatGPT (OpenAI)</h2>
+          <p>Pionjären som startade AI-boomen. Fortfarande det mest använda verktyget.</p>
+
+          <h3>Styrkor</h3>
+          <ul>
+            <li><strong>Kodning:</strong> Överlägsen på programmering och tekniska uppgifter</li>
+            <li><strong>Kreativt skrivande:</strong> Bra på att generera idéer och variationer</li>
+            <li><strong>Ekosystem:</strong> Störst utbud av plugins, integrationer och GPT:er</li>
+            <li><strong>Snabb utveckling:</strong> Nya funktioner släpps kontinuerligt</li>
+            <li><strong>Bildgenerering:</strong> Inbyggd DALL-E för bildkapning</li>
+          </ul>
+
+          <h3>Svagheter</h3>
+          <ul>
+            <li><strong>Hallucinationer:</strong> Kan hitta på fakta med stor självsäkerhet</li>
+            <li><strong>Långa dokument:</strong> Tappar fokus i längre texter</li>
+            <li><strong>Integritetsfrågor:</strong> OpenAI använder data för träning (kan stängas av)</li>
+          </ul>
+
+          <h3>Priser (2026)</h3>
+          <ul>
+            <li><strong>Gratis:</strong> Begränsad användning av GPT-4o</li>
+            <li><strong>Plus:</strong> $20/månad – Obegränsad GPT-4o, bildgenerering</li>
+            <li><strong>Team:</strong> $25/användare/månad – Företagsversion med admin</li>
+            <li><strong>Enterprise:</strong> Offertbaserat – SSO, avancerad säkerhet, SLA</li>
+          </ul>
+
+          <h3>Bäst för</h3>
+          <p>Teknikföretag, utvecklare, kreativa byråer, företag som vill ha bredaste möjliga funktionalitet.</p>
+
+          <h2>Claude (Anthropic)</h2>
+          <p>Utmanaren som fokuserar på säkerhet, noggrannhet och långa dokument.</p>
+
+          <h3>Styrkor</h3>
+          <ul>
+            <li><strong>Långa dokument:</strong> Kan hantera 200 000+ tokens – hela böcker</li>
+            <li><strong>Analys:</strong> Utmärkt på att sammanfatta och analysera komplex information</li>
+            <li><strong>Noggrannhet:</strong> Färre hallucinationer, mer ärlig om osäkerhet</li>
+            <li><strong>Skrivstil:</strong> Mer naturligt, mindre "AI-aktigt" språk</li>
+            <li><strong>Säkerhetsfokus:</strong> Byggt med "constitutional AI" för säkrare svar</li>
+          </ul>
+
+          <h3>Svagheter</h3>
+          <ul>
+            <li><strong>Mindre ekosystem:</strong> Färre integrationer och plugins</li>
+            <li><strong>Ingen bildgenerering:</strong> Kan analysera bilder men inte skapa</li>
+            <li><strong>Ibland för försiktig:</strong> Kan vägra hjälpa med harmlösa förfrågningar</li>
+          </ul>
+
+          <h3>Priser (2026)</h3>
+          <ul>
+            <li><strong>Gratis:</strong> Begränsad användning</li>
+            <li><strong>Pro:</strong> $20/månad – Mer användning, Claude 3.5 Sonnet prioriterat</li>
+            <li><strong>Team:</strong> $25/användare/månad – Företagsfunktioner</li>
+            <li><strong>Enterprise:</strong> Offertbaserat – SSO, SAML, SLA</li>
+          </ul>
+
+          <h3>Bäst för</h3>
+          <p>Juridik, finans, konsulter, research – alla som arbetar med långa dokument och kräver hög noggrannhet.</p>
+
+          <h2>Gemini (Google)</h2>
+          <p>Googles svar på ChatGPT, tight integrerat med Google-ekosystemet.</p>
+
+          <h3>Styrkor</h3>
+          <ul>
+            <li><strong>Google-integration:</strong> Sömlöst med Docs, Sheets, Gmail, Meet</li>
+            <li><strong>Multimodal:</strong> Stark på att kombinera text, bild och video</li>
+            <li><strong>Realtidsdata:</strong> Direkt tillgång till Google Search</li>
+            <li><strong>Gratis nivå:</strong> Generöst gratisutbud</li>
+          </ul>
+
+          <h3>Svagheter</h3>
+          <ul>
+            <li><strong>Inkonsekvent kvalitet:</strong> Varierar mer mellan uppgifter</li>
+            <li><strong>Mindre populär:</strong> Färre community-resurser och tips</li>
+            <li><strong>Google-beroende:</strong> Bäst om ni redan är i Googles ekosystem</li>
+          </ul>
+
+          <h3>Priser (2026)</h3>
+          <ul>
+            <li><strong>Gratis:</strong> Grundläggande Gemini</li>
+            <li><strong>Gemini Advanced:</strong> Ingår i Google One AI Premium ($19.99/månad)</li>
+            <li><strong>Workspace:</strong> Ingår i Google Workspace-planer (varierar)</li>
+          </ul>
+
+          <h3>Bäst för</h3>
+          <p>Företag som redan använder Google Workspace och vill ha sömlös integration.</p>
+
+          <h2>Jämförelse: Vanliga användningsfall</h2>
+
+          <h3>Skriva marknadsföringsmaterial</h3>
+          <ul>
+            <li><strong>Vinnare: ChatGPT</strong> – Mest kreativ, bäst på variation och idégenerering</li>
+            <li>Claude kommer tvåa med mer naturligt språk</li>
+          </ul>
+
+          <h3>Analysera dokument och rapporter</h3>
+          <ul>
+            <li><strong>Vinnare: Claude</strong> – Hanterar längst dokument, bäst på att hitta nyanser</li>
+            <li>ChatGPT fungerar för kortare dokument</li>
+          </ul>
+
+          <h3>Kodning och teknisk hjälp</h3>
+          <ul>
+            <li><strong>Vinnare: ChatGPT</strong> – Bäst på kod, debugging och teknisk problemlösning</li>
+            <li>Claude är också kapabel men ChatGPT har övertaget</li>
+          </ul>
+
+          <h3>E-post och daglig produktivitet</h3>
+          <ul>
+            <li><strong>Vinnare: Gemini</strong> (om ni använder Google) – Inbyggd i Gmail/Docs</li>
+            <li>Annars jämt mellan ChatGPT och Claude</li>
+          </ul>
+
+          <h3>Research och faktainsamling</h3>
+          <ul>
+            <li><strong>Vinnare: Gemini</strong> – Direkttillgång till sökning</li>
+            <li>Claude med Projects-funktionen är också stark</li>
+          </ul>
+
+          <h3>Kundservice-svar och FAQ</h3>
+          <ul>
+            <li><strong>Vinnare: Claude</strong> – Mer empatisk ton, färre konstiga svar</li>
+            <li>ChatGPT är också kapabel</li>
+          </ul>
+
+          <h2>Säkerhet och dataskydd</h2>
+          <p>Kritiskt för företagsanvändning. Så hanterar de tre leverantörerna data:</p>
+
+          <h3>ChatGPT/OpenAI</h3>
+          <ul>
+            <li>Team/Enterprise: Data används EJ för träning</li>
+            <li>SOC 2 Type II-certifierad</li>
+            <li>SSO och SCIM för Enterprise</li>
+            <li>Data lagras i USA</li>
+          </ul>
+
+          <h3>Claude/Anthropic</h3>
+          <ul>
+            <li>Företagsplaner: Data används EJ för träning</li>
+            <li>SOC 2 Type II-certifierad</li>
+            <li>30 dagars dataretention (kan justeras)</li>
+            <li>Data lagras i USA</li>
+          </ul>
+
+          <h3>Gemini/Google</h3>
+          <ul>
+            <li>Workspace-versionen: Data används EJ för träning</li>
+            <li>Googles befintliga säkerhetscertifieringar gäller</li>
+            <li>EU-datalagring möjlig för Workspace-kunder</li>
+          </ul>
+
+          <p><strong>Viktig notering:</strong> Gratisversioner av alla tre kan använda din data för träning. Använd företagsversioner för känslig information.</p>
+
+          <h2>Rekommendation: Hur väljer man?</h2>
+          
+          <p><strong>Välj ChatGPT om:</strong></p>
+          <ul>
+            <li>Ni behöver kodhjälp eller teknisk support</li>
+            <li>Kreativt innehåll är prioritet</li>
+            <li>Ni vill ha bredast möjliga funktionalitet</li>
+            <li>Ni vill använda tredjepartsintegrationer</li>
+          </ul>
+
+          <p><strong>Välj Claude om:</strong></p>
+          <ul>
+            <li>Ni arbetar med långa dokument (avtal, rapporter, research)</li>
+            <li>Noggrannhet är viktigare än kreativitet</li>
+            <li>Ni är i en reglerad bransch (juridik, finans)</li>
+            <li>Ni vill ha mer naturligt språk</li>
+          </ul>
+
+          <p><strong>Välj Gemini om:</strong></p>
+          <ul>
+            <li>Ni redan använder Google Workspace fullt ut</li>
+            <li>Integration är viktigare än standalone-funktionalitet</li>
+            <li>Ni vill ha realtidsdata från webben</li>
+          </ul>
+
+          <h2>Eller: Använd flera</h2>
+          <p>Det finns inget som säger att ni måste välja ett. Många företag använder:</p>
+          <ul>
+            <li>ChatGPT för kreativt arbete och kodning</li>
+            <li>Claude för dokumentanalys och research</li>
+            <li>Gemini för daglig e-post och schemaläggning</li>
+          </ul>
+
+          <p>Kostnaden för att ha tillgång till flera verktyg är försumbar jämfört med produktivitetsvinsten.</p>
+
+          <h2>Framtiden</h2>
+          <p>AI-landskapet förändras snabbt. Denna jämförelse gäller för tidigt 2026, men kan vara inaktuell om sex månader. Följ utvecklingen och var beredd att byta om något bättre dyker upp.</p>
+
+          <div class="cta">
+            <h3>Osäker på vilket verktyg som passar er?</h3>
+            <p>Adorable hjälper företag att utvärdera och implementera rätt AI-verktyg för just era behov. Vi testar, jämför och rekommenderar baserat på er verksamhet.</p>
+            <a href="/kontakt" class="button">Boka en konsultation →</a>
+          </div>
+
+          <p class="published-date"><em>Publicerad: 28 januari 2026</em></p>
+        </div>
+      </div>
+
+      <Footer />
+    </article>
+  </main>
+</Layout>
+
+<style>
+  main {
+    background: #fff;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hero {
+    padding: 8rem 0 4rem;
+  }
+
+  .meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: #666;
+  }
+
+  .category {
+    font-weight: 500;
+    color: #000;
+  }
+
+  .title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+    line-height: 1.2;
+    color: #000;
+  }
+
+  .intro {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+  }
+
+  .content {
+    padding-bottom: 6rem;
+  }
+
+  .content h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 3rem 0 1.5rem;
+    color: #000;
+  }
+
+  .content h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+    color: #000;
+  }
+
+  .content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+    margin: 0 0 1.5rem;
+  }
+
+  .content ul, .content ol {
+    margin: 0 0 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .content strong {
+    color: #000;
+    font-weight: 600;
+  }
+
+  .cta {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+  }
+
+  .cta h3 {
+    margin-top: 0;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+
+  .button:hover {
+    opacity: 0.8;
+  }
+
+  .published-date {
+    margin-top: 4rem;
+    color: #666;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 4rem 0 2rem;
+    }
+  }
+</style>
