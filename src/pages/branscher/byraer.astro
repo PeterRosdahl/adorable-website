@@ -3,16 +3,31 @@ import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout 
-  title="Kreativa Byråer - White-Label Paid Social & AI-verktyg | Adorable"
-  description="White-label marknadsföring för byråer. Komplettera expertis med paid social, tracking och AI-transformation för era kunder."
+  title="Byråer - White-Label Paid Social & AI-verktyg | Adorable"
+  description="White-label marknadsföring för alla typer av byråer. Komplettera expertis med paid social, tracking och AI-transformation för era kunder."
 >
   <main>
     <section class="hero">
       <div class="container">
-        <h1 class="hero-title">Kreativa Byråer</h1>
+        <h1 class="hero-title">Byråer</h1>
         <p class="hero-intro">
-          Kreativa byråer är experter på storytelling och brand, men saknar ofta djup paid social-expertis. Utmaningen är att komplettera tjänsteutbudet utan att anställa heltid.
+          Oavsett om ni är en reklambyrå, designbyrå, kommunikationsbyrå, varumärkesbyrå, contentbyrå, PR-byrå eller PA-byrå – utmaningen är ofta densamma: att komplettera tjänsteutbudet med digital expertis utan att anställa heltid.
         </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Vilka byråer jobbar jag med?</h2>
+        <ul class="type-list">
+          <li><strong>Reklambyråer</strong> – kreativa kampanjer som behöver performance-muskler</li>
+          <li><strong>Designbyråer</strong> – visuell identitet som ska bevisa sitt värde digitalt</li>
+          <li><strong>Kommunikationsbyråer</strong> – strategisk rådgivning med behov av exekvering</li>
+          <li><strong>Varumärkesbyråer</strong> – brand building som ska synas i rätt kanaler</li>
+          <li><strong>Contentbyråer</strong> – innehåll som behöver distribution och mätning</li>
+          <li><strong>PR-byråer</strong> – earned media kombinerat med paid amplification</li>
+          <li><strong>PA-byråer</strong> – public affairs med digital opinion och påverkanskampanjer</li>
+        </ul>
       </div>
     </section>
 
@@ -25,6 +40,7 @@ import Layout from '../../layouts/Layout.astro';
           <li>White-label-partners som inte håller samma kvalitet</li>
           <li>Behöver bevisa ROI för kreativa koncept</li>
           <li>AI-verktyg förändrar kreativt arbete snabbt</li>
+          <li>Marginalpress gör det svårt att anställa fler specialister</li>
         </ul>
       </div>
     </section>
@@ -44,13 +60,18 @@ import Layout from '../../layouts/Layout.astro';
         </div>
 
         <div class="service">
-          <h3>AI-verktyg för Kreativa Team</h3>
-          <p>Implementera Midjourney, ChatGPT och andra verktyg i er process. Utbildning och integration utan att ersätta kreativiteten.</p>
+          <h3>AI-verktyg för Byråteam</h3>
+          <p>Implementera Midjourney, ChatGPT och andra verktyg i er process. Utbildning och integration utan att ersätta kreativiteten – för att förstärka den.</p>
         </div>
 
         <div class="service">
           <h3>Kompletterande Tracking-expertis</h3>
-          <p>Server-side tracking, GA4-setup och consent management. Teknisk kompetens som komplement till er kreativa styrka.</p>
+          <p>Server-side tracking, GA4-setup och consent management. Teknisk kompetens som komplement till er strategiska styrka.</p>
+        </div>
+
+        <div class="service">
+          <h3>Paid Amplification för PR & PA</h3>
+          <p>Förstärk earned media med betald räckvidd. Opinionsbildning och påverkanskampanjer som når rätt målgrupper vid rätt tidpunkt.</p>
         </div>
       </div>
     </section>
@@ -64,6 +85,8 @@ import Layout from '../../layouts/Layout.astro';
           <li>AI-workshops för creative teams</li>
           <li>Teknisk setup när byrån vinner nytt konto</li>
           <li>Sparring på strategiska pitchar och upplägg</li>
+          <li>Paid amplification för PR-kampanjer</li>
+          <li>Digital opinion för public affairs-uppdrag</li>
         </ul>
       </div>
     </section>
@@ -121,13 +144,13 @@ import Layout from '../../layouts/Layout.astro';
     color: #000;
   }
 
-  .challenge-list, .project-list {
+  .challenge-list, .project-list, .type-list {
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
-  .challenge-list li, .project-list li {
+  .challenge-list li, .project-list li, .type-list li {
     padding-left: 1.5rem;
     margin-bottom: 1rem;
     position: relative;
@@ -135,12 +158,16 @@ import Layout from '../../layouts/Layout.astro';
     color: #333;
   }
 
-  .challenge-list li::before, .project-list li::before {
+  .challenge-list li::before, .project-list li::before, .type-list li::before {
     content: '•';
     position: absolute;
     left: 0;
     color: #000;
     font-weight: bold;
+  }
+
+  .type-list li strong {
+    color: #000;
   }
 
   .service {

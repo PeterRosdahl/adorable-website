@@ -18,6 +18,22 @@ import Layout from '../../layouts/Layout.astro';
 
     <section class="section">
       <div class="container">
+        <h2 class="section-title">Vad är en startup vs scaleup?</h2>
+        <div class="definitions">
+          <div class="definition">
+            <h3>Startup</h3>
+            <p>Ett ungt företag som fortfarande söker efter en repeterbar och skalbar affärsmodell. Fokus ligger på att hitta product-market fit, validera hypoteser och bevisa att det finns en marknad. Oftast finansierat av grundare, angels eller tidiga VC-rundor (pre-seed, seed).</p>
+          </div>
+          <div class="definition">
+            <h3>Scaleup</h3>
+            <p>Ett företag som hittat product-market fit och nu fokuserar på att skala. Har bevisad affärsmodell, växer snabbt (typiskt 20%+ årligen) och investerar i att bygga organisation, processer och marknadsandelar. Ofta finansierat av Series A och framåt.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
         <h2 class="section-title">Branschens utmaningar</h2>
         <ul class="challenge-list">
           <li>Begränsad budget med höga förväntningar från investerare</li>
@@ -141,6 +157,37 @@ import Layout from '../../layouts/Layout.astro';
     left: 0;
     color: #000;
     font-weight: bold;
+  }
+
+  .definitions {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 600px) {
+    .definitions {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .definition {
+    padding: 1.5rem;
+    background: #fafafa;
+    border-left: 3px solid #000;
+  }
+
+  .definition h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem;
+    color: #000;
+  }
+
+  .definition p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #333;
+    margin: 0;
   }
 
   .service {
