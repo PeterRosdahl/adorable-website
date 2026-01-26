@@ -14,36 +14,154 @@ import Layout from '../layouts/Layout.astro';
 				<p class="hero-intro">
 					Jag jobbar med ett fåtal kunder i taget, oftast när saker är lite oklara. Mest av det jobbet sker nära verksamheten – hitta rätt riktning, höja kvaliteten, och hjälpa team att fatta bättre beslut innan de blir dyra.
 				</p>
+				<div class="hero-cta">
+					<a href="/kontakt" class="cta-primary">Kontakta mig</a>
+					<a href="/tjanster" class="cta-secondary">Se tjänster</a>
+				</div>
 			</div>
 		</section>
 
-		<!-- Services -->
-		<section class="section services">
+		<!-- Varför -->
+		<section class="section why-section">
 			<div class="container">
-				<div class="service-item">
-					<h2><a href="/ai-transformation">AI-transformation →</a></h2>
-					<p>Workshops, utbildning och implementering. Hjälper organisationer att börja använda AI på riktigt – inte bara prata om det.</p>
+				<h2 class="section-title">Varför Adorable?</h2>
+				<div class="why-grid">
+					<div class="why-item">
+						<h3>Senior expertis</h3>
+						<p>Över 10 års erfarenhet av digital marknadsföring och affärsutveckling. Jag har sett vad som fungerar – och vad som inte gör det.</p>
+					</div>
+					<div class="why-item">
+						<h3>Praktiskt fokus</h3>
+						<p>Ingen fluff eller buzzwords. Konkreta lösningar som går att implementera direkt, anpassade efter er verklighet.</p>
+					</div>
+					<div class="why-item">
+						<h3>Flexibelt upplägg</h3>
+						<p>Workshops, rådgivning, hands-on implementering – eller en kombination. Vi anpassar efter vad ni behöver.</p>
+					</div>
 				</div>
+			</div>
+		</section>
 
-				<div class="service-item">
-					<h2><a href="/paid-social">Paid Social →</a></h2>
-					<p>Meta, LinkedIn, TikTok, YouTube. Strategi, uppsättning, optimering för både B2B och B2C. Fokus på resultat som går att mäta.</p>
+		<!-- Tjänster -->
+		<section class="section services-section">
+			<div class="container">
+				<h2 class="section-title">Två spår</h2>
+				<div class="services-grid">
+					<div class="service-card">
+						<h3>AI-transformation</h3>
+						<p>Hjälper företag att börja använda AI på riktigt. Workshops, strategi, implementering och utbildning.</p>
+						<ul>
+							<li>Identifiera var AI skapar värde</li>
+							<li>Utbilda teamet</li>
+							<li>Implementera rätt verktyg</li>
+							<li>Skapa AI-policy</li>
+						</ul>
+						<a href="/ai-transformation" class="service-link">Läs mer →</a>
+					</div>
+					<div class="service-card">
+						<h3>Paid Social</h3>
+						<p>Digital annonsering som driver resultat. Meta, LinkedIn, TikTok, YouTube och fler plattformar.</p>
+						<ul>
+							<li>Strategi och planering</li>
+							<li>Kampanjuppsättning</li>
+							<li>Löpande optimering</li>
+							<li>Rapportering och analys</li>
+						</ul>
+						<a href="/paid-social" class="service-link">Läs mer →</a>
+					</div>
 				</div>
+			</div>
+		</section>
+
+		<!-- Så jobbar jag -->
+		<section class="section process-section">
+			<div class="container">
+				<h2 class="section-title">Så jobbar jag</h2>
+				<div class="process-steps">
+					<div class="process-step">
+						<span class="step-number">1</span>
+						<h3>Samtal</h3>
+						<p>Vi börjar med ett samtal för att förstå er situation, utmaningar och mål. Ingen kostnad, ingen förbindelse.</p>
+					</div>
+					<div class="process-step">
+						<span class="step-number">2</span>
+						<h3>Förslag</h3>
+						<p>Jag återkommer med ett konkret förslag på upplägg, tidsplan och kostnad. Tydligt och transparent.</p>
+					</div>
+					<div class="process-step">
+						<span class="step-number">3</span>
+						<h3>Genomförande</h3>
+						<p>Vi kör igång. Jag håller er uppdaterade och anpassar efter behov. Fokus på resultat, inte timmar.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Branscher -->
+		<section class="section industries-section">
+			<div class="container">
+				<h2 class="section-title">Branscher jag arbetar med</h2>
+				<p class="section-intro">Jag jobbar med både B2B- och B2C-företag i olika branscher. Några exempel:</p>
+				<div class="industries-list">
+					<span class="industry-tag">Kreativa byråer</span>
+					<span class="industry-tag">Techbolag</span>
+					<span class="industry-tag">Byggföretag</span>
+					<span class="industry-tag">Försäkring</span>
+					<span class="industry-tag">Utbildning</span>
+					<span class="industry-tag">Fastigheter</span>
+					<span class="industry-tag">FMCG</span>
+					<span class="industry-tag">Startups</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- Artiklar -->
+		<section class="section articles-section">
+			<div class="container">
+				<h2 class="section-title">Från bloggen</h2>
+				<div class="articles-grid">
+					<a href="/artiklar/sa-kommer-du-igang-med-ai-pa-foretaget" class="article-card">
+						<span class="article-category">AI-transformation</span>
+						<h3>Så kommer du igång med AI på företaget</h3>
+						<p>En praktisk guide för att börja använda AI i verksamheten.</p>
+					</a>
+					<a href="/artiklar/chatgpt-vs-claude-vs-gemini" class="article-card">
+						<span class="article-category">AI-transformation</span>
+						<h3>ChatGPT vs Claude vs Gemini</h3>
+						<p>Vilken AI-assistent passar ditt företag bäst?</p>
+					</a>
+					<a href="/artiklar/budgetera-for-paid-social" class="article-card">
+						<span class="article-category">Paid Social</span>
+						<h3>Budgetera för paid social</h3>
+						<p>En praktisk modell för att sätta rätt annonsbudget.</p>
+					</a>
+				</div>
+				<a href="/artiklar" class="articles-link">Se alla artiklar →</a>
 			</div>
 		</section>
 
 		<!-- Kontakt -->
-		<section class="section section-contact">
+		<section class="section contact-section">
 			<div class="container">
-				<h2 class="section-title">Kontakt</h2>
+				<h2 class="section-title">Låt oss prata</h2>
+				<p class="contact-intro">Har du en utmaning eller bara vill bolla idéer? Hör av dig – jag svarar oftast inom ett par timmar.</p>
 				<div class="contact-info">
-					<p class="contact-name">Peter Rosdahl</p>
-					<p><a href="mailto:peter@adorable.se" class="contact-link">peter@adorable.se</a></p>
-					<p><a href="tel:+46708235787" class="contact-link">+46 70 823 57 87</a></p>
+					<div class="contact-method">
+						<span class="contact-label">Email</span>
+						<a href="mailto:peter@adorable.se">peter@adorable.se</a>
+					</div>
+					<div class="contact-method">
+						<span class="contact-label">Telefon</span>
+						<a href="tel:+46708235787">+46 70 823 57 87</a>
+					</div>
+					<div class="contact-method">
+						<span class="contact-label">Plats</span>
+						<span>Stockholm, Sverige</span>
+					</div>
 				</div>
+				<a href="/kontakt" class="contact-button">Skicka meddelande</a>
 			</div>
 		</section>
-
 	</main>
 </Layout>
 
@@ -54,14 +172,18 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.container {
-		max-width: 760px;
+		max-width: 900px;
 		margin: 0 auto;
 		padding: 0 2rem;
 	}
 
 	/* Hero */
 	.hero {
-		padding: 8rem 0 4rem;
+		padding: 8rem 0 6rem;
+	}
+
+	.hero .container {
+		max-width: 760px;
 	}
 
 	.hero-title {
@@ -75,104 +197,349 @@ import Layout from '../layouts/Layout.astro';
 	.hero-intro {
 		font-size: clamp(1.1rem, 2vw, 1.25rem);
 		line-height: 1.7;
-		margin-bottom: 1.5rem;
-		color: #000;
+		margin-bottom: 2rem;
+		color: #333;
 	}
 
-	/* Section */
+	.hero-cta {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.cta-primary {
+		padding: 1rem 2rem;
+		background: #000;
+		color: #fff;
+		text-decoration: none;
+		font-weight: 600;
+		border-radius: 6px;
+		transition: opacity 0.2s;
+	}
+
+	.cta-primary:hover {
+		opacity: 0.85;
+	}
+
+	.cta-secondary {
+		padding: 1rem 2rem;
+		background: transparent;
+		color: #000;
+		text-decoration: none;
+		font-weight: 600;
+		border: 2px solid #000;
+		border-radius: 6px;
+		transition: background 0.2s, color 0.2s;
+	}
+
+	.cta-secondary:hover {
+		background: #000;
+		color: #fff;
+	}
+
+	/* Sections */
 	.section {
-		padding: 6rem 0;
+		padding: 5rem 0;
 		border-top: 1px solid #e5e5e5;
 	}
 
 	.section-title {
 		font-size: clamp(1.5rem, 3vw, 2rem);
-		font-weight: 700;
-		margin: 0 0 1.5rem;
+		font-weight: 600;
+		margin: 0 0 2rem;
 		color: #000;
 	}
 
-	/* Services */
-	.services {
-		background: #fff;
+	.section-intro {
+		color: #666;
+		margin-bottom: 1.5rem;
+		font-size: 1.1rem;
 	}
 
-	.service-item {
-		margin-bottom: 3rem;
-		padding-bottom: 3rem;
-		border-bottom: 1px solid #e5e5e5;
+	/* Why section */
+	.why-grid {
+		display: grid;
+		gap: 2rem;
 	}
 
-	.service-item:last-child {
-		border-bottom: none;
-		margin-bottom: 0;
-		padding-bottom: 0;
+	@media (min-width: 600px) {
+		.why-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
 	}
 
-	.service-item h2 {
-		font-size: clamp(1.5rem, 3vw, 2rem);
-		font-weight: 700;
-		margin: 0 0 1rem;
+	.why-item h3 {
+		font-size: 1.125rem;
+		font-weight: 600;
+		margin: 0 0 0.75rem;
 	}
 
-	.service-item h2 a {
-		color: #000;
-		text-decoration: none;
-		transition: opacity 0.2s;
-	}
-
-	.service-item h2 a:hover {
-		opacity: 0.7;
-	}
-
-	.service-item p {
-		font-size: clamp(1rem, 2vw, 1.125rem);
-		line-height: 1.7;
-		color: #333;
+	.why-item p {
+		color: #666;
+		line-height: 1.6;
 		margin: 0;
 	}
 
-	/* Contact */
-	.section-contact {
+	/* Services section */
+	.services-grid {
+		display: grid;
+		gap: 2rem;
+	}
+
+	@media (min-width: 600px) {
+		.services-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	.service-card {
+		padding: 2rem;
+		border: 1px solid #e5e5e5;
+		border-radius: 8px;
+	}
+
+	.service-card h3 {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin: 0 0 1rem;
+	}
+
+	.service-card p {
+		color: #666;
+		line-height: 1.6;
+		margin: 0 0 1rem;
+	}
+
+	.service-card ul {
+		margin: 0 0 1.5rem;
+		padding-left: 1.25rem;
+		color: #333;
+	}
+
+	.service-card li {
+		margin-bottom: 0.5rem;
+	}
+
+	.service-link {
+		color: #000;
+		font-weight: 600;
+		text-decoration: none;
+		border-bottom: 2px solid #000;
+		padding-bottom: 2px;
+		transition: opacity 0.2s;
+	}
+
+	.service-link:hover {
+		opacity: 0.7;
+	}
+
+	/* Process section */
+	.process-section {
+		background: #fafafa;
+	}
+
+	.process-steps {
+		display: grid;
+		gap: 2rem;
+	}
+
+	@media (min-width: 600px) {
+		.process-steps {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	.process-step {
+		text-align: center;
+	}
+
+	.step-number {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 48px;
+		height: 48px;
+		background: #000;
+		color: #fff;
+		font-weight: 600;
+		font-size: 1.25rem;
+		border-radius: 50%;
+		margin-bottom: 1rem;
+	}
+
+	.process-step h3 {
+		font-size: 1.125rem;
+		font-weight: 600;
+		margin: 0 0 0.75rem;
+	}
+
+	.process-step p {
+		color: #666;
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	/* Industries section */
+	.industries-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+	}
+
+	.industry-tag {
+		padding: 0.5rem 1rem;
+		background: #f5f5f5;
+		border-radius: 20px;
+		font-size: 0.95rem;
+		color: #333;
+	}
+
+	/* Articles section */
+	.articles-grid {
+		display: grid;
+		gap: 1.5rem;
+		margin-bottom: 2rem;
+	}
+
+	@media (min-width: 600px) {
+		.articles-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	.article-card {
+		padding: 1.5rem;
+		border: 1px solid #e5e5e5;
+		border-radius: 8px;
+		text-decoration: none;
+		color: inherit;
+		transition: border-color 0.2s, transform 0.2s;
+	}
+
+	.article-card:hover {
+		border-color: #000;
+		transform: translateY(-2px);
+	}
+
+	.article-category {
+		font-size: 0.85rem;
+		color: #666;
+		font-weight: 500;
+	}
+
+	.article-card h3 {
+		font-size: 1.125rem;
+		font-weight: 600;
+		margin: 0.5rem 0;
+		color: #000;
+	}
+
+	.article-card p {
+		font-size: 0.95rem;
+		color: #666;
+		line-height: 1.5;
+		margin: 0;
+	}
+
+	.articles-link {
+		color: #000;
+		font-weight: 600;
+		text-decoration: none;
+		border-bottom: 2px solid #000;
+		padding-bottom: 2px;
+		transition: opacity 0.2s;
+	}
+
+	.articles-link:hover {
+		opacity: 0.7;
+	}
+
+	/* Contact section */
+	.contact-section {
 		background: #000;
 		color: #fff;
 		border-top: none;
 	}
 
-	.section-contact .section-title {
+	.contact-section .section-title {
 		color: #fff;
+	}
+
+	.contact-intro {
+		color: rgba(255, 255, 255, 0.8);
+		font-size: 1.1rem;
+		margin-bottom: 2rem;
 	}
 
 	.contact-info {
-		max-width: 500px;
-		font-size: 1.125rem;
+		display: grid;
+		gap: 1.5rem;
+		margin-bottom: 2rem;
 	}
 
-	.contact-name {
-		font-size: 1.5rem;
-		font-weight: 600;
-		margin-bottom: 1rem;
+	@media (min-width: 600px) {
+		.contact-info {
+			grid-template-columns: repeat(3, 1fr);
+		}
 	}
 
-	.contact-link {
+	.contact-method {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.contact-label {
+		font-size: 0.85rem;
+		color: rgba(255, 255, 255, 0.6);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.contact-method a,
+	.contact-method span:not(.contact-label) {
 		color: #fff;
 		text-decoration: none;
-		border-bottom: 1px solid #fff;
+		font-size: 1.1rem;
+	}
+
+	.contact-method a:hover {
+		text-decoration: underline;
+	}
+
+	.contact-button {
+		display: inline-block;
+		padding: 1rem 2rem;
+		background: #fff;
+		color: #000;
+		text-decoration: none;
+		font-weight: 600;
+		border-radius: 6px;
 		transition: opacity 0.2s;
 	}
 
-	.contact-link:hover {
-		opacity: 0.7;
+	.contact-button:hover {
+		opacity: 0.9;
 	}
 
 	/* Responsive */
 	@media (max-width: 768px) {
 		.hero {
-			padding: 4rem 0 2rem;
+			padding: 4rem 0 3rem;
 		}
 
 		.section {
-			padding: 4rem 0;
+			padding: 3rem 0;
+		}
+
+		.process-step {
+			text-align: left;
+		}
+
+		.step-number {
+			width: 40px;
+			height: 40px;
+			font-size: 1rem;
 		}
 	}
 </style>
