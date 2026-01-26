@@ -61,6 +61,7 @@ import Layout from '../layouts/Layout.astro';
 					</div>
 
 					<button type="submit" class="submit-button">Skicka meddelande</button>
+					<p class="form-privacy">Dina uppgifter används endast för att svara på din förfrågan och delas inte med tredje part.</p>
 				</form>
 			</div>
 		</section>
@@ -210,6 +211,12 @@ import Layout from '../layouts/Layout.astro';
 
 	.submit-button:hover {
 		opacity: 0.85;
+	}
+
+	.form-privacy {
+		font-size: 0.85rem;
+		color: #666;
+		margin-top: 1rem;
 	}
 
 	/* Contact methods */
