@@ -13,9 +13,9 @@ const currentPath = Astro.url.pathname;
     </button>
     
     <ul class="nav-links">
-      <li><a href="/ai-transformation" class={currentPath === '/ai-transformation' ? 'active' : ''}>AI-transformation</a></li>
-      <li><a href="/paid-social" class={currentPath === '/paid-social' ? 'active' : ''}>Paid Social</a></li>
+      <li><a href="/" class={currentPath === '/' ? 'active' : ''}>Start</a></li>
       <li><a href="/om" class={currentPath === '/om' ? 'active' : ''}>Om</a></li>
+      <li><a href="/tjanster" class={currentPath.startsWith('/tjanster') ? 'active' : ''}>Tjänster</a></li>
       <li><a href="/kontakt" class={currentPath === '/kontakt' ? 'active' : ''}>Kontakt</a></li>
     </ul>
   </div>
