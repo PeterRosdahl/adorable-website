@@ -4,14 +4,23 @@
     <div class="newsletter-section">
       <h3 class="newsletter-heading">Prenumerera på nyhetsbrevet</h3>
       <p class="newsletter-tagline">Få tips om AI-transformation och digital marknadsföring direkt i inboxen.</p>
-      <iframe 
-        src="https://pr.substack.com/embed" 
-        width="100%" 
-        height="80" 
-        style="border:none; background:transparent;" 
-        frameborder="0" 
-        scrolling="no"
-      ></iframe>
+      <form 
+        class="newsletter-form" 
+        action="https://pr.substack.com/api/v1/free?nojs=true" 
+        method="POST"
+        target="_blank"
+      >
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="Din e-postadress" 
+          required 
+          class="newsletter-input"
+        />
+        <input type="hidden" name="first_url" value="https://adorable.se/" />
+        <input type="hidden" name="first_referrer" value="" />
+        <button type="submit" class="newsletter-button">Prenumerera</button>
+      </form>
     </div>
 
     <!-- Bottom Section -->
