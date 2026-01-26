@@ -1,21 +1,21 @@
 ---
-import Navigation from '../components/Navigation.astro';
-import Footer from '../components/Footer.astro';
+import NavigationEn from '../components/Navigation-en.astro';
+import FooterEn from '../components/Footer-en.astro';
 
 interface Props {
 	title: string;
 	description: string;
 	ogImage?: string;
-	englishPath?: string;
+	swedishPath?: string;
 }
 
-const { title, description, ogImage = '/og-image.jpg', englishPath } = Astro.props;
+const { title, description, ogImage = '/og-image.jpg', swedishPath = '/' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const swedishPath = Astro.url.pathname;
+const englishPath = Astro.url.pathname.replace('/en', '') || '/';
 ---
 
 <!doctype html>
-<html lang="sv">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,13 +28,9 @@ const swedishPath = Astro.url.pathname;
 		<link rel="canonical" href={canonicalURL} />
 		
 		<!-- Hreflang Tags -->
-		{englishPath && (
-			<>
-				<link rel="alternate" hreflang="sv" href={`https://adorable.se${swedishPath}`} />
-				<link rel="alternate" hreflang="en" href={`https://adorable.se${englishPath}`} />
-				<link rel="alternate" hreflang="x-default" href={`https://adorable.se${swedishPath}`} />
-			</>
-		)}
+		<link rel="alternate" hreflang="sv" href={`https://adorable.se${swedishPath}`} />
+		<link rel="alternate" hreflang="en" href={`https://adorable.se${Astro.url.pathname}`} />
+		<link rel="alternate" hreflang="x-default" href={`https://adorable.se${swedishPath}`} />
 		
 		<!-- Google Search Console Verification -->
 		<meta name="google-site-verification" content="adcqv8TZQSccrHknOJPPtFdt18C5USmNfa1iBagVNaM" />
@@ -45,7 +41,7 @@ const swedishPath = Astro.url.pathname;
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={new URL(ogImage, Astro.site)} />
-		<meta property="og:locale" content="sv_SE" />
+		<meta property="og:locale" content="en_US" />
 		
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
@@ -72,8 +68,8 @@ const swedishPath = Astro.url.pathname;
 				"@context": "https://schema.org",
 				"@type": "ProfessionalService",
 				"name": "Adorable",
-				"description": "AI-transformation och Paid Social konsulttjänster",
-				"url": "https://adorable.se",
+				"description": "AI transformation and Paid Social consulting services",
+				"url": "https://adorable.se/en/",
 				"telephone": "+46708235787",
 				"email": "peter@adorable.se",
 				"address": {
@@ -84,8 +80,8 @@ const swedishPath = Astro.url.pathname;
 				"founder": {
 					"@type": "Person",
 					"name": "Peter Rosdahl",
-					"jobTitle": "Konsult - AI-transformation och Paid Social",
-					"url": "https://adorable.se/om",
+					"jobTitle": "Consultant - AI Transformation and Paid Social",
+					"url": "https://adorable.se/en/about",
 					"sameAs": [
 						"https://x.com/PeterRosdahl",
 						"https://www.linkedin.com/in/peterrosdahl",
@@ -94,16 +90,16 @@ const swedishPath = Astro.url.pathname;
 				},
 				"areaServed": {
 					"@type": "Country",
-					"name": "Sverige"
+					"name": "Sweden"
 				},
-				"serviceType": ["AI-transformation", "Paid Social Marketing", "Digital Marknadsföring"]
+				"serviceType": ["AI Transformation", "Paid Social Marketing", "Digital Marketing"]
 			}
 		</script>
 	</head>
 	<body>
-		<Navigation />
+		<NavigationEn />
 		<slot />
-		<Footer />
+		<FooterEn />
 	</body>
 </html>
 

@@ -1,90 +1,90 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout-en.astro';
 ---
 
 <Layout 
-	title="Kontakt – Adorable"
-	description="Hör av dig för en diskussion om AI-transformation eller paid social. Email: peter@adorable.se, Telefon: +46 70 823 57 87. Baserat i Stockholm."
-	englishPath="/en/contact"
+	title="Contact – Adorable"
+	description="Get in touch for a discussion about AI transformation or paid social. Email: peter@adorable.se, Phone: +46 70 823 57 87. Based in Stockholm, Sweden."
+	swedishPath="/kontakt"
 >
 	<main>
 		<section class="hero">
 			<div class="container">
-				<h1 class="hero-title">Låt oss prata.</h1>
+				<h1 class="hero-title">Let's talk.</h1>
 				<p class="hero-intro">
-					Oavsett om du har en konkret utmaning eller bara vill bolla idéer – hör av dig. 
-					Jag svarar oftast inom ett par timmar.
+					Whether you have a specific challenge or just want to bounce ideas – reach out. 
+					I usually respond within a few hours.
 				</p>
 			</div>
 		</section>
 
 		<section class="section form-section">
 			<div class="container">
-				<h2 class="section-title">Skicka ett meddelande</h2>
+				<h2 class="section-title">Send a message</h2>
 				<form 
 					class="contact-form" 
 					action="https://api.web3forms.com/submit" 
 					method="POST"
 				>
 					<input type="hidden" name="access_key" value="658f2386-7125-4653-b0ac-5d725aeab234" />
-					<input type="hidden" name="subject" value="Nytt meddelande från adorable.se" />
-					<input type="hidden" name="redirect" value="https://adorable.se/kontakt?success=true" />
+					<input type="hidden" name="subject" value="New message from adorable.se (English)" />
+					<input type="hidden" name="redirect" value="https://adorable.se/en/contact?success=true" />
 					<div class="form-group">
-						<label for="name">Namn</label>
+						<label for="name">Name</label>
 						<input type="text" id="name" name="name" required />
 					</div>
 
 					<div class="form-group">
-						<label for="email">E-post</label>
+						<label for="email">Email</label>
 						<input type="email" id="email" name="email" required />
 					</div>
 
 					<div class="form-group">
-						<label for="company">Företag <span class="optional">(valfritt)</span></label>
+						<label for="company">Company <span class="optional">(optional)</span></label>
 						<input type="text" id="company" name="company" />
 					</div>
 
 					<div class="form-group">
-						<label for="interest">Vad är du intresserad av?</label>
+						<label for="interest">What are you interested in?</label>
 						<select id="interest" name="interest" required>
-							<option value="">Välj ett alternativ</option>
-							<option value="ai-transformation">AI-transformation</option>
+							<option value="">Select an option</option>
+							<option value="ai-transformation">AI Transformation</option>
 							<option value="paid-social">Paid Social</option>
-							<option value="both">Både och</option>
-							<option value="other">Annat</option>
+							<option value="both">Both</option>
+							<option value="other">Other</option>
 						</select>
 					</div>
 
 					<div class="form-group">
-						<label for="message">Meddelande</label>
-						<textarea id="message" name="message" rows="5" required placeholder="Berätta kort om er situation och vad ni behöver hjälp med..."></textarea>
+						<label for="message">Message</label>
+						<textarea id="message" name="message" rows="5" required placeholder="Tell me briefly about your situation and what you need help with..."></textarea>
 					</div>
 
-					<button type="submit" class="submit-button">Skicka meddelande</button>
+					<button type="submit" class="submit-button">Send message</button>
 				</form>
 			</div>
 		</section>
 
 		<section class="section">
 			<div class="container">
-				<h2 class="section-title">Eller kontakta mig direkt</h2>
+				<h2 class="section-title">Or contact me directly</h2>
 				<div class="contact-methods">
 					<div class="method">
 						<h3>📧 Email</h3>
 						<p><a href="mailto:peter@adorable.se">peter@adorable.se</a></p>
-						<p class="method-note">Bäst för längre frågor eller om du vill bifoga material.</p>
+						<p class="method-note">Best for longer questions or if you want to attach materials.</p>
 					</div>
 
 					<div class="method">
-						<h3>📱 Telefon</h3>
+						<h3>📱 Phone</h3>
 						<p><a href="tel:+46708235787">+46 70 823 57 87</a></p>
-						<p class="method-note">Ring eller skicka SMS. Jag ringer tillbaka om jag inte kan svara.</p>
+						<p class="method-note">Call or text. I'll call back if I can't answer.</p>
 					</div>
 
 					<div class="method">
-						<h3>📍 Plats</h3>
-						<p>Stockholm, Sverige</p>
-						<p class="method-note">Möten på plats eller digitalt – vad som passar dig.</p>
+						<h3>📍 Location</h3>
+						<p>Stockholm, Sweden</p>
+						<p class="method-note">Meetings in person or online – whatever suits you.</p>
 					</div>
 				</div>
 			</div>
@@ -92,8 +92,8 @@ import Layout from '../layouts/Layout.astro';
 
 		<section class="section social">
 			<div class="container">
-				<h2 class="section-title">Följ mig</h2>
-				<p class="social-intro">Jag delar tankar om AI, marknadsföring och tech på sociala medier.</p>
+				<h2 class="section-title">Follow me</h2>
+				<p class="social-intro">I share thoughts on AI, marketing and tech on social media.</p>
 				<div class="social-links">
 					<a href="https://x.com/PeterRosdahl" target="_blank" class="social-link">X (Twitter)</a>
 					<a href="https://www.linkedin.com/in/peterrosdahl" target="_blank" class="social-link">LinkedIn</a>

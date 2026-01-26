@@ -1,0 +1,240 @@
+---
+import Layout from '../../layouts/Layout-en.astro';
+---
+
+<Layout 
+	title="Services – AI Transformation and Paid Social | Adorable"
+	description="Adorable offers two tracks: AI transformation for companies wanting to implement AI, and Paid Social for digital advertising on Meta, LinkedIn, TikTok and more."
+	swedishPath="/tjanster"
+>
+	<main>
+		<section class="hero">
+			<div class="container">
+				<h1 class="hero-title">Two tracks. One goal.</h1>
+				<p class="hero-intro">
+					I help companies grow – either by implementing AI in their operations, 
+					or by driving results with digital advertising. Sometimes both at once.
+				</p>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container">
+				<div class="services">
+					<div class="service-card">
+						<h2>AI Transformation</h2>
+						<p class="service-tagline">For companies that want to start using AI for real</p>
+						
+						<p>AI is no longer future talk – it's a tool that can make your business more efficient today. But where do you start? And how do you avoid the most common pitfalls?</p>
+						
+						<h3>What I help with:</h3>
+						<ul>
+							<li><strong>Workshops and training</strong> – Give the team knowledge and confidence to use AI</li>
+							<li><strong>AI strategy</strong> – Identify where AI creates the most value in your specific business</li>
+							<li><strong>Implementation</strong> – Help getting started with the right tools and processes</li>
+							<li><strong>AI policy</strong> – Framework for safe and responsible AI use</li>
+						</ul>
+
+						<h3>Industries I work with:</h3>
+						<p>Education, construction and other industries where AI can make a concrete difference. Both B2B and B2C.</p>
+						
+						<a href="/en/ai-transformation" class="cta-link">Read more about AI transformation →</a>
+					</div>
+
+					<div class="service-card">
+						<h2>Paid Social</h2>
+						<p class="service-tagline">Digital advertising that drives results</p>
+						
+						<p>Paid social is more than "running some ads on Facebook". It's about understanding the platforms, the audience and how to build campaigns that actually convert.</p>
+						
+						<h3>Platforms:</h3>
+						<ul>
+							<li><strong>Meta</strong> – Facebook and Instagram</li>
+							<li><strong>LinkedIn</strong> – For B2B and recruitment</li>
+							<li><strong>TikTok</strong> – For younger audiences and viral reach</li>
+							<li><strong>YouTube</strong> – Video advertising with precision</li>
+							<li><strong>Pinterest & Snapchat</strong> – For the right brands and audiences</li>
+						</ul>
+
+						<h3>What I help with:</h3>
+						<ul>
+							<li><strong>Strategy</strong> – Right platforms, messaging and budget for your goals</li>
+							<li><strong>Setup</strong> – Campaign structure, tracking and creative</li>
+							<li><strong>Optimization</strong> – Ongoing improvement based on data</li>
+							<li><strong>Training</strong> – Teach your team to handle advertising themselves</li>
+						</ul>
+						
+						<a href="/en/paid-social" class="cta-link">Read more about Paid Social →</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section cta-section">
+			<div class="container">
+				<h2>Not sure what you need?</h2>
+				<p>Reach out and we'll have a conversation to figure it out together. No commitment.</p>
+				<a href="/en/contact" class="cta-button">Contact me</a>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		background: #fff;
+		min-height: 100vh;
+	}
+
+	.container {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.hero {
+		padding: 8rem 0 4rem;
+		max-width: 760px;
+		margin: 0 auto;
+	}
+
+	.hero .container {
+		max-width: 760px;
+	}
+
+	.hero-title {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 400;
+		margin: 0 0 2rem;
+		line-height: 1.3;
+		color: #000;
+	}
+
+	.hero-intro {
+		font-size: clamp(1.1rem, 2vw, 1.25rem);
+		line-height: 1.7;
+		color: #000;
+	}
+
+	.section {
+		padding: 4rem 0;
+		border-top: 1px solid #e5e5e5;
+	}
+
+	.services {
+		display: grid;
+		gap: 3rem;
+	}
+
+	@media (min-width: 768px) {
+		.services {
+			grid-template-columns: 1fr 1fr;
+			gap: 4rem;
+		}
+	}
+
+	.service-card {
+		padding: 2rem;
+		border: 1px solid #e5e5e5;
+		border-radius: 8px;
+	}
+
+	.service-card h2 {
+		font-size: 1.75rem;
+		font-weight: 600;
+		margin: 0 0 0.5rem;
+		color: #000;
+	}
+
+	.service-tagline {
+		font-size: 1.1rem;
+		color: #666;
+		margin: 0 0 1.5rem;
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	.service-card p {
+		line-height: 1.7;
+		color: #333;
+	}
+
+	.service-card h3 {
+		font-size: 1rem;
+		font-weight: 600;
+		margin: 1.5rem 0 0.75rem;
+		color: #000;
+	}
+
+	.service-card ul {
+		margin: 0;
+		padding-left: 1.25rem;
+	}
+
+	.service-card li {
+		margin-bottom: 0.5rem;
+		line-height: 1.6;
+		color: #333;
+	}
+
+	.cta-link {
+		display: inline-block;
+		margin-top: 1.5rem;
+		color: #000;
+		font-weight: 600;
+		text-decoration: none;
+		border-bottom: 2px solid #000;
+		padding-bottom: 2px;
+		transition: opacity 0.2s;
+	}
+
+	.cta-link:hover {
+		opacity: 0.7;
+	}
+
+	.cta-section {
+		text-align: center;
+		background: #fafafa;
+		border-top: 1px solid #e5e5e5;
+	}
+
+	.cta-section h2 {
+		font-size: 1.75rem;
+		font-weight: 600;
+		margin: 0 0 1rem;
+	}
+
+	.cta-section p {
+		color: #666;
+		margin: 0 0 1.5rem;
+	}
+
+	.cta-button {
+		display: inline-block;
+		padding: 1rem 2rem;
+		background: #000;
+		color: #fff;
+		text-decoration: none;
+		font-weight: 600;
+		border-radius: 6px;
+		transition: opacity 0.2s;
+	}
+
+	.cta-button:hover {
+		opacity: 0.85;
+	}
+
+	@media (max-width: 768px) {
+		.hero {
+			padding: 4rem 0 2rem;
+		}
+
+		.section {
+			padding: 3rem 0;
+		}
+
+		.service-card {
+			padding: 1.5rem;
+		}
+	}
+</style>
