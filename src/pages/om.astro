@@ -63,14 +63,32 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 		</section>
 
-		<section class="section section-contact">
+		<!-- Kontakt -->
+		<section class="section contact-section">
 			<div class="container">
-				<h2 class="section-title">Kontakt</h2>
+				<h2 class="section-title">Låt oss prata</h2>
+				<p class="contact-intro">Har du en utmaning eller bara vill bolla idéer? Hör av dig!</p>
 				<div class="contact-info">
-					<p class="contact-name">Peter Rosdahl</p>
-					<p><a href="mailto:peter@adorable.se" class="contact-link">peter@adorable.se</a></p>
-					<p><a href="tel:+46708235787" class="contact-link">+46 70 823 57 87</a></p>
+					<div class="contact-method">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="contact-icon">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+						</svg>
+						<div>
+							<span class="contact-label">Email</span>
+							<a href="mailto:peter@adorable.se">peter@adorable.se</a>
+						</div>
+					</div>
+					<div class="contact-method">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="contact-icon">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+						</svg>
+						<div>
+							<span class="contact-label">Telefon</span>
+							<a href="tel:+46708235787">+46 70 823 57 87</a>
+						</div>
+					</div>
 				</div>
+				<a href="/kontakt" class="contact-button">Skicka meddelande</a>
 			</div>
 		</section>
 	</main>
@@ -155,35 +173,85 @@ import Layout from '../layouts/Layout.astro';
 		opacity: 0.8;
 	}
 
-	.section-contact {
+	/* Contact section */
+	.contact-section {
 		background: #000;
 		color: #fff;
 		border-top: none;
 	}
 
-	.section-contact .section-title {
+	.contact-section .section-title {
 		color: #fff;
+	}
+
+	.contact-intro {
+		color: rgba(255, 255, 255, 0.8);
+		font-size: 1.1rem;
+		margin-bottom: 2rem;
 	}
 
 	.contact-info {
-		font-size: 1.125rem;
+		display: grid;
+		gap: 1.5rem;
+		margin-bottom: 2rem;
 	}
 
-	.contact-name {
-		font-size: 1.5rem;
-		font-weight: 600;
-		margin-bottom: 1rem;
+	@media (min-width: 600px) {
+		.contact-info {
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 
-	.contact-link {
+	.contact-method {
+		display: flex;
+		align-items: flex-start;
+		gap: 1rem;
+	}
+
+	.contact-icon {
+		width: 24px;
+		height: 24px;
+		flex-shrink: 0;
+		color: rgba(255, 255, 255, 0.6);
+		margin-top: 0.25rem;
+	}
+
+	.contact-method > div {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.contact-label {
+		font-size: 0.85rem;
+		color: rgba(255, 255, 255, 0.6);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.contact-method a {
 		color: #fff;
 		text-decoration: none;
-		border-bottom: 1px solid #fff;
+		font-size: 1.1rem;
+	}
+
+	.contact-method a:hover {
+		text-decoration: underline;
+	}
+
+	.contact-button {
+		display: inline-block;
+		padding: 1rem 2rem;
+		background: #fff;
+		color: #000;
+		text-decoration: none;
+		font-weight: 600;
+		border-radius: 6px;
 		transition: opacity 0.2s;
 	}
 
-	.contact-link:hover {
-		opacity: 0.7;
+	.contact-button:hover {
+		opacity: 0.9;
 	}
 
 	@media (max-width: 768px) {
