@@ -23,17 +23,16 @@ const currentPath = Astro.url.pathname;
 
 <style>
   .nav {
-    background: linear-gradient(180deg, #fff0f5 0%, #fff0f5 100%);
+    background: #fff0f5;
     border-bottom: 1px solid transparent;
     padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: background 0.3s ease, border-color 0.2s ease;
+    transition: border-color 0.3s ease;
   }
 
   .nav.scrolled {
-    background: white;
     border-bottom-color: #e5e5e5;
   }
 
@@ -163,9 +162,21 @@ const currentPath = Astro.url.pathname;
     });
   });
 
-  // Add border on scroll
+  // Smooth gradient transition on scroll
   const handleScroll = () => {
-    if (window.scrollY > 10) {
+    const scrollY = window.scrollY;
+    const maxScroll = 300; // Full transition over 300px
+    const progress = Math.min(scrollY / maxScroll, 1);
+    
+    // Interpolate from #fff0f5 (255, 240, 245) to white (255, 255, 255)
+    const g = Math.round(240 + (15 * progress)); // 240 -> 255
+    const b = Math.round(245 + (10 * progress)); // 245 -> 255
+    
+    if (nav) {
+      nav.style.background = `rgb(255, ${g}, ${b})`;
+    }
+    
+    if (scrollY > 10) {
       nav?.classList.add('scrolled');
     } else {
       nav?.classList.remove('scrolled');
