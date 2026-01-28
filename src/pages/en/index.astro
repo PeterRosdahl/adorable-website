@@ -64,27 +64,27 @@ import Layout from '../../layouts/Layout-en.astro';
 				<div class="services-grid">
 					<div class="service-card">
 						<h3>AI Consulting</h3>
-						<p>From AI curiosity to real-world use. I help companies get started – and get actual value.</p>
+						<p class="service-tagline">For companies that want to actually start using AI</p>
+						<p>AI is no longer future talk – it's a tool that can make your business more efficient today. But where do you start? And how do you avoid the most common pitfalls?</p>
 						<ul>
-							<li>Workshops and training</li>
-							<li>Strategic advisory</li>
-							<li>Hands-on implementation</li>
-							<li>Tool evaluation before purchase</li>
-							<li>AI policy and governance</li>
+							<li><strong>Workshops and training</strong> – Give your team knowledge and confidence</li>
+							<li><strong>AI strategy</strong> – Identify where AI creates the most value</li>
+							<li><strong>Implementation</strong> – Help getting started with the right tools</li>
+							<li><strong>AI policy</strong> – Framework for safe and responsible use</li>
 						</ul>
-						<a href="/en/ai" class="service-link">Learn more →</a>
+						<a href="/en/ai" class="service-link">Learn more about AI Consulting →</a>
 					</div>
 					<div class="service-card">
 						<h3>Paid Social</h3>
-						<p>Advertising that actually makes a difference. Not more clicks – better business.</p>
+						<p class="service-tagline">Digital advertising that drives results</p>
+						<p>Paid social is more than "running some ads on Facebook". It's about understanding the platforms, the audience, and how to build campaigns that actually convert.</p>
 						<ul>
-							<li>Strategy matched to your goals</li>
-							<li>Campaigns that convert</li>
-							<li>Budgets from 50k to millions</li>
-							<li>Transparent reporting</li>
-							<li>A partner who cares about results</li>
+							<li><strong>Strategy</strong> – Right platforms, messaging and budget for your goals</li>
+							<li><strong>Setup</strong> – Campaign structure, tracking and creative</li>
+							<li><strong>Optimization</strong> – Ongoing improvement based on data</li>
+							<li><strong>Reporting</strong> – Clear insights, not vanity metrics</li>
 						</ul>
-						<a href="/en/paid-social" class="service-link">Learn more →</a>
+						<a href="/en/paid-social" class="service-link">Learn more about Paid Social →</a>
 					</div>
 				</div>
 			</div>
@@ -367,13 +367,21 @@ import Layout from '../../layouts/Layout-en.astro';
 	.service-card h3 {
 		font-size: 1.5rem;
 		font-weight: 600;
-		margin: 0 0 1rem;
+		margin: 0 0 0.5rem;
+	}
+
+	.service-tagline {
+		font-size: 1.1rem;
+		color: #666;
+		margin: 0 0 1.5rem;
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid #e5e5e5;
 	}
 
 	.service-card p {
-		color: #666;
+		color: #333;
 		line-height: 1.6;
-		margin: 0 0 1rem;
+		margin: 0 0 1.5rem;
 	}
 
 	.service-card ul {
@@ -383,7 +391,12 @@ import Layout from '../../layouts/Layout-en.astro';
 	}
 
 	.service-card li {
-		margin-bottom: 0.5rem;
+		margin-bottom: 0.75rem;
+		line-height: 1.5;
+	}
+
+	.service-card li strong {
+		color: #000;
 	}
 
 	.service-link {

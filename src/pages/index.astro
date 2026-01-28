@@ -64,27 +64,27 @@ import Layout from '../layouts/Layout.astro';
 				<div class="services-grid">
 					<div class="service-card">
 						<h3>AI-rådgivning</h3>
-						<p>Från AI-nyfikenhet till faktisk användning. Jag hjälper företag att komma igång – och få ut verkligt värde.</p>
+						<p class="service-tagline">För företag som vill börja använda AI på riktigt</p>
+						<p>AI är inte längre framtidsprat – det är ett verktyg som kan effektivisera er verksamhet idag. Men var börjar man? Och hur undviker man de vanligaste fallgroparna?</p>
 						<ul>
-							<li>Workshops och utbildning</li>
-							<li>Strategisk rådgivning</li>
-							<li>Hands-on implementering</li>
-							<li>Verktygsanalys inför inköp</li>
-							<li>AI-policy och governance</li>
+							<li><strong>Workshops och utbildning</strong> – Ge teamet kunskap och självförtroende</li>
+							<li><strong>AI-strategi</strong> – Identifiera var AI skapar mest värde</li>
+							<li><strong>Implementering</strong> – Hjälp att komma igång med rätt verktyg</li>
+							<li><strong>AI-policy</strong> – Ramverk för säker och ansvarsfull användning</li>
 						</ul>
-						<a href="/ai" class="service-link">Läs mer →</a>
+						<a href="/ai" class="service-link">Läs mer om AI-rådgivning →</a>
 					</div>
 					<div class="service-card">
 						<h3>Paid Social</h3>
-						<p>Annonsering som gör skillnad på riktigt. Inte fler klick – bättre affärer.</p>
+						<p class="service-tagline">Digital annonsering som driver resultat</p>
+						<p>Paid social är mer än att "köra lite annonser på Facebook". Det handlar om att förstå plattformarna, målgruppen och hur man bygger kampanjer som faktiskt konverterar.</p>
 						<ul>
-							<li>Strategi som matchar era mål</li>
-							<li>Kampanjer som konverterar</li>
-							<li>Budgetar från 50k till miljoner</li>
-							<li>Transparent rapportering</li>
-							<li>En partner som bryr sig om resultaten</li>
+							<li><strong>Strategi</strong> – Rätt plattformar, budskap och budget för era mål</li>
+							<li><strong>Uppsättning</strong> – Kampanjstruktur, tracking och kreativ</li>
+							<li><strong>Optimering</strong> – Löpande förbättring baserat på data</li>
+							<li><strong>Rapportering</strong> – Tydliga insikter, inte vanity metrics</li>
 						</ul>
-						<a href="/paid-social" class="service-link">Läs mer →</a>
+						<a href="/paid-social" class="service-link">Läs mer om Paid Social →</a>
 					</div>
 				</div>
 			</div>
@@ -368,13 +368,21 @@ import Layout from '../layouts/Layout.astro';
 	.service-card h3 {
 		font-size: 1.5rem;
 		font-weight: 600;
-		margin: 0 0 1rem;
+		margin: 0 0 0.5rem;
+	}
+
+	.service-tagline {
+		font-size: 1.1rem;
+		color: #666;
+		margin: 0 0 1.5rem;
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid #e5e5e5;
 	}
 
 	.service-card p {
-		color: #666;
+		color: #333;
 		line-height: 1.6;
-		margin: 0 0 1rem;
+		margin: 0 0 1.5rem;
 	}
 
 	.service-card ul {
@@ -384,7 +392,12 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.service-card li {
-		margin-bottom: 0.5rem;
+		margin-bottom: 0.75rem;
+		line-height: 1.5;
+	}
+
+	.service-card li strong {
+		color: #000;
 	}
 
 	.service-link {
