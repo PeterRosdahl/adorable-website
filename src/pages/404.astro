@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="404 - Sidan hittades inte | Adorable"
+  description="Sidan du letar efter finns inte."
+>
+  <main>
+    <div class="gradient-bg"></div>
+    <section class="error-section">
+      <div class="container">
+        <span class="error-code">404</span>
+        <h1 class="error-title">Ojdå, här var det tomt!</h1>
+        <p class="error-text">
+          Sidan du letar efter finns inte längre, har flyttat, eller så skrev du fel adress. Det händer de bästa.
+        </p>
+        <div class="error-actions">
+          <a href="/" class="button-primary">Till startsidan</a>
+          <a href="/kontakt" class="button-secondary">Kontakta mig</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    background: #fff;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  .gradient-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 400px;
+    background: linear-gradient(135deg, #ffeef8 0%, #fff0f5 25%, #fff5f8 50%, #fef0e7 75%, #fff 100%);
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .error-section {
+    position: relative;
+    z-index: 1;
+    padding: 10rem 0 8rem;
+    text-align: center;
+  }
+
+  .error-code {
+    display: block;
+    font-size: clamp(6rem, 20vw, 12rem);
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(135deg, #ff6b9d 0%, #c44569 50%, #ff8a80 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+  }
+
+  .error-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 400;
+    margin: 0 0 1.5rem;
+    line-height: 1.3;
+    color: #000;
+  }
+
+  .error-text {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.7;
+    color: #666;
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .button-primary {
+    padding: 1rem 2rem;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: opacity 0.2s;
+  }
+
+  .button-primary:hover {
+    opacity: 0.85;
+  }
+
+  .button-secondary {
+    padding: 1rem 2rem;
+    background: transparent;
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid #000;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .button-secondary:hover {
+    background: #000;
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    .error-section {
+      padding: 6rem 0 4rem;
+    }
+
+    .gradient-bg {
+      height: 300px;
+    }
+  }
+</style>
