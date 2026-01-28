@@ -545,17 +545,17 @@ import Layout from '../layouts/Layout.astro';
 
 	/* Contact section */
 	.contact-section {
-		background: #fff0f5;
-		color: #000;
+		background: #000;
+		color: #fff;
 		border-top: none;
 	}
 
 	.contact-section .section-title {
-		color: #000;
+		color: #fff;
 	}
 
 	.contact-intro {
-		color: #666;
+		color: rgba(255, 255, 255, 0.8);
 		font-size: 1.1rem;
 		margin-bottom: 2rem;
 	}
@@ -582,7 +582,7 @@ import Layout from '../layouts/Layout.astro';
 		width: 24px;
 		height: 24px;
 		flex-shrink: 0;
-		color: #c44569;
+		color: rgba(255, 255, 255, 0.6);
 		margin-top: 0.25rem;
 	}
 
@@ -594,35 +594,36 @@ import Layout from '../layouts/Layout.astro';
 
 	.contact-label {
 		font-size: 0.85rem;
-		color: #999;
+		color: rgba(255, 255, 255, 0.6);
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
 	}
 
 	.contact-method a,
 	.contact-method span:not(.contact-label) {
-		color: #000;
+		color: #fff;
 		text-decoration: none;
 		font-size: 1.1rem;
 	}
 
 	.contact-method a:hover {
-		color: #c44569;
+		text-decoration: underline;
 	}
 
 	.contact-button {
 		display: inline-block;
 		padding: 1rem 2rem;
-		background: #000;
-		color: #fff;
+		background: #fff;
+		color: #000;
 		text-decoration: none;
 		font-weight: 600;
 		border-radius: 6px;
-		transition: background 0.2s;
+		transition: background 0.2s, color 0.2s;
 	}
 
 	.contact-button:hover {
 		background: #c44569;
+		color: #fff;
 	}
 
 	/* Responsive */
