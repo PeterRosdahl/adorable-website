@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ContactSection from '../components/ContactSection.astro';
 ---
 
 <Layout 
@@ -71,13 +72,8 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 		</section>
 
-		<section class="section cta-section">
-			<div class="container">
-				<h2>Osäker på vad ni behöver?</h2>
-				<p>Hör av dig så tar vi ett samtal och reder ut det tillsammans. Ingen förbindelse.</p>
-				<a href="/kontakt" class="cta-button">Kontakta mig</a>
-			</div>
-		</section>
+		<!-- Kontakt -->
+		<ContactSection background="pink" />
 	</main>
 </Layout>
 
@@ -190,38 +186,6 @@ import Layout from '../layouts/Layout.astro';
 
 	.cta-link:hover {
 		opacity: 0.7;
-	}
-
-	.cta-section {
-		text-align: center;
-		background: #fafafa;
-		border-top: 1px solid #e5e5e5;
-	}
-
-	.cta-section h2 {
-		font-size: 1.75rem;
-		font-weight: 600;
-		margin: 0 0 1rem;
-	}
-
-	.cta-section p {
-		color: #666;
-		margin: 0 0 1.5rem;
-	}
-
-	.cta-button {
-		display: inline-block;
-		padding: 1rem 2rem;
-		background: #000;
-		color: #fff;
-		text-decoration: none;
-		font-weight: 600;
-		border-radius: 6px;
-		transition: opacity 0.2s;
-	}
-
-	.cta-button:hover {
-		opacity: 0.85;
 	}
 
 	@media (max-width: 768px) {
