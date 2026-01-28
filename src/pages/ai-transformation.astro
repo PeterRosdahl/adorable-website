@@ -19,6 +19,14 @@ import Layout from '../layouts/Layout.astro';
 
 		<section class="section">
 			<div class="container">
+				<h2 class="section-title">Varför nu?</h2>
+				<p class="text">AI är inte längre framtidsprat – det är ett verktyg som förändrar hur arbete utförs just nu. Företag som väntar riskerar att hamna efter konkurrenter som redan automatiserar, effektiviserar och fattar bättre beslut.</p>
+				<p class="text">Samtidigt är det lätt att göra fel. Investera i fel verktyg. Skapa oro istället för engagemang. Börja för stort eller för smått. Rätt start gör skillnaden mellan AI som fungerar och AI som samlar damm.</p>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container">
 				<h2 class="section-title">Vad jag gör</h2>
 				
 				<div class="service">
@@ -43,9 +51,80 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 		</section>
 
+		<section class="section">
+			<div class="container">
+				<h2 class="section-title">Hur det går till</h2>
+				<div class="process-grid">
+					<div class="process-step">
+						<span class="step-number">1</span>
+						<h3>Samtal</h3>
+						<p>Vi börjar med att förstå er situation, era utmaningar och vad ni vill uppnå. Ingen kostnad eller förbindelse.</p>
+					</div>
+					<div class="process-step">
+						<span class="step-number">2</span>
+						<h3>Förslag</h3>
+						<p>Baserat på samtalet tar jag fram ett konkret förslag på upplägg, tidsplan och kostnad.</p>
+					</div>
+					<div class="process-step">
+						<span class="step-number">3</span>
+						<h3>Genomförande</h3>
+						<p>Vi kör igång – vare sig det handlar om en halvdagsworkshop eller ett längre implementeringsprojekt.</p>
+					</div>
+					<div class="process-step">
+						<span class="step-number">4</span>
+						<h3>Uppföljning</h3>
+						<p>Efter insatsen följer vi upp för att säkerställa att det ni lärt er faktiskt används.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container">
+				<h2 class="section-title">Passar det för er?</h2>
+				<p class="text">AI-transformation passar företag som:</p>
+				<ul class="check-list">
+					<li>Vill börja använda AI men inte vet var de ska börja</li>
+					<li>Har provat ChatGPT men inte fått det att fungera i verksamheten</li>
+					<li>Behöver utbilda ledning eller team i AI</li>
+					<li>Vill automatisera repetitiva arbetsuppgifter</li>
+					<li>Behöver en AI-policy men inte vet hur den ska utformas</li>
+					<li>Har idéer om AI-användning men saknar kapacitet att genomföra dem</li>
+				</ul>
+				<p class="text">Jag jobbar med allt från startups till stora organisationer, men fokuserar på företag där senior expertis gör skillnad – inte de som behöver en heltidsanställd.</p>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container">
+				<h2 class="section-title">Vanliga frågor</h2>
+				
+				<div class="faq">
+					<h3>Hur lång tid tar en workshop?</h3>
+					<p>Från en halvdag till två heldagar, beroende på djup och deltagarantal. De flesta väljer en heldag.</p>
+				</div>
+
+				<div class="faq">
+					<h3>Vilka AI-verktyg arbetar du med?</h3>
+					<p>Jag är verktygsagnostisk och rekommenderar det som passar er bäst. Det kan vara ChatGPT, Claude, Microsoft Copilot, eller mer specialiserade verktyg för specifika uppgifter.</p>
+				</div>
+
+				<div class="faq">
+					<h3>Kan du hjälpa oss bygga egna AI-lösningar?</h3>
+					<p>Ja, jag hjälper till med allt från enkla automatiseringar till mer avancerade AI-agenter och arbetsflöden. Beroende på komplexitet kan jag göra det själv eller ta in rätt utvecklare.</p>
+				</div>
+
+				<div class="faq">
+					<h3>Vad kostar det?</h3>
+					<p>Det beror på upplägg. En workshop kostar vanligtvis 25 000–50 000 kr. Längre uppdrag prissätts efter omfattning. Jag ger alltid ett tydligt pris innan vi börjar.</p>
+				</div>
+			</div>
+		</section>
+
 		<section class="section section-contact">
 			<div class="container">
-				<h2 class="section-title">Kontakt</h2>
+				<h2 class="section-title">Redo att börja?</h2>
+				<p class="contact-intro">Hör av dig så tar vi ett samtal om var ni står och vad som kan passa.</p>
 				<div class="contact-info">
 					<p class="contact-name">Peter Rosdahl</p>
 					<p><a href="mailto:peter@adorable.se" class="contact-link">peter@adorable.se</a></p>
@@ -83,23 +162,34 @@ import Layout from '../layouts/Layout.astro';
 	.hero-intro {
 		font-size: clamp(1.1rem, 2vw, 1.25rem);
 		line-height: 1.7;
-		color: #000;
+		color: #333;
 	}
 
 	.section {
-		padding: 6rem 0;
+		padding: 5rem 0;
 		border-top: 1px solid #e5e5e5;
 	}
 
 	.section-title {
 		font-size: clamp(1.5rem, 3vw, 2rem);
-		font-weight: 700;
-		margin: 0 0 3rem;
+		font-weight: 600;
+		margin: 0 0 2rem;
 		color: #000;
 	}
 
+	.text {
+		font-size: clamp(1rem, 2vw, 1.125rem);
+		line-height: 1.7;
+		color: #333;
+		margin-bottom: 1.5rem;
+	}
+
+	.text:last-child {
+		margin-bottom: 0;
+	}
+
 	.service {
-		margin-bottom: 3rem;
+		margin-bottom: 2.5rem;
 	}
 
 	.service:last-child {
@@ -107,19 +197,117 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.service h3 {
-		font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+		font-size: 1.25rem;
 		font-weight: 600;
-		margin: 0 0 1rem;
+		margin: 0 0 0.75rem;
 		color: #000;
 	}
 
 	.service p {
-		font-size: clamp(1rem, 2vw, 1.125rem);
+		font-size: 1rem;
 		line-height: 1.7;
 		color: #333;
 		margin: 0;
 	}
 
+	/* Process grid */
+	.process-grid {
+		display: grid;
+		gap: 2rem;
+	}
+
+	@media (min-width: 600px) {
+		.process-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	.process-step {
+		position: relative;
+		padding-left: 3rem;
+	}
+
+	.step-number {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 2rem;
+		height: 2rem;
+		background: #000;
+		color: #fff;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 600;
+		font-size: 0.875rem;
+	}
+
+	.process-step h3 {
+		font-size: 1.125rem;
+		font-weight: 600;
+		margin: 0 0 0.5rem;
+		color: #000;
+	}
+
+	.process-step p {
+		font-size: 0.95rem;
+		line-height: 1.6;
+		color: #666;
+		margin: 0;
+	}
+
+	/* Check list */
+	.check-list {
+		list-style: none;
+		padding: 0;
+		margin: 1.5rem 0;
+	}
+
+	.check-list li {
+		position: relative;
+		padding-left: 1.75rem;
+		margin-bottom: 0.75rem;
+		line-height: 1.6;
+		color: #333;
+	}
+
+	.check-list li::before {
+		content: "✓";
+		position: absolute;
+		left: 0;
+		color: #000;
+		font-weight: 600;
+	}
+
+	/* FAQ */
+	.faq {
+		margin-bottom: 2rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	.faq:last-child {
+		margin-bottom: 0;
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+
+	.faq h3 {
+		font-size: 1.125rem;
+		font-weight: 600;
+		margin: 0 0 0.75rem;
+		color: #000;
+	}
+
+	.faq p {
+		font-size: 1rem;
+		line-height: 1.7;
+		color: #333;
+		margin: 0;
+	}
+
+	/* Contact */
 	.section-contact {
 		background: #000;
 		color: #fff;
@@ -128,6 +316,12 @@ import Layout from '../layouts/Layout.astro';
 
 	.section-contact .section-title {
 		color: #fff;
+	}
+
+	.contact-intro {
+		color: rgba(255, 255, 255, 0.8);
+		font-size: 1.1rem;
+		margin-bottom: 2rem;
 	}
 
 	.contact-info {
@@ -157,7 +351,7 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		.section {
-			padding: 4rem 0;
+			padding: 3rem 0;
 		}
 	}
 </style>
