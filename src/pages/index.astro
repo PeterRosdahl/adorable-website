@@ -20,6 +20,16 @@ import Layout from '../layouts/Layout.astro';
 					<a href="/tjanster" class="cta-secondary">Se tjänster</a>
 				</div>
 			</div>
+			<!-- Illustration -->
+			<div class="hero-illustration">
+				<img src="/lightning.svg" alt="" class="hero-lightning" aria-hidden="true" />
+				<img src="/sun.svg" alt="" class="hero-sun" aria-hidden="true" />
+			</div>
+		</section>
+
+		<!-- Yellow transition section -->
+		<section class="yellow-section">
+			<div class="yellow-wave"></div>
 		</section>
 
 		<!-- Varför -->
@@ -244,7 +254,78 @@ import Layout from '../layouts/Layout.astro';
 
 	/* Hero */
 	.hero {
-		padding: 8rem 0 6rem;
+		padding: 8rem 0 2rem;
+		position: relative;
+		overflow: visible;
+	}
+
+	.hero-illustration {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		padding-top: 2rem;
+		height: 180px;
+	}
+
+	.hero-sun {
+		width: 140px;
+		height: 140px;
+		position: relative;
+		z-index: 10;
+		animation: float 3s ease-in-out infinite;
+	}
+
+	.hero-lightning {
+		width: 40px;
+		height: 60px;
+		position: absolute;
+		left: calc(50% - 120px);
+		bottom: 60px;
+		z-index: 5;
+		animation: float 3s ease-in-out infinite;
+		animation-delay: 0.5s;
+	}
+
+	@keyframes float {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(-8px); }
+	}
+
+	/* Yellow section */
+	.yellow-section {
+		background: #FFD93D;
+		padding: 3rem 0 0;
+		margin-top: -40px;
+		position: relative;
+	}
+
+	.yellow-wave {
+		position: absolute;
+		top: -30px;
+		left: 0;
+		right: 0;
+		height: 60px;
+		background: #FFD93D;
+		border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+	}
+
+	@media (min-width: 600px) {
+		.hero-sun {
+			width: 180px;
+			height: 180px;
+		}
+
+		.hero-lightning {
+			width: 50px;
+			height: 75px;
+			left: calc(50% - 160px);
+			bottom: 80px;
+		}
+
+		.hero-illustration {
+			height: 220px;
+		}
 	}
 
 	.hero .container {

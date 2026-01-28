@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Solstrålar -->
+  <g stroke="#1a1a1a" stroke-width="3" stroke-linecap="round">
+    <line x1="100" y1="30" x2="100" y2="15"/>
+    <line x1="130" y1="40" x2="145" y2="25"/>
+    <line x1="150" y1="70" x2="170" y2="60"/>
+    <line x1="155" y1="100" x2="175" y2="100"/>
+    <line x1="150" y1="130" x2="165" y2="145"/>
+    <line x1="70" y1="40" x2="55" y2="25"/>
+    <line x1="50" y1="70" x2="30" y2="60"/>
+    <line x1="45" y1="100" x2="25" y2="100"/>
+    <line x1="50" y1="130" x2="35" y2="145"/>
+  </g>
+  
+  <!-- Sol-kropp (blob-form) -->
+  <path 
+    d="M100 50 
+       C130 45, 155 60, 160 90 
+       C165 120, 150 150, 120 155 
+       C90 160, 60 150, 50 120 
+       C40 90, 55 55, 100 50Z" 
+    fill="#FFD93D" 
+    stroke="#1a1a1a" 
+    stroke-width="4"
+  />
+  
+  <!-- Ansikte -->
+  <!-- Vänster öga -->
+  <circle cx="80" cy="95" r="5" fill="#1a1a1a"/>
+  <!-- Höger öga -->
+  <circle cx="115" cy="95" r="5" fill="#1a1a1a"/>
+  <!-- Glad mun -->
+  <path 
+    d="M80 115 Q100 135, 120 115" 
+    stroke="#1a1a1a" 
+    stroke-width="4" 
+    stroke-linecap="round"
+    fill="none"
+  />
+</svg>
