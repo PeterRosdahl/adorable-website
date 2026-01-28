@@ -22,13 +22,8 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 		</section>
 
-		<!-- Hero illustration - spans into yellow section -->
-		<div class="hero-illustration-wrapper">
-			<img src="/hero-illustration.png" alt="" class="hero-illustration-img" aria-hidden="true" loading="eager" />
-		</div>
-
 		<!-- Varför -->
-		<section class="section why-section yellow-bg">
+		<section class="section why-section">
 			<div class="container">
 				<h2 class="section-title">Varför Adorable?</h2>
 				<div class="why-grid">
@@ -251,40 +246,6 @@ import Layout from '../layouts/Layout.astro';
 	.hero {
 		padding: 8rem 0 2rem;
 		position: relative;
-	}
-
-	/* Hero illustration wrapper */
-	.hero-illustration-wrapper {
-		width: 100%;
-		margin-top: -1rem;
-	}
-
-	.hero-illustration-img {
-		width: 100%;
-		height: auto;
-		display: block;
-	}
-
-	/* Yellow background section */
-	.yellow-bg {
-		background: #FFE135;
-		border-top: none;
-	}
-
-	.yellow-bg .section-title {
-		color: #000;
-	}
-
-	.yellow-bg .why-item h3 {
-		color: #000;
-	}
-
-	.yellow-bg .why-item p {
-		color: #333;
-	}
-
-	.yellow-bg .why-icon {
-		color: #000;
 	}
 
 	.hero .container {
