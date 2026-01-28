@@ -61,39 +61,10 @@ const swedishPath = Astro.url.pathname;
 		<!-- Umami Analytics (privacy-first, no cookies) -->
 		<script defer src="https://cloud.umami.is/script.js" data-website-id="e5ec55d8-278e-4400-93c0-1d833882a91d"></script>
 		
-		<!-- Self-hosted fonts (eliminates render-blocking external requests) -->
-		<link rel="preload" href="/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-		<link rel="preload" href="/fonts/archivo-black.woff2" as="font" type="font/woff2" crossorigin>
-		<style>
-			@font-face {
-				font-family: 'DM Sans';
-				font-style: normal;
-				font-weight: 400;
-				font-display: swap;
-				src: url('/fonts/dm-sans-400.woff2') format('woff2');
-			}
-			@font-face {
-				font-family: 'DM Sans';
-				font-style: normal;
-				font-weight: 500;
-				font-display: swap;
-				src: url('/fonts/dm-sans-500.woff2') format('woff2');
-			}
-			@font-face {
-				font-family: 'DM Sans';
-				font-style: normal;
-				font-weight: 700;
-				font-display: swap;
-				src: url('/fonts/dm-sans-700.woff2') format('woff2');
-			}
-			@font-face {
-				font-family: 'Archivo Black';
-				font-style: normal;
-				font-weight: 400;
-				font-display: swap;
-				src: url('/fonts/archivo-black.woff2') format('woff2');
-			}
-		</style>
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 		
 		<!-- Structured Data -->
 		<script type="application/ld+json">
@@ -157,6 +128,7 @@ const swedishPath = Astro.url.pathname;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		font-family: 'Archivo Black', -apple-system, BlinkMacSystemFont, sans-serif;
+		font-family: 'Instrument Serif', Georgia, serif;
+		font-weight: 400;
 	}
 </style>
