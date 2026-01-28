@@ -23,16 +23,17 @@ const currentPath = Astro.url.pathname;
 
 <style>
   .nav {
-    background: white;
+    background: linear-gradient(180deg, #fff0f5 0%, #fff0f5 100%);
     border-bottom: 1px solid transparent;
     padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: border-color 0.2s ease;
+    transition: background 0.3s ease, border-color 0.2s ease;
   }
 
   .nav.scrolled {
+    background: white;
     border-bottom-color: #e5e5e5;
   }
 
