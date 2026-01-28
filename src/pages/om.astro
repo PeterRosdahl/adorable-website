@@ -21,9 +21,6 @@ import Layout from '../layouts/Layout.astro';
 			<div class="container">
 				<h2 class="section-title">Bakgrund</h2>
 				<p class="text">
-					20 års erfarenhet av digital utveckling och marknadsföring. Det ger perspektiv på vad som faktiskt fungerar – och vad som bara låter bra på papper.
-				</p>
-				<p class="text">
 					Adorable startades 2016 med fokus på paid social – Meta Ads, LinkedIn, TikTok, YouTube – och har sedan dess hjälpt företag att få verklig avkastning på sin annonsbudget. Inte bara klick och visningar, utan affärsresultat.
 				</p>
 				<p class="text">
@@ -59,6 +56,26 @@ import Layout from '../layouts/Layout.astro';
 				<p class="text">
 					Ofta är det företag i en tillväxtfas där rätt kompetens vid rätt tillfälle gör skillnad. Ibland är det etablerade företag som behöver ny expertis för ett specifikt projekt eller en förändring.
 				</p>
+			</div>
+		</section>
+
+		<section class="section team">
+			<div class="container">
+				<h2 class="section-title">Teamet</h2>
+				<div class="team-grid">
+					<div class="team-member">
+						<div class="member-emoji">👨‍💻</div>
+						<h3>Peter Rosdahl</h3>
+						<p class="member-role">Grundare</p>
+						<p class="member-bio">20 års erfarenhet av digital marknadsföring och affärsutveckling. Startade Adorable 2016 för att hjälpa företag med paid social, och har på senare år även breddat till AI-rådgivning. Baserad i Stockholm.</p>
+					</div>
+					<div class="team-member">
+						<div class="member-emoji">🧚</div>
+						<h3>Puck</h3>
+						<p class="member-role">AI-assistent</p>
+						<p class="member-bio">Digital partner som hjälper till med research, analys, automation och kreativt stöd. Namngiven efter Shakespeare's kvicka ande från En Midsommarnattsdröm. Jobbar dygnet runt utan att klaga.</p>
+					</div>
+				</div>
 			</div>
 		</section>
 
@@ -127,6 +144,52 @@ import Layout from '../layouts/Layout.astro';
 
 	.text:last-child {
 		margin-bottom: 0;
+	}
+
+	/* Team section */
+	.team {
+		background: #fffbf0;
+	}
+
+	.team-grid {
+		display: grid;
+		gap: 3rem;
+	}
+
+	@media (min-width: 600px) {
+		.team-grid {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 4rem;
+		}
+	}
+
+	.team-member {
+		text-align: center;
+	}
+
+	.member-emoji {
+		font-size: 4rem;
+		margin-bottom: 1rem;
+	}
+
+	.team-member h3 {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin: 0 0 0.25rem;
+		color: #000;
+	}
+
+	.member-role {
+		font-size: 1rem;
+		color: #666;
+		margin: 0 0 1rem;
+	}
+
+	.member-bio {
+		font-size: 1rem;
+		line-height: 1.7;
+		color: #333;
+		margin: 0;
 	}
 
 	.newsletter {
