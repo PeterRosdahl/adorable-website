@@ -2,6 +2,14 @@
 import NavigationEn from '../components/Navigation-en.astro';
 import FooterEn from '../components/Footer-en.astro';
 
+// Self-hosted fonts (faster than Google Fonts)
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '@fontsource/dm-sans/700.css';
+import '@fontsource/dm-sans/400-italic.css';
+import '@fontsource/instrument-serif/400.css';
+import '@fontsource/instrument-serif/400-italic.css';
+
 interface Props {
 	title: string;
 	description: string;
@@ -57,10 +65,7 @@ const englishPath = Astro.url.pathname.replace('/en', '') || '/';
 		<!-- Umami Analytics (privacy-first, no cookies) -->
 		<script defer src="https://cloud.umami.is/script.js" data-website-id="e5ec55d8-278e-4400-93c0-1d833882a91d"></script>
 		
-		<!-- Google Fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+		<!-- Fonts loaded via @fontsource (self-hosted, no external requests) -->
 		
 		<!-- Structured Data -->
 		<script type="application/ld+json">
@@ -111,7 +116,7 @@ const englishPath = Astro.url.pathname.replace('/en', '') || '/';
 	}
 
 	html {
-		font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+		font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 		background: #fff;
 		color: #000;
 	}
