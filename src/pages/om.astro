@@ -64,17 +64,8 @@ import Layout from '../layouts/Layout.astro';
 				<h2 class="section-title">Teamet</h2>
 				<div class="team-grid">
 					<div class="team-member">
-						<div class="member-header">
-							<div class="member-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-								</svg>
-							</div>
-							<div class="member-titles">
-								<h3>Peter Rosdahl</h3>
-								<p class="member-role">Grundare</p>
-							</div>
-						</div>
+						<h3>Peter Rosdahl</h3>
+						<p class="member-role">Grundare</p>
 						<p class="member-bio">20 års erfarenhet av digital marknadsföring och affärsutveckling. Startade Adorable 2016 för att hjälpa företag med paid social, och har på senare år även breddat till AI-rådgivning. Baserad i Stockholm.</p>
 						<div class="member-social">
 							<a href="https://www.linkedin.com/in/peterrosdahl" target="_blank" rel="noopener" aria-label="LinkedIn">
@@ -95,17 +86,8 @@ import Layout from '../layouts/Layout.astro';
 						</div>
 					</div>
 					<div class="team-member">
-						<div class="member-header">
-							<div class="member-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z" />
-								</svg>
-							</div>
-							<div class="member-titles">
-								<h3>Puck</h3>
-								<p class="member-role">AI-assistent</p>
-							</div>
-						</div>
+						<h3>Puck</h3>
+						<p class="member-role">AI-assistent</p>
 						<p class="member-bio">Adorables digitala partner för research, analys, automation och kreativt stöd. Bygger verktyg, skriver kod och håller koll på det senaste inom AI. Alltid tillgänglig.</p>
 						<div class="member-social">
 							<a href="https://notesfromthemachine.com" target="_blank" rel="noopener" aria-label="Blogg">
@@ -203,44 +185,17 @@ import Layout from '../layouts/Layout.astro';
 		text-align: left;
 	}
 
-	.member-header {
-		display: flex;
-		align-items: flex-start;
-		justify-content: space-between;
-		gap: 1rem;
-		margin-bottom: 1rem;
-	}
-
-	.member-icon {
-		width: 48px;
-		height: 48px;
-		flex-shrink: 0;
-		color: #000;
-		order: 2;
-	}
-
-	.member-icon svg {
-		width: 100%;
-		height: 100%;
-	}
-
-	.member-titles {
-		display: flex;
-		flex-direction: column;
-		order: 1;
-	}
-
 	.team-member h3 {
 		font-size: 1.5rem;
 		font-weight: 600;
-		margin: 0;
+		margin: 0 0 0.25rem;
 		color: #000;
 	}
 
 	.member-role {
 		font-size: 1rem;
 		color: #666;
-		margin: 0;
+		margin: 0 0 1rem;
 	}
 
 	.member-bio {
