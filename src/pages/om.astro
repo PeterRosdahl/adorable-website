@@ -205,7 +205,8 @@ import Layout from '../layouts/Layout.astro';
 
 	.member-header {
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
+		justify-content: space-between;
 		gap: 1rem;
 		margin-bottom: 1rem;
 	}
@@ -215,6 +216,7 @@ import Layout from '../layouts/Layout.astro';
 		height: 48px;
 		flex-shrink: 0;
 		color: #000;
+		order: 2;
 	}
 
 	.member-icon svg {
@@ -225,6 +227,7 @@ import Layout from '../layouts/Layout.astro';
 	.member-titles {
 		display: flex;
 		flex-direction: column;
+		order: 1;
 	}
 
 	.team-member h3 {
