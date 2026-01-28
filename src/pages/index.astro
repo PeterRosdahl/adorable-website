@@ -284,11 +284,11 @@ import Layout from '../layouts/Layout.astro';
 		text-decoration: none;
 		font-weight: 600;
 		border-radius: 6px;
-		transition: opacity 0.2s;
+		transition: background 0.2s;
 	}
 
 	.cta-primary:hover {
-		opacity: 0.85;
+		background: #c44569;
 	}
 
 	.cta-secondary {
@@ -299,11 +299,12 @@ import Layout from '../layouts/Layout.astro';
 		font-weight: 600;
 		border: 2px solid #000;
 		border-radius: 6px;
-		transition: background 0.2s, color 0.2s;
+		transition: background 0.2s, color 0.2s, border-color 0.2s;
 	}
 
 	.cta-secondary:hover {
-		background: #000;
+		background: #c44569;
+		border-color: #c44569;
 		color: #fff;
 	}
 
@@ -428,7 +429,8 @@ import Layout from '../layouts/Layout.astro';
 
 	/* Process section */
 	.process-section {
-		background: #fafafa;
+		background: #fff0f5;
+		border-top: none;
 	}
 
 	.process-steps {
@@ -543,17 +545,17 @@ import Layout from '../layouts/Layout.astro';
 
 	/* Contact section */
 	.contact-section {
-		background: #000;
-		color: #fff;
+		background: #fff0f5;
+		color: #000;
 		border-top: none;
 	}
 
 	.contact-section .section-title {
-		color: #fff;
+		color: #000;
 	}
 
 	.contact-intro {
-		color: rgba(255, 255, 255, 0.8);
+		color: #666;
 		font-size: 1.1rem;
 		margin-bottom: 2rem;
 	}
@@ -580,7 +582,7 @@ import Layout from '../layouts/Layout.astro';
 		width: 24px;
 		height: 24px;
 		flex-shrink: 0;
-		color: rgba(255, 255, 255, 0.6);
+		color: #c44569;
 		margin-top: 0.25rem;
 	}
 
@@ -592,35 +594,35 @@ import Layout from '../layouts/Layout.astro';
 
 	.contact-label {
 		font-size: 0.85rem;
-		color: rgba(255, 255, 255, 0.6);
+		color: #999;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
 	}
 
 	.contact-method a,
 	.contact-method span:not(.contact-label) {
-		color: #fff;
+		color: #000;
 		text-decoration: none;
 		font-size: 1.1rem;
 	}
 
 	.contact-method a:hover {
-		text-decoration: underline;
+		color: #c44569;
 	}
 
 	.contact-button {
 		display: inline-block;
 		padding: 1rem 2rem;
-		background: #fff;
-		color: #000;
+		background: #000;
+		color: #fff;
 		text-decoration: none;
 		font-weight: 600;
 		border-radius: 6px;
-		transition: opacity 0.2s;
+		transition: background 0.2s;
 	}
 
 	.contact-button:hover {
-		opacity: 0.9;
+		background: #c44569;
 	}
 
 	/* Responsive */

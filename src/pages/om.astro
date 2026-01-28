@@ -117,6 +117,7 @@ import Layout from '../layouts/Layout.astro';
 
 	.hero {
 		padding: 8rem 0 4rem;
+		background: linear-gradient(180deg, #fff0f5 0%, #fff 100%);
 	}
 
 	.hero-title {
@@ -184,17 +185,17 @@ import Layout from '../layouts/Layout.astro';
 
 	/* Contact section */
 	.contact-section {
-		background: #000;
-		color: #fff;
+		background: #fff0f5;
+		color: #000;
 		border-top: none;
 	}
 
 	.contact-section .section-title {
-		color: #fff;
+		color: #000;
 	}
 
 	.contact-intro {
-		color: rgba(255, 255, 255, 0.8);
+		color: #666;
 		font-size: 1.1rem;
 		margin-bottom: 2rem;
 	}
@@ -221,7 +222,7 @@ import Layout from '../layouts/Layout.astro';
 		width: 24px;
 		height: 24px;
 		flex-shrink: 0;
-		color: rgba(255, 255, 255, 0.6);
+		color: #c44569;
 		margin-top: 0.25rem;
 	}
 
@@ -233,34 +234,34 @@ import Layout from '../layouts/Layout.astro';
 
 	.contact-label {
 		font-size: 0.85rem;
-		color: rgba(255, 255, 255, 0.6);
+		color: #999;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
 	}
 
 	.contact-method a {
-		color: #fff;
+		color: #000;
 		text-decoration: none;
 		font-size: 1.1rem;
 	}
 
 	.contact-method a:hover {
-		text-decoration: underline;
+		color: #c44569;
 	}
 
 	.contact-button {
 		display: inline-block;
 		padding: 1rem 2rem;
-		background: #fff;
-		color: #000;
+		background: #000;
+		color: #fff;
 		text-decoration: none;
 		font-weight: 600;
 		border-radius: 6px;
-		transition: opacity 0.2s;
+		transition: background 0.2s;
 	}
 
 	.contact-button:hover {
-		opacity: 0.9;
+		background: #c44569;
 	}
 
 	@media (max-width: 768px) {
