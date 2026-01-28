@@ -23,7 +23,7 @@ const currentPath = Astro.url.pathname;
 
 <style>
   .nav {
-    background: #fff0f5;
+    background: #fffbf0;
     border-bottom: 1px solid transparent;
     padding: 1rem 0;
     position: sticky;
@@ -168,7 +168,7 @@ const currentPath = Astro.url.pathname;
     const maxScroll = 300; // Full transition over 300px
     const progress = Math.min(scrollY / maxScroll, 1);
     
-    // Interpolate from #fff0f5 (255, 240, 245) to white (255, 255, 255)
+    // Interpolate from #fffbf0 (255, 240, 245) to white (255, 255, 255)
     const g = Math.round(240 + (15 * progress)); // 240 -> 255
     const b = Math.round(245 + (10 * progress)); // 245 -> 255
     
