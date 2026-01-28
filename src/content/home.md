@@ -1,11 +1,11 @@
 ---
-title: "Adorable – AI-transformation och digital marknadsföring"
+title: "Adorable – AI-rådgivning och digital marknadsföring"
 description: "Adorable hjälper företag att implementera AI och optimera sin digitala marknadsföring. Sedan 2016."
-hero_title: "AI-transformation och digital marknadsföring"
+hero_title: "AI-rådgivning och digital marknadsföring"
 hero_text: "Adorable hjälper företag att implementera AI och optimera sin digitala marknadsföring. Sedan 2016."
 
 ai_section:
-  title: "AI-transformation"
+  title: "AI-rådgivning"
   intro: "Jag hjälper organisationer att gå från AI-nyfikenhet till faktisk användning. Inte strategidokument som samlar damm – utan konkreta verktyg och arbetsflöden som förändrar hur arbetet utförs."
   services:
     - name: "Workshops och utbildning"
