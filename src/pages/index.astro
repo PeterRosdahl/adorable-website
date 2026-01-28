@@ -284,11 +284,11 @@ import Layout from '../layouts/Layout.astro';
 		text-decoration: none;
 		font-weight: 600;
 		border-radius: 6px;
-		transition: background 0.2s;
+		transition: opacity 0.2s;
 	}
 
 	.cta-primary:hover {
-		background: #c44569;
+		opacity: 0.85;
 	}
 
 	.cta-secondary {
@@ -299,12 +299,11 @@ import Layout from '../layouts/Layout.astro';
 		font-weight: 600;
 		border: 2px solid #000;
 		border-radius: 6px;
-		transition: background 0.2s, color 0.2s, border-color 0.2s;
+		transition: background 0.2s, color 0.2s;
 	}
 
 	.cta-secondary:hover {
-		background: #c44569;
-		border-color: #c44569;
+		background: #000;
 		color: #fff;
 	}
 
@@ -429,8 +428,7 @@ import Layout from '../layouts/Layout.astro';
 
 	/* Process section */
 	.process-section {
-		background: #fff0f5;
-		border-top: none;
+		background: #fafafa;
 	}
 
 	.process-steps {
@@ -568,7 +566,8 @@ import Layout from '../layouts/Layout.astro';
 
 	@media (min-width: 600px) {
 		.contact-info {
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat(2, 1fr);
+			max-width: 500px;
 		}
 	}
 
