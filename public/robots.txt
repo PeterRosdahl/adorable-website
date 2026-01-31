@@ -1,6 +1,7 @@
 # robots.txt for adorable.se
 User-agent: *
 Allow: /
+Disallow: /admin/
 
 # Sitemaps
-Sitemap: https://adorable.se/sitemap.xml
+Sitemap: https://adorable.se/sitemap-index.xml
