@@ -10,7 +10,7 @@
 
 [[redirects]]
   from = "/ai-transformation/"
-  to = "/ai/"
+  to = "/ai"
   status = 301
 
 [[redirects]]
@@ -20,5 +20,5 @@
 
 [[redirects]]
   from = "/en/ai-transformation/"
-  to = "/en/ai/"
+  to = "/en/ai"
   status = 301
