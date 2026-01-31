@@ -2,12 +2,13 @@
 interface Props {
   title: string;
   description: string;
-  datePublished?: string;
+  datePublished: string;
   dateModified?: string;
   url: string;
+  image?: string;
 }
 
-const { title, description, datePublished, dateModified, url } = Astro.props;
+const { title, description, datePublished, dateModified, url, image = '/og-image.jpg' } = Astro.props;
 
 const articleSchema = {
   "@context": "https://schema.org",
@@ -15,6 +16,7 @@ const articleSchema = {
   "headline": title,
   "description": description,
   "url": `https://adorable.se${url}`,
+  "image": `https://adorable.se${image}`,
   "author": {
     "@type": "Person",
     "name": "Peter Rosdahl",
@@ -23,9 +25,13 @@ const articleSchema = {
   "publisher": {
     "@type": "Organization",
     "name": "Adorable",
-    "url": "https://adorable.se"
+    "url": "https://adorable.se",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://adorable.se/adorable-logo.png"
+    }
   },
-  ...(datePublished && { "datePublished": datePublished }),
+  "datePublished": datePublished,
   ...(dateModified && { "dateModified": dateModified }),
   "mainEntityOfPage": {
     "@type": "WebPage",

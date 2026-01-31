@@ -2,18 +2,39 @@
 import Layout from '../layouts/Layout.astro';
 
 const glossary = [
-  { term: 'AI Agent', description: 'Ett AI-drivet system som autonomt kan utföra uppgifter, fatta beslut och interagera med andra system eller människor. Används i marknadsföring för automatisering av kundtjänst, content creation och datainsamling.', link: '/ai' },
-  { term: 'Prompt Engineering', description: 'Konsten att skriva instruktioner till AI-modeller för att få bästa möjliga resultat. Kritiskt för effektiv AI-användning i marknadsföring och content creation.', link: '/ai' },
-  { term: 'RAG', description: 'Retrieval-Augmented Generation - en teknik där AI-modeller kompletteras med företagsspecifik kunskap från databaser eller dokument för mer exakta och relevanta svar.', link: '/ai' },
-  { term: 'ROAS', description: 'Return on Ad Spend - nyckeltal som visar hur mycket intäkt du får per investerad annons-krona. Beräknas som (Intäkt / Annonskostnad) × 100. Exempel: ROAS 300% betyder 3 kr tillbaka per investerad krona.', link: '/paid-social' },
-  { term: 'Meta Ads', description: 'Facebooks och Instagrams annonsplattform. Omfattar alla annonser på Facebook, Instagram, Messenger och Audience Network. En av världens största annonsplattformar för både B2C och B2B.', link: '/paid-social' },
-  { term: 'CPC', description: 'Cost Per Click - kostnaden för varje klick på din annons. Lägre CPC betyder effektivare annonser. Påverkas av relevans, konkurrens och målgrupp.', link: '/paid-social' },
-  { term: 'CTR', description: 'Click-Through Rate - andelen som klickar på din annons av de som ser den. Högt CTR indikerar relevant annons. Beräknas som (Klick / Visningar) × 100.', link: '/paid-social' },
-  { term: 'Lookalike Audience', description: 'Målgrupper på Meta och andra plattformar som liknar dina befintliga kunder. AI hittar användare med liknande beteenden och intressen som din bästa kundbas.', link: '/paid-social' },
-  { term: 'Conversion Tracking', description: 'Spårning av användares handlingar efter att de klickat på din annons. Viktigt för att mäta kampanjers faktiska värde. Implementeras via pixels eller API.', link: '/paid-social' },
-  { term: 'Attribution', description: 'Fördelning av kredit till olika marknadsföringskanaler för en konvertering. Avgör vilka kanaler som bidrar till försäljning och hur mycket värde varje kanal skapar.', link: '/paid-social' },
-  { term: 'A/B Testing', description: 'Systematisk testning där två varianter av en annons, landningssida eller kampanj jämförs för att identifiera vad som presterar bäst. Grunden för datadrivet beslutsfattande.', link: '/paid-social' },
-  { term: 'Performance Marketing', description: 'Marknadsföring där du betalar baserat på resultat - klick, leads eller försäljning. Fokus på mätbara utfall och ständig optimering.', link: '/paid-social' },
+  // AI Terms
+  { term: 'AI Agent', description: 'Ett AI-drivet system som autonomt kan utföra uppgifter, fatta beslut och interagera med andra system eller människor. Används i marknadsföring för automatisering av kundtjänst, content creation och datainsamling. AI-agenter kan kopplas samman i multi-agent-system där olika specialiserade agenter samarbetar för att lösa komplexa problem.', link: '/ai', category: 'AI' },
+  { term: 'Prompt Engineering', description: 'Konsten att skriva instruktioner till AI-modeller för att få bästa möjliga resultat. Kritiskt för effektiv AI-användning i marknadsföring och content creation. God prompt engineering inkluderar tydlig kontext, specifika instruktioner och exempel på önskat resultat. Skillnaden mellan en bra och dålig prompt kan vara enorm i kvalitet.', link: '/ai', category: 'AI' },
+  { term: 'RAG', description: 'Retrieval-Augmented Generation - en teknik där AI-modeller kompletteras med företagsspecifik kunskap från databaser eller dokument för mer exakta och relevanta svar. RAG löser problemet med AI-modellers begränsade kunskap genom att hämta relevant information i realtid. Perfekt för att bygga AI-assistenter som känner till företagets produkter, policies och historik.', link: '/ai', category: 'AI' },
+  { term: 'LLM', description: 'Large Language Model - stora AI-modeller tränade på enorma mängder text för att förstå och generera mänskligt språk. Exempel: GPT-4, Claude, Gemini. LLM:er har revolutionerat allt från kundtjänst till content creation. De förstår kontext, kan resonera och anpassa sin kommunikation efter målgrupp.', link: '/ai', category: 'AI' },
+  { term: 'Fine-tuning', description: 'Processen att träna en befintlig AI-modell vidare på specifik data för att specialisera den för ett visst område eller uppgift. Används när generella modeller inte ger tillräckligt bra resultat för nischade användningsfall. Kräver träningsdata och teknisk kompetens, men kan ge dramatiskt bättre resultat.', link: '/ai', category: 'AI' },
+  { term: 'AI Policy', description: 'Dokumenterade riktlinjer för hur medarbetare får och bör använda AI i sin vardag. Täcker allt från dataskydd och säkerhet till etiska riktlinjer och best practices. En bra AI-policy ger trygghet att experimentera utan att skapa risker. Den måste balansera innovation med ansvar.', link: '/ai', category: 'AI' },
+  
+  // Paid Social - Platform Terms
+  { term: 'Meta Ads', description: 'Facebooks och Instagrams annonsplattform. Omfattar alla annonser på Facebook, Instagram, Messenger och Audience Network. En av världens största annonsplattformar för både B2C och B2B. Meta Ads Manager erbjuder avancerad målgruppssegmentering, automatisk budgivning och omfattande rapportering.', link: '/paid-social', category: 'Plattformar' },
+  { term: 'LinkedIn Ads', description: 'Annonsplattform för professionellt nätverk, särskilt stark för B2B-marknadsföring. Möjliggör målgruppsval baserat på jobbtitel, företag, bransch och senioritet. Dyrare CPC än Meta, men ofta högre lead-kvalitet för B2B. Kampanjformat inkluderar Sponsored Content, Message Ads och Dynamic Ads.', link: '/paid-social', category: 'Plattformar' },
+  { term: 'TikTok Ads', description: 'Snabbväxande annonsplattform fokuserad på kort videoinnehåll. Stark bland yngre målgrupper men växer snabbt inom alla demografier. Kräver kreativt mod och native content som inte ser ut som reklam. TikToks algoritm belönar engagemang över allt annat.', link: '/paid-social', category: 'Plattformar' },
+  { term: 'Google Ads', description: 'Sökannonser, display och YouTube-video under en plattform. Google Ads fångar användare med aktivt köpintresse genom sökord. Display och YouTube fungerar bättre för awareness och retargeting. Search ads är ofta mest lönsamt men kräver stark keywordstrategi och landningssidor.', link: '/paid-social', category: 'Plattformar' },
+  
+  // Paid Social - Metrics & Performance
+  { term: 'ROAS', description: 'Return on Ad Spend - nyckeltal som visar hur mycket intäkt du får per investerad annons-krona. Beräknas som (Intäkt / Annonskostnad) × 100. Exempel: ROAS 300% betyder 3 kr tillbaka per investerad krona. Viktigaste måttet för e-handel och lead generation. Varierar kraftigt mellan branscher - FMCG kan ha ROAS 200-400%, medan högt marginal-tjänster kan sikta på 500-1000%+.', link: '/paid-social', category: 'Mätning' },
+  { term: 'CPC', description: 'Cost Per Click - kostnaden för varje klick på din annons. Lägre CPC betyder effektivare annonser. Påverkas av relevans, konkurrens och målgrupp. Facebook-annonser har typiskt lägre CPC än LinkedIn. God CPC för B2C kan vara 2-10 kr, medan B2B LinkedIn ofta ligger på 30-100+ kr.', link: '/paid-social', category: 'Mätning' },
+  { term: 'CTR', description: 'Click-Through Rate - andelen som klickar på din annons av de som ser den. Högt CTR indikerar relevant annons och målgrupp. Beräknas som (Klick / Visningar) × 100. Bra CTR för Meta är ofta 1-3% beroende på bransch. LinkedIn ligger lägre, runt 0.3-0.8%. Lågt CTR kan bero på dålig kreativ, fel målgrupp eller ointressant erbjudande.', link: '/paid-social', category: 'Mätning' },
+  { term: 'CPM', description: 'Cost Per Mille - kostnaden för 1000 visningar av din annons. Användbara för att jämföra kostnadseffektivitet mellan kampanjer och plattformar. Meta har ofta CPM mellan 30-100 kr beroende på konkurrens och målgrupp. Vid höga CPM kan det tyda på hög konkurrens eller dålig relevans-score.', link: '/paid-social', category: 'Mätning' },
+  { term: 'CAC', description: 'Customer Acquisition Cost - totalkostnaden för att värva en ny kund, inkluderat alla marknadsföringskostnader. Beräknas som total marknadsföringskostnad delat på antal nya kunder. CAC måste jämföras mot Customer Lifetime Value (CLV) för att avgöra om kundvärvningen är lönsam. Tumregel: CLV bör vara minst 3x CAC.', link: '/paid-social', category: 'Mätning' },
+  
+  // Paid Social - Strategy & Tactics
+  { term: 'Lookalike Audience', description: 'Målgrupper på Meta och andra plattformar som liknar dina befintliga kunder. AI hittar användare med liknande beteenden och intressen som din bästa kundbas. Lookalikes är ofta den mest effektiva skalningsstrategin. Bygg lookalikes från dina högst värde-kunder, inte bara alla köpare. Testa 1%, 3% och 5% lookalikes för att hitta sweet spot mellan precision och räckvidd.', link: '/paid-social', category: 'Målgrupper' },
+  { term: 'Retargeting', description: 'Marknadsföring riktad till personer som tidigare besökt din webbplats eller interagerat med ditt varumärke. Ofta 3-10x mer kostnadseffektivt än cold traffic eftersom målgruppen redan känner till dig. Retargeting fungerar för att påminna, övertyga tveksamma och driva återköp. Viktigt att segmentera baserat på beteende - olika budskap till olika grupper.', link: '/paid-social', category: 'Målgrupper' },
+  { term: 'Conversion Tracking', description: 'Spårning av användares handlingar efter att de klickat på din annons. Viktigt för att mäta kampanjers faktiska värde. Implementeras via pixels eller API. Utan korrekt tracking kan du inte optimera eller veta vad som fungerar. Meta Pixel och Conversions API (CAPI) används tillsammans för mest tillförlitlig data efter iOS 14 privacy-uppdateringar.', link: '/paid-social', category: 'Tracking' },
+  { term: 'Attribution', description: 'Fördelning av kredit till olika marknadsföringskanaler för en konvertering. Avgör vilka kanaler som bidrar till försäljning och hur mycket värde varje kanal skapar. Multi-touch attribution visar hela customer journey. Vanliga modeller: Last Click (sista kanalen får all kredit), First Click (första kanalen), Linear (alla kanaler lika) och Data-Driven (AI bestämmer fördelning). Val av modell påverkar hur du bedömer kampanjers värde.', link: '/paid-social', category: 'Tracking' },
+  { term: 'A/B Testing', description: 'Systematisk testning där två varianter av en annons, landningssida eller kampanj jämförs för att identifiera vad som presterar bäst. Grunden för datadrivet beslutsfattande. Testa alltid en variabel i taget - bild, rubrik, CTA, målgrupp. Kör tester tills statistisk signifikans uppnås. Små förbättringar kan ge stora resultat över tid.', link: '/paid-social', category: 'Optimering' },
+  { term: 'Creative Testing', description: 'Strukturerat testande av olika kreativa element - bilder, videos, rubriker, copy, CTA. Det viktigaste du kan göra för att förbättra kampanjresultat. Plattformar blir allt bättre på targeting, men kreativ är fortfarande din största hävstång. Testa minst 3-5 kreativa varianter per kampanj. Winners fatigue - även bästa annonsen slutar fungera efter ett tag.', link: '/paid-social', category: 'Optimering' },
+  
+  // General Marketing
+  { term: 'Performance Marketing', description: 'Marknadsföring där du betalar baserat på resultat - klick, leads eller försäljning. Fokus på mätbara utfall och ständig optimering. Performance marketing står i kontrast till brand marketing som fokuserar på awareness och varumärkesbyggande. Många företag behöver både - performance för kortsiktig försäljning och brand för långsiktig tillväxt.', link: '/paid-social', category: 'Strategi' },
+  { term: 'Funnel', description: 'Marknadsföringstratten som beskriver kundresan från första kontakt till köp. Klassisk modell: Awareness → Consideration → Conversion → Retention. Olika strategier och budskap krävs i varje steg. Toppen av tratten når stora volymer med enkla budskap. Botten av tratten når färre men mer kvalificerade personer med specifika erbjudanden. Mät conversion rate mellan varje steg.', link: '/paid-social', category: 'Strategi' },
+  { term: 'Landing Page', description: 'Dedikerad sida dit användare hamnar efter att ha klickat på en annons. Skiljer sig från hemsidan genom att vara fokuserad på en enda handling (köp, anmälan, kontakt). Bra landningssidor har tydlig rubrik, fokuserat budskap, stark CTA och minimal distraktion. A/B-testa alltid landningssidor - små ändringar kan dubblera conversion rate.', link: '/paid-social', category: 'Strategi' },
 ];
 ---
 
@@ -31,8 +52,24 @@ const glossary = [
       </div>
     </section>
 
+    <section class="section intro-section">
+      <div class="container">
+        <h2 class="section-title">Varför en ordlista?</h2>
+        <p class="intro-text">
+          Digital marknadsföring och AI är fulla av förkortningar, buzzwords och tekniska termer. Många används inkonsekvent eller betyder olika saker i olika sammanhang. Den här ordlistan ger raka svar på vad termerna faktiskt betyder – och varför de är viktiga.
+        </p>
+        <p class="intro-text">
+          Oavsett om du är marknadschef som behöver förstå vad byrån pratar om, grundare som utvärderar marknadsföringsstrategier, eller specialist som vill fördjupa kunskapen – den här guiden hjälper dig navigera landskapet.
+        </p>
+        <p class="intro-text">
+          Termerna är organiserade alfabetiskt och täcker allt från grundläggande mätetal som ROAS och CTR till mer avancerade AI-koncept som RAG och prompt engineering. Fokus ligger på praktisk förståelse – inte teoretiska definitioner.
+        </p>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
+        <h2 class="section-title">Termer</h2>
         <div class="glossary-list">
           {glossary.sort((a, b) => a.term.localeCompare(b.term, 'sv')).map((item) => (
             <div class="glossary-item">
@@ -80,6 +117,22 @@ const glossary = [
 
   .section {
     padding: 4rem 0 6rem;
+  }
+
+  .intro-section {
+    padding: 3rem 0 4rem;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .intro-text {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+
+  .intro-text:last-child {
+    margin-bottom: 0;
   }
 
   .glossary-list {

@@ -29,6 +29,24 @@ const industries = [
       </div>
     </section>
 
+    <section class="section intro-section">
+      <div class="container">
+        <h2 class="section-title">Branschspecifik expertis</h2>
+        <p class="intro-text">
+          Varje bransch har sina unika utmaningar när det gäller marknadsföring och AI. Ett försäkringsbolag möter helt andra regelverk och köpbeteenden än ett FMCG-varumärke eller en tillväxtorienterad startup. Vad som fungerar för e-handel fungerar inte nödvändigtvis för B2B-tjänster.
+        </p>
+        <p class="intro-text">
+          Adorable har sedan 2016 arbetat med över 130 varumärken i vitt skilda branscher. Det ger perspektiv på vad som faktiskt fungerar – och varför samma strategi kan ge helt olika resultat beroende på bransch, målgrupp och affärsmodell.
+        </p>
+        <p class="intro-text">
+          Oavsett om du driver en byrå som behöver white-label-expertis, ett byggföretag som vill modernisera sin marknadsföring, eller en organisation som behöver AI-rådgivning – erfarenheten från andra branscher blir ofta den viktigaste tillgången. Lösningar från en vertikal kan anpassas och appliceras på en annan.
+        </p>
+        <p class="intro-text">
+          Klicka på din bransch nedan för att läsa mer om hur paid social och AI-rådgivning kan tillämpas specifikt i just din kontext.
+        </p>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
         <div class="industries-grid">
@@ -83,6 +101,29 @@ const industries = [
 
   .section {
     padding: 4rem 0 6rem;
+  }
+
+  .intro-section {
+    padding: 3rem 0 4rem;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    margin: 0 0 2rem;
+    color: #000;
+  }
+
+  .intro-text {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+
+  .intro-text:last-child {
+    margin-bottom: 0;
   }
 
   .industries-grid {

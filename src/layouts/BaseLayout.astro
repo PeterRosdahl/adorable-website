@@ -50,6 +50,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       "name": "Adorable",
       "description": description,
       "url": String(Astro.site),
+      "image": new URL(image, Astro.site).toString(),
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://adorable.se/adorable-logo.png"
+      },
       "founder": {
         "@type": "Person",
         "name": "Peter Rosdahl",
