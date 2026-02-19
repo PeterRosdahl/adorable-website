@@ -1,157 +1,142 @@
 ---
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
-import '../styles/global.css';
 
+// Self-hosted fonts (faster than Google Fonts)
 import '@fontsource/dm-sans/400.css';
 import '@fontsource/dm-sans/500.css';
 import '@fontsource/dm-sans/700.css';
-import '@fontsource/fraunces/400.css';
-import '@fontsource/fraunces/700.css';
+import '@fontsource/instrument-serif/400.css';
 
 interface Props {
-  title: string;
-  description: string;
-  ogImage?: string;
-  englishPath?: string;
-  lang?: 'sv' | 'en';
+	title: string;
+	description: string;
+	ogImage?: string;
+	englishPath?: string;
 }
 
-const { title, description, ogImage = '/og-image.jpg', englishPath, lang = 'sv' } = Astro.props;
+const { title, description, ogImage = '/og-image.jpg', englishPath } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const swedishPath = Astro.url.pathname;
-
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Adorable',
-  description: 'AI transformation, paid social and marketing automation consulting.',
-  url: 'https://adorable.se',
-  telephone: '+46708235787',
-  email: 'peter@adorable.se',
-  image: 'https://adorable.se/og-image.jpg',
-  logo: {
-    '@type': 'ImageObject',
-    url: 'https://adorable.se/adorable-logo.png'
-  },
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Stockholm',
-    addressCountry: 'SE'
-  },
-  founder: {
-    '@type': 'Person',
-    name: 'Peter Rosdahl',
-    jobTitle: 'Founder, Adorable',
-    url: 'https://adorable.se/om',
-    sameAs: [
-      'https://x.com/PeterRosdahl',
-      'https://www.linkedin.com/in/peterrosdahl',
-      'https://www.threads.net/@PeterRosdahl'
-    ]
-  },
-  areaServed: {
-    '@type': 'Country',
-    name: 'Sweden'
-  },
-  serviceType: ['AI Transformation', 'Paid Social', 'Marketing Automation']
-};
 ---
 
 <!doctype html>
-<html lang={lang} class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-
-    <title>{title}</title>
-    <meta name="title" content={title} />
-    <meta name="description" content={description} />
-    <meta name="robots" content="index,follow" />
-    <link rel="canonical" href={canonicalURL} />
-
-    {englishPath && (
-      <>
-        <link rel="alternate" hreflang="sv" href={`https://adorable.se${swedishPath}`} />
-        <link rel="alternate" hreflang="en" href={`https://adorable.se${englishPath}`} />
-        <link rel="alternate" hreflang="x-default" href={`https://adorable.se${swedishPath}`} />
-      </>
-    )}
-
-    <meta name="google-site-verification" content="adcqv8TZQSccrHknOJPPtFdt18C5USmNfa1iBagVNaM" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
-    <meta property="og:locale" content={lang === 'sv' ? 'sv_SE' : 'en_US'} />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={canonicalURL} />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
-    <meta name="twitter:creator" content="@PeterRosdahl" />
-
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="e5ec55d8-278e-4400-93c0-1d833882a91d"></script>
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-  </head>
-  <body class="bg-stone-50 text-zinc-900 antialiased">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-zinc-900 focus:px-4 focus:py-2 focus:text-white">Skip to content</a>
-    <Navigation />
-    <slot />
-    <Footer />
-  </body>
+<html lang="sv">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- Primary Meta Tags -->
+		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL} />
+		
+		<!-- Hreflang Tags -->
+		{englishPath && (
+			<>
+				<link rel="alternate" hreflang="sv" href={`https://adorable.se${swedishPath}`} />
+				<link rel="alternate" hreflang="en" href={`https://adorable.se${englishPath}`} />
+				<link rel="alternate" hreflang="x-default" href={`https://adorable.se${swedishPath}`} />
+			</>
+		)}
+		
+		<!-- Google Search Console Verification -->
+		<meta name="google-site-verification" content="adcqv8TZQSccrHknOJPPtFdt18C5USmNfa1iBagVNaM" />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(ogImage, Astro.site)} />
+		<meta property="og:locale" content="sv_SE" />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL(ogImage, Astro.site)} />
+		<meta property="twitter:creator" content="@PeterRosdahl" />
+		
+		<!-- Favicon -->
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		
+		<!-- Umami Analytics (privacy-first, no cookies) -->
+		<script defer src="https://cloud.umami.is/script.js" data-website-id="e5ec55d8-278e-4400-93c0-1d833882a91d"></script>
+		
+		<!-- Fonts loaded via @fontsource (self-hosted, no external requests) -->
+		
+		<!-- Structured Data -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "ProfessionalService",
+				"name": "Adorable",
+				"description": "AI-rådgivning och Paid Social konsulttjänster",
+				"url": "https://adorable.se",
+				"telephone": "+46708235787",
+				"email": "peter@adorable.se",
+				"image": "https://adorable.se/og-image.jpg",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "https://adorable.se/adorable-logo.png"
+				},
+				"address": {
+					"@type": "PostalAddress",
+					"addressLocality": "Stockholm",
+					"addressCountry": "SE"
+				},
+				"founder": {
+					"@type": "Person",
+					"name": "Peter Rosdahl",
+					"jobTitle": "Konsult - AI-rådgivning och Paid Social",
+					"url": "https://adorable.se/om",
+					"sameAs": [
+						"https://x.com/PeterRosdahl",
+						"https://www.linkedin.com/in/peterrosdahl",
+						"https://www.threads.net/@PeterRosdahl"
+					]
+				},
+				"areaServed": {
+					"@type": "Country",
+					"name": "Sverige"
+				},
+				"serviceType": ["AI-rådgivning", "Paid Social Marketing", "Digital Marknadsföring"]
+			}
+		</script>
+	</head>
+	<body>
+		<Navigation />
+		<slot />
+		<Footer />
+	</body>
 </html>
 
 <style is:global>
-  :root {
-    --bg-soft: #f8f4ee;
-    --bg-card: #fffdf9;
-    --text-strong: #19181a;
-    --text-muted: #5e5b60;
-    --line: #e8dfd4;
-    --brand-500: #cd7e4d;
-    --brand-600: #b76f42;
-    --accent-500: #e8a96f;
-  }
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
 
-  html,
-  body {
-    margin: 0;
-    min-height: 100%;
-    font-family: 'DM Sans', ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
-    color: var(--text-strong);
-    background: radial-gradient(circle at top, #fffaf2 0%, #f8f4ee 45%, #f5f2ec 100%);
-  }
+	html {
+		font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+		background: #fff;
+		color: #000;
+	}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: 'Fraunces', Georgia, serif;
-    letter-spacing: -0.02em;
-  }
+	body {
+		margin: 0;
+		padding: 0;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
 
-  ::selection {
-    background: #f2c89d;
-    color: #231f1b;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-  }
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Instrument Serif', Georgia, serif;
+		font-weight: 400;
+	}
 </style>

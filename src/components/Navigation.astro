@@ -1,52 +1,188 @@
 ---
 const currentPath = Astro.url.pathname;
-const home = currentPath === '/';
-
-const links = [
-  { label: 'Services', href: home ? '#services' : '/#services' },
-  { label: 'Case Studies', href: home ? '#case-studies' : '/#case-studies' },
-  { label: 'About', href: home ? '#about' : '/#about' },
-  { label: 'Blog', href: home ? '#blog' : '/#blog' },
-  { label: 'FAQ', href: home ? '#faq' : '/#faq' },
-  { label: 'Contact', href: home ? '#contact' : '/#contact' }
-];
 ---
 
-<header class="sticky top-0 z-50 border-b border-white/60 bg-[color:var(--bg-soft)]/85 backdrop-blur-lg">
-  <nav class="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-4 md:px-8" aria-label="Primary navigation">
-    <a href="/" class="inline-flex items-center gap-2 text-base font-semibold tracking-tight text-zinc-900">
-      <span class="inline-flex h-2.5 w-2.5 rounded-full bg-[color:var(--brand-500)]"></span>
-      Adorable
-    </a>
-
-    <ul class="hidden items-center gap-7 md:flex">
-      {links.map((link) => (
-        <li>
-          <a href={link.href} class="text-sm font-medium text-zinc-700 transition hover:text-zinc-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--brand-500)]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg-soft)]">{link.label}</a>
-        </li>
-      ))}
+<nav class="nav">
+  <div class="container">
+    <a href="/" class="logo">Adorable</a>
+    
+    <button class="hamburger" aria-label="Öppna meny" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    
+    <ul class="nav-links">
+      <li><a href="/" class={currentPath === '/' ? 'active' : ''}>Start</a></li>
+      <li><a href="/om" class={currentPath === '/om' ? 'active' : ''}>Om</a></li>
+      <li><a href="/tjanster" class={currentPath.startsWith('/tjanster') ? 'active' : ''}>Tjänster</a></li>
+      <li><a href="/kontakt" class={currentPath === '/kontakt' ? 'active' : ''}>Kontakt</a></li>
     </ul>
+  </div>
+</nav>
 
-    <a href={home ? '#contact' : '/#contact'} class="hidden rounded-full bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-zinc-700 md:inline-flex">
-      Book Intro
-    </a>
+<style>
+  .nav {
+    background: #fffbf0;
+    border-bottom: 1px solid transparent;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: border-color 0.3s ease;
+  }
 
-    <details class="relative md:hidden">
-      <summary class="inline-flex list-none cursor-pointer items-center gap-2 rounded-full border border-[color:var(--line)] bg-white px-3 py-2 text-sm font-medium text-zinc-900 marker:content-none">
-        Menu
-      </summary>
-      <div class="absolute right-0 mt-2 w-64 rounded-2xl border border-[color:var(--line)] bg-white p-3 shadow-2xl shadow-zinc-900/10">
-        <ul class="space-y-1">
-          {links.map((link) => (
-            <li>
-              <a href={link.href} class="block rounded-lg px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-100 hover:text-zinc-900">{link.label}</a>
-            </li>
-          ))}
-          <li>
-            <a href={home ? '#contact' : '/#contact'} class="mt-1 block rounded-lg bg-zinc-900 px-3 py-2 text-sm font-medium text-white">Book Intro</a>
-          </li>
-        </ul>
-      </div>
-    </details>
-  </nav>
-</header>
+  .nav.scrolled {
+    border-bottom-color: #e5e5e5;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.4rem;
+    color: #000;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 1001;
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    color: #555;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #000;
+  }
+
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: white;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .nav-links.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-links a {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+  }
+</style>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  const nav = document.querySelector('.nav');
+
+  hamburger?.addEventListener('click', () => {
+    const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', String(!isOpen));
+    navLinks?.classList.toggle('open');
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  });
+
+  // Close menu when clicking a link
+  navLinks?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger?.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Smooth gradient transition on scroll
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    const maxScroll = 300; // Full transition over 300px
+    const progress = Math.min(scrollY / maxScroll, 1);
+    
+    // Interpolate from #fffbf0 (255, 251, 240) to white (255, 255, 255)
+    const g = Math.round(251 + (4 * progress)); // 251 -> 255
+    const b = Math.round(240 + (15 * progress)); // 240 -> 255
+    
+    if (nav) {
+      nav.style.background = `rgb(255, ${g}, ${b})`;
+    }
+    
+    if (scrollY > 10) {
+      nav?.classList.add('scrolled');
+    } else {
+      nav?.classList.remove('scrolled');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll(); // Check initial state
+</script>

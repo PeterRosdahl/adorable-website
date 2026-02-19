@@ -1,355 +1,530 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const featuredPosts = [
-  {
-    title: 'Bygg en AI-strategi som faktiskt fungerar',
-    href: '/artiklar/bygg-en-ai-strategi-som-fungerar',
-    category: 'AI Transformation',
-    excerpt: 'A practical framework for moving from AI experiments to operating model level impact.'
-  },
-  {
-    title: 'Skalera Meta Ads utan att forstora ROAS',
-    href: '/artiklar/skalera-meta-ads-utan-att-forstora-roas',
-    category: 'Paid Social',
-    excerpt: 'How to scale spend while protecting efficiency and keeping the funnel healthy.'
-  },
-  {
-    title: 'Personalisering i stor skala med AI',
-    href: '/artiklar/personalisering-i-stor-skala-med-ai',
-    category: 'Marketing Automation',
-    excerpt: 'Designing AI-assisted messaging systems that personalize without creating chaos.'
-  }
-];
-
-const faqs = [
-  {
-    q: 'What size companies do you work with?',
-    a: 'Most clients are growth-stage and mid-market teams, but the model also fits enterprise projects that need focused senior execution.'
-  },
-  {
-    q: 'How quickly can we start?',
-    a: 'Most projects can start within 1-2 weeks. First step is a 30-minute call to align on objective, scope, and timeline.'
-  },
-  {
-    q: 'Do you work as advisor or hands-on partner?',
-    a: 'Both. Engagements can be strategy only, execution only, or a hybrid model where strategy and implementation run in parallel.'
-  },
-  {
-    q: 'Do you support in-house teams?',
-    a: 'Yes. Many engagements include coaching and enablement so your team can run independently after the project.'
-  }
-];
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((item) => ({
-    '@type': 'Question',
-    name: item.q,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.a
-    }
-  }))
-};
 ---
 
-<Layout
-  title="Adorable | AI Transformation, Paid Social, Marketing Automation"
-  description="Adorable helps growth teams scale with AI transformation, paid social, and marketing automation. Founder: Peter Rosdahl, Stockholm."
-  englishPath="/en/"
-  lang="en"
+<Layout 
+	title="Adorable – AI-rådgivning och Paid Social | Peter Rosdahl"
+	description="Paid social och AI-rådgivning för företag som vill börja nu. Workshops, strategi och implementering. Baserat i Stockholm."
+	englishPath="/en/"
 >
-  <main id="main-content" class="relative overflow-clip">
-    <section class="hero-shell border-b border-[color:var(--line)]">
-      <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
-      <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
-      <div class="mx-auto grid w-full max-w-6xl gap-10 px-5 pb-20 pt-18 md:grid-cols-[1.25fr_0.95fr] md:gap-16 md:px-8 md:pb-28 md:pt-24">
-        <div>
-          <p class="inline-flex items-center rounded-full border border-white/40 bg-white/65 px-3 py-1 text-sm font-semibold uppercase tracking-[0.12em] text-zinc-700 shadow-sm">Strategic Growth Consultancy</p>
-          <h1 class="mt-5 text-5xl leading-[1.02] text-zinc-950 sm:text-6xl md:text-7xl">Build the next version of your marketing engine.</h1>
-          <p class="mt-6 max-w-xl text-base leading-relaxed text-zinc-700 md:text-lg">
-            Adorable partners with leadership teams to modernize demand generation through AI transformation, paid social excellence, and automation systems that actually compound.
-          </p>
-          <div class="mt-8 flex flex-wrap items-center gap-3">
-            <a href="#contact" class="rounded-full bg-zinc-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-zinc-700">Book Intro Call</a>
-            <a href="#services" class="rounded-full border border-zinc-300 bg-white/80 px-5 py-3 text-sm font-semibold text-zinc-800 transition hover:border-zinc-500">Explore Services</a>
-          </div>
-          <ul class="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-base text-zinc-600">
-            <li>130+ brands supported</li>
-            <li>Founded 2016</li>
-            <li>Based in Stockholm</li>
-          </ul>
-        </div>
+	<main>
+		<!-- Hero -->
+		<section class="hero">
+			<div class="container">
+				<h1 class="hero-title">Paid social och AI-rådgivning för företag som vill börja nu.</h1>
+				<p class="hero-intro">
+					Adorable arbetar med ett fåtal kunder i taget, oftast när saker är lite oklara. Arbetet sker nära verksamheten – hitta rätt riktning, höja kvaliteten, och hjälpa team att fatta bättre beslut innan de blir dyra.
+				</p>
+				<div class="hero-cta">
+					<a href="/kontakt" class="cta-primary">Kom igång</a>
+					<a href="/tjanster" class="cta-secondary">Se tjänster</a>
+				</div>
+			</div>
+		</section>
 
-        <aside class="rounded-3xl border border-white/50 bg-white/80 p-6 shadow-[0_30px_80px_-40px_rgba(31,24,16,0.55)] backdrop-blur md:p-8">
-          <p class="text-sm font-semibold uppercase tracking-[0.16em] text-zinc-600">What teams hire Adorable for</p>
-          <ul class="mt-5 space-y-4 text-base text-zinc-700">
-            <li class="rounded-2xl border border-[color:var(--line)] bg-[color:var(--bg-card)] p-4">
-              <p class="font-semibold text-zinc-900">AI Transformation</p>
-              <p class="mt-1 leading-relaxed">Move from scattered tools to a clear operating model with adoption and governance.</p>
-            </li>
-            <li class="rounded-2xl border border-[color:var(--line)] bg-[color:var(--bg-card)] p-4">
-              <p class="font-semibold text-zinc-900">Paid Social Scale</p>
-              <p class="mt-1 leading-relaxed">Turn paid social into a repeatable profit center through creative systems and measurement.</p>
-            </li>
-            <li class="rounded-2xl border border-[color:var(--line)] bg-[color:var(--bg-card)] p-4">
-              <p class="font-semibold text-zinc-900">Automation Foundation</p>
-              <p class="mt-1 leading-relaxed">Automate workflows across CRM, content, and campaign ops without adding complexity.</p>
-            </li>
-          </ul>
-        </aside>
-      </div>
-    </section>
+		<!-- Varför -->
+		<section class="section why-section">
+			<div class="container">
+				<h2 class="section-title">Varför Adorable?</h2>
+				<div class="why-grid">
+					<div class="why-item">
+						<h3>
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="why-icon">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+							</svg>
+							Senior expertis
+						</h3>
+						<p>10 års erfarenhet av digital marknadsföring och affärsutveckling. Perspektiv på vad som fungerar – och vad som inte gör det.</p>
+					</div>
+					<div class="why-item">
+						<h3>
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="why-icon">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
+							</svg>
+							Praktiskt fokus
+						</h3>
+						<p>Ingen fluff eller buzzwords. Konkreta lösningar som går att implementera direkt, anpassade efter er verklighet.</p>
+					</div>
+					<div class="why-item">
+						<h3>
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="why-icon">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+							</svg>
+							Flexibelt upplägg
+						</h3>
+						<p>Workshops, rådgivning, hands-on implementering – eller en kombination. Anpassat efter vad ni behöver.</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    <section id="services" class="mx-auto w-full max-w-6xl px-5 py-16 md:px-8 md:py-24">
-      <div class="max-w-2xl">
-        <p class="text-sm font-semibold uppercase tracking-[0.14em] text-zinc-600">Services</p>
-        <h2 class="mt-3 text-4xl leading-tight text-zinc-950 md:text-5xl">Three capabilities. One growth mandate.</h2>
-      </div>
+		<!-- Tjänster -->
+		<section class="section services-section">
+			<div class="container">
+				<div class="services-grid">
+					<div class="service-card">
+						<h3>AI-rådgivning</h3>
+						<p class="service-tagline">För företag som vill börja använda AI på riktigt</p>
+						<p>AI är inte längre framtidsprat – det är ett verktyg som kan effektivisera er verksamhet idag. Men var börjar man? Och hur undviker man de vanligaste fallgroparna?</p>
+						<ul>
+							<li><strong>Workshops och utbildning</strong> – Ge teamet kunskap och självförtroende</li>
+							<li><strong>AI-strategi</strong> – Identifiera var AI skapar mest värde</li>
+							<li><strong>Implementering</strong> – Hjälp att komma igång med rätt verktyg</li>
+							<li><strong>AI-policy</strong> – Ramverk för säker och ansvarsfull användning</li>
+						</ul>
+						<a href="/ai" class="service-link">Läs mer om AI-rådgivning →</a>
+					</div>
+					<div class="service-card">
+						<h3>Paid Social</h3>
+						<p class="service-tagline">Digital annonsering som driver resultat</p>
+						<p>Paid social är mer än att "köra lite annonser på Facebook". Det handlar om att förstå plattformarna, målgruppen och hur man bygger kampanjer som faktiskt konverterar.</p>
+						<ul>
+							<li><strong>Strategi</strong> – Rätt plattformar, budskap och budget för era mål</li>
+							<li><strong>Uppsättning</strong> – Kampanjstruktur, tracking och kreativ</li>
+							<li><strong>Optimering</strong> – Löpande förbättring baserat på data</li>
+							<li><strong>Rapportering</strong> – Tydliga insikter, inte vanity metrics</li>
+						</ul>
+						<a href="/paid-social" class="service-link">Läs mer om Paid Social →</a>
+					</div>
+				</div>
+			</div>
+		</section>
 
-      <div class="mt-10 grid gap-5 md:grid-cols-3">
-        <article class="rounded-3xl border border-[color:var(--line)] bg-[color:var(--bg-card)] p-6">
-          <h3 class="text-2xl text-zinc-900">AI Transformation</h3>
-          <p class="mt-3 text-base leading-relaxed text-zinc-700">AI readiness, workflow redesign, enablement, and governance to make AI practical at team level.</p>
-          <ul class="mt-5 space-y-2 text-base text-zinc-600">
-            <li>Use-case mapping and prioritization</li>
-            <li>AI operating model and guardrails</li>
-            <li>Leadership and team training</li>
-          </ul>
-        </article>
+		<!-- Så fungerar det -->
+		<section class="section process-section">
+			<div class="container">
+				<h2 class="section-title">Så fungerar det</h2>
+				<div class="process-steps">
+					<div class="process-step">
+						<h3>
+							<span class="step-icon">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+								</svg>
+							</span>
+							Intro
+						</h3>
+						<p>Vi börjar med ett samtal för att förstå er situation, utmaningar och mål. Ingen kostnad eller förbindelse.</p>
+					</div>
+					<div class="process-step">
+						<h3>
+							<span class="step-icon">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+								</svg>
+							</span>
+							Förslag
+						</h3>
+						<p>Adorable återkommer med ett konkret förslag på upplägg, tidsplan och kostnad. Tydligt och transparent.</p>
+					</div>
+					<div class="process-step">
+						<h3>
+							<span class="step-icon">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+								</svg>
+							</span>
+							Genomförande
+						</h3>
+						<p>Arbetet sätter igång. Löpande uppdateringar och anpassning efter behov. Fokus på resultat.</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-        <article class="rounded-3xl border border-[color:var(--line)] bg-[color:var(--bg-card)] p-6">
-          <h3 class="text-2xl text-zinc-900">Paid Social</h3>
-          <p class="mt-3 text-base leading-relaxed text-zinc-700">End-to-end paid social strategy and execution across Meta, LinkedIn, TikTok, and YouTube.</p>
-          <ul class="mt-5 space-y-2 text-base text-zinc-600">
-            <li>Account and funnel strategy</li>
-            <li>Creative testing systems</li>
-            <li>Measurement and scaling playbooks</li>
-          </ul>
-        </article>
+		<!-- Branscher -->
+		<section class="section industries-section">
+			<div class="container">
+				<h2 class="section-title">Branscher</h2>
+				<p class="section-intro">Adorable arbetar med både B2B- och B2C-företag i olika branscher.</p>
+				<div class="industries-grid">
+					<a href="/branscher/byraer" class="industry-card" data-umami-event="industry-click" data-umami-event-industry="byraer">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />
+						</svg>
+						<span>Byråer</span>
+					</a>
+					<a href="/branscher/tillvaxtbolag" class="industry-card" data-umami-event="industry-click" data-umami-event-industry="tillvaxtbolag">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+						</svg>
+						<span>Tillväxtbolag</span>
+					</a>
+					<a href="/branscher/byggbranschen" class="industry-card" data-umami-event="industry-click" data-umami-event-industry="byggbranschen">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
+						</svg>
+						<span>Byggföretag</span>
+					</a>
+					<a href="/branscher/forsakring" class="industry-card" data-umami-event="industry-click" data-umami-event-industry="forsakring">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+						</svg>
+						<span>Försäkring</span>
+					</a>
+					<a href="/branscher/utbildning" class="industry-card" data-umami-event="industry-click" data-umami-event-industry="utbildning">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+						</svg>
+						<span>Utbildning</span>
+					</a>
+					<a href="/branscher/fastighetsbolag" class="industry-card" data-umami-event="industry-click" data-umami-event-industry="fastighetsbolag">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+						</svg>
+						<span>Fastigheter</span>
+					</a>
+					<a href="/branscher/fmcg" class="industry-card" data-umami-event="industry-click" data-umami-event-industry="fmcg">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+						</svg>
+						<span>FMCG</span>
+					</a>
+					<a href="/branscher/organisationer" class="industry-card" data-umami-event="industry-click" data-umami-event-industry="organisationer">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+						</svg>
+						<span>Organisationer</span>
+					</a>
+					<a href="/branscher/bank-finans" class="industry-card" data-umami-event="industry-click" data-umami-event-industry="bank-finans">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
+						</svg>
+						<span>Bank & Finans</span>
+					</a>
+					<a href="/branscher/e-handel" class="industry-card desktop-only" data-umami-event="industry-click" data-umami-event-industry="e-handel">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z" />
+						</svg>
+						<span>E-handel</span>
+					</a>
+				</div>
+			</div>
+		</section>
 
-        <article class="rounded-3xl border border-[color:var(--line)] bg-[color:var(--bg-card)] p-6">
-          <h3 class="text-2xl text-zinc-900">Marketing Automation</h3>
-          <p class="mt-3 text-base leading-relaxed text-zinc-700">Design and implementation of automation flows that reduce manual work and increase conversion velocity.</p>
-          <ul class="mt-5 space-y-2 text-base text-zinc-600">
-            <li>CRM and lifecycle automation</li>
-            <li>Lead scoring and qualification logic</li>
-            <li>Reporting and alerting systems</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section id="case-studies" class="border-y border-[color:var(--line)] bg-[#f5eee5]/65">
-      <div class="mx-auto w-full max-w-6xl px-5 py-16 md:px-8 md:py-24">
-        <div class="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.14em] text-zinc-600">Case Studies</p>
-            <h2 class="mt-3 text-4xl leading-tight text-zinc-950 md:text-5xl">Proof over promises.</h2>
-          </div>
-          <p class="text-base text-zinc-600">Detailed case studies are being finalized. Preview examples below.</p>
-        </div>
-
-        <div class="mt-10 grid gap-5 md:grid-cols-3">
-          <article class="rounded-3xl border border-[color:var(--line)] bg-white p-6">
-            <p class="text-sm font-semibold uppercase tracking-[0.14em] text-zinc-600">B2B SaaS</p>
-            <h3 class="mt-3 text-2xl text-zinc-900">AI-assisted GTM rollout</h3>
-            <p class="mt-3 text-base leading-relaxed text-zinc-700">Placeholder: Aligning sales and marketing with AI workflows to cut campaign launch time by 45%.</p>
-          </article>
-          <article class="rounded-3xl border border-[color:var(--line)] bg-white p-6">
-            <p class="text-sm font-semibold uppercase tracking-[0.14em] text-zinc-600">E-commerce</p>
-            <h3 class="mt-3 text-2xl text-zinc-900">Paid social scale model</h3>
-            <p class="mt-3 text-base leading-relaxed text-zinc-700">Placeholder: Structured creative testing and budget controls that doubled qualified revenue contribution.</p>
-          </article>
-          <article class="rounded-3xl border border-[color:var(--line)] bg-white p-6">
-            <p class="text-sm font-semibold uppercase tracking-[0.14em] text-zinc-600">Education</p>
-            <h3 class="mt-3 text-2xl text-zinc-900">Marketing automation rebuild</h3>
-            <p class="mt-3 text-base leading-relaxed text-zinc-700">Placeholder: Lifecycle automation redesign improving response speed and reducing manual operations overhead.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="mx-auto grid w-full max-w-6xl gap-8 px-5 py-16 md:grid-cols-[1.1fr_1fr] md:px-8 md:py-24">
-      <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.14em] text-zinc-600">About</p>
-        <h2 class="mt-3 text-4xl leading-tight text-zinc-950 md:text-5xl">Peter Rosdahl, founder of Adorable.</h2>
-        <p class="mt-6 text-base leading-relaxed text-zinc-700">
-          Peter has spent over two decades in digital growth and has advised more than 130 brands since launching Adorable in 2016. Engagements are intentionally focused and senior-led from strategy to execution.
-        </p>
-        <p class="mt-4 text-base leading-relaxed text-zinc-700">
-          The model is simple: identify the highest-leverage bottlenecks, fix the operating system behind them, and transfer capability to the internal team.
-        </p>
-      </div>
-      <div class="rounded-3xl border border-[color:var(--line)] bg-[color:var(--bg-card)] p-6 md:p-8">
-        <p class="text-base font-semibold text-zinc-900">Engagement principles</p>
-        <ul class="mt-4 space-y-3 text-base leading-relaxed text-zinc-700">
-          <li>Small number of clients at any time</li>
-          <li>Direct access to senior expertise</li>
-          <li>Transparent scope, timeline, and economics</li>
-          <li>Execution quality over reporting theater</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="border-y border-[color:var(--line)] bg-white/80">
-      <div class="mx-auto w-full max-w-6xl px-5 py-16 md:px-8 md:py-24">
-        <p class="text-sm font-semibold uppercase tracking-[0.14em] text-zinc-600">Testimonials</p>
-        <h2 class="mt-3 text-4xl leading-tight text-zinc-950 md:text-5xl">Trusted by teams that need clarity fast.</h2>
-
-        <div class="mt-10 grid gap-5 md:grid-cols-3">
-          <figure class="rounded-3xl border border-[color:var(--line)] bg-[color:var(--bg-card)] p-6">
-            <blockquote class="text-base leading-relaxed text-zinc-700">"Peter cut through months of internal debate in two workshops and gave us a model we could execute immediately."</blockquote>
-            <figcaption class="mt-5 text-base font-medium text-zinc-900">CMO, Nordic SaaS Company</figcaption>
-          </figure>
-          <figure class="rounded-3xl border border-[color:var(--line)] bg-[color:var(--bg-card)] p-6">
-            <blockquote class="text-base leading-relaxed text-zinc-700">"Paid social moved from channel chaos to weekly predictable contribution. The process change was the breakthrough."</blockquote>
-            <figcaption class="mt-5 text-base font-medium text-zinc-900">Growth Lead, DTC Brand</figcaption>
-          </figure>
-          <figure class="rounded-3xl border border-[color:var(--line)] bg-[color:var(--bg-card)] p-6">
-            <blockquote class="text-base leading-relaxed text-zinc-700">"The automation work freed up our team and improved conversion speed at the same time. Very practical approach."</blockquote>
-            <figcaption class="mt-5 text-base font-medium text-zinc-900">Marketing Director, Education Group</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section id="blog" class="mx-auto w-full max-w-6xl px-5 py-16 md:px-8 md:py-24">
-      <div class="flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-zinc-600">Insights</p>
-          <h2 class="mt-3 text-4xl leading-tight text-zinc-950 md:text-5xl">From the Adorable blog.</h2>
-        </div>
-        <a href="/artiklar" class="text-base font-semibold text-zinc-900 underline decoration-[color:var(--brand-500)] underline-offset-4">View all articles</a>
-      </div>
-
-      <div class="mt-10 grid gap-5 md:grid-cols-3">
-        {featuredPosts.map((post) => (
-          <article class="rounded-3xl border border-[color:var(--line)] bg-[color:var(--bg-card)] p-6">
-            <p class="text-sm font-semibold uppercase tracking-[0.14em] text-zinc-600">{post.category}</p>
-            <h3 class="mt-3 text-2xl leading-tight text-zinc-900"><a href={post.href} class="hover:text-[color:var(--brand-600)]">{post.title}</a></h3>
-            <p class="mt-3 text-base leading-relaxed text-zinc-700">{post.excerpt}</p>
-            <a href={post.href} class="mt-5 inline-flex text-base font-semibold text-zinc-900">Read article</a>
-          </article>
-        ))}
-      </div>
-    </section>
-
-    <section id="faq" class="border-y border-[color:var(--line)] bg-[#f7f1e8]">
-      <div class="mx-auto w-full max-w-4xl px-5 py-16 md:px-8 md:py-24">
-        <p class="text-sm font-semibold uppercase tracking-[0.14em] text-zinc-600">FAQ</p>
-        <h2 class="mt-3 text-4xl leading-tight text-zinc-950 md:text-5xl">Common questions.</h2>
-
-        <div class="mt-10 space-y-3">
-          {faqs.map((item) => (
-            <details class="group rounded-2xl border border-[color:var(--line)] bg-white p-5">
-              <summary class="cursor-pointer list-none text-base font-semibold text-zinc-900">{item.q}</summary>
-              <p class="mt-3 text-base leading-relaxed text-zinc-700">{item.a}</p>
-            </details>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="mx-auto w-full max-w-4xl px-5 py-16 md:px-8 md:py-24">
-      <div class="rounded-3xl border border-[color:var(--line)] bg-[color:var(--bg-card)] p-7 md:p-10">
-        <p class="text-sm font-semibold uppercase tracking-[0.14em] text-zinc-600">Contact</p>
-        <h2 class="mt-3 text-4xl leading-tight text-zinc-950 md:text-5xl">Start with a focused 30-minute conversation.</h2>
-        <p class="mt-4 text-base text-zinc-700">Tell us where your growth engine is stuck. You will get a practical recommendation and a clear next step.</p>
-
-        <form class="mt-8 grid gap-4" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="658f2386-7125-4653-b0ac-5d725aeab234" />
-          <input type="hidden" name="subject" value="New lead from adorable.se" />
-          <input type="hidden" name="redirect" value="https://adorable.se/?success=true" />
-
-          <div class="grid gap-4 md:grid-cols-2">
-            <label class="text-base font-medium text-zinc-700">
-              Name
-              <input name="name" type="text" required class="mt-1 w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 outline-none ring-[color:var(--brand-500)] focus:ring-2" />
-            </label>
-            <label class="text-base font-medium text-zinc-700">
-              Work email
-              <input name="email" type="email" required class="mt-1 w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 outline-none ring-[color:var(--brand-500)] focus:ring-2" />
-            </label>
-          </div>
-
-          <label class="text-base font-medium text-zinc-700">
-            Company
-            <input name="company" type="text" class="mt-1 w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 outline-none ring-[color:var(--brand-500)] focus:ring-2" />
-          </label>
-
-          <label class="text-base font-medium text-zinc-700">
-            Area
-            <select name="interest" required class="mt-1 w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 outline-none ring-[color:var(--brand-500)] focus:ring-2">
-              <option value="">Choose one</option>
-              <option value="ai-transformation">AI Transformation</option>
-              <option value="paid-social">Paid Social</option>
-              <option value="marketing-automation">Marketing Automation</option>
-              <option value="integrated">Integrated program</option>
-            </select>
-          </label>
-
-          <label class="text-base font-medium text-zinc-700">
-            Message
-            <textarea name="message" rows="5" required class="mt-1 w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 outline-none ring-[color:var(--brand-500)] focus:ring-2" placeholder="Share your objective, timeline, and current bottleneck."></textarea>
-          </label>
-
-          <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
-            <p class="text-sm text-zinc-600">Or email directly: <a href="mailto:peter@adorable.se" class="font-medium text-zinc-900">peter@adorable.se</a></p>
-            <button type="submit" class="rounded-full bg-zinc-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-zinc-700">Send Inquiry</button>
-          </div>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+	</main>
 </Layout>
 
 <style>
-  .hero-shell {
-    position: relative;
-    isolation: isolate;
-    background: radial-gradient(circle at 20% 20%, rgba(255, 236, 205, 0.8), transparent 55%),
-      radial-gradient(circle at 80% 20%, rgba(241, 196, 146, 0.65), transparent 48%),
-      linear-gradient(145deg, #fffaf3 0%, #f6ede2 45%, #f4ebe1 100%);
-  }
+	main {
+		background: #fff;
+		min-height: 100vh;
+	}
 
-  .hero-orb {
-    position: absolute;
-    border-radius: 9999px;
-    filter: blur(45px);
-    opacity: 0.55;
-    pointer-events: none;
-    animation: drift 18s ease-in-out infinite;
-  }
+	.container {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
 
-  .hero-orb-1 {
-    width: clamp(220px, 34vw, 440px);
-    height: clamp(220px, 34vw, 440px);
-    top: -90px;
-    right: -100px;
-    background: linear-gradient(120deg, #f0a867, #dd7f45);
-  }
+	/* Hero */
+	.hero {
+		padding: 8rem 0 2rem;
+		position: relative;
+		background: linear-gradient(180deg, #fffbf0 0%, #fff 100%);
+	}
 
-  .hero-orb-2 {
-    width: clamp(180px, 25vw, 320px);
-    height: clamp(180px, 25vw, 320px);
-    bottom: -80px;
-    left: -70px;
-    background: linear-gradient(120deg, #f8d0a4, #cf8a59);
-    animation-delay: -7s;
-  }
+	.hero .container {
+		max-width: 900px;
+	}
 
-  @keyframes drift {
-    0%,
-    100% {
-      transform: translate3d(0, 0, 0) scale(1);
-    }
-    50% {
-      transform: translate3d(14px, -14px, 0) scale(1.06);
-    }
-  }
+	.hero-title {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 400;
+		margin: 0 0 2rem;
+		line-height: 1.3;
+		color: #000;
+	}
+
+	.hero-intro {
+		font-size: clamp(1.1rem, 2vw, 1.25rem);
+		line-height: 1.7;
+		margin-bottom: 2rem;
+		color: #333;
+	}
+
+	.hero-cta {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.cta-primary {
+		padding: 1rem 2rem;
+		background: #000;
+		color: #fff;
+		text-decoration: none;
+		font-weight: 600;
+		border-radius: 6px;
+		transition: opacity 0.2s;
+	}
+
+	.cta-primary:hover {
+		opacity: 0.85;
+	}
+
+	.cta-secondary {
+		padding: 1rem 2rem;
+		background: transparent;
+		color: #000;
+		text-decoration: none;
+		font-weight: 600;
+		border: 2px solid #000;
+		border-radius: 6px;
+		transition: background 0.2s, color 0.2s;
+	}
+
+	.cta-secondary:hover {
+		background: #000;
+		color: #fff;
+	}
+
+	/* Sections */
+	.section {
+		padding: 5rem 0;
+		border-top: 1px solid #e5e5e5;
+	}
+
+	.section-title {
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		font-weight: 600;
+		margin: 0 0 2rem;
+		color: #000;
+	}
+
+	.section-intro {
+		color: #666;
+		margin-bottom: 1.5rem;
+		font-size: 1.1rem;
+	}
+
+	/* Why section */
+	.why-grid {
+		display: grid;
+		gap: 2rem;
+	}
+
+	@media (min-width: 600px) {
+		.why-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	.why-item h3 {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 1.125rem;
+		font-weight: 600;
+		margin: 0 0 0.75rem;
+	}
+
+	.why-icon {
+		width: 22px;
+		height: 22px;
+		flex-shrink: 0;
+		color: #000;
+	}
+
+	.why-item p {
+		color: #666;
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	/* Services section */
+	.services-grid {
+		display: grid;
+		gap: 2rem;
+	}
+
+	@media (min-width: 600px) {
+		.services-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	.service-card {
+		padding: 2rem;
+		border: 1px solid #e5e5e5;
+		border-radius: 8px;
+	}
+
+	.service-card h3 {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin: 0 0 0.5rem;
+	}
+
+	.service-tagline {
+		font-size: 1.1rem;
+		color: #666;
+		margin: 0 0 1.5rem;
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	.service-card p {
+		color: #333;
+		line-height: 1.6;
+		margin: 0 0 1.5rem;
+	}
+
+	.service-card ul {
+		margin: 0 0 1.5rem;
+		padding-left: 1.25rem;
+		color: #333;
+	}
+
+	.service-card li {
+		margin-bottom: 0.75rem;
+		line-height: 1.5;
+	}
+
+	.service-card li strong {
+		color: #000;
+	}
+
+	.service-link {
+		color: #000;
+		font-weight: 600;
+		text-decoration: none;
+		border-bottom: 2px solid #000;
+		padding-bottom: 2px;
+		transition: opacity 0.2s;
+	}
+
+	.service-link:hover {
+		opacity: 0.7;
+	}
+
+	/* Process section */
+	.process-section {
+		background: #fafafa;
+	}
+
+	.process-steps {
+		display: grid;
+		gap: 2rem;
+	}
+
+	@media (min-width: 600px) {
+		.process-steps {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	.process-step {
+		text-align: left;
+	}
+
+	.process-step h3 {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 1.125rem;
+		font-weight: 600;
+		margin: 0 0 0.75rem;
+	}
+
+	.step-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 22px;
+		height: 22px;
+		flex-shrink: 0;
+	}
+
+	.step-icon svg {
+		width: 22px;
+		height: 22px;
+		color: #000;
+	}
+
+	.process-step p {
+		color: #666;
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	/* Industries section */
+	.industries-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0.75rem;
+	}
+
+	@media (min-width: 600px) {
+		.industries-grid {
+			grid-template-columns: repeat(5, 1fr);
+			gap: 1rem;
+		}
+	}
+
+	.industry-card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 1rem 0.5rem;
+		background: #f5f5f5;
+		border-radius: 10px;
+		text-decoration: none;
+		color: #333;
+		transition: background 0.2s, color 0.2s, transform 0.2s;
+	}
+
+	@media (min-width: 600px) {
+		.industry-card {
+			padding: 1.25rem 0.75rem;
+			gap: 0.75rem;
+		}
+	}
+
+	.industry-card:hover {
+		background: #000;
+		color: #fff;
+		transform: translateY(-2px);
+	}
+
+	.industry-card svg {
+		width: 24px;
+		height: 24px;
+	}
+
+	@media (min-width: 600px) {
+		.industry-card svg {
+			width: 28px;
+			height: 28px;
+		}
+	}
+
+	.industry-card span {
+		font-size: 0.8rem;
+		font-weight: 500;
+		text-align: center;
+		line-height: 1.2;
+	}
+
+	@media (min-width: 600px) {
+		.industry-card span {
+			font-size: 0.85rem;
+		}
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		.hero {
+			padding: 4rem 0 3rem;
+		}
+
+		.section {
+			padding: 3rem 0;
+		}
+
+		.desktop-only {
+			display: none;
+		}
+	}
 </style>
