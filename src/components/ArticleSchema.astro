@@ -16,7 +16,12 @@ const articleSchema = {
   "headline": title,
   "description": description,
   "url": `https://adorable.se${url}`,
-  "image": `https://adorable.se${image}`,
+  "image": {
+    "@type": "ImageObject",
+    "url": `https://adorable.se${image}`,
+    "width": 1200,
+    "height": 630
+  },
   "author": {
     "@type": "Person",
     "name": "Peter Rosdahl",

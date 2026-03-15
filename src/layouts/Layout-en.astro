@@ -97,11 +97,29 @@ const englishPath = Astro.url.pathname.replace('/en', '') || '/';
 						"https://www.threads.net/@PeterRosdahl"
 					]
 				},
+				"@id": "https://adorable.se/#business",
 				"areaServed": {
 					"@type": "Country",
 					"name": "Sweden"
 				},
-				"serviceType": ["AI Transformation", "Paid Social Marketing", "Digital Marketing"]
+				"makesOffer": [
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "AI Transformation",
+							"serviceType": "AI Transformation"
+						}
+					},
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Paid Social Marketing",
+							"serviceType": "Paid Social Marketing"
+						}
+					}
+				]
 			}
 		</script>
 	</head>
