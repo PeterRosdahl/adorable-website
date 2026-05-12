@@ -9,7 +9,9 @@ export default defineConfig({
   site: 'https://adorable.se',
   trailingSlash: 'never', // Consistent URLs without trailing slashes
   compressHTML: true,
-  integrations: [sitemap()],
+  integrations: [sitemap({
+    filter: (page) => !page.endsWith('/tos')
+  })],
   build: {
     inlineStylesheets: 'auto'
   },
