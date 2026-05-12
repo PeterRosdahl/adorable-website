@@ -10,7 +10,7 @@ export default defineConfig({
   trailingSlash: 'never', // Consistent URLs without trailing slashes
   compressHTML: true,
   integrations: [sitemap({
-    filter: (page) => !page.endsWith('/tos')
+    filter: (page) => !page.endsWith('/tos') && !page.endsWith('/privacy')
   })],
   build: {
     inlineStylesheets: 'auto'
