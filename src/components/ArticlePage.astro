@@ -1,0 +1,211 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import ArticleSchema from './ArticleSchema.astro';
+
+interface Props {
+  title: string;
+  metaTitle?: string;
+  description: string;
+  category: string;
+  url: string;
+  intro: string;
+  datePublished: string;
+  dateModified?: string;
+}
+
+const {
+  title,
+  metaTitle = `${title} | Adorable`,
+  description,
+  category,
+  url,
+  intro,
+  datePublished,
+  dateModified
+} = Astro.props;
+
+const formatDate = (date: string) => new Intl.DateTimeFormat('sv-SE', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+}).format(new Date(`${date}T12:00:00Z`));
+
+const breadcrumbItems = [
+  { name: 'Hem', url: '/' },
+  { name: 'Artiklar', url: '/artiklar' },
+  { name: title }
+];
+---
+
+<Layout title={metaTitle} description={description}>
+  <ArticleSchema
+    title={title}
+    description={description}
+    url={url}
+    datePublished={datePublished}
+    dateModified={dateModified}
+  />
+  <main>
+    <article>
+      <header class="hero">
+        <div class="container">
+          <Breadcrumbs items={breadcrumbItems} />
+          <div class="meta">
+            <span class="category">{category}</span>
+            <span>Av <a href="/om">Peter Rosdahl</a></span>
+            <time datetime={datePublished}>Publicerad {formatDate(datePublished)}</time>
+            {dateModified && <time datetime={dateModified}>Uppdaterad {formatDate(dateModified)}</time>}
+          </div>
+          <h1 class="title">{title}</h1>
+          <p class="intro">{intro}</p>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="container">
+          <slot />
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  main {
+    background: #fff;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(180deg, #fffbf0 0%, #fff 100%);
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  .meta a {
+    color: inherit;
+  }
+
+  .category {
+    font-weight: 600;
+    color: #000;
+  }
+
+  .title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+    line-height: 1.2;
+    color: #000;
+  }
+
+  .intro {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    line-height: 1.65;
+    color: #333;
+    margin: 0;
+  }
+
+  .content {
+    padding-bottom: 6rem;
+  }
+
+  :global(.content h2) {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 3rem 0 1.5rem;
+    color: #000;
+  }
+
+  :global(.content h3) {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+    color: #000;
+  }
+
+  :global(.content p) {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+    margin: 0 0 1.5rem;
+  }
+
+  :global(.content ul),
+  :global(.content ol) {
+    margin: 0 0 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  :global(.content li) {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  :global(.content strong) {
+    color: #000;
+    font-weight: 600;
+  }
+
+  :global(.content a) {
+    color: #000;
+    text-underline-offset: 0.18em;
+  }
+
+  :global(.note) {
+    border-left: 3px solid #000;
+    padding-left: 1rem;
+    color: #555;
+  }
+
+  :global(.sources) {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  :global(.cta) {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+  }
+
+  :global(.cta h3) {
+    margin-top: 0;
+  }
+
+  :global(.button) {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #000;
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 4rem 0 2rem;
+    }
+
+    :global(.cta) {
+      padding: 1.5rem;
+    }
+  }
+</style>

@@ -3,17 +3,17 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout 
-	title="Adorable – AI-rådgivning och Paid Social | Peter Rosdahl"
-	description="Paid social och AI-rådgivning för företag som vill börja nu. Workshops, strategi och implementering. Baserat i Stockholm."
+	title="Adorable – senior expertis inom AI och paid social"
+	description="Peter Rosdahl hjälper företag med AI-rådgivning och paid social – från analys och strategi till implementering och uppföljning."
 	englishPath="/en"
 >
 	<main>
 		<!-- Hero -->
 		<section class="hero">
 			<div class="container">
-				<h1 class="hero-title">Paid social och AI-rådgivning för företag som vill börja nu.</h1>
+				<h1 class="hero-title">Senior expertis inom AI och paid social.</h1>
 				<p class="hero-intro">
-					Adorable arbetar med ett fåtal kunder i taget, oftast när saker är lite oklara. Arbetet sker nära verksamheten – hitta rätt riktning, höja kvaliteten, och hjälpa team att fatta bättre beslut innan de blir dyra.
+					Adorable hjälper företag i två lägen: när AI ska gå från idé till fungerande arbetssätt, och när annonseringen behöver ge bättre affärsresultat. Peter Rosdahl arbetar själv i uppdraget – från analys och rekommendation till implementation och uppföljning.
 				</p>
 				<div class="hero-cta">
 					<a href="/kontakt" class="cta-primary">Kom igång</a>
@@ -25,7 +25,7 @@ import Layout from '../layouts/Layout.astro';
 		<!-- Varför -->
 		<section class="section why-section">
 			<div class="container">
-				<h2 class="section-title">Varför Adorable?</h2>
+				<h2 class="section-title">Två specialistområden. Samma arbetssätt.</h2>
 				<div class="why-grid">
 					<div class="why-item">
 						<h3>
@@ -34,7 +34,7 @@ import Layout from '../layouts/Layout.astro';
 							</svg>
 							Senior expertis
 						</h3>
-						<p>10 års erfarenhet av digital marknadsföring och affärsutveckling. Perspektiv på vad som fungerar – och vad som inte gör det.</p>
+						<p>Peter har 20 års erfarenhet av digital utveckling, marknadsföring och affärsutveckling. Adorable har funnits sedan 2016.</p>
 					</div>
 					<div class="why-item">
 						<h3>
@@ -64,8 +64,8 @@ import Layout from '../layouts/Layout.astro';
 				<div class="services-grid">
 					<div class="service-card">
 						<h3>AI-rådgivning</h3>
-						<p class="service-tagline">För företag som vill börja använda AI på riktigt</p>
-						<p>AI är inte längre framtidsprat – det är ett verktyg som kan effektivisera er verksamhet idag. Men var börjar man? Och hur undviker man de vanligaste fallgroparna?</p>
+						<p class="service-tagline">Från AI-idé till arbetssätt som fungerar</p>
+						<p>För ledningar och team som behöver prioritera rätt användningsfall, bygga kompetens och få lösningar i faktisk användning.</p>
 						<ul>
 							<li><strong>Workshops och utbildning</strong> – Ge teamet kunskap och självförtroende</li>
 							<li><strong>AI-strategi</strong> – Identifiera var AI skapar mest värde</li>
@@ -76,8 +76,8 @@ import Layout from '../layouts/Layout.astro';
 					</div>
 					<div class="service-card">
 						<h3>Paid Social</h3>
-						<p class="service-tagline">Digital annonsering som driver resultat</p>
-						<p>Paid social är mer än att "köra lite annonser på Facebook". Det handlar om att förstå plattformarna, målgruppen och hur man bygger kampanjer som faktiskt konverterar.</p>
+						<p class="service-tagline">Senior styrning av annonsering och tillväxt</p>
+						<p>För företag som behöver bättre struktur, mätning, kreativ testning och löpande beslut i Meta, LinkedIn och andra sociala plattformar.</p>
 						<ul>
 							<li><strong>Strategi</strong> – Rätt plattformar, budskap och budget för era mål</li>
 							<li><strong>Uppsättning</strong> – Kampanjstruktur, tracking och kreativ</li>
@@ -129,6 +129,28 @@ import Layout from '../layouts/Layout.astro';
 						<p>Arbetet sätter igång. Löpande uppdateringar och anpassning efter behov. Fokus på resultat.</p>
 					</div>
 				</div>
+			</div>
+		</section>
+
+		<section class="section insights-section">
+			<div class="container">
+				<h2 class="section-title">Senast uppdaterade guider</h2>
+				<p class="section-intro">Fördjupningar som granskas när verktyg, plattformar eller regler förändras.</p>
+				<div class="insights-grid">
+					<a class="insight-card" href="/artiklar/ai-och-gdpr-vad-du-maste-veta">
+						<span>AI-rådgivning</span>
+						<strong>AI och GDPR: vad företag behöver kontrollera</strong>
+					</a>
+					<a class="insight-card" href="/artiklar/chatgpt-vs-claude-vs-gemini">
+						<span>AI-rådgivning</span>
+						<strong>ChatGPT, Claude eller Gemini: välj med ett praktiskt test</strong>
+					</a>
+					<a class="insight-card" href="/artiklar/attribution-i-en-cookieless-varld">
+						<span>Paid social</span>
+						<strong>Attribution när cookies och plattformsdata inte räcker</strong>
+					</a>
+				</div>
+				<a class="all-insights" href="/artiklar">Se alla artiklar →</a>
 			</div>
 		</section>
 
@@ -453,6 +475,50 @@ import Layout from '../layouts/Layout.astro';
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 0.75rem;
+	}
+
+	.insights-section {
+		background: #fafafa;
+	}
+
+	.insights-grid {
+		display: grid;
+		gap: 1rem;
+		margin: 2rem 0;
+	}
+
+	.insight-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding: 1.5rem;
+		background: #fff;
+		border: 1px solid #e5e5e5;
+		color: #000;
+		text-decoration: none;
+	}
+
+	.insight-card span {
+		font-size: 0.875rem;
+		color: #555;
+	}
+
+	.insight-card strong {
+		font-family: 'Playfair Display', Georgia, serif;
+		font-size: 1.2rem;
+		font-weight: 600;
+		line-height: 1.35;
+	}
+
+	.all-insights {
+		color: #000;
+		font-weight: 500;
+	}
+
+	@media (min-width: 700px) {
+		.insights-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
 	}
 
 	@media (min-width: 600px) {

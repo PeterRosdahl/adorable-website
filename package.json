@@ -4,20 +4,20 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node post-build.js",
+    "content:audit": "node scripts/content-audit.mjs",
+    "build": "npm run content:audit && astro build && node post-build.js",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/sitemap": "^3.7.4",
     "@fontsource/dm-sans": "^5.2.8",
     "@fontsource/fraunces": "^5.2.9",
     "@fontsource/instrument-serif": "^5.2.8",
     "@fontsource/playfair-display": "^5.2.8",
-    "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.16.15",
-    "astro-critters": "^2.2.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.2.10",
     "gray-matter": "^4.0.3",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.3.3"
   }
 }

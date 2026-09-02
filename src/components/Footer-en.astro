@@ -61,6 +61,7 @@
         />
         <button type="submit" class="newsletter-button">Subscribe</button>
       </form>
+      <p class="newsletter-privacy">Continuing opens Substack's subscription page. Read the <a href="/en/privacy">privacy policy</a>.</p>
     </div>
     
     <script>
@@ -68,10 +69,8 @@
         e.preventDefault();
         const email = document.getElementById('newsletter-email-en')?.value;
         if (email) {
-          // Track newsletter signup in Umami
-          if (typeof umami !== 'undefined') {
-            umami.track('newsletter-signup');
-          }
+          const analytics = (window as Window & { umami?: { track: (event: string) => void } }).umami;
+          analytics?.track('newsletter-signup');
           window.open('https://pr.substack.com/subscribe?email=' + encodeURIComponent(email), '_blank');
         }
       });
@@ -80,10 +79,12 @@
     <!-- Bottom Section -->
     <div class="footer-bottom">
       <div class="footer-links">
-        <a href="/en/">Home</a>
+        <a href="/en">Home</a>
         <a href="/en/about">About</a>
         <a href="/en/services">Services</a>
         <a href="/en/contact">Contact</a>
+        <a href="/en/privacy">Privacy</a>
+        <a href="/en/terms">Terms</a>
       </div>
       <p class="footer-copy">© 2026 Adorable</p>
     </div>
@@ -202,6 +203,16 @@
     gap: 0.75rem;
     max-width: 400px;
     margin: 0 auto;
+  }
+
+  .newsletter-privacy {
+    margin-top: 0.75rem;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.8rem;
+  }
+
+  .newsletter-privacy a {
+    color: inherit;
   }
 
   @media (min-width: 500px) {

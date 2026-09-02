@@ -8,7 +8,7 @@ interface Props {
   image?: string;
 }
 
-const { title, description, datePublished, dateModified, url, image = '/og-image.jpg' } = Astro.props;
+const { title, description, datePublished, dateModified, url, image = '/og-image.png' } = Astro.props;
 
 const articleSchema = {
   "@context": "https://schema.org",
@@ -19,8 +19,8 @@ const articleSchema = {
   "image": {
     "@type": "ImageObject",
     "url": `https://adorable.se${image}`,
-    "width": 1200,
-    "height": 630
+    "width": 1456,
+    "height": 816
   },
   "author": {
     "@type": "Person",

@@ -1,226 +1,54 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import ArticleSchema from '../../components/ArticleSchema.astro';
-
-const breadcrumbItems = [
-  { name: 'Hem', url: '/' },
-  { name: 'Artiklar', url: '/artiklar' },
-  { name: '5 sätt AI kan automatisera ditt marknadsföringsarbete' }
-];
+import ArticlePage from '../../components/ArticlePage.astro';
 ---
 
-<Layout 
-  title="5 sätt AI kan automatisera marknadsföring | Adorable"
-  description="Fem konkreta sätt att automatisera repetitivt arbete med AI redan idag. ChatGPT, Claude och andra verktyg – lär dig börja nu."
+<ArticlePage
+  title="5 marknadsföringsflöden som AI kan förenkla"
+  metaTitle="5 sätt att förenkla marknadsföring med AI | Adorable"
+  description="Fem praktiska arbetsflöden där AI kan minska repetitivt arbete – med mänsklig kontroll, tydliga mätetal och rätt dataskydd."
+  category="AI-rådgivning"
+  url="/artiklar/5-satt-ai-kan-automatisera-marknadsföring"
+  intro="Börja med repetitivt arbete där kvaliteten går att granska. Automatisera sedan ett steg i taget och mät hela vägen till godkänt resultat."
+  datePublished="2025-01-20"
+  dateModified="2026-09-02"
 >
-  <ArticleSchema 
-    title="5 sätt AI kan automatisera ditt marknadsföringsarbete"
-    description="Fem konkreta sätt att automatisera repetitivt arbete med AI redan idag. ChatGPT, Claude och andra verktyg – lär dig börja nu."
-    url="/artiklar/5-satt-ai-kan-automatisera-marknadsföring"
-    datePublished="2025-01-20"
-  />
-  <main>
-    <article>
-      <header class="hero">
-        <div class="container">
-          <Breadcrumbs items={breadcrumbItems} />
-          <div class="meta">
-            <span class="category">AI-rådgivning</span>
-          </div>
-          <h1 class="title">5 sätt AI kan automatisera ditt marknadsföringsarbete</h1>
-          <p class="intro">AI är inte längre framtiden – det är nutiden. Här är fem konkreta sätt du kan börja automatisera repetitivt arbete redan idag.</p>
-        </div>
-      </header>
+  <p class="note"><strong>Kort svar:</strong> AI passar bäst som ett kontrollerat lager för utkast, sortering, sammanställning och variation – inte som oövervakad ersättare för strategi eller ansvar.</p>
 
-      <div class="content">
-        <div class="container">
-          <h2>1. Content creation i skala</h2>
-          <p>Det mest uppenbara användningsfallet, men fortfarande underskattat. AI kan producera:</p>
-          <ul>
-            <li><strong>Annonstexter</strong> – Generera 20 varianter av en headline på 30 sekunder</li>
-            <li><strong>Produktbeskrivningar</strong> – För e-handel med hundratals SKU:er</li>
-            <li><strong>Email-kampanjer</strong> – Personaliserade till olika segment</li>
-            <li><strong>Sociala medier-inlägg</strong> – Anpassade för varje plattform</li>
-          </ul>
-          <p><strong>Verktyg:</strong> ChatGPT eller Claude räcker. Använd Projects-funktionen för att spara varumärkesriktlinjer och exempel – det är allt du behöver.</p>
-          <p><strong>Tidsbesparing:</strong> 60-80% för repetitiv content</p>
+  <h2>1. Första utkast till innehåll</h2>
+  <p>AI kan omvandla en brief, intervju eller produktinformation till utkast för inlägg, nyhetsbrev och landningssidor. Ge verktyget målgrupp, syfte, källor, tonalitet och tydliga krav. En ansvarig person faktagranskar och godkänner före publicering.</p>
+  <p><strong>Mät:</strong> tid till godkänt utkast, antal korrigeringar och faktisk respons – inte bara producerad volym.</p>
 
-          <h2>2. Data-analys och rapportering</h2>
-          <p>Istället för att spendera fredagseftermiddagen på att sammanställa Excel-ark kan AI:</p>
-          <ul>
-            <li>Dra data från Google Analytics, Meta Ads, och LinkedIn</li>
-            <li>Identifiera trender och anomalier</li>
-            <li>Generera insights i klartext</li>
-            <li>Skapa presentationsfärdiga rapporter</li>
-          </ul>
-          <p><strong>Exempel:</strong> "Analysera veckans Meta Ads-kampanjer och lista topp 3 insights."</p>
-          <p><strong>Verktyg:</strong> ChatGPT Advanced Data Analysis, Claude med API-integration, egna scripts</p>
+  <h2>2. Rapportering och avvikelseanalys</h2>
+  <p>Samla återkommande exportfiler i ett konsekvent format och låt AI sammanfatta förändringar, avvikelser och frågor som behöver utredas. Modellen får inte hitta på orsaker; varje slutsats ska kunna spåras till underlaget.</p>
+  <p><strong>Mät:</strong> tid till färdig rapport, upptäckta fel och hur många rekommendationer som går att belägga.</p>
 
-          <h2>3. A/B-test ideation och analys</h2>
-          <p>AI kan föreslå vad du ska testa baserat på historisk data:</p>
-          <ul>
-            <li>Generera hypoteser för A/B-tester</li>
-            <li>Skapa varianter av headlines, bilder, CTA:er</li>
-            <li>Analysera testresultat statistiskt</li>
-            <li>Rekommendera nästa steg</li>
-          </ul>
-          <p><strong>Resultat:</strong> Fler tester, snabbare learnings, bättre optimering</p>
+  <h2>3. Sortering av inkommande frågor</h2>
+  <p>AI kan kategorisera kontaktorsak, föreslå svar och skicka känsliga eller ovanliga ärenden till en människa. Börja med intern assistans innan automatiska externa svar aktiveras.</p>
+  <p><strong>Mät:</strong> korrekt kategorisering, eskaleringsgrad, svarstid och kundnöjdhet.</p>
 
-          <h2>4. Kundtjänst och FAQ-automation</h2>
-          <p>Låt AI hantera 80% av vanliga frågor:</p>
-          <ul>
-            <li>Chat bots som faktiskt förstår kontext</li>
-            <li>Email-svar på standardfrågor</li>
-            <li>FAQ-generering baserat på faktiska kundfrågor</li>
-            <li>Sentiment-analys av kundinteraktioner</li>
-          </ul>
-          <p><strong>Bonus:</strong> Ditt team kan fokusera på komplexa ärenden som faktiskt kräver mänsklig hjälp.</p>
+  <h2>4. Anpassning av godkänt material</h2>
+  <p>Ett godkänt grundbudskap kan anpassas till olika kanaler, format och målgrupper. Sätt fasta regler för vad som inte får ändras, till exempel produktfakta, juridiska formuleringar och erbjudande.</p>
+  <p><strong>Mät:</strong> produktionstid, avvikelser från varumärket och resultat per tydligt definierad variant.</p>
 
-          <h2>5. Concierge-tjänster och personalisering</h2>
-          <p>AI kan agera som en personlig assistent för dina kunder:</p>
-          <ul>
-            <li>Produktrekommendationer baserat på beteende</li>
-            <li>Personaliserade email-flöden</li>
-            <li>Dynamic content på webbplatsen</li>
-            <li>Proaktiva notiser ("Produkten du tittade på är nu i lager!")</li>
-          </ul>
-          <p><strong>Verktyg:</strong> HubSpot AI, Klaviyo, egna lösningar med API:er</p>
+  <h2>5. Förberedelse av experiment</h2>
+  <p>AI kan hjälpa till att formulera hypoteser, föreslå skillnader mellan testvarianter och skapa en första analysplan. Beslutskriterier och minsta affärsmässigt relevanta effekt bestäms av teamet före start.</p>
+  <p><strong>Mät:</strong> hur många test som leder till ett tydligt beslut och om samma frågor testas om i onödan.</p>
 
-          <h2>Nästa steg</h2>
-          <p>Börja enkelt:</p>
-          <ol>
-            <li>Välj ETT område (content är enklast att börja med)</li>
-            <li>Testa i 2 veckor</li>
-            <li>Mät tidsbesparing och kvalitet</li>
-            <li>Skala upp om det fungerar</li>
-          </ol>
-          <p>Nyckeln är inte att automatisera allt på en gång. Det är att börja någonstans.</p>
+  <h2>Så börjar du säkert</h2>
+  <ol>
+    <li>Välj ett flöde med tydligt nuläge och ansvarig ägare.</li>
+    <li>Bestäm vilken data som får användas och vilket verktyg som är godkänt.</li>
+    <li>Definiera kvalitet, riskgränser och mänskligt godkännande.</li>
+    <li>Kör en avgränsad pilot och logga tid, fel och utfall.</li>
+    <li>Skala först när förbättringen är verifierad.</li>
+  </ol>
 
-          <div class="cta">
-            <h3>Behöver ni hjälp att komma igång?</h3>
-            <p>Adorable hjälper företag att implementera AI-automation på riktigt. Från workshop till produktion.</p>
-            <a href="/kontakt" class="button">Boka ett möte →</a>
-          </div>
-        </div>
-      </div>
+  <h2>Rekommendation</h2>
+  <p>Automatisera inte en oklar process. Förenkla arbetssättet först, lägg till AI där det finns en mätbar flaskhals och behåll mänskligt ansvar där fel får betydande konsekvenser.</p>
 
-    </article>
-  </main>
-</Layout>
-
-<style>
-  main {
-    background: #fff;
-  }
-
-  .container {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  .hero {
-    padding: 8rem 0 4rem;
-  }
-
-  .meta {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-    color: #666;
-  }
-
-  .category {
-    font-weight: 500;
-    color: #000;
-  }
-
-  .title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 600;
-    margin: 0 0 1.5rem;
-    line-height: 1.2;
-    color: #000;
-  }
-
-  .intro {
-    font-size: clamp(1.1rem, 2vw, 1.25rem);
-    line-height: 1.6;
-    color: #333;
-    margin: 0;
-  }
-
-  .content {
-    padding-bottom: 6rem;
-  }
-
-  .content h2 {
-    font-size: 1.75rem;
-    font-weight: 600;
-    margin: 3rem 0 1.5rem;
-    color: #000;
-  }
-
-  .content h3 {
-    font-size: 1.35rem;
-    font-weight: 600;
-    margin: 2rem 0 1rem;
-    color: #000;
-  }
-
-  .content p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: #333;
-    margin: 0 0 1.5rem;
-  }
-
-  .content ul, .content ol {
-    margin: 0 0 1.5rem;
-    padding-left: 1.5rem;
-  }
-
-  .content li {
-    margin-bottom: 0.75rem;
-    line-height: 1.7;
-    color: #333;
-  }
-
-  .content strong {
-    color: #000;
-    font-weight: 600;
-  }
-
-  .cta {
-    margin-top: 4rem;
-    padding: 2.5rem;
-    background: #fafafa;
-    border: 1px solid #e5e5e5;
-  }
-
-  .cta h3 {
-    margin-top: 0;
-  }
-
-  .button {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background: #000;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: opacity 0.2s;
-  }
-
-  .button:hover {
-    opacity: 0.8;
-  }
-
-  @media (max-width: 768px) {
-    .hero {
-      padding: 4rem 0 2rem;
-    }
-  }
-</style>
+  <div class="cta">
+    <h3>Vilket arbetsflöde bör ni börja med?</h3>
+    <p>Adorable hjälper er att välja pilot, sätta kvalitetskrav och bygga ett arbetssätt som håller efter demonstrationen.</p>
+    <a href="/kontakt" class="button">Prata med Peter →</a>
+  </div>
+</ArticlePage>

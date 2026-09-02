@@ -14,11 +14,12 @@ interface Props {
 	description: string;
 	ogImage?: string;
 	swedishPath?: string;
+	robots?: string;
 }
 
-const { title, description, ogImage = '/og-image.jpg', swedishPath = '/' } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const englishPath = Astro.url.pathname.replace('/en', '') || '/';
+const { title, description, ogImage = '/og-image.png', swedishPath = '/', robots = 'index, follow' } = Astro.props;
+const normalizedPath = Astro.url.pathname !== '/' ? Astro.url.pathname.replace(/\/$/, '') : '/';
+const canonicalURL = new URL(normalizedPath, Astro.site);
 ---
 
 <!doctype html>
@@ -32,11 +33,13 @@ const englishPath = Astro.url.pathname.replace('/en', '') || '/';
 		<title>{title}</title>
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
+		<meta name="robots" content={robots} />
 		<link rel="canonical" href={canonicalURL} />
+		<link rel="sitemap" href="/sitemap-index.xml" />
 		
 		<!-- Hreflang Tags -->
 		<link rel="alternate" hreflang="sv" href={`https://adorable.se${swedishPath}`} />
-		<link rel="alternate" hreflang="en" href={`https://adorable.se${Astro.url.pathname}`} />
+		<link rel="alternate" hreflang="en" href={`https://adorable.se${normalizedPath}`} />
 		<link rel="alternate" hreflang="x-default" href={`https://adorable.se${swedishPath}`} />
 		
 		<!-- Google Search Console Verification -->
@@ -73,10 +76,10 @@ const englishPath = Astro.url.pathname.replace('/en', '') || '/';
 				"@type": "ProfessionalService",
 				"name": "Adorable",
 				"description": "AI consulting and Paid Social consulting services",
-				"url": "https://adorable.se/en/",
+				"url": "https://adorable.se/en",
 				"telephone": "+46708235787",
 				"email": "peter@adorable.se",
-				"image": "https://adorable.se/og-image.jpg",
+				"image": "https://adorable.se/og-image.png",
 				"logo": {
 					"@type": "ImageObject",
 					"url": "https://adorable.se/adorable-logo.png"
@@ -124,8 +127,9 @@ const englishPath = Astro.url.pathname.replace('/en', '') || '/';
 		</script>
 	</head>
 	<body>
+		<a class="skip-link" href="#main-content">Skip to content</a>
 		<NavigationEn />
-		<slot />
+		<div id="main-content" tabindex="-1"><slot /></div>
 		<FooterEn />
 	</body>
 </html>
@@ -148,6 +152,28 @@ const englishPath = Astro.url.pathname.replace('/en', '') || '/';
 		padding: 0;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
+	}
+
+	.skip-link {
+		position: fixed;
+		top: 0.75rem;
+		left: 0.75rem;
+		z-index: 2000;
+		transform: translateY(-200%);
+		background: #000;
+		color: #fff;
+		padding: 0.75rem 1rem;
+		text-decoration: none;
+		border-radius: 4px;
+	}
+
+	.skip-link:focus {
+		transform: translateY(0);
+	}
+
+	:focus-visible {
+		outline: 3px solid #1a73e8;
+		outline-offset: 3px;
 	}
 
 	h1, h2, h3, h4, h5, h6 {

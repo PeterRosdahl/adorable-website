@@ -14,11 +14,13 @@ interface Props {
 	description: string;
 	ogImage?: string;
 	englishPath?: string;
+	robots?: string;
 }
 
-const { title, description, ogImage = '/og-image.jpg', englishPath } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const swedishPath = Astro.url.pathname;
+const { title, description, ogImage = '/og-image.png', englishPath, robots = 'index, follow' } = Astro.props;
+const normalizedPath = Astro.url.pathname !== '/' ? Astro.url.pathname.replace(/\/$/, '') : '/';
+const canonicalURL = new URL(normalizedPath, Astro.site);
+const swedishPath = normalizedPath;
 ---
 
 <!doctype html>
@@ -32,7 +34,9 @@ const swedishPath = Astro.url.pathname;
 		<title>{title}</title>
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
+		<meta name="robots" content={robots} />
 		<link rel="canonical" href={canonicalURL} />
+		<link rel="sitemap" href="/sitemap-index.xml" />
 		
 		<!-- Hreflang Tags -->
 		{englishPath && (
@@ -80,7 +84,7 @@ const swedishPath = Astro.url.pathname;
 				"url": "https://adorable.se",
 				"telephone": "+46708235787",
 				"email": "peter@adorable.se",
-				"image": "https://adorable.se/og-image.jpg",
+				"image": "https://adorable.se/og-image.png",
 				"logo": {
 					"@type": "ImageObject",
 					"url": "https://adorable.se/adorable-logo.png"
@@ -128,8 +132,9 @@ const swedishPath = Astro.url.pathname;
 		</script>
 	</head>
 	<body>
+		<a class="skip-link" href="#main-content">Hoppa till innehållet</a>
 		<Navigation />
-		<slot />
+		<div id="main-content" tabindex="-1"><slot /></div>
 		<Footer />
 	</body>
 </html>
@@ -152,6 +157,28 @@ const swedishPath = Astro.url.pathname;
 		padding: 0;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
+	}
+
+	.skip-link {
+		position: fixed;
+		top: 0.75rem;
+		left: 0.75rem;
+		z-index: 2000;
+		transform: translateY(-200%);
+		background: #000;
+		color: #fff;
+		padding: 0.75rem 1rem;
+		text-decoration: none;
+		border-radius: 4px;
+	}
+
+	.skip-link:focus {
+		transform: translateY(0);
+	}
+
+	:focus-visible {
+		outline: 3px solid #1a73e8;
+		outline-offset: 3px;
 	}
 
 	h1, h2, h3, h4, h5, h6 {

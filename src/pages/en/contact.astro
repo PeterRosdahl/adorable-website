@@ -21,11 +21,13 @@ import Layout from '../../layouts/Layout-en.astro';
 		<section class="section form-section">
 			<div class="container">
 				<h2 class="section-title">Send a message</h2>
+				<div id="contact-success" class="success-message" role="status" tabindex="-1" hidden>
+					<strong>Thank you – your message has been sent.</strong> I normally respond within a couple of hours.
+				</div>
 				<form 
 					class="contact-form" 
 					action="https://api.web3forms.com/submit" 
 					method="POST"
-					onsubmit="if(typeof umami !== 'undefined') umami.track('contact-form-submit')"
 				>
 					<input type="hidden" name="access_key" value="658f2386-7125-4653-b0ac-5d725aeab234" />
 					<input type="hidden" name="subject" value="New message from adorable.se (English)" />
@@ -62,7 +64,7 @@ import Layout from '../../layouts/Layout-en.astro';
 					</div>
 
 					<button type="submit" class="submit-button">Send message</button>
-					<p class="form-privacy">Your information is only used to respond to your inquiry and is not shared with third parties.</p>
+					<p class="form-privacy">Your information is used to respond to your enquiry and is sent through Web3Forms. Read the <a href="/en/privacy">privacy policy</a>.</p>
 				</form>
 			</div>
 		</section>
@@ -138,6 +140,20 @@ import Layout from '../../layouts/Layout-en.astro';
 	</main>
 </Layout>
 
+<script>
+	const params = new URLSearchParams(window.location.search);
+	if (params.get('success') === 'true') {
+		const message = document.getElementById('contact-success');
+		if (message) {
+			message.hidden = false;
+			message.focus();
+		}
+		const analytics = (window as Window & { umami?: { track: (event: string) => void } }).umami;
+		analytics?.track('contact-form-success');
+		window.history.replaceState({}, '', window.location.pathname);
+	}
+</script>
+
 <style>
 	main {
 		background: #fff;
@@ -181,6 +197,15 @@ import Layout from '../../layouts/Layout-en.astro';
 	}
 
 	/* Form styles */
+	.success-message {
+		margin-bottom: 2rem;
+		padding: 1rem 1.25rem;
+		border: 1px solid #1f7a45;
+		background: #f1fbf5;
+		color: #174e31;
+		line-height: 1.6;
+	}
+
 	.contact-form {
 		display: flex;
 		flex-direction: column;
@@ -249,6 +274,10 @@ import Layout from '../../layouts/Layout-en.astro';
 		font-size: 0.85rem;
 		color: #666;
 		margin-top: 1rem;
+	}
+
+	.form-privacy a {
+		color: inherit;
 	}
 
 	/* Contact methods */

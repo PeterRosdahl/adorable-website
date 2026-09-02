@@ -21,11 +21,13 @@ import Layout from '../layouts/Layout.astro';
 		<section class="section form-section">
 			<div class="container">
 				<h2 class="section-title">Skicka ett meddelande</h2>
+				<div id="contact-success" class="success-message" role="status" tabindex="-1" hidden>
+					<strong>Tack – meddelandet är skickat.</strong> Jag återkommer normalt inom ett par timmar.
+				</div>
 				<form 
 					class="contact-form" 
 					action="https://api.web3forms.com/submit" 
 					method="POST"
-					onsubmit="if(typeof umami !== 'undefined') umami.track('contact-form-submit')"
 				>
 					<input type="hidden" name="access_key" value="658f2386-7125-4653-b0ac-5d725aeab234" />
 					<input type="hidden" name="subject" value="Nytt meddelande från adorable.se" />
@@ -62,13 +64,27 @@ import Layout from '../layouts/Layout.astro';
 					</div>
 
 					<button type="submit" class="submit-button">Skicka meddelande</button>
-					<p class="form-privacy">Dina uppgifter används endast för att svara på din förfrågan och delas inte med tredje part.</p>
+					<p class="form-privacy">Uppgifterna används för att svara på din förfrågan och skickas via Web3Forms. Läs <a href="/privacy">integritetspolicyn</a>.</p>
 				</form>
 			</div>
 		</section>
 
 	</main>
 </Layout>
+
+<script>
+	const params = new URLSearchParams(window.location.search);
+	if (params.get('success') === 'true') {
+		const message = document.getElementById('contact-success');
+		if (message) {
+			message.hidden = false;
+			message.focus();
+		}
+		const analytics = (window as Window & { umami?: { track: (event: string) => void } }).umami;
+		analytics?.track('contact-form-success');
+		window.history.replaceState({}, '', window.location.pathname);
+	}
+</script>
 
 <style>
 	main {
@@ -114,6 +130,15 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	/* Form styles */
+	.success-message {
+		margin-bottom: 2rem;
+		padding: 1rem 1.25rem;
+		border: 1px solid #1f7a45;
+		background: #f1fbf5;
+		color: #174e31;
+		line-height: 1.6;
+	}
+
 	.contact-form {
 		display: flex;
 		flex-direction: column;
@@ -182,6 +207,10 @@ import Layout from '../layouts/Layout.astro';
 		font-size: 0.85rem;
 		color: #444;
 		margin-top: 1rem;
+	}
+
+	.form-privacy a {
+		color: inherit;
 	}
 
 	@media (max-width: 768px) {

@@ -3,5 +3,15 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
+# OpenAI search crawler. The same access is already granted by the wildcard rule,
+# but this explicit group documents the intended search and citation policy.
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+
 # Sitemaps
 Sitemap: https://adorable.se/sitemap-index.xml

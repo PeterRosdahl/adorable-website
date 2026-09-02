@@ -1,34 +1,55 @@
-# Adorable - AI-transformation och Paid Social
+# Adorable
 
-## Om Adorable
-Adorable är ett enmanskonsultbolag drivet av Peter Rosdahl. Företaget hjälper organisationer med AI-transformation och paid social marketing (Meta Ads, LinkedIn Ads, Google Ads).
+> Adorable är Peter Rosdahls konsultbolag inom två specialistområden: AI-rådgivning och paid social. Bolaget grundades 2016. Peter har 20 års erfarenhet av digital utveckling, marknadsföring och affärsutveckling.
 
 ## Tjänster
 
-### AI-transformation
-- Workshops och utbildning (från grundläggande AI till avancerad promptdesign)
-- Strategisk rådgivning (identifierar var AI skapar värde, prioriterar use cases)
-- Hands-on implementering (automatiserade arbetsflöden, AI-assistenter, integration)
-- AI-policy och governance (ramverk för ansvarsfull användning)
+### AI-rådgivning
 
-### Paid Social
-- Kampanjstrategi (målgruppsanalys, kanaltänk, budgetallokering)
-- Aktivering och optimering (Meta, LinkedIn, Google Ads, A/B-testning)
-- Tracking och mätning (konverteringsspårning, attribution, rapportering)
-- Audit och analys (genomlysning av befintliga konton, konkreta rekommendationer)
-- Rapportering (fokus på resultat och insikter, inte vanity metrics)
+- Workshops och utbildning för ledningar och team
+- Prioritering av användningsfall och AI-strategi
+- Praktisk implementation av arbetsflöden, interna verktyg och AI-assistenter
+- AI-policy, governance och kompetensutveckling
+- Oberoende utvärdering av verktyg och plattformar
+
+### Paid social
+
+- Strategi för Meta Ads, LinkedIn Ads, TikTok och YouTube
+- Konto- och kampanjstruktur
+- Mätning, konverteringsspårning och attribution
+- Kreativ testning och löpande optimering
+- Rapportering kopplad till affärsresultat
+
+## Arbetssätt
+
+Peter Rosdahl arbetar själv i uppdragen, från analys och rekommendation till implementation och uppföljning. Adorable arbetar med ett fåtal kunder åt gången och anpassar upplägget efter situation, mål och team.
+
+## Erfarenhet
+
+- Adorable grundades 2016 och har funnits i 10 år.
+- Peter Rosdahl har 20 års erfarenhet.
+- Uppdrag genomförs för både B2B- och B2C-företag.
+- Baserat i Stockholm, med arbete på plats eller digitalt.
+
+## Viktiga sidor
+
+- Start: https://adorable.se/
+- Tjänster: https://adorable.se/tjanster
+- AI-rådgivning: https://adorable.se/ai
+- Paid social: https://adorable.se/paid-social
+- Om Peter och Adorable: https://adorable.se/om
+- Artiklar: https://adorable.se/artiklar
+- Kontakt: https://adorable.se/kontakt
+- Integritet: https://adorable.se/privacy
+- Webbplatsvillkor: https://adorable.se/tos
 
 ## Kontakt
-- Email: peter@adorable.se
+
+- E-post: peter@adorable.se
 - Telefon: +46 70 823 57 87
-- Plats: Stockholm, Sverige
+- LinkedIn: https://www.linkedin.com/in/peterrosdahl
 - Nyhetsbrev: https://pr.substack.com
-- X/Twitter: @PeterRosdahl
-- LinkedIn: linkedin.com/in/peterrosdahl
 
-## Om Peter Rosdahl
-Peter har jobbat med digital marknadsföring sedan 2016. Började med paid social och hjälpt företag att få avkastning på annonsbudget. Sedan 2023 fokus på AI-transformation - hjälper organisationer att gå från AI-nyfikenhet till faktisk användning.
+Svar på förfrågningar kommer normalt inom ett par timmar.
 
-Arbetssätt: Jobbar med ett fåtal kunder i taget, oftast när saker är lite oklara. Arbetet sker nära verksamheten för att hitta rätt riktning, höja kvaliteten och hjälpa team fatta bättre beslut innan de blir dyra.
-
-Kunder: Kreativbyråer, techbolag, byggföretag, liknadsbolag - företag som behöver senior expertis utan heltidsanställning.
+Last updated: 2026-09-02

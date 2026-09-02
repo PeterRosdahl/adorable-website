@@ -1,326 +1,87 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import ArticleSchema from '../../components/ArticleSchema.astro';
-
-const breadcrumbItems = [
-  { name: 'Hem', url: '/' },
-  { name: 'Artiklar', url: '/artiklar' },
-  { name: 'AI-policy: Vad företag behöver tänka på' }
-];
+import ArticlePage from '../../components/ArticlePage.astro';
 ---
 
-<Layout 
-  title="AI-policy: Vad företag behöver tänka på | Adorable"
-  description="AI-verktyg i företaget utan policy är som att ge bort nycklarna till datarummet. Här är ramverket för att implementera AI säkert och ansvarsfullt."
+<ArticlePage
+  title="AI-policy: ett praktiskt ramverk för företag"
+  metaTitle="AI-policy för företag: praktiskt ramverk 2026 | Adorable"
+  description="Ett konkret ramverk för AI-policy: ansvar, godkända verktyg, data, mänsklig granskning, transparens, incidenter och löpande uppföljning."
+  category="AI-strategi"
+  url="/artiklar/ai-policy-vad-foretag-behover-tanka-pa"
+  intro="En bra AI-policy ska göra det lätt att arbeta säkert och svårt att göra oavsiktliga fel. Den behöver tydliga beslut, ägare och exempel – inte ett långt dokument som ingen använder."
+  datePublished="2025-01-20"
+  dateModified="2026-09-02"
 >
-  <ArticleSchema 
-    title="AI-policy: Vad företag behöver tänka på"
-    description="AI-verktyg i företaget utan policy är som att ge bort nycklarna till datarummet. Här är ramverket för att implementera AI säkert och ansvarsfullt."
-    url="/artiklar/ai-policy-vad-foretag-behover-tanka-pa"
-    datePublished="2025-01-20"
-  />
-  <main>
-    <article>
-      <header class="hero">
-        <div class="container">
-          <Breadcrumbs items={breadcrumbItems} />
-          <div class="meta">
-            <span class="category">AI-strategi</span>
-          </div>
-          <h1 class="title">AI-policy: Vad företag behöver tänka på</h1>
-          <p class="intro">AI-verktyg i företaget utan policy är som att ge bort nycklarna till datarummet. Här är allt du behöver veta för att implementera AI säkert och ansvarsfullt.</p>
-        </div>
-      </header>
+  <p class="note"><strong>2026:</strong> AI-kompetens är en skyldighet för leverantörer och organisationer som använder AI-system enligt EU:s AI-förordning. Transparenskrav för vissa AI-system gäller från 2 augusti 2026. Policyn behöver därför kopplas till både utbildning och faktisk användning.</p>
 
-      <div class="content">
-        <div class="container">
-          <h2>Varför ni behöver en AI-policy – nu</h2>
-          <p>Era medarbetare använder redan ChatGPT, Claude och andra AI-verktyg. Frågan är inte <em>om</em> ni ska tillåta det, utan <em>hur</em> ni säkerställer att det sker på ett säkert och ansvarsfullt sätt.</p>
-          <p><strong>Riskerna utan policy:</strong></p>
-          <ul>
-            <li>Sekretessbrott – Anställda delar konfidentiell data utan att tänka på det</li>
-            <li>GDPR-överträdelser – Personuppgifter i AI-verktyg utan legal grund</li>
-            <li>Varumärkesskada – Publicering av AI-genererat innehåll med faktafel</li>
-            <li>Competitive intel leak – Strategisk information som hamnar i träningsdata</li>
-          </ul>
-          <p>En AI-policy är inte ett hinder. Det är ett ramverk som möjliggör <em>smart</em> användning.</p>
+  <h2>Vad policyn ska åstadkomma</h2>
+  <p>Policyn ska svara på fem frågor för varje medarbetare: vilka verktyg får jag använda, vilken information får jag dela, vad måste jag kontrollera, när måste jag berätta att AI används och vem frågar jag när jag är osäker?</p>
 
-          <h2>1. Dataskydd och GDPR-compliance</h2>
-          <p>Det viktigaste att reglera: vilken data får skickas till AI-verktyg?</p>
-          
-          <h3>Förbjuden data i AI-verktyg</h3>
-          <ul>
-            <li><strong>Personuppgifter</strong> – Namn, e-post, telefonnummer, personnummer</li>
-            <li><strong>Kunddata</strong> – CRM-information, köphistorik, beteendedata</li>
-            <li><strong>Känsliga personuppgifter</strong> – Hälsa, religion, politisk åsikt, etnicitet</li>
-            <li><strong>Affärshemligheter</strong> – Strategier, prissättning, produktplaner</li>
-            <li><strong>Sekretessbelagd information</strong> – NDA-skyddad data från partners</li>
-          </ul>
+  <h2>1. Syfte och omfattning</h2>
+  <p>Beskriv vilka personer, bolag och typer av AI som omfattas. Ta med fristående chattverktyg, funktioner inbyggda i kontorsprogram, egna AI-lösningar, automatiserade arbetsflöden och leverantörstjänster.</p>
 
-          <h3>Tillåten data (med anonymisering)</h3>
-          <ul>
-            <li>Aggregerad statistik utan individuell identifiering</li>
-            <li>Offentlig information (redan publicerat innehåll)</li>
-            <li>Anonymiserade exempel (ta bort alla identifierare först)</li>
-            <li>Generiska mallar och strukturer</li>
-          </ul>
+  <h2>2. Roller och beslut</h2>
+  <ul>
+    <li><strong>Policyägare:</strong> ansvarar för regler och uppdateringar.</li>
+    <li><strong>Verktygsägare:</strong> granskar avtal, säkerhet, inställningar och behörigheter.</li>
+    <li><strong>Användningsfallsägare:</strong> ansvarar för nytta, datakvalitet och mänsklig kontroll.</li>
+    <li><strong>Användare:</strong> följer regler, granskar output och rapporterar incidenter.</li>
+  </ul>
 
-          <p><strong>Praktisk regel:</strong> Om du inte skulle publicera informationen på LinkedIn, skicka den inte till ChatGPT.</p>
+  <h2>3. Godkända verktyg och data</h2>
+  <p>Ha en levande lista över godkända tjänster och ange vad de får användas till. Ett verktyg är inte generellt ”säkert”; bedömningen gäller en viss produkt, avtalsnivå, inställning och datatyp.</p>
+  <p>En enkel datamodell kan vara:</p>
+  <ul>
+    <li><strong>Offentligt:</strong> kan normalt användas i godkända verktyg.</li>
+    <li><strong>Internt:</strong> endast i godkänd företagsmiljö och för beslutat ändamål.</li>
+    <li><strong>Konfidentiellt eller personuppgifter:</strong> kräver särskilt granskat användningsfall och skydd.</li>
+    <li><strong>Särskilt känsligt:</strong> förbjudet tills juridik, säkerhet och verksamhetsägare har godkänt lösningen.</li>
+  </ul>
 
-          <h2>2. Godkända verktyg och licenser</h2>
-          <p>Inte alla AI-verktyg är skapade lika när det gäller datasäkerhet.</p>
+  <h2>4. Krav på mänsklig granskning</h2>
+  <p>Definiera vad ”granskning” betyder i olika situationer. Ett utkast till intern agenda kräver mindre kontroll än kundkommunikation, kod i produktion eller ett underlag som påverkar en persons rättigheter.</p>
+  <ul>
+    <li>Verifiera fakta mot en oberoende källa.</li>
+    <li>Kontrollera att konfidentiell information inte har läckt in eller ut.</li>
+    <li>Bedöm diskriminering, upphovsrätt och varumärkesrisk.</li>
+    <li>Namnge vem som godkänner innan publicering eller automatiskt beslut.</li>
+  </ul>
 
-          <h3>Enterprise-nivå (rekommenderat för företag)</h3>
-          <ul>
-            <li><strong>ChatGPT Enterprise/Team</strong> – Data används inte för träning, SSO, admin-kontroller</li>
-            <li><strong>Claude Pro för Teams</strong> – Samma nivå av datasäkerhet</li>
-            <li><strong>Microsoft Copilot (365)</strong> – Data stannar i er Microsoft-tenant</li>
-            <li><strong>Google Gemini Enterprise</strong> – Integrerat med Google Workspace</li>
-          </ul>
+  <h2>5. Transparens</h2>
+  <p>Informera människor när de interagerar direkt med ett AI-system där det krävs. Sätt särskilda regler för deepfakes, syntetiskt ljud eller bild och AI-genererat material om frågor av allmänintresse. Dokumentera eventuella undantag och följ EU-kommissionens aktuella vägledning.</p>
 
-          <h3>Förbjudna gratisversioner</h3>
-          <p>Gratis-versioner av ChatGPT, Claude, och liknande använder era inputs för att träna modeller. Allt ni skriver kan teoretiskt dyka upp i någon annans output.</p>
-          
-          <p><strong>Policy-rekommendation:</strong><br/>
-          "Företaget tillhandahåller licensierade AI-verktyg med enterprise-säkerhet. Användning av gratis-versioner med företagsrelaterad data är förbjuden."</p>
+  <h2>6. Kompetens och stöd</h2>
+  <p>Utbildning ska motsvara personens roll, erfarenhet och riskerna i användningen. En engångsföreläsning är sällan tillräcklig. Kombinera introduktion med praktiska exempel, tydliga kontaktvägar och uppföljning av hur verktygen används.</p>
 
-          <h2>3. Användningsriktlinjer för medarbetare</h2>
-          <p>Gör det tydligt vad som är okej och inte okej.</p>
+  <h2>7. Incidenter och omprövning</h2>
+  <p>Beskriv hur medarbetare rapporterar felaktiga svar, oavsiktlig datadelning, misstänkt promptinjektion och automatiseringar som beter sig oväntat. Granska dessutom verktygslistan och högriskanvändning när avtal, funktioner eller regler förändras.</p>
 
-          <h3>Tillåten användning</h3>
-          <ul>
-            <li><strong>Copywriting</strong> – Utkast till annonstexter, emails, inlägg (med mänsklig granskning)</li>
-            <li><strong>Brainstorming</strong> – Idégenerering, strategiska alternativ</li>
-            <li><strong>Research</strong> – Sammanfatta offentlig information, förklara koncept</li>
-            <li><strong>Kodning</strong> – Generera script, debugging (ej produktionskod utan granskning)</li>
-            <li><strong>Översättningar</strong> – Grundöversättningar av icke-känsligt material</li>
-          </ul>
+  <h2>En kort policytext att börja med</h2>
+  <ol>
+    <li>Vi använder endast godkända AI-verktyg för arbetsrelaterad information.</li>
+    <li>Vi delar inte personuppgifter eller konfidentiellt material utan ett dokumenterat och godkänt användningsfall.</li>
+    <li>En namngiven person ansvarar för varje verktyg och varje verksamhetskritiskt användningsfall.</li>
+    <li>AI-output granskas av en kompetent människa i proportion till risken innan den används.</li>
+    <li>Vi är transparenta om AI-användning när lagen eller situationen kräver det.</li>
+    <li>Incidenter rapporteras direkt och används för att förbättra arbetssättet.</li>
+    <li>Policy, verktyg och utbildning följs upp regelbundet.</li>
+  </ol>
 
-          <h3>Kräver godkännande</h3>
-          <ul>
-            <li>Publicering av AI-genererat innehåll utan mänsklig redigering</li>
-            <li>Användning av AI för kundkommunikation (chatbots, email-svar)</li>
-            <li>AI-driven beslutfattande (t.ex. automatisk budgetsättning)</li>
-            <li>Integration av AI-verktyg i företagets system</li>
-          </ul>
+  <h2>Gör policyn mätbar</h2>
+  <p>Följ till exempel andel användare som fått relevant utbildning, antal godkända användningsfall, tid till incidenthantering, andel kritiska output som fått dokumenterad granskning och hur ofta verktygsregistret uppdateras.</p>
 
-          <h3>Alltid förbjudet</h3>
-          <ul>
-            <li>Dela konfidentiell företagsinformation</li>
-            <li>Dela kunddata eller personuppgifter</li>
-            <li>Använda AI för att skapa vilseledande innehåll</li>
-            <li>Publicera AI-genererat innehåll som mänskligt skrivet (transparens krävs)</li>
-          </ul>
+  <div class="sources">
+    <h2>Källor och vidare läsning</h2>
+    <ul>
+      <li><a href="https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers" target="_blank" rel="noopener">EU-kommissionen: frågor och svar om AI literacy</a></li>
+      <li><a href="https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act" target="_blank" rel="noopener">EU-kommissionen: transparenskrav enligt artikel 50</a></li>
+      <li><a href="/artiklar/ai-och-gdpr-vad-du-maste-veta">Adorable: AI och GDPR – praktisk kontrollista</a></li>
+    </ul>
+  </div>
 
-          <h2>4. Kvalitetskontroll och faktakoll</h2>
-          <p>AI hallucinerar – det är en feature, inte en bug. Därför krävs alltid mänsklig granskning.</p>
-
-          <p><strong>Obligatorisk review innan publicering:</strong></p>
-          <ul>
-            <li>Faktakolla alla statistik och påståenden</li>
-            <li>Verifiera att tonen matchar varumärket</li>
-            <li>Kontrollera att innehållet är relevant och aktuellt</li>
-            <li>Säkerställ att ingen känslig information läckt in</li>
-          </ul>
-
-          <p><strong>Best practice:</strong> Använd AI för första utkast, människa för final version.</p>
-
-          <h2>5. Transparens och märkning</h2>
-          <p>Ska ni berätta att innehåll är AI-genererat?</p>
-
-          <h3>Rekommenderad policy</h3>
-          <ul>
-            <li><strong>Internt:</strong> Transparent användning – team vet när AI används</li>
-            <li><strong>Externt:</strong> Beror på kontext:
-              <ul>
-                <li>Kundtjänstbottar: Ja, märk tydligt</li>
-                <li>Marketing copy: Nej, om mänskligt granskad och äkta</li>
-                <li>Research/rapporter: Ja, om AI gjort analys</li>
-              </ul>
-            </li>
-          </ul>
-
-          <p><strong>Varumärkesskydd:</strong> Allt som publiceras i företagets namn måste uppfylla samma kvalitetsstandard – oavsett om det är AI-genererat eller inte.</p>
-
-          <h2>6. Juridik och äganderätt</h2>
-          <p>Vem äger AI-genererat innehåll?</p>
-
-          <ul>
-            <li><strong>Upphovsrätt:</strong> AI-genererat material är (för närvarande) inte upphovsrättsskyddat i sig. Men om en människa redigerar och kurerar det kan det bli skyddat.</li>
-            <li><strong>Företagets rättigheter:</strong> All AI-output skapad av anställda i tjänsten tillhör företaget.</li>
-            <li><strong>Tredje parts innehåll:</strong> Se till att AI inte genererat plagiat – granska alltid originalitet.</li>
-          </ul>
-
-          <p><strong>Policy-formulering:</strong><br/>
-          "Allt innehåll skapat med AI-verktyg i företagets namn tillhör företaget. Anställda ansvarar för att säkerställa att innehållet inte bryter mot tredje parts upphovsrätt."</p>
-
-          <h2>7. Utbildning och support</h2>
-          <p>En policy är värdelös om ingen vet att den finns.</p>
-
-          <p><strong>Implementationsplan:</strong></p>
-          <ol>
-            <li><strong>Onboarding:</strong> Alla nya medarbetare går igenom AI-policy</li>
-            <li><strong>Workshop:</strong> Praktisk träning i hur man använder AI-verktyg rätt</li>
-            <li><strong>Support:</strong> Tydlig kontaktperson för frågor om AI-användning</li>
-            <li><strong>Updates:</strong> Regelbunden uppdatering när policy utvecklas</li>
-          </ol>
-
-          <p><strong>Gör det lätt att göra rätt:</strong> Ge exempel, mallar och prompt-bibliotek som följer policyn.</p>
-
-          <h2>8. Löpande granskning och uppdatering</h2>
-          <p>AI-landskapet förändras snabbt. Er policy måste hänga med.</p>
-
-          <ul>
-            <li><strong>Kvartalsvis review:</strong> Uppdatera baserat på nya verktyg och regler</li>
-            <li><strong>Incident-rapportering:</strong> Om något går fel, lär av det och justera policy</li>
-            <li><strong>Legal compliance:</strong> Håll koll på EU AI Act och GDPR-uppdateringar</li>
-            <li><strong>Best practice sharing:</strong> Lär av andra företags erfarenheter</li>
-          </ul>
-
-          <h2>Mall: Er första AI-policy (TL;DR-version)</h2>
-          <p><strong>1. Data:</strong> Ingen personlig eller konfidentiell data i AI-verktyg.<br/>
-          <strong>2. Verktyg:</strong> Använd endast företagslicensierade AI-tjänster.<br/>
-          <strong>3. Granskning:</strong> All AI-output måste granskas av människa innan publicering.<br/>
-          <strong>4. Transparens:</strong> Märk AI-genererat innehåll där det är relevant (särskilt kundtjänst).<br/>
-          <strong>5. Utbildning:</strong> Alla som använder AI ska gå igenom företagets riktlinjer.<br/>
-          <strong>6. Support:</strong> Kontakta [person/team] vid frågor.</p>
-
-          <h2>Nästa steg</h2>
-          <ol>
-            <li>Inventera vilka AI-verktyg som redan används (fråga teamet)</li>
-            <li>Upprätta en grundläggande policy baserad på mallen ovan</li>
-            <li>Skaffa enterprise-licenser för godkända verktyg</li>
-            <li>Kommunicera policyn – workshop + skriftlig dokumentation</li>
-            <li>Utvärdera efter 3 månader och justera</li>
-          </ol>
-
-          <p>Det perfekta är det godas fiende. Börja med en enkel policy och förbättra den över tid.</p>
-
-          <div class="cta">
-            <h3>Behöver ni hjälp med AI-policy och implementation?</h3>
-            <p>Adorable hjälper företag att utveckla AI-policies, genomföra workshops och implementera säker AI-användning.</p>
-            <a href="/kontakt" class="button">Boka rådgivning →</a>
-          </div>
-        </div>
-      </div>
-
-    </article>
-  </main>
-</Layout>
-
-<style>
-  main {
-    background: #fff;
-  }
-
-  .container {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  .hero {
-    padding: 8rem 0 4rem;
-  }
-
-  .meta {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-    color: #666;
-  }
-
-  .category {
-    font-weight: 500;
-    color: #000;
-  }
-
-  .title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 600;
-    margin: 0 0 1.5rem;
-    line-height: 1.2;
-    color: #000;
-  }
-
-  .intro {
-    font-size: clamp(1.1rem, 2vw, 1.25rem);
-    line-height: 1.6;
-    color: #333;
-    margin: 0;
-  }
-
-  .content {
-    padding-bottom: 6rem;
-  }
-
-  .content h2 {
-    font-size: 1.75rem;
-    font-weight: 600;
-    margin: 3rem 0 1.5rem;
-    color: #000;
-  }
-
-  .content h3 {
-    font-size: 1.35rem;
-    font-weight: 600;
-    margin: 2rem 0 1rem;
-    color: #000;
-  }
-
-  .content p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: #333;
-    margin: 0 0 1.5rem;
-  }
-
-  .content ul, .content ol {
-    margin: 0 0 1.5rem;
-    padding-left: 1.5rem;
-  }
-
-  .content li {
-    margin-bottom: 0.75rem;
-    line-height: 1.7;
-    color: #333;
-  }
-
-  .content strong {
-    color: #000;
-    font-weight: 600;
-  }
-
-  .cta {
-    margin-top: 4rem;
-    padding: 2.5rem;
-    background: #fafafa;
-    border: 1px solid #e5e5e5;
-  }
-
-  .cta h3 {
-    margin-top: 0;
-  }
-
-  .button {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background: #000;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: opacity 0.2s;
-  }
-
-  .button:hover {
-    opacity: 0.8;
-  }
-
-  @media (max-width: 768px) {
-    .hero {
-      padding: 4rem 0 2rem;
-    }
-  }
-</style>
+  <div class="cta">
+    <h3>Behöver ni en policy som fungerar i vardagen?</h3>
+    <p>Adorable hjälper er inventera användningen, fatta besluten och träna teamet i det arbetssätt ni väljer.</p>
+    <a href="/kontakt" class="button">Prata med Peter →</a>
+  </div>
+</ArticlePage>
