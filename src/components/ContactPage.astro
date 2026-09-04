@@ -77,6 +77,10 @@ const validBookingUrl = bookingUrl && /^https:\/\/(calendar\.google\.com|calenda
       if (data.get('botcheck')) return;
       data.set('subject', meeting ? 'Mötesförfrågan från adorable.se' : 'Meddelande från adorable.se');
       if (!String(data.get('message') || '').trim()) data.set('message', meeting ? 'Önskar boka ett första möte.' : 'Önskar bli kontaktad.');
+      // Keep the submitted values stable until delivery has been confirmed.
+      const controls = [...form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('input, select, textarea')];
+      const disabledBefore = controls.map(control => control.disabled);
+      controls.forEach(control => { control.disabled = true; });
       submit.disabled = true;
       form.setAttribute('aria-busy','true');
       submitLabel.textContent = en ? 'Sending…' : 'Skickar…';
@@ -94,8 +98,8 @@ const validBookingUrl = bookingUrl && /^https:\/\/(calendar\.google\.com|calenda
         success.focus();
         // Analytics must never change an already-confirmed delivery state.
         try {
-          const analytics = (window as Window & { umami?: { track: (event:string)=>void } }).umami;
-          analytics?.track(meeting ? 'meeting-request-success' : 'contact-form-success');
+          const analytics = (window as Window & { umami?: { track: (event:string)=>unknown } }).umami;
+          void Promise.resolve(analytics?.track(meeting ? 'meeting-request-success' : 'contact-form-success')).catch(() => {});
         } catch { /* Contact delivery does not depend on analytics. */ }
       } catch {
         error.textContent = en ? 'We couldn’t confirm that your enquiry arrived. Your text is still here. Please email peter@adorable.se or call +46 70 823 57 87 before sending it again.' : 'Det gick inte att bekräfta att förfrågan kom fram. Din text finns kvar. Mejla peter@adorable.se eller ring 070 823 57 87 innan du skickar igen.';
@@ -103,6 +107,7 @@ const validBookingUrl = bookingUrl && /^https:\/\/(calendar\.google\.com|calenda
         error.focus();
       } finally {
         window.clearTimeout(timeout);
+        controls.forEach((control, index) => { control.disabled = disabledBefore[index]; });
         submit.disabled = false;
         form.removeAttribute('aria-busy');
         updateIntent();
