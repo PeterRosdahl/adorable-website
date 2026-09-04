@@ -1,6 +1,7 @@
 ---
 import SiteNavigation from '../components/SiteNavigation.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import SiteMotion from '../components/SiteMotion.astro';
 import '../styles/site.css';
 
 // Self-hosted fonts (faster than Google Fonts)
@@ -130,5 +131,6 @@ const canonicalURL = new URL(normalizedPath, Astro.site);
 		<SiteNavigation lang="en" alternatePath={swedishPath} />
 		<div id="main-content" tabindex="-1"><slot /></div>
 		<SiteFooter lang="en" />
+		<SiteMotion />
 	</body>
 </html>

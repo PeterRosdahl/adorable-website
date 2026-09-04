@@ -1,0 +1,55 @@
+<script>
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const active = new Set<Animation>();
+  const targets = document.querySelectorAll<HTMLElement>([
+    '.page-hero .lead', '.page-hero .actions', '.page-hero .subnote',
+    '.home-intro p', '.hero-contact', '.offer-card > *',
+    '.home-about > *', '.section-top', '.deliverable', '.process-list li',
+    '.editorial-copy > *', '.editorial-grid > div > h2', '.question-list details',
+    '.contact-lead', '.contact-person', '.contact-intro .direct-link',
+    '.contact-intro .reply-note', '.contact-panel',
+    '.footer-invite', '.footer-columns > *', '.footer-bottom'
+  ].join(','));
+
+  // Content is visible by default. Only animate it as it enters the viewport;
+  // never hold navigation, forms or keyboard focus behind an animation.
+  const observer = new IntersectionObserver(entries => {
+    let sequence = 0;
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      observer.unobserve(entry.target);
+      const element = entry.target as HTMLElement;
+      if (reduced.matches || document.hidden || element.contains(document.activeElement)) continue;
+      const titleFollow = element.matches('.page-hero .lead, .contact-lead, .home-intro p');
+      const isForm = element.matches('.contact-panel');
+      const isInteractive = isForm || element.matches('a, .actions, .hero-contact, .question-list details, .footer-columns > *, .footer-bottom');
+      const isRow = element.matches('.deliverable, .question-list details');
+      const delay = titleFollow ? 180 : Math.min(sequence++ * 85, 255);
+      const animation = element.animate([
+        { opacity: 0, transform: isInteractive ? 'none' : isRow ? 'translateX(-36px)' : 'translateY(54px)' },
+        { opacity: 1, transform: 'none' }
+      ], { duration: isForm ? 500 : 900, delay, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' });
+      active.add(animation);
+      const release = () => active.delete(animation);
+      animation.addEventListener('finish', release, { once: true });
+      animation.addEventListener('cancel', release, { once: true });
+    }
+  }, { threshold: .08 });
+  targets.forEach(element => observer.observe(element));
+
+  function finishMotion() {
+    active.forEach(animation => animation.cancel());
+    active.clear();
+  }
+  reduced.addEventListener('change', () => {
+    if (reduced.matches) { observer.disconnect(); finishMotion(); }
+  });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) finishMotion(); });
+  document.addEventListener('focusin', event => {
+    active.forEach(animation => {
+      const target = (animation.effect as KeyframeEffect | null)?.target;
+      if (target instanceof Element && event.target instanceof Node && target.contains(event.target)) animation.cancel();
+    });
+  });
+  window.addEventListener('pagehide', finishMotion);
+</script>

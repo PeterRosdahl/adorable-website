@@ -1,8 +1,9 @@
 ---
+import MotionTitle from './MotionTitle.astro';
 import OfferPair from './OfferPair.astro';
 
 interface Props { lang?: 'sv'|'en'; }
 const { lang = 'sv' } = Astro.props;
 const en = lang === 'en';
 ---
-<main class="studio-page"><section class="page-hero wrap"><h1>{en ? 'Services.' : 'Tjänster.'}</h1><p class="lead">{en ? 'Advertising that needs to perform better, or AI you want to put to work. Bring in senior support for one area or both.' : 'Annonsering som behöver fungera bättre, eller AI som ni vill använda i verksamheten. Ta hjälp med ett område eller båda.'}</p></section><section class="wrap" style="padding-bottom:80px" aria-label={en ? 'Services' : 'Tjänster'}><OfferPair lang={lang}/></section></main>
+<main class="studio-page"><section class="page-hero wrap"><MotionTitle text={en ? 'Services.' : 'Tjänster.'} /><p class="lead">{en ? 'Advertising that needs to perform better, or AI you want to put to work. Bring in senior support for one area or both.' : 'Annonsering som behöver fungera bättre, eller AI som ni vill använda i verksamheten. Ta hjälp med ett område eller båda.'}</p></section><section class="wrap" style="padding-bottom:80px" aria-label={en ? 'Services' : 'Tjänster'}><OfferPair lang={lang}/></section></main>

@@ -8,7 +8,7 @@ const widths = [1.02, .67, 1.36, .73, .83, .9, .47, .88, .32];
 <div class="wordmark-stage" data-wordmark>
   <span class="static-type" aria-hidden="true">adorable.</span>
   <div class="kinetic-type" aria-hidden="true" hidden>
-    {letters.map((letter, index) => <span class:list={['letter-slot', { accent: index === 2 }]} style={`--weight:${widths[index]}`} data-weight={widths[index]}><span class="glyph">{letter}</span></span>)}
+    {letters.map((letter, index) => <span class:list={['letter-slot', { accent: index === 2 }]} style={`--weight:${widths[index]};--slot-index:${index}`} data-weight={widths[index]}><span class="glyph">{letter}</span></span>)}
   </div>
   <button class="motion-control" type="button" aria-pressed="false" data-pause={lang === 'en' ? 'Pause motion' : 'Pausa rörelse'} data-play={lang === 'en' ? 'Start motion' : 'Starta rörelse'} hidden>{lang === 'en' ? 'Pause motion' : 'Pausa rörelse'}</button>
 </div>
@@ -62,9 +62,10 @@ const widths = [1.02, .67, 1.36, .73, .83, .9, .47, .88, .32];
       const delta = previousTime ? Math.min(time - previousTime, 50) : 16;
       previousTime = time;
       activeTime += delta;
-      const targetPosition = hoverPosition ?? 2 + Math.sin(activeTime / 2100) * 2.4;
+      const targetPosition = hoverPosition ?? 3.5 + Math.sin(activeTime / 1900) * 3.5;
       currentPosition += (targetPosition - currentPosition) * (1 - Math.exp(-delta / 180));
-      drawn = weights.map((weight, index) => weight * (1 + .31 * Math.exp(-Math.pow(index - currentPosition, 2) / .8)));
+      const amplitude = hoverPosition === null ? .72 : 1.05;
+      drawn = weights.map((weight, index) => weight * (1 + amplitude * Math.exp(-Math.pow(index - currentPosition, 2) / 1.1)));
       draw(drawn);
       frame = requestAnimationFrame(tick);
     }

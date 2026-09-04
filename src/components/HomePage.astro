@@ -20,24 +20,8 @@ const contact = en ? '/en/contact' : '/kontakt';
     </div>
   </section>
   <section id="services" class="wrap home-services" aria-label={en ? 'Services' : 'Tjänster'}><OfferPair lang={lang} /></section>
-  <section class="home-about section-space wrap" data-reveal>
+  <section class="home-about section-space wrap">
     <h2>Peter Rosdahl.</h2>
     <div><p>{en ? 'I’m the person you work with. I have 20 years of experience in digital marketing, development and business development. I founded Adorable in 2016.' : 'Det är mig ni jobbar med. Jag har 20 års erfarenhet av digital marknadsföring, utveckling och affärsutveckling. Adorable startade jag 2016.'}</p><p>{en ? 'I advise, do the work and follow up. For a specific project or as part of your team over time.' : 'Jag ger råd, gör jobbet och följer upp. I ett avgränsat projekt eller som en del av ert team över tid.'}</p><a class="text-link" href={en ? '/en/about' : '/om'}>{en ? 'More about Peter' : 'Mer om Peter'}<Arrow /></a></div>
   </section>
 </main>
-<script>
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const reveals: Animation[] = [];
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      observer.unobserve(entry.target);
-      if (!reducedMotion.matches) reveals.push(entry.target.animate(
-        [{ opacity: 0, transform: 'translateY(28px)' }, { opacity: 1, transform: 'none' }],
-        { duration: 650, easing: 'cubic-bezier(.22,.8,.2,1)' }
-      ));
-    });
-  }, { threshold: .15 });
-  document.querySelectorAll('[data-reveal]').forEach(element => observer.observe(element));
-  reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) reveals.forEach(animation => animation.cancel()); });
-</script>

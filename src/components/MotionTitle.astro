@@ -1,0 +1,10 @@
+---
+interface Props { text: string; }
+const { text, ...attributes } = Astro.props;
+let index = 0;
+---
+<h1 {...attributes} class="motion-title" aria-label={text}>
+  {text.split(/(\s+)/).map(word => /\s/.test(word)
+    ? word
+    : <span class="motion-word" aria-hidden="true">{[...word].map(letter => <span class="motion-letter" style={`--letter-index:${index++}`}>{letter}</span>)}</span>)}
+</h1>

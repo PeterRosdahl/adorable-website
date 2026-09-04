@@ -67,3 +67,51 @@ final result: passed
 - [x] Browser verification and paired visual comparisons
 - [x] Responsive, content, build and motion checks
 - [ ] Peter's review and separate publication decision
+
+## Motion iteration — 2026-09-04
+
+final result: passed
+
+Scope: more motion in the existing approved white/black/blue design. No copy,
+routes, forms, dependencies or publishing configuration changed.
+
+- Added staggered, masked letter entrances to service, about, services and contact
+  headings. The full heading remains its accessible name. Parent-scoped typography
+  is forwarded to the heading component; a contact-heading size regression found
+  in the browser was fixed and the 48px mobile heading/26px margin rechecked.
+- Wordmark letters enter sequentially; the continuous width wave now travels
+  farther with a larger amplitude and stronger pointer response. Its pause button
+  also stops the entrance. Browser transforms differed while running, settled after
+  the entrance and remained identical across two observations while paused.
+- Shared, one-time scroll reveals cover both languages and the core service,
+  about and contact pages. Non-interactive content moves; links, form fields and
+  clickable containers fade without moving their hit areas. Keyboard focus cancels
+  a pending reveal immediately. No content depends on JavaScript to stay visible.
+- Native cross-document transitions use a 700ms upward wipe with a separate header
+  snapshot. The browser showed the outgoing page snapshot while the new AI route
+  and its title entrance were already active, then the finished AI page. No router,
+  link interception or navigation delay was added.
+- Hover treatments: service typography, arrows and underlines; meeting links;
+  footer invitation. FAQ opening has an answer entrance and progressive CSS height
+  transitions. Native details open/close behavior is preserved.
+- Browser checks: homepage → AI → contact with `interest=ai`; question mode hides
+  and disables the suggested time; AI FAQ opens/closes; footer navigation to paid
+  social; English AI heading. No form was submitted. Offscreen links were scrolled
+  into view before the final click checks to avoid automation's smooth-scroll race.
+- No horizontal overflow at observed 320, 390, 804 and 1422 CSS-pixel widths. Visual
+  checks used 320/390px mobile and the restored 804px desktop browser. A wide
+  viewport override produced a screenshot-density mismatch, so that capture is not
+  used for pixel-accuracy claims.
+- Final screenshots: `/tmp/adorable-design-20260904/motion-ai-desktop.png`,
+  `/tmp/adorable-design-20260904/motion-ai-mobile.png`,
+  `/tmp/adorable-design-20260904/motion-ai-320.png`.
+- Browser error log: no errors returned on the homepage. Both motion test scripts,
+  production build, build/content checks and `git diff --check` passed. The new
+  motion harness checks stagger, stable links/forms, keyboard focus, reduced-motion
+  start/change, hidden tabs and page-exit cleanup. OS motion preferences were not
+  changed in the user's browser; reduced motion is verified through the harness and
+  explicit CSS overrides, including view-transition pseudo-elements.
+- Still local-only. Neither production nor the old Vercel preview was updated.
+
+Implementation references: [cross-document view transitions](https://developer.chrome.com/docs/web-platform/view-transitions/cross-document)
+and [intrinsic height transitions](https://developer.chrome.com/docs/css-ui/animate-to-height-auto).

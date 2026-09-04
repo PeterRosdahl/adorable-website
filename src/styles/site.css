@@ -29,10 +29,59 @@ button{cursor:pointer}img{max-width:100%;height:auto}a,button{touch-action:manip
 .quiet-band{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .about-detail .editorial-copy{max-width:880px;margin-left:auto}.about-signature{font-size:clamp(2rem,4.5vw,4.5rem);font-weight:500;letter-spacing:-.055em;line-height:1.1}.about-note{margin-top:12px;font-size:.9rem;color:var(--muted)}
 #main-content>main:not(.studio-page) .hero{background:var(--paper);padding-top:80px}#main-content>main:not(.studio-page) h1{letter-spacing:-.04em}
-@view-transition{navigation:auto}::view-transition-old(root){animation:exit-page .18s ease both}::view-transition-new(root){animation:enter-page .35s var(--ease) both}
+@view-transition{navigation:auto}
+::view-transition-group(root){animation-duration:.7s}
+::view-transition-image-pair(root){isolation:isolate}
+::view-transition-old(root){animation:exit-page .7s var(--ease) both;mix-blend-mode:normal}
+::view-transition-new(root){animation:enter-page .7s var(--ease) both;mix-blend-mode:normal}
+.site-header{view-transition-name:site-header}
+::view-transition-group(site-header){z-index:1;animation-duration:.7s}
+::view-transition-old(site-header),::view-transition-new(site-header){animation:none;mix-blend-mode:normal}
 .page-hero.dark :focus-visible,.page-hero.green :focus-visible{outline-color:white}
 .page-hero.dark .text-link:hover{color:white;text-decoration:underline}
-@keyframes exit-page{to{opacity:0;transform:translateY(-6px)}}@keyframes enter-page{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes exit-page{to{transform:translateY(-4vh) scale(.98);opacity:.45}}
+@keyframes enter-page{from{clip-path:inset(100% 0 0 0);transform:translateY(5vh)}to{clip-path:inset(0);transform:none}}
+.motion-word{display:inline-block;overflow:clip;vertical-align:top;padding-bottom:.14em;margin-bottom:-.14em}
+.motion-letter{display:inline-block;transform-origin:0 100%}
+@keyframes unfold-letter{from{transform:translateY(115%) rotate(7deg)}to{transform:none}}
+@keyframes wordmark-arrive{from{transform:translateY(100%)}to{transform:none}}
+@keyframes answer-arrive{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:no-preference){
+  .motion-letter{animation:unfold-letter 1.05s var(--ease) both;animation-delay:calc(var(--letter-index)*23ms)}
+  .wordmark-stage .letter-slot{animation:wordmark-arrive 1.15s var(--ease) both;animation-delay:calc(var(--slot-index)*60ms)}
+  .wordmark-stage:has(.motion-control[aria-pressed="true"]) .letter-slot{animation:none}
+  .question-list details[open] p{animation:answer-arrive .4s var(--ease) both}
+}
+.offer-card h2,.offer-card p{transition:transform .6s var(--ease)}
+.offer-card .icon-arrow{transition:transform .6s var(--ease)}
+.offer-card{position:relative}
+.offer-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.offer-card:focus-visible::after{transform:scaleX(1)}
+.footer-invite{transition:color .4s,letter-spacing .7s var(--ease)}
+.footer-invite .icon-arrow{transition:transform .7s var(--ease)}
+.nav-contact,.meeting-link,.text-link{transition:color .3s,gap .45s var(--ease)}
+.action:active{transform:scale(.98)}
+.question-list summary{transition:color .25s}
+.question-list summary:hover{color:var(--accent)}
+@supports(interpolate-size:allow-keywords){
+  .question-list details{interpolate-size:allow-keywords}
+  .question-list details::details-content{height:0;overflow:clip;transition:height .4s var(--ease),content-visibility .4s;transition-behavior:allow-discrete}
+  .question-list details[open]::details-content{height:auto}
+}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .offer-card:hover h2{transform:translateX(10px) skewX(-3deg)}
+  .offer-card:hover p{transform:translateX(10px)}
+  .offer-card:hover::after{transform:scaleX(1)}
+  .offer-card:hover .icon-arrow{transform:translate(14px,-8px)}
+  .footer-invite:hover{letter-spacing:-.04em}
+  .footer-invite:hover .icon-arrow{transform:translate(10px,-10px) rotate(8deg)}
+  .nav-contact:hover,.meeting-link:hover,.text-link:hover{gap:32px}
+}
 @media(max-width:760px){.home-intro{grid-template-columns:1fr;gap:20px}.home-intro h1{font-size:clamp(1.8rem,5vw,2.5rem);white-space:normal;max-width:22ch}.home-intro p{font-size:1rem;max-width:34ch}.home-hero{padding-top:36px}.hero-contact{flex-wrap:wrap;gap:12px 36px;padding-block:18px}.hero-contact .email-link{font-size:.88rem}.home-about,.editorial-grid{grid-template-columns:1fr;gap:28px}.offer-pair{grid-template-columns:1fr 1fr}.offer-card{padding-right:22px}.offer-card+ .offer-card{padding-left:22px}.offer-card p{font-size:.92rem}.offer-card h2{font-size:1.8rem}.section-top{display:block}.section-top p{margin-top:16px}.process-list{grid-template-columns:1fr;gap:28px}.process-list .number{margin-bottom:18px}.process-list p{max-width:unset}.deliverable{grid-template-columns:24px 1fr;gap:16px}.deliverable p{grid-column:2}.fact-row{gap:16px}.fact-row strong{font-size:2.1rem}.page-hero h1{font-size:clamp(2.8rem,10vw,4.5rem)}.page-hero .actions{align-items:stretch}.page-hero .actions .action{flex-grow:1}#main-content>main:not(.studio-page) .hero{padding-top:48px}}
 @media(max-width:480px){.hero-contact{display:grid;grid-template-columns:1fr;gap:0}.hero-contact .meeting-link{justify-self:start}.hero-contact .email-link{justify-self:start}.offer-pair{grid-template-columns:1fr;padding-top:20px}.offer-card{padding:24px 0}.offer-card+ .offer-card{border-left:0;border-top:1px solid var(--line);padding-left:0}.offer-card .icon-arrow{margin-top:16px}.fact-row{grid-template-columns:1fr 1fr}.fact-row>div:last-child{grid-column:1/-1}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
+  .offer-card:hover h2,.offer-card:hover p,.offer-card:hover .icon-arrow,.footer-invite:hover .icon-arrow{transform:none}
+}

@@ -1,4 +1,5 @@
 ---
+import MotionTitle from './MotionTitle.astro';
 import Arrow from './Arrow.astro';
 interface Props { lang?: 'sv' | 'en'; }
 const { lang = 'sv' } = Astro.props;
@@ -11,7 +12,7 @@ const validBookingUrl = bookingUrl && /^https:\/\/(calendar\.google\.com|calenda
   <div class="wrap contact-layout">
     <section class="contact-intro">
 
-      <h1>{en ? 'Contact Peter.' : 'Kontakta Peter.'}</h1>
+      <MotionTitle text={en ? 'Contact Peter.' : 'Kontakta Peter.'} />
       <p class="contact-lead">{en ? 'Tell me what you need help with. We’ll discuss your situation and whether I’m the right person to help.' : 'Berätta vad ni behöver hjälp med. Vi går igenom er situation och om jag är rätt person att hjälpa till.'}</p>
       <p class="contact-person">Peter Rosdahl<span>{en ? 'Founder & senior consultant' : 'Grundare & seniorkonsult'}</span></p>
       <a class="direct-link" href="mailto:peter@adorable.se" data-umami-event="contact-email-click">peter@adorable.se <Arrow /></a>

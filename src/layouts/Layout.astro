@@ -1,6 +1,7 @@
 ---
 import SiteNavigation from '../components/SiteNavigation.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import SiteMotion from '../components/SiteMotion.astro';
 import '../styles/site.css';
 
 // Self-hosted fonts (faster than Google Fonts)
@@ -135,5 +136,6 @@ const swedishPath = normalizedPath;
 		<SiteNavigation alternatePath={englishPath} />
 		<div id="main-content" tabindex="-1"><slot /></div>
 		<SiteFooter />
+		<SiteMotion />
 	</body>
 </html>
