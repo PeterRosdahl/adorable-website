@@ -8,6 +8,18 @@ Syftet är att hålla sajten aktuell utan att skapa konstgjorda publiceringsdatu
 - Kontrollera startsida, tjänster och Om-sida mot aktuellt erbjudande, team och kontaktvägar.
 - Kör `npm run content:audit` och hantera nya blockerande fel.
 - Kontrollera brutna interna och externa länkar i den byggda sajten.
+- Kör `npm run check:build` efter bygget för interna länkar, resurser, huvudrubriker och metadata.
+- Kontrollera även mobilmenyn, språkväxling och de två lägena i kontaktformuläret.
+
+## Mötesförfrågan och Google Kalender
+
+- Nuvarande flöde skickar en mötesförfrågan via det befintliga Web3Forms-kontot. Det bokar inte automatiskt en tid och skapar inget kalender-event.
+- Namn och e-post krävs. Intresse, tidsförslag och meddelande är valfria. Kunden får tydlig information om att tiden måste bekräftas.
+- Skapa en publik bokningssida i Google Kalender när direktbokning ska aktiveras. Använd inte en privat kalenderlänk.
+- Lägg den publika länken i `PUBLIC_BOOKING_URL` i Vercel och bygg en ny preview. Tillåtna värdar är `calendar.google.com` och `calendar.app.google` via HTTPS.
+- När en giltig länk finns visas en knapp till Google Kalender över formuläret. Besökaren kan fortfarande skicka en fråga.
+- Verifiera bokningssidan utloggad och på mobil före publicering. Uppdatera integritetspolicyn för kalenderflödet då.
+- Ett verkligt testmeddelande ska följas hela vägen till inkorgen. Webbläsarvalidering och ett godkänt bygge bevisar inte e-postleverans.
 
 ## Varje kvartal
 

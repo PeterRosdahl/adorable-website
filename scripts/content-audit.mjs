@@ -30,7 +30,12 @@ const publicCopyFiles = [
   'src/pages/om.astro',
   'src/pages/en/about.astro',
   'src/pages/ai.astro',
-  'src/pages/paid-social.astro'
+  'src/pages/paid-social.astro',
+  'src/components/HomePage.astro',
+  'src/components/AboutPage.astro',
+  'src/components/ContactPage.astro',
+  'src/components/OfferPair.astro',
+  'src/content/services.ts'
 ];
 
 const forbiddenClaims = [

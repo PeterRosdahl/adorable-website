@@ -16,6 +16,8 @@ const lastmodByPath = new Set([
   '/en/paid-social',
   '/en/about',
   '/en/contact',
+  '/tjanster',
+  '/en/services',
   '/artiklar/chatgpt-vs-claude-vs-gemini',
   '/artiklar/attribution-i-en-cookieless-varld',
   '/artiklar/ai-och-gdpr-vad-du-maste-veta',
@@ -53,7 +55,7 @@ export default defineConfig({
     serialize(item) {
       const path = new URL(item.url).pathname.replace(/\/$/, '') || '/';
       if (lastmodByPath.has(path)) {
-        item.lastmod = '2026-09-02';
+        item.lastmod = path.startsWith('/artiklar/') ? '2026-09-02' : '2026-09-04';
       }
       return item;
     }

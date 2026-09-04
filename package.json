@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "content:audit": "node scripts/content-audit.mjs",
+    "check:build": "node scripts/check-build.mjs",
     "build": "npm run content:audit && astro build && node post-build.js",
     "preview": "astro preview",
     "astro": "astro"

@@ -1,0 +1,17 @@
+---
+import { services } from '../content/services';
+import WorkingProcess from './WorkingProcess.astro';
+interface Props { lang?: 'sv'|'en'; service: 'ai'|'paid-social'; }
+const { lang = 'sv', service } = Astro.props;
+const en = lang === 'en';
+const content = services[lang][service];
+const contact = `${en ? '/en/contact' : '/kontakt'}?interest=${service}`;
+---
+<main class="studio-page">
+  <section class:list={['page-hero',service === 'ai' ? 'green':'dark']}><div class="wrap"><p class="eyebrow">{content.name} / Adorable</p><h1 style="white-space:pre-line">{content.title}</h1><p class="lead">{content.intro}</p><div class="actions"><a class="action acid" href={contact} data-umami-event={`contact-${service}-click`}>{en ? 'Discuss your needs' : 'Prata om ert behov'} <span class="arrow" aria-hidden="true">↗</span></a><a class="text-link" href="#deliverables">{en ? 'See how I help' : 'Se vad ni får hjälp med'} <span aria-hidden="true">↓</span></a></div><p class="subnote">{en ? 'Directly with Peter Rosdahl. No cost or obligation for the first conversation.' : 'Direkt med Peter Rosdahl. Första samtalet är kostnadsfritt.'}</p></div></section>
+  <section class="section-space wrap editorial-grid"><p class="eyebrow">{en ? 'When to bring me in' : 'När jag kan hjälpa till'}</p><div class="editorial-copy"><h2>{content.fit}</h2><p>{content.fitText}</p></div></section>
+  <section id="deliverables" class="wrap section-space quiet-band"><div class="section-top"><h2>{en ? 'What I help you with.' : 'Det här hjälper jag er med.'}</h2><p>{en ? 'We agree on the parts your team needs.' : 'Vi väljer de delar som ert team behöver.'}</p></div><div class="deliverables">{content.items.map(([title,text],i)=><div class="deliverable"><span class="number">0{i+1}</span><h3>{title}</h3><p>{text}</p></div>)}</div></section>
+  <section class="section-space wrap"><div class="section-top"><h2>{en ? 'Three ways to work together.' : 'Tre sätt att ta hjälp.'}</h2></div><ol class="process-list">{content.examples.map(([title,text],i)=><li><span class="number">0{i+1}</span><h3>{title}</h3><p>{text}</p></li>)}</ol></section>
+  <WorkingProcess lang={lang}/>
+  <section class="section-space wrap editorial-grid"><div><p class="eyebrow">{en ? 'Before we start' : 'Inför ett samarbete'}</p><h2 style="font-size:clamp(2rem,4vw,3.5rem);margin-top:22px">{en ? 'Common questions.' : 'Vanliga frågor.'}</h2></div><div class="question-list">{content.faqs.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}</div></section>
+</main>

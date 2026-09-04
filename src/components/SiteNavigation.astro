@@ -1,0 +1,63 @@
+---
+interface Props { lang?: 'sv' | 'en'; alternatePath?: string; }
+const { lang = 'sv', alternatePath } = Astro.props;
+const en = lang === 'en';
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const home = en ? '/en' : '/';
+const contact = en ? '/en/contact' : '/kontakt';
+const links = en
+  ? [{label:'Paid social',href:'/en/paid-social'},{label:'AI consulting',href:'/en/ai'},{label:'About Peter',href:'/en/about'}]
+  : [{label:'Paid social',href:'/paid-social'},{label:'AI-rådgivning',href:'/ai'},{label:'Om Peter',href:'/om'},{label:'Insikter',href:'/artiklar'}];
+---
+<header class="site-header">
+  <nav class="wrap site-nav" aria-label={en ? 'Main navigation' : 'Huvudmeny'}>
+    <a class="wordmark" href={home} aria-label={en ? 'Adorable home' : 'Adorable startsida'}>Adorable<span aria-hidden="true">.</span></a>
+    <div class="nav-desktop">
+      {links.map(link => <a href={link.href} aria-current={path === link.href || (link.href === '/artiklar' && path.startsWith('/artiklar/')) ? 'page' : undefined}>{link.label}</a>)}
+    </div>
+    <div class="nav-actions">
+      {alternatePath && <a class="language-link" href={alternatePath} lang={en ? 'sv' : 'en'} aria-label={en ? 'På svenska' : 'In English'}>{en ? 'SV' : 'EN'}</a>}
+      <a class="nav-contact" href={contact} data-umami-event="contact-nav-click">{en ? 'Let’s talk' : 'Boka möte'}<span class="arrow" aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-open-label={en ? 'Menu' : 'Meny'} data-close-label={en ? 'Close' : 'Stäng'}>{en ? 'Menu' : 'Meny'}</button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      {links.map(link => <a href={link.href} aria-current={path === link.href ? 'page' : undefined}>{link.label}</a>)}
+      <a href={contact}>{en ? 'Contact Peter' : 'Kontakta Peter'}</a>
+      {alternatePath && <a class="mobile-language" href={alternatePath} lang={en ? 'sv' : 'en'}>{en ? 'På svenska' : 'In English'}</a>}
+    </div>
+  </nav>
+</header>
+<style>
+  .site-header{position:sticky;top:0;z-index:1000;background:var(--paper);border-bottom:1px solid var(--line)}
+  .site-nav{min-height:88px;display:flex;align-items:center;gap:32px;position:relative}.wordmark{font-family:'Adorable Wordmark','DM Sans',sans-serif;font-size:1.65rem;letter-spacing:-.085em;text-decoration:none;margin-right:auto;line-height:1}.wordmark span{color:#637739}
+  .nav-desktop{display:flex;align-items:center;gap:28px}.nav-desktop a{font-size:.88rem;text-decoration:none;min-height:44px;display:flex;align-items:center;position:relative}.nav-desktop a:hover,.nav-desktop a[aria-current]{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:8px}
+  .nav-actions{display:flex;align-items:center;gap:20px}.language-link{font-size:.73rem;text-decoration:none;min-height:44px;display:flex;align-items:center}.nav-contact{display:flex;align-items:center;gap:24px;padding:12px 18px;color:var(--ink);background:var(--acid);text-decoration:none;border-radius:3px;font-size:.9rem;font-weight:500;min-height:46px;white-space:nowrap}.nav-contact:hover{background:#e4f5b0}
+  .menu-toggle{display:none;background:none;border:1px solid var(--line);padding:10px 12px;min-height:44px;border-radius:3px;color:var(--ink);font-size:.85rem}.mobile-menu{position:absolute;left:0;right:0;top:100%;background:var(--paper);padding:20px var(--gutter) 28px;border-bottom:1px solid var(--line);box-shadow:0 18px 28px #20231f12}.mobile-menu a{display:block;padding:15px 0;text-decoration:none;font-size:1.25rem;border-bottom:1px solid var(--line)}
+  @media(min-width:961px){.mobile-menu{display:none!important}}@media(max-width:960px){.nav-desktop{display:none}.menu-toggle{display:block}.site-nav{min-height:76px;gap:16px}.nav-actions{gap:14px}}@media(max-width:480px){.wordmark{font-size:1.25rem}.nav-actions{gap:9px}.nav-contact{padding:10px 12px;gap:10px;font-size:.8rem}.language-link{font-size:.68rem}.menu-toggle{font-size:.75rem;padding:10px}.site-nav{gap:8px}}
+</style>
+<style>
+  .mobile-menu .mobile-language{display:none}
+  @media(max-width:380px){.language-link{display:none}.mobile-menu .mobile-language{display:block}}
+</style>
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const menu = document.querySelector<HTMLElement>('#mobile-menu');
+  function closeMenu(returnFocus = false) {
+    if (!toggle || !menu) return;
+    menu.hidden = true;
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = toggle.dataset.openLabel || 'Meny';
+    if (returnFocus) toggle.focus();
+  }
+  toggle?.addEventListener('click', () => {
+    if (!menu) return;
+    const open = toggle.getAttribute('aria-expanded') !== 'true';
+    menu.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.textContent = (open ? toggle.dataset.closeLabel : toggle.dataset.openLabel) || 'Meny';
+  });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && !menu?.hidden) closeMenu(true); });
+  document.addEventListener('click', event => { if (event.target instanceof Node && !document.querySelector('.site-nav')?.contains(event.target)) closeMenu(); });
+  menu?.addEventListener('click', event => { if (event.target instanceof Element && event.target.closest('a')) closeMenu(); });
+  window.matchMedia('(min-width: 961px)').addEventListener('change', () => closeMenu());
+</script>

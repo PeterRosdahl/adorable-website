@@ -182,150 +182,38 @@ const articles = [
     updated: '2 september 2026'
   },
 ];
+const categories = [
+  {name:'Paid Social', label:'Paid social', id:'paid-social'},
+  {name:'AI-rådgivning', label:'AI-rådgivning', id:'ai'},
+  {name:'AI + Paid Social', label:'AI i marknadsföringen', id:'ai-marknadsforing'},
+];
 ---
 
-<Layout 
-  title="Artiklar om AI-rådgivning och Paid Social | Adorable"
-  description="Praktiska guider och insikter om AI-rådgivning, Meta Ads, performance marketing och datadriven marknadsföring."
->
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h1 class="hero-title">Artiklar</h1>
-        <p class="hero-intro">
-          Praktiska guider och insikter om AI-rådgivning, paid social och performance marketing.
-        </p>
-      </div>
+<Layout title="Insikter & guider om paid social och AI | Adorable" description="Praktiska guider från Peter Rosdahl om annonsering, AI och mätning. För dig som vill förstå, välja och komma vidare i arbetet.">
+  <main class="studio-page">
+    <section class="page-hero wrap">
+      <p class="eyebrow">Av Peter Rosdahl</p>
+      <h1>Insikter & guider.</h1>
+      <p class="lead">Om annonsering, AI och mätning. För dig som vill förstå, välja och komma vidare i arbetet.</p>
+      <nav class="topic-nav" aria-label="Välj ämne">
+        {categories.map(category => <a href={`#${category.id}`}>{category.label}<span aria-hidden="true">↓</span></a>)}
+      </nav>
     </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="articles-list">
-          {articles.map((article) => (
-            <article class="article-card">
-              <div class="article-meta">
-                <span class="category">{article.category}</span>
-                {article.updated && <span>Uppdaterad {article.updated}</span>}
-              </div>
-              <h2><a href={`/artiklar/${article.slug}`}>{article.title}</a></h2>
-              <p class="excerpt">{article.excerpt}</p>
-              <a href={`/artiklar/${article.slug}`} class="read-more">Läs mer →</a>
-            </article>
-          ))}
-        </div>
+    {categories.map(category => <section class="guide-section wrap" id={category.id} aria-labelledby={`heading-${category.id}`}>
+      <div class="section-top"><h2 id={`heading-${category.id}`}>{category.label}</h2><p>{articles.filter(article => article.category === category.name).length} guider</p></div>
+      <div class="guide-grid">
+        {articles.filter(article => article.category === category.name).map(article => <article class="guide-item">
+          <p class="guide-date">Uppdaterad {article.updated}</p>
+          <h3><a href={`/artiklar/${article.slug}`}>{article.title}<span aria-hidden="true">↗</span></a></h3>
+          <p class="guide-excerpt">{article.excerpt}</p>
+        </article>)}
       </div>
-    </section>
-
+    </section>)}
   </main>
 </Layout>
 
 <style>
-  main {
-    background: #fff;
-    min-height: 100vh;
-  }
-
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  .hero {
-		background: linear-gradient(180deg, #fffbf0 0%, #fff 100%);
-    padding: 8rem 0 4rem;
-  }
-
-  .hero-title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 400;
-    margin: 0 0 1rem;
-    line-height: 1.3;
-    color: #000;
-  }
-
-  .hero-intro {
-    font-size: clamp(1.2rem, 2vw, 1.35rem);
-    line-height: 1.7;
-    color: #000;
-  }
-
-  .section {
-    padding: 4rem 0 6rem;
-  }
-
-  .articles-list {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
-
-  .article-card {
-    padding-bottom: 3rem;
-    border-bottom: 1px solid #e5e5e5;
-  }
-
-  .article-card:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  .article-meta {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 0.75rem;
-    font-size: 0.9rem;
-    color: #444;
-  }
-
-  .category {
-    font-weight: 500;
-    color: #000;
-  }
-
-  .article-card h2 {
-    font-size: clamp(1.5rem, 3vw, 1.75rem);
-    font-weight: 600;
-    margin: 0 0 0.75rem;
-  }
-
-  .article-card h2 a {
-    color: #000;
-    text-decoration: none;
-    transition: opacity 0.2s;
-  }
-
-  .article-card h2 a:hover {
-    opacity: 0.7;
-  }
-
-  .excerpt {
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: #444;
-    margin: 0 0 1rem;
-  }
-
-  .read-more {
-    color: #000;
-    text-decoration: none;
-    font-weight: 500;
-    border-bottom: 1px solid #000;
-    transition: opacity 0.2s;
-  }
-
-  .read-more:hover {
-    opacity: 0.7;
-  }
-
-  @media (max-width: 768px) {
-    .hero {
-		background: linear-gradient(180deg, #fffbf0 0%, #fff 100%);
-      padding: 4rem 0 2rem;
-    }
-
-    .section {
-      padding: 3rem 0 4rem;
-    }
-  }
+  .topic-nav{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}.topic-nav a{display:flex;align-items:center;gap:24px;border:1px solid var(--line);border-radius:3px;padding:12px 18px;min-height:48px;text-decoration:none;font-size:.9rem}.topic-nav a:hover{background:var(--acid)}
+  .guide-section{padding-bottom:80px;scroll-margin-top:30px}.guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}.guide-item{border-top:1px solid var(--line);padding-block:26px 36px}.guide-date{font-size:.75rem;color:var(--muted);margin-bottom:16px}.guide-item h3{font-size:clamp(1.35rem,2.3vw,2rem);margin-bottom:18px}.guide-item h3 a{display:flex;gap:24px;justify-content:space-between;text-decoration:none}.guide-item h3 a:hover{text-decoration:underline}.guide-item h3 span{font-size:1.1rem;line-height:1.6;flex-shrink:0}.guide-excerpt{font-size:.98rem;color:var(--muted);max-width:52ch}
+  @media(max-width:760px){.guide-grid{grid-template-columns:1fr}.guide-section{padding-bottom:50px}.topic-nav{gap:8px}.topic-nav a{font-size:.85rem;gap:16px;padding:11px 14px}}
 </style>

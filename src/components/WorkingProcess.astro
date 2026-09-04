@@ -1,0 +1,20 @@
+---
+interface Props { lang?: 'sv' | 'en'; }
+const { lang = 'sv' } = Astro.props;
+const en = lang === 'en';
+const steps = en ? [
+  ['A first conversation','Tell me what you want to improve. We discuss your situation and whether I’m the right person to help. No cost or obligation.'],
+  ['A clear proposal','You receive a proposal with the work, deliverables, timeline and cost. We agree on who does what before we start.'],
+  ['Work and follow-up','I carry out the work with your team. We review what is working, what needs to change and what comes next.']
+] : [
+  ['Vi börjar med ett samtal','Berätta vad ni vill förbättra. Vi går igenom er situation och om jag är rätt person att hjälpa till. Kostnadsfritt och utan förbindelse.'],
+  ['Ni får ett konkret förslag','Ett tydligt upplägg med leveranser, tidsplan och kostnad. Vi bestämmer vem som gör vad innan arbetet börjar.'],
+  ['Vi gör jobbet och följer upp','Jag genomför arbetet tillsammans med ert team. Vi följer upp vad som fungerar, vad som behöver ändras och vad nästa steg är.']
+];
+---
+<section class="process-section section-space">
+  <div class="wrap">
+    <div class="section-top"><h2>{en ? 'Easy to get started.' : 'Enkelt att komma igång.'}</h2><p>{en ? 'An individual project or ongoing support. The scope follows your needs.' : 'En avgränsad insats eller löpande hjälp. Upplägget följer ert behov.'}</p></div>
+    <ol class="process-list">{steps.map(([title,text],i) => <li><span class="number">0{i+1}</span><h3>{title}</h3><p>{text}</p></li>)}</ol>
+  </div>
+</section>

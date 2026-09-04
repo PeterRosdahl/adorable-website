@@ -1,0 +1,8 @@
+---
+import OfferPair from './OfferPair.astro';
+import WorkingProcess from './WorkingProcess.astro';
+interface Props { lang?: 'sv'|'en'; }
+const { lang = 'sv' } = Astro.props;
+const en = lang === 'en';
+---
+<main class="studio-page"><section class="page-hero wrap"><p class="eyebrow">{en ? 'Services / Adorable' : 'Tjänster / Adorable'}</p><h1>{en ? 'What do you need help with?' : 'Vad behöver ni\nhjälp med?'}</h1><p class="lead">{en ? 'Advertising that needs to perform better, or AI you want to put to work. Bring in senior support for one area or both.' : 'Annonsering som behöver fungera bättre, eller AI som ni vill använda i verksamheten. Ta hjälp med ett område eller båda.'}</p></section><section class="wrap" style="padding-bottom:80px" aria-label={en ? 'Services' : 'Tjänster'}><OfferPair lang={lang}/></section><WorkingProcess lang={lang}/></main>

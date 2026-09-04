@@ -1,13 +1,12 @@
 ---
-import Navigation from '../components/Navigation.astro';
-import Footer from '../components/Footer.astro';
+import SiteNavigation from '../components/SiteNavigation.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import '../styles/site.css';
 
 // Self-hosted fonts (faster than Google Fonts)
 import '@fontsource/dm-sans/400.css';
 import '@fontsource/dm-sans/500.css';
 import '@fontsource/dm-sans/700.css';
-import '@fontsource/playfair-display/400.css';
-import '@fontsource/playfair-display/700.css';
 
 interface Props {
 	title: string;
@@ -133,56 +132,8 @@ const swedishPath = normalizedPath;
 	</head>
 	<body>
 		<a class="skip-link" href="#main-content">Hoppa till innehållet</a>
-		<Navigation />
+		<SiteNavigation alternatePath={englishPath} />
 		<div id="main-content" tabindex="-1"><slot /></div>
-		<Footer />
+		<SiteFooter />
 	</body>
 </html>
-
-<style is:global>
-	* {
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-	}
-
-	html {
-		font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-		background: #fff;
-		color: #000;
-	}
-
-	body {
-		margin: 0;
-		padding: 0;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-	}
-
-	.skip-link {
-		position: fixed;
-		top: 0.75rem;
-		left: 0.75rem;
-		z-index: 2000;
-		transform: translateY(-200%);
-		background: #000;
-		color: #fff;
-		padding: 0.75rem 1rem;
-		text-decoration: none;
-		border-radius: 4px;
-	}
-
-	.skip-link:focus {
-		transform: translateY(0);
-	}
-
-	:focus-visible {
-		outline: 3px solid #1a73e8;
-		outline-offset: 3px;
-	}
-
-	h1, h2, h3, h4, h5, h6 {
-		font-family: 'Playfair Display', Georgia, serif;
-		font-weight: 400;
-	}
-</style>
