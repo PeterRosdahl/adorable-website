@@ -1,0 +1,99 @@
+---
+import '@fontsource/anton/latin.css';
+interface Props { lang?: 'sv' | 'en'; }
+const { lang = 'sv' } = Astro.props;
+const letters = [...'adorable.'];
+const widths = [1.02, .67, 1.36, .73, .83, .9, .47, .88, .32];
+---
+<div class="wordmark-stage" data-wordmark>
+  <span class="static-type" aria-hidden="true">adorable.</span>
+  <div class="kinetic-type" aria-hidden="true" hidden>
+    {letters.map((letter, index) => <span class:list={['letter-slot', { accent: index === 2 }]} style={`--weight:${widths[index]}`} data-weight={widths[index]}><span class="glyph">{letter}</span></span>)}
+  </div>
+  <button class="motion-control" type="button" aria-pressed="false" data-pause={lang === 'en' ? 'Pause motion' : 'Pausa rörelse'} data-play={lang === 'en' ? 'Start motion' : 'Starta rörelse'} hidden>{lang === 'en' ? 'Pause motion' : 'Pausa rörelse'}</button>
+</div>
+<style>
+  .wordmark-stage{position:relative;margin:24px -8px 26px;container-type:inline-size}
+  .static-type{display:block;font-family:'Anton',sans-serif;font-size:29cqw;line-height:1.48;letter-spacing:-.015em}
+  .kinetic-type{display:flex;width:100%;height:43cqw;align-items:stretch;user-select:none;overflow:hidden}
+  .letter-slot{position:relative;min-width:0;flex:var(--weight) 1 0%}
+  .glyph{font-family:'Anton',sans-serif;font-weight:400;position:absolute;left:0;top:50%;font-size:50cqw;line-height:1;display:block;transform:translateY(-55%) scaleX(var(--letter-scale,.65));transform-origin:left center;will-change:transform;color:var(--ink)}
+  .accent .glyph{color:var(--accent);transform:translateY(-55%) scale(var(--letter-scale,.65),1.1)}
+  .letter-slot:last-child .glyph{font-family:'DM Sans',sans-serif;font-weight:700;font-size:28cqw;left:-.04em;top:auto;bottom:-.08em;transform:scaleX(calc(var(--letter-scale,.65)*1.8));transform-origin:left bottom}
+  .motion-control{position:absolute;right:6px;bottom:-24px;font-size:11px;color:var(--muted);border:0;border-bottom:1px solid currentColor;background:var(--paper);padding:8px 0;min-height:44px}
+  @media(max-width:600px){.wordmark-stage{margin:32px -4px 34px}.kinetic-type{height:45cqw}.glyph{font-size:52cqw}.motion-control{bottom:-30px}}
+  @media(prefers-reduced-motion:reduce){.glyph{will-change:auto}}
+</style>
+<script>
+  const stage = document.querySelector<HTMLElement>('[data-wordmark]');
+  if (stage) {
+    const slots = [...stage.querySelectorAll<HTMLElement>('.letter-slot')];
+    const glyphs = slots.map(slot => slot.querySelector<HTMLElement>('.glyph')!);
+    const weights = slots.map(slot => Number(slot.dataset.weight));
+    const control = stage.querySelector<HTMLButtonElement>('.motion-control')!;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const pointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+    let paused = reduced.matches;
+    let visible = true;
+    let frame = 0;
+    let previousTime = 0;
+    let activeTime = 0;
+    let hoverPosition: number | null = null;
+    let currentPosition = 2;
+    let widths: number[] = [];
+    let stageWidth = 0;
+    let drawn = [...weights];
+
+    // Live font glyphs change width, never their reading order.
+    function measure() {
+      stageWidth = stage!.clientWidth;
+      widths = glyphs.map(glyph => glyph.offsetWidth);
+      draw(drawn);
+    }
+    function draw(values: number[]) {
+      const sum = values.reduce((a, b) => a + b, 0);
+      values.forEach((weight, index) => {
+        slots[index].style.flexGrow = String(weight);
+        const width = stageWidth * weight / sum;
+        glyphs[index].style.setProperty('--letter-scale', String(Math.max(.02, (width - stageWidth * .006) / (widths[index] || 1))));
+      });
+    }
+    function tick(time: number) {
+      const delta = previousTime ? Math.min(time - previousTime, 50) : 16;
+      previousTime = time;
+      activeTime += delta;
+      const targetPosition = hoverPosition ?? 2 + Math.sin(activeTime / 2100) * 2.4;
+      currentPosition += (targetPosition - currentPosition) * (1 - Math.exp(-delta / 180));
+      drawn = weights.map((weight, index) => weight * (1 + .31 * Math.exp(-Math.pow(index - currentPosition, 2) / .8)));
+      draw(drawn);
+      frame = requestAnimationFrame(tick);
+    }
+    function sync() {
+      cancelAnimationFrame(frame);
+      previousTime = 0;
+      const staticMode = paused || reduced.matches;
+      control.hidden = reduced.matches;
+      control.setAttribute('aria-pressed', String(staticMode));
+      control.textContent = (staticMode ? control.dataset.play : control.dataset.pause) || '';
+      if (staticMode) { drawn = [...weights]; draw(drawn); }
+      else if (visible && !document.hidden) frame = requestAnimationFrame(tick);
+    }
+    stage.addEventListener('pointermove', event => {
+      if (!pointer.matches || paused || reduced.matches) return;
+      const rect = stage!.getBoundingClientRect();
+      hoverPosition = Math.max(0, Math.min(8, (event.clientX - rect.left) / rect.width * 8));
+    });
+    stage.addEventListener('pointerleave', () => { hoverPosition = null; });
+    control.addEventListener('click', () => { paused = !paused; sync(); });
+    reduced.addEventListener('change', () => { paused = reduced.matches; sync(); });
+    document.addEventListener('visibilitychange', sync);
+    new ResizeObserver(measure).observe(stage);
+    new IntersectionObserver(entries => { visible = entries[0].isIntersecting; sync(); }).observe(stage);
+    document.fonts.ready.then(() => {
+      stage.querySelector<HTMLElement>('.static-type')!.hidden = true;
+      stage.querySelector<HTMLElement>('.kinetic-type')!.hidden = false;
+      measure();
+      sync();
+    });
+  }
+</script>

@@ -1,4 +1,5 @@
 ---
+import Arrow from './Arrow.astro';
 interface Props { lang?: 'sv' | 'en'; }
 const { lang = 'sv' } = Astro.props;
 const en = lang === 'en';
@@ -7,20 +8,23 @@ const isContact = Astro.url.pathname.replace(/\/$/, '') === contact;
 ---
 <footer class="site-footer">
   <div class="wrap">
-    {!isContact && <div class="footer-intro">
-      <div><p class="eyebrow">{en ? 'Your next step' : 'Nästa steg'}</p><h2>{en ? 'Let’s talk about' : 'Ska vi prata om'}<br />{en ? 'what you need.' : 'det ni behöver?'}</h2></div>
-      <div class="footer-invite"><p>{en ? 'A first conversation with Peter. Tell me where you are and what you want to achieve.' : 'Ett första samtal med Peter. Berätta var ni står och vad ni vill få gjort.'}</p><a class="action acid" href={contact} data-umami-event="contact-footer-click">{en ? 'Arrange a first meeting' : 'Boka ett första möte'} <span class="arrow" aria-hidden="true">↗</span></a><small>{en ? 'No cost or obligation.' : 'Kostnadsfritt och utan förbindelse.'}</small></div>
-    </div>}
+    {!isContact && <a class="footer-invite" href={contact} data-umami-event="contact-footer-click">{en ? 'Let’s talk.' : 'Ska vi prata?'}<Arrow /></a>}
     <div class="footer-columns">
-      <div><a class="footer-brand" href={en ? '/en' : '/'}>Adorable.</a><p>{en ? 'Paid social & AI consulting.' : 'Paid social och AI-rådgivning.'}<br />Peter Rosdahl · Stockholm</p></div>
-      <div class="footer-contact"><p class="eyebrow">{en ? 'Direct contact' : 'Direkt till Peter'}</p><a href="mailto:peter@adorable.se" data-umami-event="contact-email-click">peter@adorable.se</a><a href="tel:+46708235787" data-umami-event="contact-phone-click">+46 70 823 57 87</a><span>{en ? 'Usually replies within a couple of hours.' : 'Svarar oftast inom ett par timmar.'}</span></div>
-      <div class="footer-more"><p class="eyebrow">{en ? 'Explore' : 'Mer från Adorable'}</p><a href={en ? '/en/services' : '/tjanster'}>{en ? 'All services' : 'Alla tjänster'}</a><a href="/artiklar">{en ? 'Insights (Swedish)' : 'Insikter & guider'}</a><a href="/branscher">{en ? 'Industries (Swedish)' : 'Branscher'}</a><a href="/ordlista">{en ? 'Glossary (Swedish)' : 'Ordlista'}</a><a href="https://pr.substack.com/" target="_blank" rel="noopener noreferrer" data-umami-event="newsletter-click">{en ? 'Newsletter on Substack' : 'Nyhetsbrevet på Substack'} <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/peterrosdahl" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div>
+      <div class="footer-person"><p>Peter Rosdahl</p><a href="mailto:peter@adorable.se" data-umami-event="contact-email-click">peter@adorable.se</a><a href="tel:+46708235787" data-umami-event="contact-phone-click">+46 70 823 57 87</a><span>{en ? 'Usually replies within a couple of hours.' : 'Svarar oftast inom ett par timmar.'}</span></div>
+      <div class="footer-links"><a href={en ? '/en/paid-social' : '/paid-social'}>Paid social</a><a href={en ? '/en/ai' : '/ai'}>{en ? 'AI consulting' : 'AI-rådgivning'}</a><a href={en ? '/en/about' : '/om'}>{en ? 'About Peter' : 'Om Peter'}</a><a href="https://www.linkedin.com/in/peterrosdahl" target="_blank" rel="noopener noreferrer">LinkedIn<Arrow /></a></div>
     </div>
-    <div class="footer-bottom"><span>© {new Date().getFullYear()} Adorable</span><div><a href={en ? '/en/privacy' : '/privacy'}>{en ? 'Privacy' : 'Integritetspolicy'}</a><a href={en ? '/en/terms' : '/tos'}>{en ? 'Terms' : 'Villkor'}</a><a href={en ? '/' : '/en'} lang={en ? 'sv' : 'en'}>{en ? 'Svenska' : 'English'}</a></div></div>
+    <div class="footer-bottom"><span>© {new Date().getFullYear()} Adorable</span><div><a href={en ? '/en/privacy' : '/privacy'}>{en ? 'Privacy policy' : 'Integritetspolicy'}</a><a href={en ? '/en/terms' : '/tos'}>{en ? 'Terms' : 'Villkor'}</a><a href={en ? '/' : '/en'} lang={en ? 'sv' : 'en'}>{en ? 'Svenska' : 'English'}</a></div></div>
   </div>
 </footer>
 <style>
-  .site-footer{background:var(--ink);color:var(--paper);padding:76px 0 24px}.footer-intro{display:grid;grid-template-columns:1.45fr 1fr;gap:60px;padding-bottom:70px;border-bottom:1px solid #4b5046}.footer-intro .eyebrow{color:var(--acid);margin-bottom:26px}.footer-intro h2{font-size:clamp(2.5rem,5.4vw,5.25rem);line-height:1.05}.footer-invite{align-self:end;max-width:37ch}.footer-invite p{font-size:1.1rem;color:#c7cabe;margin-bottom:24px}.footer-invite small{display:block;font-size:.8rem;color:#c7cabe;margin-top:12px}
-  .footer-columns{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:48px;padding-block:50px}.footer-brand{font-family:'Adorable Wordmark',sans-serif;font-size:1.8rem;letter-spacing:-.075em;text-decoration:none;display:inline-block;margin-bottom:16px}.footer-columns p:not(.eyebrow){color:#c7cabe;font-size:.9rem}.footer-columns .eyebrow{color:#aeb4a5;margin-bottom:17px}.footer-contact>a,.footer-more>a{display:block;text-decoration:none;padding:5px 0;font-size:.95rem;min-height:34px}.footer-contact>a:hover,.footer-more>a:hover{text-decoration:underline}.footer-contact>span{display:block;font-size:.8rem;color:#aeb4a5;margin-top:10px}.footer-bottom{border-top:1px solid #4b5046;padding-top:24px;display:flex;justify-content:space-between;gap:20px;font-size:.75rem;color:#c7cabe}.footer-bottom>div{display:flex;flex-wrap:wrap;gap:10px 24px}.footer-bottom a{text-decoration:none;min-height:30px;display:inline-flex;align-items:center}.footer-bottom a:hover{text-decoration:underline}
-  @media(max-width:760px){.footer-intro{grid-template-columns:1fr;gap:36px}.footer-columns{grid-template-columns:1fr 1fr;gap:36px}.footer-columns>div:first-child{grid-column:1/-1}.footer-bottom{flex-direction:column}.site-footer{padding-top:52px}.footer-contact>a{font-size:.85rem}.footer-more>a{font-size:.85rem}}
+  .site-footer{background:var(--ink);color:white;padding:50px 0 20px}
+  .footer-invite{display:flex;justify-content:space-between;align-items:center;font-size:clamp(3rem,9vw,10rem);letter-spacing:-.065em;line-height:1.1;text-decoration:none;padding-block:20px 64px;border-bottom:1px solid #444}
+  .footer-invite .icon-arrow{font-size:.7em}.footer-invite:hover{color:#b5beff}
+  .footer-columns{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding-block:48px}
+  .footer-person p{font-size:1.15rem;margin-bottom:15px}.footer-person>a{display:block;text-decoration:none;min-height:36px;font-size:clamp(1rem,1.6vw,1.5rem)}
+  .footer-person>a:hover{text-decoration:underline}.footer-person>span{display:block;font-size:.85rem;color:#bdbdbd;margin-top:16px}
+  .footer-links{display:flex;flex-direction:column;align-items:flex-start;justify-self:end;min-width:30%}.footer-links a{display:inline-flex;gap:12px;align-items:center;min-height:38px;text-decoration:none}.footer-links a:hover{text-decoration:underline}
+  .footer-bottom{border-top:1px solid #444;padding-top:20px;display:flex;justify-content:space-between;gap:20px;font-size:.75rem;color:#bdbdbd}.footer-bottom>div{display:flex;flex-wrap:wrap;gap:10px 24px}.footer-bottom a{text-decoration:none;min-height:34px;display:inline-flex;align-items:center}.footer-bottom a:hover{text-decoration:underline}
+  .site-footer :focus-visible{outline-color:white}
+  @media(max-width:600px){.site-footer{padding-top:24px}.footer-invite{padding-bottom:34px}.footer-columns{grid-template-columns:1fr;gap:28px}.footer-links{justify-self:start}.footer-bottom{flex-direction:column}}
 </style>

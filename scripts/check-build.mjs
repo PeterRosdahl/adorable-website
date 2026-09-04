@@ -5,6 +5,9 @@ import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('../dist/', import.meta.url));
 const errors = [];
 const files = [];
+if (existsSync(join(root, 'artiklar')) || existsSync(join(root, 'ordlista'))) {
+  errors.push('Removed article/guide routes must not be emitted.');
+}
 function walk(directory) {
   for (const entry of readdirSync(directory, { withFileTypes: true })) {
     const path = join(directory, entry.name);
@@ -21,6 +24,7 @@ for (const file of files) {
   if (name.startsWith('admin/')) continue;
   pages++;
   const html = readFileSync(file, 'utf8');
+  if (/href="\/(?:artiklar|ordlista)(?:[\/"?#])/.test(html)) errors.push(`${name}: link to a removed article/guide route`);
   const route = name === 'index.html' ? '/' : `/${name.replace(/\/index\.html$/, '')}`;
   const h1Count = [...html.matchAll(/<h1(?:\s|>)/g)].length;
   if (h1Count !== 1) errors.push(`${route}: expected one H1, found ${h1Count}`);

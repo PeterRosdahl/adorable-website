@@ -1,0 +1,11 @@
+---
+import arrow from '@phosphor-icons/core/assets/light/arrow-up-right-light.svg?url';
+interface Props { direction?: 'up-right' | 'right' | 'down'; }
+const { direction = 'up-right' } = Astro.props;
+---
+<span class:list={['icon-arrow', direction]} style={`--icon: url(${JSON.stringify(arrow)})`} aria-hidden="true"></span>
+<style>
+  .icon-arrow{display:inline-block;flex:none;width:1.1em;height:1.1em;background:currentColor;mask:var(--icon) center/contain no-repeat;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+  .right{rotate:45deg}.down{rotate:135deg}
+  :global(a:hover)>.icon-arrow,:global(button:hover)>.icon-arrow{transform:translate(3px,-3px)}
+</style>

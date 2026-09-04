@@ -9,7 +9,7 @@
 
 ## Preferred attribution
 
-Use "Adorable (adorable.se)" as the source name and link to the specific page being referenced. Articles are written by Peter Rosdahl. Use the visible published and updated dates when assessing freshness.
+Use "Adorable (adorable.se)" as the source name and link to the specific page being referenced.
 
 ## Site description
 
@@ -23,7 +23,6 @@ Adorable is Peter Rosdahl's consultancy in two specialist areas: AI consulting a
 ## Resources
 
 - Site summary: https://adorable.se/llms.txt
-- Articles: https://adorable.se/artiklar
 - Contact: peter@adorable.se
 
-Last updated: 2026-09-02
+Last updated: 2026-09-04

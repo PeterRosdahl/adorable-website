@@ -1,21 +1,18 @@
 ---
+import Arrow from './Arrow.astro';
 interface Props { lang?: 'sv' | 'en'; }
 const { lang = 'sv' } = Astro.props;
 const en = lang === 'en';
 ---
 <div class="offer-pair">
-  <article class="offer-card">
-    <div class="offer-top"><span class="eyebrow">01 / {en ? 'Advertising' : 'Annonsering'}</span><span class="arrow" aria-hidden="true">↗</span></div>
+  <a class="offer-card" href={en ? '/en/paid-social' : '/paid-social'}>
     <h2>Paid social</h2>
-    <p class="offer-intro">{en ? 'Get more from your advertising. Strategy, campaign management and measurement on Meta, LinkedIn and other social platforms.' : 'Få mer ut av annonseringen. Strategi, kampanjhantering och mätning på Meta, LinkedIn och andra sociala plattformar.'}</p>
-    <ul><li>{en ? 'Account review' : 'Kontogenomgång'}</li><li>{en ? 'Campaigns' : 'Kampanjer'}</li><li>{en ? 'Creative testing' : 'Kreativa tester'}</li><li>{en ? 'Measurement' : 'Uppföljning'}</li></ul>
-    <a class="text-link" href={en ? '/en/paid-social' : '/paid-social'}>{en ? 'Explore paid social' : 'Så hjälper jag er med paid social'} <span class="arrow" aria-hidden="true">↗</span></a>
-  </article>
-  <article class="offer-card ai">
-    <div class="offer-top"><span class="eyebrow">02 / {en ? 'Ways of working' : 'Arbetssätt & utveckling'}</span><span class="arrow" aria-hidden="true">↗</span></div>
+    <p>{en ? 'Strategy, campaigns and measurement on Meta and LinkedIn.' : 'Strategi, kampanjer och uppföljning på Meta och LinkedIn.'}</p>
+    <Arrow direction="right" />
+  </a>
+  <a class="offer-card" href={en ? '/en/ai' : '/ai'}>
     <h2>{en ? 'AI consulting' : 'AI-rådgivning'}</h2>
-    <p class="offer-intro">{en ? 'Put AI to work in your business. Choose the right tasks, train your team and build tools that make everyday work easier.' : 'Använd AI i verksamheten. Välj rätt uppgifter, utbilda teamet och bygg verktyg som förenklar det dagliga arbetet.'}</p>
-    <ul><li>Workshops</li><li>{en ? 'Strategy' : 'Strategi'}</li><li>{en ? 'Automation' : 'Automatisering'}</li><li>AI-policy</li></ul>
-    <a class="text-link" href={en ? '/en/ai' : '/ai'}>{en ? 'Explore AI consulting' : 'Så hjälper jag er med AI'} <span class="arrow" aria-hidden="true">↗</span></a>
-  </article>
+    <p>{en ? 'Training, tools and automation that work in practice.' : 'Utbildning, verktyg och automatisering som fungerar i arbetet.'}</p>
+    <Arrow direction="right" />
+  </a>
 </div>

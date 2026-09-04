@@ -1,9 +1,9 @@
-import { readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const root = new URL('..', import.meta.url).pathname;
 const articlesDir = join(root, 'src/pages/artiklar');
-const articleFiles = readdirSync(articlesDir).filter((file) => file.endsWith('.astro'));
+const articleFiles = existsSync(articlesDir) ? readdirSync(articlesDir).filter((file) => file.endsWith('.astro')) : [];
 const errors = [];
 const warnings = [];
 

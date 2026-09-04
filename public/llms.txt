@@ -38,7 +38,6 @@ Peter Rosdahl arbetar själv i uppdragen, från analys och rekommendation till i
 - AI-rådgivning: https://adorable.se/ai
 - Paid social: https://adorable.se/paid-social
 - Om Peter och Adorable: https://adorable.se/om
-- Artiklar: https://adorable.se/artiklar
 - Kontakt: https://adorable.se/kontakt
 - Integritet: https://adorable.se/privacy
 - Webbplatsvillkor: https://adorable.se/tos
@@ -48,8 +47,7 @@ Peter Rosdahl arbetar själv i uppdragen, från analys och rekommendation till i
 - E-post: peter@adorable.se
 - Telefon: +46 70 823 57 87
 - LinkedIn: https://www.linkedin.com/in/peterrosdahl
-- Nyhetsbrev: https://pr.substack.com
 
 Svar på förfrågningar kommer normalt inom ett par timmar.
 
-Last updated: 2026-09-02
+Last updated: 2026-09-04

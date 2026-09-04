@@ -9,7 +9,8 @@ Syftet är att hålla sajten aktuell utan att skapa konstgjorda publiceringsdatu
 - Kör `npm run content:audit` och hantera nya blockerande fel.
 - Kontrollera brutna interna och externa länkar i den byggda sajten.
 - Kör `npm run check:build` efter bygget för interna länkar, resurser, huvudrubriker och metadata.
-- Kontrollera även mobilmenyn, språkväxling och de två lägena i kontaktformuläret.
+- Kontrollera språkväxling, möteslänkar och de två lägena i kontaktformuläret på mobil och dator.
+- Kontrollera ordmärkets rörelse, pausknappen och inställningen för reducerad rörelse.
 
 ## Mötesförfrågan och Google Kalender
 
@@ -23,20 +24,20 @@ Syftet är att hålla sajten aktuell utan att skapa konstgjorda publiceringsdatu
 
 ## Varje kvartal
 
-- Faktagranska artiklar som innehåller produktnamn, plattformsregler, lagstiftning, priser eller numeriska tumregler.
-- Prioritera verkliga kundfrågor, nya arbetssätt och egna observationer framför breda sammanfattningar.
-- Lägg till primärkällor nära tidskänsliga påståenden.
-- Sätt `dateModified` endast när artikelns huvudinnehåll faktiskt har granskats eller ändrats.
-- Uppdatera artikelns synliga datum, strukturerade data och sitemap samtidigt.
+- Stäm av tjänster, verktyg och arbetssätt med Peter. Ändra bara sådant som faktiskt har förändrats.
+- Håll erfarenhet, kontaktuppgifter, villkor och integritetspolicy aktuella.
+- Inga nya artiklar, guider, insiktsflöden eller ordlistor. Dessa togs bort enligt Peters beslut 2026-09-04.
+- Eventuella framtida kundexempel måste vara verkliga, godkända för publicering och tillföra konkret bevis för arbetet.
+- Uppdatera metadata och sitemap när huvudinnehållet faktiskt förändras, inte för att skapa artificiell aktivitet.
 
 ## Publiceringskontroll
 
-1. En tydlig fråga och ett användbart svar.
-2. Peter Rosdahl anges som författare.
-3. Publiceringsdatum finns; uppdateringsdatum används bara efter verklig granskning.
-4. Tidskänsliga påståenden stöds av aktuella primärkällor.
+1. Erbjudandet är lätt att förstå och kontaktvägen är tydlig.
+2. Inga onödiga mellanrubriker, slagord eller utfyllnad.
+3. Vitt, svart och accentblått. Inget beige eller rött.
+4. Sakuppgifter är kontrollerade med Peter; tidskänsliga påståenden har aktuella primärkällor.
 5. Inga publika priser eller generella minsta annonsbudgetar presenteras som Adorables villkor.
-6. Interna länkar leder vidare till relevant tjänst, artikel eller kontakt.
+6. Interna länkar leder till relevant tjänst eller kontakt. Borttagna artiklar och guider ska inte byggas eller länkas.
 7. `npm run build` är godkänd före preview eller publicering.
 
 ## Ansvar

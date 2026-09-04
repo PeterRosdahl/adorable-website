@@ -1,32 +1,43 @@
 ---
 import OfferPair from './OfferPair.astro';
-import WorkingProcess from './WorkingProcess.astro';
+import KineticWordmark from './KineticWordmark.astro';
+import Arrow from './Arrow.astro';
 interface Props { lang?: 'sv' | 'en'; }
 const { lang = 'sv' } = Astro.props;
 const en = lang === 'en';
+const contact = en ? '/en/contact' : '/kontakt';
 ---
 <main class="studio-page">
   <section class="home-hero wrap">
-    <p class="eyebrow">{en ? 'Independent senior consultant · Stockholm' : 'Oberoende seniorkonsult · Stockholm'}</p>
-    <h1 class="home-title"><span>Paid social</span><span><span class="join">{en ? '&' : 'och'}</span> <span class="keep-together">{en ? 'AI consulting.' : 'AI-rådgivning.'}</span></span></h1>
-    <div class="hero-bottom">
-      <p class="hero-copy">{en ? 'I help companies improve their advertising and put AI to work. From the first review to day-to-day delivery.' : 'Jag hjälper företag att förbättra sin annonsering och använda AI i arbetet. Från den första genomgången till det löpande genomförandet.'}</p>
-      <div class="hero-action"><a class="action" href={en ? '/en/contact' : '/kontakt'} data-umami-event="contact-hero-click">{en ? 'Arrange a first meeting' : 'Boka ett första möte'} <span class="arrow" aria-hidden="true">↗</span></a><small>{en ? 'Directly with Peter. No cost or obligation.' : 'Direkt med Peter. Kostnadsfritt och utan förbindelse.'}</small></div>
+    <div class="home-intro">
+      <h1>{en ? 'Paid social and AI consulting.' : 'Paid social och AI-rådgivning.'}</h1>
+      <p>{en ? 'I help companies with advertising and practical uses of AI.' : 'Jag hjälper företag med annonsering och praktisk användning av AI.'}</p>
     </div>
-    <div class="credentials"><strong>Peter Rosdahl</strong><span>{en ? '20 years of experience' : '20 års erfarenhet'}</span><span>{en ? 'Adorable since 2016' : 'Adorable sedan 2016'}</span></div>
-  </section>
-  <section class="wrap" aria-label={en ? 'Two areas of expertise' : 'Två specialistområden'}><OfferPair lang={lang} /></section>
-  <section class="section-space wrap editorial-grid">
-    <p class="eyebrow">{en ? 'The person behind Adorable' : 'Personen bakom Adorable'}</p>
-    <div class="editorial-copy"><h2>{en ? 'You work directly with me.' : 'Det är mig ni jobbar med.'}</h2><p>{en ? 'I’m Peter Rosdahl. I founded Adorable in 2016 and have 20 years of experience in digital marketing, development and business development.' : 'Jag heter Peter Rosdahl. Jag startade Adorable 2016 och har 20 års erfarenhet av digital marknadsföring, utveckling och affärsutveckling.'}</p><p>{en ? 'I advise, implement and follow up. You get senior expertise for a specific project or as part of your team over time.' : 'Jag ger råd, genomför och följer upp. Ni får senior kompetens för ett specifikt projekt eller som en del av ert team över tid.'}</p><a class="text-link" href={en ? '/en/about' : '/om'}>{en ? 'More about Peter & Adorable' : 'Mer om Peter och Adorable'} <span class="arrow" aria-hidden="true">↗</span></a></div>
-  </section>
-  <WorkingProcess lang={lang} />
-  <section class="section-space wrap">
-    <div class="section-top"><h2>{en ? 'Ideas for your next step.' : 'Kunskap att ta vidare.'}</h2><a class="text-link" href="/artiklar">{en ? 'All guides (in Swedish)' : 'Alla insikter & guider'} <span class="arrow" aria-hidden="true">↗</span></a></div>
-    <div class="insight-list" lang="sv">
-      <a class="insight-row" href="/artiklar/5-meta-ads-misstag"><span class="eyebrow">Paid social</span><h3>5 Meta Ads-misstag som kostar dig pengar</h3><span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="insight-row" href="/artiklar/chatgpt-vs-claude-vs-gemini"><span class="eyebrow">AI-rådgivning</span><h3>ChatGPT, Claude eller Gemini: så väljer du för företaget</h3><span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="insight-row" href="/artiklar/attribution-i-en-cookieless-varld"><span class="eyebrow">Mätning</span><h3>Attribution när cookies och plattformsdata inte räcker</h3><span class="arrow" aria-hidden="true">↗</span></a>
+    <KineticWordmark lang={lang} />
+    <div class="hero-contact">
+      <a class="meeting-link" href={contact} data-umami-event="contact-hero-click">{en ? 'Arrange a meeting' : 'Boka ett möte'}<Arrow /></a>
+      <a class="email-link" href="mailto:peter@adorable.se" data-umami-event="contact-email-click">peter@adorable.se</a>
     </div>
+  </section>
+  <section id="services" class="wrap home-services" aria-label={en ? 'Services' : 'Tjänster'}><OfferPair lang={lang} /></section>
+  <section class="home-about section-space wrap" data-reveal>
+    <h2>Peter Rosdahl.</h2>
+    <div><p>{en ? 'I’m the person you work with. I have 20 years of experience in digital marketing, development and business development. I founded Adorable in 2016.' : 'Det är mig ni jobbar med. Jag har 20 års erfarenhet av digital marknadsföring, utveckling och affärsutveckling. Adorable startade jag 2016.'}</p><p>{en ? 'I advise, do the work and follow up. For a specific project or as part of your team over time.' : 'Jag ger råd, gör jobbet och följer upp. I ett avgränsat projekt eller som en del av ert team över tid.'}</p><a class="text-link" href={en ? '/en/about' : '/om'}>{en ? 'More about Peter' : 'Mer om Peter'}<Arrow /></a></div>
   </section>
 </main>
+<script>
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const reveals: Animation[] = [];
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      observer.unobserve(entry.target);
+      if (!reducedMotion.matches) reveals.push(entry.target.animate(
+        [{ opacity: 0, transform: 'translateY(28px)' }, { opacity: 1, transform: 'none' }],
+        { duration: 650, easing: 'cubic-bezier(.22,.8,.2,1)' }
+      ));
+    });
+  }, { threshold: .15 });
+  document.querySelectorAll('[data-reveal]').forEach(element => observer.observe(element));
+  reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) reveals.forEach(animation => animation.cancel()); });
+</script>
