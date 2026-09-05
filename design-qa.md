@@ -157,3 +157,91 @@ routes, forms, dependencies or publishing configuration changed.
 
 Implementation references: [cross-document view transitions](https://developer.chrome.com/docs/web-platform/view-transitions/cross-document)
 and [intrinsic height transitions](https://developer.chrome.com/docs/css-ui/animate-to-height-auto).
+
+## Viewport-height homepage preview — 2026-09-05
+
+- User request: keep the meeting link and email just above the first fold, with a
+  clear invitation to scroll. No production publication requested for this change.
+- The hero uses a viewport-height grid. The wordmark absorbs the available height
+  using height-relative font sizing; contact copy remains in normal document flow.
+  Intrinsic minimum height permits scrolling rather than clipping on exceptionally
+  short screens or enlarged text. Swedish and English homepages share the behavior.
+- Added a native `#services` link, labelled “Scrolla vidare” / “Scroll to explore”.
+  Its arrow nudges twice, then stops. Reduced-motion CSS disables the animation.
+  The target can receive focus; pressing Enter then Tab reaches the first service.
+- Fresh browser geometry, CSS pixels (no horizontal overflow in these cases):
+
+  | Viewport | Contact row bottom | Scroll cue bottom |
+  | --- | --- | --- |
+  | 320 × 568 | 512 | 560 |
+  | 390 × 844 | 788 | 836 |
+  | 844 × 390 | 334 | 382 |
+  | 1440 × 900 | 844 | 892 |
+  | Restored preview, 785 × 761 | 706 | 754 |
+
+- Inspected fresh mobile, landscape, wide and restored-preview screenshots. The
+  existing browser zoom produces a screenshot-density mismatch with viewport
+  overrides; numeric fold assertions use DOM geometry, not those screenshot pixels.
+  Physical mobile Safari/browser-toolbar behavior has not been tested.
+- Native scroll navigation moved focus to `services`; its content began 124px
+  from the top after scroll. No form submissions. No browser console errors.
+- Build, content/build link checks, SEO checks and both motion suites passed.
+  Added regression coverage for refitting glyph widths when height-relative font
+  size changes, without restarting reduced-motion animation.
+- Lighthouse on the local production build: **100/100/100/100** for both mobile
+  and desktop (performance/accessibility/best practices/SEO). CLS 0 and TBT 0ms;
+  LCP 1.6s mobile / 0.3s desktop. These are local results, not a new live-site audit.
+  Reports: `/tmp/adorable-lighthouse-TPhJ4K/fold-home-mobile.report.json` and
+  `/tmp/adorable-lighthouse-TPhJ4K/fold-home-desktop.report.json`.
+- Preview remains at `http://127.0.0.1:4323/`, restored to the user's normal viewport.
+  Production and GitHub have not been changed.
+
+Sizing reference: [MDN container and viewport length units](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/length).
+
+## Ambient wordmark and evolving gradient preview — 2026-09-05
+
+- Replaces the former finite-only introduction with a continuous, low-amplitude
+  wave. Hover retains the stronger existing response, easing back to the quiet wave
+  on pointer leave. No viewport geometry, copy, links or form handling changed.
+- One animation clock drives glyph transforms, gradient position and a slow hue
+  shift within violet/blue/teal. The gradient continues changing under a stationary
+  pointer. Ambient style updates are limited to approximately 30fps.
+- The wordmark itself is a transparent native pause/resume button, with localized
+  accessible names and a mouse tooltip. No separate menu control was added. Enter,
+  Space and a click all work. Pausing freezes glyphs, colors and the CSS entrance;
+  the choice survives scrolling offscreen and switching tabs within the page.
+- Browser verification: independently sampled letter positions and all three
+  gradient variables changed without pointer input; keyboard pause froze both;
+  Space resumed them. Native pointer movement over the wordmark produced an ~80px
+  maximum displacement at 785px viewport width, versus ~9–11px in ambient samples.
+  The English control was visible with its translated accessible name.
+- Mobile 390 × 844: contact row bottom 788px, scroll cue bottom 836px. Desktop
+  785 × 762: contact bottom 706px, cue bottom 754px. Fresh screenshots inspected;
+  normal viewport and Swedish homepage restored. No browser console errors.
+- Expanded motion tests cover ongoing idle movement, stronger hover, independently
+  changing gradient, pause/resume, height refitting, reduced motion, touch input,
+  hidden/offscreen suspension and page lifecycle. Build, content/build checks, SEO
+  checks, both motion suites and `git diff --check` passed.
+- Fresh local Lighthouse: **100/100/100/100** on mobile and desktop. CLS 0, TBT 0ms;
+  LCP 1.4s mobile / 0.3s desktop. Reports are
+  `/tmp/adorable-lighthouse-TPhJ4K/ambient-home-mobile.report.json` and
+  `/tmp/adorable-lighthouse-TPhJ4K/ambient-home-desktop.report.json`.
+- These are automated scores, not a claim of complete WCAG conformance. OS reduced
+  motion was covered by the harness and CSS, without changing the user's settings.
+  Physical mobile Safari was not tested. Not committed, pushed or published.
+
+Pause rationale: [W3C on continuous motion and pause mechanisms](https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html).
+
+## Inline scroll cue — 2026-09-05
+
+- Moved the scroll link into the contact row, after the email, and removed the
+  row's bottom border. Desktop has all three links on one line; mobile places the
+  meeting link above the email and right-aligned scroll link. All targets remain
+  at least 44px high, above the first fold, with safe-area-aware bottom padding.
+- Browser checks: at 785 × 761 the email and scroll link share y698–742 with no
+  bottom border; at 320 × 568 they share y506–550. At a zoomed 266 × 473 viewport,
+  scroll text wraps within its column, retaining 12px separation from the email
+  instead of overlapping. No horizontal overflow in these cases.
+- Shared Swedish/English markup and an emitted-HTML regression check preserve
+  the email → scroll ordering. Build, link/metadata checks and motion tests passed.
+  Ambient motion is unchanged. Local preview only; nothing pushed or published.

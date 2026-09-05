@@ -34,7 +34,13 @@ for (const [path, html] of pages) {
   assert.equal([...nav.matchAll(/<a\b/g)].length, isHome ? 0 : isContact ? 1 : 2, `${path}: only relevant navigation links`);
   assert.equal(nav.includes(en ? 'Arrange a meeting' : 'Boka ett möte'), !isHome && !isContact, `${path}: meeting link only on other subpages`);
   if (isHome) assert.ok(html.includes('class="meeting-link"'), `${path}: main meeting CTA retained`);
-  assert.ok(!/Pausa rörelse|Pause motion|data-motion-toggle/.test(html), `${path}: no pause control`);
+  assert.ok(!/Pausa rörelse|Pause motion|data-motion-toggle/.test(html), `${path}: no standalone navigation pause control`);
+  if (isHome) {
+    const contactRow = html.match(/<div class="hero-contact">([\s\S]*?)<\/div>/)?.[1] || '';
+    assert.match(contactRow, /class="email-link"[\s\S]*class="hero-scroll"[^>]*href="#services"/, `${path}: scroll link follows email inside the contact row`);
+    assert.ok(html.includes('class="wordmark-toggle"'), `${path}: continuous animation can be paused on the wordmark`);
+    assert.ok(html.includes(en ? 'Pause the Adorable animation' : 'Pausa animationen av Adorable'), `${path}: localized animation control`);
+  }
   assert.equal(listed.has(url), !/name="robots" content="[^"]*noindex/.test(html), `${path}: indexability agrees with sitemap`);
 
   for (const [language, target] of alternates(html)) {
