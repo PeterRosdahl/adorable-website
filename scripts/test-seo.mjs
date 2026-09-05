@@ -81,5 +81,8 @@ assert.match(robots, /User-agent: OAI-SearchBot\s+Allow: \//);
 assert.match(robots, /Sitemap: https:\/\/adorable.se\/sitemap-index.xml/);
 const config = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url)));
 assert.equal(config.trailingSlash, false);
-assert.deepEqual(config.redirects, [{ source: '/:path*', has: [{ type: 'host', value: 'www.adorable.se' }], destination: 'https://adorable.se/:path*', permanent: true }]);
+assert.deepEqual(config.redirects, [
+  { source: '/', has: [{ type: 'host', value: 'www.adorable.se' }], destination: 'https://adorable.se/', permanent: true },
+  { source: '/:path*', has: [{ type: 'host', value: 'www.adorable.se' }], destination: 'https://adorable.se/:path*', permanent: true }
+]);
 console.log(`SEO checks passed: ${pages.size} pages, ${listed.size} sitemap URLs, ${faqCount} synchronized FAQ answers, navigation, entities, language pairs, crawler access and canonical routing configuration.`);

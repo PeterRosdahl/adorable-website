@@ -3,6 +3,12 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.adorable.se" }],
+      "destination": "https://adorable.se/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.adorable.se" }],
       "destination": "https://adorable.se/:path*",
