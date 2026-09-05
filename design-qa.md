@@ -1,5 +1,47 @@
 # Adorable — creative redesign QA, 2026-09-04
 
+## Gradient and quieter navigation — 2026-09-05 (preview only)
+
+Following Peter's next request, the homepage header is now omitted completely;
+the meeting CTA below the large wordmark remains. Contact pages show only the
+small home-link logo in their header. Other subpage headers are unchanged.
+These rules apply in Swedish and English and are covered by test-seo.mjs.
+
+The large wordmark now has one continuous violet/blue/teal gradient. A screen-
+blended color field follows the existing finite introduction and pointer
+interaction. There is no extra animation loop or downloaded asset. Reduced-
+motion users receive a static gradient; forced-colors mode removes the overlay.
+The white page, normal black text and existing typography remain unchanged.
+
+Fresh Lighthouse runs on the Swedish homepage (mobile and desktop), English
+homepage (mobile) and both contact pages (mobile): 100/100/100/100. Reports use
+the gradient- prefix under /tmp/adorable-lighthouse-TPhJ4K/; earlier reports are
+historical. Build checks passed with 30 pages and 518 internal links/assets.
+SEO and both motion test suites passed. Desktop gradient was visually inspected;
+the remaining homepage meeting link opens the contact form, whose header has
+only the home link. No form was submitted. No publishing or push took place.
+
+Preview remains http://127.0.0.1:4323/.
+
+## Latest iteration — 2026-09-05 (preview only)
+
+Navigation simplified and the pause control removed at Peter's request. Small
+header branding now appears only on subpages. The wordmark introduction ends
+after 4.2 seconds and uses transforms instead of changing flex layout widths.
+Pointer response, reduced-motion support and page transitions remain.
+
+All 25 indexable pages scored 100/100/100/100 in mobile Lighthouse; the Swedish
+and English homepages and Swedish AI page also scored 100/100/100/100 on desktop.
+The first desktop homepage run scored 99 before the layout-motion fix. Build,
+link, SEO/schema, motion and whitespace checks passed. Browser journeys to the
+meeting request and the AI-prefilled request passed without sending a form.
+
+See SEO_LIGHTHOUSE_REVIEW_2026-09-05.md for exact scope, raw reports, sources and
+remaining production-only checks. Current preview: http://127.0.0.1:4323/.
+These changes have NOT been pushed or deployed. Production remains dc9ce0a.
+Earlier dated sections below are historical and their pause-button references
+do not describe this latest preview.
+
 final result: passed
 
 ## Scope and visual truth

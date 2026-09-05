@@ -1,6 +1,7 @@
 ---
 import SiteNavigation from '../components/SiteNavigation.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import SiteSchema from '../components/SiteSchema.astro';
 import SiteMotion from '../components/SiteMotion.astro';
 import '../styles/site.css';
 
@@ -17,7 +18,7 @@ interface Props {
 	robots?: string;
 }
 
-const { title, description, ogImage = '/og-image.png', englishPath, robots = 'index, follow' } = Astro.props;
+const { title, description, ogImage = '/og-image.png', englishPath, robots = 'index, follow, max-snippet:-1, max-image-preview:large' } = Astro.props;
 const normalizedPath = Astro.url.pathname !== '/' ? Astro.url.pathname.replace(/\/$/, '') : '/';
 const canonicalURL = new URL(normalizedPath, Astro.site);
 const swedishPath = normalizedPath;
@@ -51,6 +52,7 @@ const swedishPath = normalizedPath;
 		<meta name="google-site-verification" content="adcqv8TZQSccrHknOJPPtFdt18C5USmNfa1iBagVNaM" />
 		
 		<!-- Open Graph / Facebook -->
+		<meta property="og:site_name" content="Adorable" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:title" content={title} />
@@ -75,61 +77,7 @@ const swedishPath = normalizedPath;
 		<!-- Fonts loaded via @fontsource (self-hosted, no external requests) -->
 		
 		<!-- Structured Data -->
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "ProfessionalService",
-				"name": "Adorable",
-				"description": "AI-rådgivning och Paid Social konsulttjänster",
-				"url": "https://adorable.se",
-				"telephone": "+46708235787",
-				"email": "peter@adorable.se",
-				"image": "https://adorable.se/og-image.png",
-				"logo": {
-					"@type": "ImageObject",
-					"url": "https://adorable.se/adorable-logo.png"
-				},
-				"address": {
-					"@type": "PostalAddress",
-					"addressLocality": "Stockholm",
-					"addressCountry": "SE"
-				},
-				"founder": {
-					"@type": "Person",
-					"name": "Peter Rosdahl",
-					"jobTitle": "Konsult - AI-rådgivning och Paid Social",
-					"url": "https://adorable.se/om",
-					"sameAs": [
-						"https://x.com/PeterRosdahl",
-						"https://www.linkedin.com/in/peterrosdahl",
-						"https://www.threads.net/@PeterRosdahl"
-					]
-				},
-				"@id": "https://adorable.se/#business",
-				"areaServed": {
-					"@type": "Country",
-					"name": "Sverige"
-				},
-				"makesOffer": [
-					{
-						"@type": "Offer",
-						"itemOffered": {
-							"@type": "Service",
-							"name": "AI-rådgivning",
-							"serviceType": "AI-rådgivning"
-						}
-					},
-					{
-						"@type": "Offer",
-						"itemOffered": {
-							"@type": "Service",
-							"name": "Paid Social Marketing",
-							"serviceType": "Paid Social Marketing"
-						}
-					}
-				]
-			}
-		</script>
+		<SiteSchema lang="sv" title={title} description={description} path={normalizedPath} />
 	</head>
 	<body>
 		<a class="skip-link" href="#main-content">Hoppa till innehållet</a>

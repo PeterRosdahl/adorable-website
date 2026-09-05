@@ -30,7 +30,7 @@ export default defineConfig({
     serialize(item) {
       const path = new URL(item.url).pathname.replace(/\/$/, '') || '/';
       if (lastmodByPath.has(path)) {
-        item.lastmod = '2026-09-04';
+        item.lastmod = '2026-09-05';
       }
       return item;
     }

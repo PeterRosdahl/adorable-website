@@ -1,28 +1,29 @@
 ---
 import '@fontsource/anton/latin.css';
 interface Props { lang?: 'sv' | 'en'; }
-const { lang = 'sv' } = Astro.props;
 const letters = [...'adorable.'];
 const widths = [1.02, .67, 1.36, .73, .83, .9, .47, .88, .32];
 ---
-<div class="wordmark-stage" data-wordmark>
+<div class="wordmark-stage" data-wordmark role="img" aria-label="Adorable">
   <span class="static-type" aria-hidden="true">adorable.</span>
   <div class="kinetic-type" aria-hidden="true" hidden>
     {letters.map((letter, index) => <span class:list={['letter-slot', { accent: index === 2 }]} style={`--weight:${widths[index]};--slot-index:${index}`} data-weight={widths[index]}><span class="glyph">{letter}</span></span>)}
   </div>
-  <button class="motion-control" type="button" aria-pressed="false" data-pause={lang === 'en' ? 'Pause motion' : 'Pausa rörelse'} data-play={lang === 'en' ? 'Start motion' : 'Starta rörelse'} hidden>{lang === 'en' ? 'Pause motion' : 'Pausa rörelse'}</button>
 </div>
 <style>
-  .wordmark-stage{position:relative;margin:24px -8px 26px;container-type:inline-size}
-  .static-type{display:block;font-family:'Anton',sans-serif;font-size:29cqw;line-height:1.48;letter-spacing:-.015em}
+  .wordmark-stage{position:relative;margin:24px -8px 26px;container-type:inline-size;isolation:isolate;overflow:hidden;background:var(--paper)}
+  /* A single color field spans the whole word, rather than repeating per letter.
+     Screen blending colors the black glyphs and leaves their white surround white. */
+  .wordmark-stage::after{content:'';position:absolute;inset:-25%;pointer-events:none;mix-blend-mode:screen;background:radial-gradient(ellipse at 20% 25%,#8567e4 0%,transparent 48%),radial-gradient(ellipse at 82% 78%,#087f9a 0%,transparent 46%),linear-gradient(115deg,#2922a4 10%,#4d2fce 40%,#254af4 67%,#4423b6 100%);transform:translate3d(var(--gradient-x,0%),var(--gradient-y,0%),0)}
+  .static-type{display:block;height:43cqw;white-space:nowrap;overflow:hidden;font-family:'Anton',sans-serif;font-size:29cqw;line-height:1.48;letter-spacing:-.015em}
   .kinetic-type{display:flex;width:100%;height:43cqw;align-items:stretch;user-select:none;overflow:hidden}
   .letter-slot{position:relative;min-width:0;flex:var(--weight) 1 0%}
-  .glyph{font-family:'Anton',sans-serif;font-weight:400;position:absolute;left:0;top:50%;font-size:50cqw;line-height:1;display:block;transform:translateY(-55%) scaleX(var(--letter-scale,.65));transform-origin:left center;will-change:transform;color:var(--ink)}
-  .accent .glyph{color:var(--accent);transform:translateY(-55%) scale(var(--letter-scale,.65),1.1)}
-  .letter-slot:last-child .glyph{font-family:'DM Sans',sans-serif;font-weight:700;font-size:28cqw;left:-.04em;top:auto;bottom:-.08em;transform:scaleX(calc(var(--letter-scale,.65)*1.8));transform-origin:left bottom}
-  .motion-control{position:absolute;right:6px;bottom:-24px;font-size:11px;color:var(--muted);border:0;border-bottom:1px solid currentColor;background:var(--paper);padding:8px 0;min-height:44px}
-  @media(max-width:600px){.wordmark-stage{margin:32px -4px 34px}.kinetic-type{height:45cqw}.glyph{font-size:52cqw}.motion-control{bottom:-30px}}
+  .glyph{font-family:'Anton',sans-serif;font-weight:400;position:absolute;left:0;top:50%;font-size:50cqw;line-height:1;display:block;transform:translate(var(--letter-offset,0px),-55%) scaleX(var(--letter-scale,.65));transform-origin:left center;will-change:transform;color:var(--ink)}
+  .accent .glyph{transform:translate(var(--letter-offset,0px),-55%) scale(var(--letter-scale,.65),1.1)}
+  .letter-slot:last-child .glyph{font-family:'DM Sans',sans-serif;font-weight:700;font-size:28cqw;left:-.04em;top:auto;bottom:-.08em;transform:translateX(var(--letter-offset,0px)) scaleX(calc(var(--letter-scale,.65)*1.8));transform-origin:left bottom}
+  @media(max-width:600px){.wordmark-stage{margin:32px -4px 34px}.kinetic-type,.static-type{height:45cqw}.glyph{font-size:52cqw}}
   @media(prefers-reduced-motion:reduce){.glyph{will-change:auto}}
+  @media(forced-colors:active){.wordmark-stage::after{display:none}.wordmark-stage{background:Canvas}.glyph,.static-type{color:CanvasText}}
 </style>
 <script>
   const stage = document.querySelector<HTMLElement>('[data-wordmark]');
@@ -30,16 +31,21 @@ const widths = [1.02, .67, 1.36, .73, .83, .9, .47, .88, .32];
     const slots = [...stage.querySelectorAll<HTMLElement>('.letter-slot')];
     const glyphs = slots.map(slot => slot.querySelector<HTMLElement>('.glyph')!);
     const weights = slots.map(slot => Number(slot.dataset.weight));
-    const control = stage.querySelector<HTMLButtonElement>('.motion-control')!;
+    const baseSum = weights.reduce((a, b) => a + b, 0);
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
     const pointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-    let paused = reduced.matches;
+    // A short automatic introduction needs no pause control. After 4.2 seconds,
+    // movement only responds to deliberate pointer interaction, then settles.
+    const introDuration = 4200;
+    let ready = false;
+    let introFinished = reduced.matches;
+    let introStarted: number | null = null;
     let visible = true;
     let frame = 0;
     let previousTime = 0;
-    let activeTime = 0;
     let hoverPosition: number | null = null;
     let currentPosition = 2;
+    let currentStrength = 0;
     let widths: number[] = [];
     let stageWidth = 0;
     let drawn = [...weights];
@@ -52,47 +58,70 @@ const widths = [1.02, .67, 1.36, .73, .83, .9, .47, .88, .32];
     }
     function draw(values: number[]) {
       const sum = values.reduce((a, b) => a + b, 0);
+      // Share the finite, reduced-motion-aware loop with the color field.
+      stage!.style.setProperty('--gradient-x', `${(currentPosition - 3.5) * 4}%`);
+      stage!.style.setProperty('--gradient-y', `${currentStrength * 5}%`);
+      let left = 0;
+      let baseLeft = 0;
       values.forEach((weight, index) => {
-        slots[index].style.flexGrow = String(weight);
         const width = stageWidth * weight / sum;
+        // Keep layout slots fixed; only composite the glyph's position and scale.
+        glyphs[index].style.setProperty('--letter-offset', `${left - baseLeft}px`);
         glyphs[index].style.setProperty('--letter-scale', String(Math.max(.02, (width - stageWidth * .006) / (widths[index] || 1))));
+        left += width;
+        baseLeft += stageWidth * weights[index] / baseSum;
       });
     }
     function tick(time: number) {
+      frame = 0;
       const delta = previousTime ? Math.min(time - previousTime, 50) : 16;
       previousTime = time;
-      activeTime += delta;
-      const targetPosition = hoverPosition ?? 3.5 + Math.sin(activeTime / 1900) * 3.5;
+      if (introStarted === null) introStarted = time;
+      const elapsed = time - introStarted;
+      const endingIntro = !introFinished && elapsed >= introDuration;
+      if (endingIntro) introFinished = true;
+      const automatic = !introFinished;
+      const targetPosition = hoverPosition ?? (automatic ? 3.5 + Math.sin(elapsed / 750) * 3.5 : 2);
+      const targetStrength = hoverPosition !== null ? 1.05 : automatic ? .72 * Math.min(1, (introDuration - elapsed) / 650) : 0;
       currentPosition += (targetPosition - currentPosition) * (1 - Math.exp(-delta / 180));
-      const amplitude = hoverPosition === null ? .72 : 1.05;
-      drawn = weights.map((weight, index) => weight * (1 + amplitude * Math.exp(-Math.pow(index - currentPosition, 2) / 1.1)));
+      currentStrength += (targetStrength - currentStrength) * (1 - Math.exp(-delta / 110));
+      if ((endingIntro && hoverPosition === null) || (targetStrength === 0 && currentStrength < .002)) currentStrength = 0;
+      drawn = weights.map((weight, index) => weight * (1 + currentStrength * Math.exp(-Math.pow(index - currentPosition, 2) / 1.1)));
       draw(drawn);
-      frame = requestAnimationFrame(tick);
+      if (automatic || (hoverPosition !== null && Math.abs(currentPosition - targetPosition) > .003) || Math.abs(currentStrength - targetStrength) > .002) {
+        frame = requestAnimationFrame(tick);
+      }
     }
     function sync() {
       cancelAnimationFrame(frame);
+      frame = 0;
       previousTime = 0;
-      const staticMode = paused || reduced.matches;
-      control.hidden = reduced.matches;
-      control.setAttribute('aria-pressed', String(staticMode));
-      control.textContent = (staticMode ? control.dataset.play : control.dataset.pause) || '';
-      if (staticMode) { drawn = [...weights]; draw(drawn); }
-      else if (visible && !document.hidden) frame = requestAnimationFrame(tick);
+      if (!ready) return;
+      if (reduced.matches || !visible || document.hidden) {
+        if (introStarted !== null || reduced.matches) introFinished = true;
+        hoverPosition = null;
+        currentStrength = 0;
+        drawn = [...weights];
+        draw(drawn);
+      } else if (!introFinished || hoverPosition !== null || currentStrength > 0) {
+        frame = requestAnimationFrame(tick);
+      }
     }
     stage.addEventListener('pointermove', event => {
-      if (!pointer.matches || paused || reduced.matches) return;
+      if (!pointer.matches || reduced.matches) return;
       const rect = stage!.getBoundingClientRect();
       hoverPosition = Math.max(0, Math.min(8, (event.clientX - rect.left) / rect.width * 8));
+      sync();
     });
-    stage.addEventListener('pointerleave', () => { hoverPosition = null; });
-    control.addEventListener('click', () => { paused = !paused; sync(); });
-    reduced.addEventListener('change', () => { paused = reduced.matches; sync(); });
+    stage.addEventListener('pointerleave', () => { hoverPosition = null; sync(); });
+    reduced.addEventListener('change', sync);
     document.addEventListener('visibilitychange', sync);
     new ResizeObserver(measure).observe(stage);
     new IntersectionObserver(entries => { visible = entries[0].isIntersecting; sync(); }).observe(stage);
     document.fonts.ready.then(() => {
       stage.querySelector<HTMLElement>('.static-type')!.hidden = true;
       stage.querySelector<HTMLElement>('.kinetic-type')!.hidden = false;
+      ready = true;
       measure();
       sync();
     });

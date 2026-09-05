@@ -23,6 +23,8 @@ Adorable is Peter Rosdahl's consultancy in two specialist areas: AI consulting a
 ## Resources
 
 - Site summary: https://adorable.se/llms.txt
+- AI consulting: https://adorable.se/ai (Swedish), https://adorable.se/en/ai (English)
+- Paid social: https://adorable.se/paid-social (Swedish), https://adorable.se/en/paid-social (English)
 - Contact: peter@adorable.se
 
-Last updated: 2026-09-04
+Last updated: 2026-09-05

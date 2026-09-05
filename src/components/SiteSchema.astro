@@ -1,0 +1,62 @@
+---
+import { services } from '../content/services';
+interface Props { lang: 'sv' | 'en'; title: string; description: string; path: string; }
+const { lang, title, description, path } = Astro.props;
+const en = lang === 'en';
+const origin = 'https://adorable.se';
+const url = new URL(path, origin).href;
+const businessId = `${origin}/#business`;
+const personId = `${origin}/#peter-rosdahl`;
+const websiteId = `${origin}/#website`;
+const pageId = `${url}#webpage`;
+const serviceKey = path === '/ai' || path === '/en/ai' ? 'ai'
+  : path === '/paid-social' || path === '/en/paid-social' ? 'paid-social' : null;
+const service = serviceKey ? services[lang][serviceKey] : null;
+const about = serviceKey ? `${origin}/${serviceKey}#service`
+  : path === '/om' || path === '/en/about' ? personId : businessId;
+const graph: Record<string, unknown>[] = [
+  {
+    '@type': 'Organization', '@id': businessId, name: 'Adorable',
+    url: `${origin}/`, foundingDate: '2016', founder: { '@id': personId },
+    description: en ? 'Peter Rosdahl’s consultancy for paid social and AI consulting.' : 'Peter Rosdahls konsultbolag inom paid social och AI-rådgivning.',
+    logo: { '@type': 'ImageObject', url: `${origin}/adorable-logo.png` },
+    email: 'peter@adorable.se', telephone: '+46708235787',
+    address: { '@type': 'PostalAddress', addressLocality: 'Stockholm', addressCountry: 'SE' },
+    contactPoint: { '@type': 'ContactPoint', contactType: en ? 'Enquiries' : 'Förfrågningar',
+      email: 'peter@adorable.se', telephone: '+46708235787', availableLanguage: ['Swedish', 'English'],
+      url: `${origin}${en ? '/en/contact' : '/kontakt'}` }
+  },
+  {
+    '@type': 'Person', '@id': personId, name: 'Peter Rosdahl',
+    url: `${origin}${en ? '/en/about' : '/om'}`, worksFor: { '@id': businessId },
+    jobTitle: en ? 'Paid social and AI consultant' : 'Konsult inom paid social och AI-rådgivning',
+    knowsAbout: ['Paid social', 'Meta Ads', 'LinkedIn Ads', 'AI consulting', 'AI workshops', 'Automation'],
+    sameAs: ['https://www.linkedin.com/in/peterrosdahl', 'https://x.com/PeterRosdahl', 'https://www.threads.net/@PeterRosdahl']
+  },
+  {
+    '@type': 'WebSite', '@id': websiteId, url: `${origin}/`, name: 'Adorable',
+    inLanguage: ['sv', 'en'], publisher: { '@id': businessId }
+  },
+  {
+    '@type': path === '/kontakt' || path === '/en/contact' ? 'ContactPage'
+      : path === '/om' || path === '/en/about' ? 'AboutPage' : 'WebPage',
+    '@id': pageId, url, name: title, description, inLanguage: lang,
+    isPartOf: { '@id': websiteId }, about: { '@id': about },
+    ...(service ? { mainEntity: { '@id': about }, hasPart: { '@id': `${url}#faq` } } : {})
+  }
+];
+if (service) {
+  graph.push({
+    '@type': 'Service', '@id': about, name: service.name,
+    serviceType: service.name, description: service.intro, url,
+    provider: { '@id': businessId }, mainEntityOfPage: { '@id': pageId },
+    areaServed: { '@type': 'Country', name: 'Sweden' }
+  }, {
+    '@type': 'FAQPage', '@id': `${url}#faq`, inLanguage: lang, isPartOf: { '@id': pageId },
+    mainEntity: service.faqs.map(([question, answer]) => ({
+      '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer }
+    }))
+  });
+}
+---
+<script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c')} />

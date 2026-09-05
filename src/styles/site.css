@@ -49,7 +49,6 @@ button{cursor:pointer}img{max-width:100%;height:auto}a,button{touch-action:manip
 @media(prefers-reduced-motion:no-preference){
   .motion-letter{animation:unfold-letter 1.05s var(--ease) both;animation-delay:calc(var(--letter-index)*23ms)}
   .wordmark-stage .letter-slot{animation:wordmark-arrive 1.15s var(--ease) both;animation-delay:calc(var(--slot-index)*60ms)}
-  .wordmark-stage:has(.motion-control[aria-pressed="true"]) .letter-slot{animation:none}
   .question-list details[open] p{animation:answer-arrive .4s var(--ease) both}
 }
 .offer-card h2,.offer-card p{transition:transform .6s var(--ease)}

@@ -14,7 +14,7 @@
 
 ### Paid social
 
-- Strategi för Meta Ads, LinkedIn Ads, TikTok och YouTube
+- Strategi för annonsering på framför allt Meta (Facebook och Instagram) och LinkedIn
 - Konto- och kampanjstruktur
 - Mätning, konverteringsspårning och attribution
 - Kreativ testning och löpande optimering
@@ -26,21 +26,29 @@ Peter Rosdahl arbetar själv i uppdragen, från analys och rekommendation till i
 
 ## Erfarenhet
 
-- Adorable grundades 2016 och har funnits i 10 år.
+- Adorable grundades 2016.
 - Peter Rosdahl har 20 års erfarenhet.
 - Uppdrag genomförs för både B2B- och B2C-företag.
 - Baserat i Stockholm, med arbete på plats eller digitalt.
 
 ## Viktiga sidor
 
-- Start: https://adorable.se/
-- Tjänster: https://adorable.se/tjanster
-- AI-rådgivning: https://adorable.se/ai
-- Paid social: https://adorable.se/paid-social
-- Om Peter och Adorable: https://adorable.se/om
-- Kontakt: https://adorable.se/kontakt
-- Integritet: https://adorable.se/privacy
-- Webbplatsvillkor: https://adorable.se/tos
+- [Start](https://adorable.se/): Översikt över Adorable och erbjudandet.
+- [Tjänster](https://adorable.se/tjanster): De två specialistområdena.
+- [AI-rådgivning](https://adorable.se/ai): Leveranser, upplägg och svar på vanliga frågor.
+- [Paid social](https://adorable.se/paid-social): Kanalval, kampanjhantering, mätning och vanliga frågor.
+- [Om Peter och Adorable](https://adorable.se/om): Bakgrund, erfarenhet och arbetssätt.
+- [Kontakt](https://adorable.se/kontakt): Kontaktuppgifter och mötesförfrågan. En tid är bokad först när den har bekräftats tillsammans.
+- [Integritet](https://adorable.se/privacy)
+- [Webbplatsvillkor](https://adorable.se/tos)
+
+## English
+
+- [Adorable](https://adorable.se/en): Peter Rosdahl's consultancy for paid social and practical AI use.
+- [AI consulting](https://adorable.se/en/ai): Training, strategy, tools and implementation.
+- [Paid social](https://adorable.se/en/paid-social): Advertising strategy, campaign management and measurement.
+- [About Peter](https://adorable.se/en/about): Background and working approach.
+- [Contact](https://adorable.se/en/contact): Enquiries and meeting requests.
 
 ## Kontakt
 
@@ -50,4 +58,4 @@ Peter Rosdahl arbetar själv i uppdragen, från analys och rekommendation till i
 
 Svar på förfrågningar kommer normalt inom ett par timmar.
 
-Last updated: 2026-09-04
+Last updated: 2026-09-05
