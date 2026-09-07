@@ -1,4 +1,6 @@
 @font-face{font-family:'Adorable Wordmark';src:url('/fonts/archivo-black.woff2') format('woff2');font-display:swap;font-weight:400}
+.home-more{display:flex;flex-wrap:wrap;gap:16px 40px;padding-top:30px}.home-more .text-link{font-size:.95rem}
+.deliverable>*{min-width:0;overflow-wrap:anywhere;hyphens:auto}
 :root{--paper:#fff;--ink:#080808;--muted:#575757;--line:#d0d0d0;--accent:#253bff;--acid:var(--accent);--white:#fff;--page:1600px;--gutter:clamp(22px,4.35vw,80px);--ease:cubic-bezier(.22,.8,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);scroll-behavior:smooth;scroll-padding-top:100px}

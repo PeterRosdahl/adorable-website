@@ -17,6 +17,15 @@ const lastmodByPath = new Set([
   '/en/contact',
   '/tjanster',
   '/en/services',
+  '/meta-annonsering',
+  '/linkedin-annonsering',
+  '/tiktok-annonsering',
+  '/youtube-annonsering',
+  '/snapchat-annonsering',
+  '/pinterest-annonsering',
+  '/google-ads',
+  '/ai-workshop',
+  '/ai-automatisering',
 ]);
 
 // https://astro.build/config
@@ -29,8 +38,8 @@ export default defineConfig({
     filter: (page) => !page.endsWith('/tos') && !page.endsWith('/privacy') && !page.endsWith('/terms'),
     serialize(item) {
       const path = new URL(item.url).pathname.replace(/\/$/, '') || '/';
-      if (lastmodByPath.has(path)) {
-        item.lastmod = '2026-09-05';
+      if (lastmodByPath.has(path) || path === '/branscher' || path.startsWith('/branscher/')) {
+        item.lastmod = '2026-09-07';
       }
       return item;
     }

@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DetailServicePage from '../components/DetailServicePage.astro';
+import { servicePages } from '../content/service-pages';
+export function getStaticPaths() {
+  return servicePages.map(page => ({ params: { service: page.slug }, props: { page } }));
+}
+const { page } = Astro.props;
+---
+<Layout title={page.title} description={page.description}>
+  <DetailServicePage page={page} />
+</Layout>

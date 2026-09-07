@@ -20,9 +20,33 @@ const alternates = html => new Map([...html.matchAll(/<link\b[^>]*hreflang="([^"
 const sitemap = readFileSync(join(root, 'sitemap-0.xml'), 'utf8');
 const listed = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]));
 let faqCount = 0;
+const titles = new Set();
+const descriptions = new Set();
+const incoming = new Map();
 
 for (const [path, html] of pages) {
   const url = `${origin}${path}`;
+  const title = clean(html.match(/<title>(.*?)<\/title>/)?.[1] || '');
+  const description = clean(html.match(/<meta name="description" content="([^"]+)"/)?.[1] || '');
+  assert.ok(!titles.has(title), `${path}: unique page title`);
+  assert.ok(!descriptions.has(description), `${path}: unique description`);
+  titles.add(title); descriptions.add(description);
+  assert.ok(html.includes('cloud.umami.is/script.js'), `${path}: analytics script retained`);
+  assert.ok(html.includes('data-domains="adorable.se,www.adorable.se"'), `${path}: preview visits excluded from production analytics`);
+  assert.ok(html.includes('google-site-verification'), `${path}: Search Console verification retained`);
+  const body = html.match(/<body[^>]*>([\s\S]*)<\/body>/)?.[1] || '';
+  for (const match of body.matchAll(/<a\b[^>]*href="([^"]+)"/g)) {
+    const target = new URL(match[1].replaceAll('&amp;', '&'), url);
+    if (target.origin === origin && target.pathname !== path) incoming.set(target.pathname, (incoming.get(target.pathname) || 0) + 1);
+    if (target.pathname === '/kontakt' && target.searchParams.has('interest')) {
+      const value = target.searchParams.get('interest');
+      assert.ok(pages.get('/kontakt').includes(`value="${value}"`), `${path}: supported contact interest`);
+    }
+    if (target.pathname === '/kontakt' && target.searchParams.has('industry')) {
+      const value = target.searchParams.get('industry');
+      assert.ok(pages.get('/kontakt').includes(`value="${value}"`), `${path}: supported industry context`);
+    }
+  }
   const en = path === '/en' || path.startsWith('/en/');
   assert.equal(html.match(/<html\b[^>]*lang="([^"]+)"/)?.[1], en ? 'en' : 'sv', `${path}: document language`);
   assert.equal(html.match(/<link rel="canonical" href="([^"]+)"/)?.[1], url, `${path}: canonical URL`);
@@ -64,7 +88,7 @@ for (const [path, html] of pages) {
   assert.equal(page.name, clean(html.match(/<title>(.*?)<\/title>/)?.[1] || ''));
   assert.ok(ids.has(page.about['@id']), `${path}: page subject resolves`);
 
-  if (['/ai', '/paid-social', '/en/ai', '/en/paid-social'].includes(path)) {
+  if (graph.some(entity => entity['@type'] === 'Service')) {
     const service = graph.find(entity => entity['@type'] === 'Service');
     const faq = graph.find(entity => entity['@type'] === 'FAQPage');
     assert.equal(service.provider['@id'], company['@id']);
@@ -80,7 +104,24 @@ for (const [path, html] of pages) {
   }
 }
 
-for (const url of listed) assert.ok(pages.has(new URL(url).pathname), `Sitemap target exists: ${url}`);
+for (const url of listed) {
+  const path = new URL(url).pathname;
+  assert.ok(pages.has(path), `Sitemap target exists: ${url}`);
+  assert.ok(incoming.has(path), `Indexable page has a real incoming link: ${path}`);
+}
+const reachable = new Set(['/']);
+const queue = ['/'];
+while (queue.length) {
+  const path = queue.shift();
+  const body = pages.get(path)?.match(/<body[^>]*>([\s\S]*)<\/body>/)?.[1] || '';
+  for (const match of body.matchAll(/<a\b[^>]*href="([^"]+)"/g)) {
+    const target = new URL(match[1].replaceAll('&amp;', '&'), `${origin}${path}`);
+    if (target.origin === origin && pages.has(target.pathname) && !reachable.has(target.pathname)) {
+      reachable.add(target.pathname); queue.push(target.pathname);
+    }
+  }
+}
+for (const url of listed) assert.ok(reachable.has(new URL(url).pathname), `Crawlable from homepage: ${url}`);
 const robots = readFileSync(join(root, 'robots.txt'), 'utf8');
 assert.match(robots, /User-agent: \*\s+Allow: \//);
 assert.match(robots, /User-agent: OAI-SearchBot\s+Allow: \//);

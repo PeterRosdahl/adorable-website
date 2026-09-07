@@ -28,3 +28,6 @@ pnpm-debug.log*
 .tmp/
 .cache/
 .vercel
+
+# Local audit evidence (not deployed)
+lighthouse-*.json

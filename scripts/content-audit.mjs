@@ -35,10 +35,20 @@ const publicCopyFiles = [
   'src/components/AboutPage.astro',
   'src/components/ContactPage.astro',
   'src/components/OfferPair.astro',
-  'src/content/services.ts'
+  'src/content/services.ts',
+  'src/content/service-pages.ts',
+  'src/content/industries.ts',
+  'src/pages/branscher.astro',
+  'src/components/IndustryPage.astro',
+  'src/components/DetailServicePage.astro',
+  'src/components/ServicesPage.astro',
+  'src/components/SiteSchema.astro',
+  'public/llms.txt',
+  'public/ai.txt'
 ];
 
 const forbiddenClaims = [
+  { pattern: /över 130|over 130|0 till 1000|Growth Marketing på Steroider|Er kund behöver aldrig veta/, label: 'obestyrkt äldre branschpåstående' },
   { pattern: /\bPuck\b/, label: 'inaktiv teammedlem Puck' },
   { pattern: /25\s?000.{0,12}50\s?000/s, label: 'publikt workshoppris' },
   { pattern: /annonsbudgetar från 50\s?000/i, label: 'publik minsta annonsbudget' },
@@ -55,7 +65,7 @@ for (const relativePath of publicCopyFiles) {
   }
 }
 
-console.log(`Kontrollerade ${articleFiles.length} artiklar och ${publicCopyFiles.length} centrala sidor.`);
+console.log(`Kontrollerade ${articleFiles.length} artikelkällor och ${publicCopyFiles.length} publiceringskällor, inklusive alla tjänste- och branschtexter.`);
 
 if (warnings.length) {
   console.log(`Informationspunkter (${warnings.length}):`);

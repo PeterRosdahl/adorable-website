@@ -1,6 +1,6 @@
 # Adorable
 
-> Adorable är Peter Rosdahls konsultbolag inom två specialistområden: AI-rådgivning och paid social. Bolaget grundades 2016. Peter har 20 års erfarenhet av digital utveckling, marknadsföring och affärsutveckling.
+> Adorable är Peter Rosdahls konsultbolag inom annonsering och AI-rådgivning. Annonseringen omfattar paid social och Google Ads. Bolaget grundades 2016. Peter har 20 års erfarenhet av digital utveckling, marknadsföring och affärsutveckling.
 
 ## Tjänster
 
@@ -15,10 +15,18 @@
 ### Paid social
 
 - Strategi för annonsering på framför allt Meta (Facebook och Instagram) och LinkedIn
+- Även TikTok, Snapchat och Pinterest, utifrån målgrupp och erbjudande
 - Konto- och kampanjstruktur
 - Mätning, konverteringsspårning och attribution
 - Kreativ testning och löpande optimering
 - Rapportering kopplad till affärsresultat
+
+### Google Ads och YouTube
+
+- Sökannonsering: sökintention, sökord, annonstext och landningssidor
+- Google Ads-kontogenomgång och löpande kampanjhantering
+- Videoannonsering på YouTube som ett separat upplägg inom Google Ads
+- Annonsköp påverkar inte organisk placering i sökresultat
 
 ## Arbetssätt
 
@@ -37,6 +45,16 @@ Peter Rosdahl arbetar själv i uppdragen, från analys och rekommendation till i
 - [Tjänster](https://adorable.se/tjanster): De två specialistområdena.
 - [AI-rådgivning](https://adorable.se/ai): Leveranser, upplägg och svar på vanliga frågor.
 - [Paid social](https://adorable.se/paid-social): Kanalval, kampanjhantering, mätning och vanliga frågor.
+- [Meta-annonsering](https://adorable.se/meta-annonsering): Facebook och Instagram, kampanjer och kreativa tester.
+- [LinkedIn-annonsering](https://adorable.se/linkedin-annonsering): B2B, relevanta företag och leadkvalitet.
+- [TikTok-annonsering](https://adorable.se/tiktok-annonsering): Videobrief, kampanjer och testupplägg.
+- [YouTube-annonsering](https://adorable.se/youtube-annonsering): Video med tydligt kampanjmål.
+- [Snapchat-annonsering](https://adorable.se/snapchat-annonsering): Mobilanpassat material och kanaltest.
+- [Pinterest-annonsering](https://adorable.se/pinterest-annonsering): Visuell inspiration kopplad till erbjudandet.
+- [Google Ads](https://adorable.se/google-ads): Sökannonsering och kampanjuppföljning.
+- [AI-workshop](https://adorable.se/ai-workshop): Praktisk utbildning för ledningsgrupper och team.
+- [AI-automatisering](https://adorable.se/ai-automatisering): Avgränsade piloter, kvalitetskontroll och överlämning.
+- [Branscher](https://adorable.se/branscher): Exempel på möjliga upplägg, inte verifierade kundcase.
 - [Om Peter och Adorable](https://adorable.se/om): Bakgrund, erfarenhet och arbetssätt.
 - [Kontakt](https://adorable.se/kontakt): Kontaktuppgifter och mötesförfrågan. En tid är bokad först när den har bekräftats tillsammans.
 - [Integritet](https://adorable.se/privacy)
@@ -58,4 +76,8 @@ Peter Rosdahl arbetar själv i uppdragen, från analys och rekommendation till i
 
 Svar på förfrågningar kommer normalt inom ett par timmar.
 
-Last updated: 2026-09-05
+## Avgränsningar
+
+Ingen viss avkastning, försäljning eller effekt garanteras. Produktion, integrationer och förvaltning specificeras i uppdragsförslaget. AI-arbetsflöden testas och granskas innan externa utskick eller ändringar godkänns. Juridisk rådgivning och automatiserade beslut om exempelvis kredit, försäkring eller betyg ingår inte.
+
+Last updated: 2026-09-07

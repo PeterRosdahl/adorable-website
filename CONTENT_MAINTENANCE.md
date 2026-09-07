@@ -12,6 +12,20 @@ Syftet är att hålla sajten aktuell utan att skapa konstgjorda publiceringsdatu
 - Kontrollera språkväxling, möteslänkar och de två lägena i kontaktformuläret på mobil och dator.
 - Kontrollera ordmärkets rörelse, pausknappen och inställningen för reducerad rörelse.
 
+## Sökuppföljning efter den nya versionen
+
+- Efter godkänd publicering: verifiera att produktionen är READY, öppna de nya sidorna och kontrollera att sitemap innehåller 34 indexerbara adresser. Antalet är 25 befintliga plus nio nya, inte ett påstående om Googles index.
+- Search Console är redan verifierat för `https://adorable.se/`. Både `/sitemap-index.xml` och `/sitemap-0.xml` skickades in 7 september 2026 och visade Lyckades. Skapa inte en ny egendom eller ytterligare verifiering utan behov.
+- Kontrollera efter publicering att Google har läst den uppdaterade sitemapen. Inspektera prioriterade sidor som `/google-ads`, `/meta-annonsering` och `/ai-workshop`. Begär indexering där det behövs; upprepade begäranden garanterar inte snabbare indexering.
+- Följ upp efter två veckor: vilka nya adresser har upptäckts, indexerats eller fått en konkret uteslutningsorsak? Inspektera Google-vald canonical och senast genomsökta version innan kod ändras.
+- Följ upp efter fyra och åtta veckor: visningar, klick, CTR och sökfrågor per tjänstesida. Jämför likvärdiga perioder och skilj varumärkessökningar från tjänstesökningar. Små datamängder ska inte övervärderas.
+- Gruppera tjänstesökningar: Meta/Facebook/Instagram, LinkedIn, TikTok, YouTube, Snapchat, Pinterest, Google Ads/sökannonsering, AI-rådgivning, AI-workshop/utbildning och AI-automatisering. Stavningsvarianter hör till samma grupp, inte nya dubblettsidor.
+- Utvärdera kontaktklick och bekräftade mötesförfrågningar tillsammans med söktrafiken. Umami behålls men begränsas till adorable.se och www.adorable.se så att framtida previewbesök inte blandas med produktionsstatistiken. Kopplingen mellan en enskild sökfråga och en affär ska inte antas finnas.
+- Uppdatera en sida när data eller kundfrågor visar ett tydligt behov. Lägg till ett verkligt, godkänt exempel med problem, Peters insats och verifierat utfall när det finns. Starta inte om blogg eller guider för att skapa aktivitet.
+- Gamla artikel- och ordlisteadresser ligger kvar som 404 när ingen relevant ersättare finns. De ska inte återföras till sitemap eller massomdirigeras till startsidan. Att en borttagen adress fortfarande finns i en äldre Google-rapport betyder inte att den ska återpubliceras.
+
+Denna rutin är dokumenterad, inte en aktiverad automation. Publicering och framtida uppföljningar kräver sina vanliga godkännanden.
+
 ## Mötesförfrågan och Google Kalender
 
 - Nuvarande flöde skickar en mötesförfrågan via det befintliga Web3Forms-kontot. Det bokar inte automatiskt en tid och skapar inget kalender-event.
@@ -39,6 +53,7 @@ Syftet är att hålla sajten aktuell utan att skapa konstgjorda publiceringsdatu
 5. Inga publika priser eller generella minsta annonsbudgetar presenteras som Adorables villkor.
 6. Interna länkar leder till relevant tjänst eller kontakt. Borttagna artiklar och guider ska inte byggas eller länkas.
 7. `npm run build` är godkänd före preview eller publicering.
+8. Kör `npm run check:build`, `node scripts/test-seo.mjs`, `node scripts/test-contact.mjs`, `node scripts/test-motion.mjs` och `node scripts/test-site-motion.mjs`. Formulärtestet använder simulerade svar och skickar inget mejl.
 
 ## Ansvar
 

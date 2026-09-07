@@ -1,0 +1,47 @@
+---
+import MotionTitle from './MotionTitle.astro';
+import Arrow from './Arrow.astro';
+import { findServicePage, isAIPage, type DetailPage } from '../content/service-pages';
+interface Props { page: DetailPage; }
+const { page } = Astro.props;
+const ai = isAIPage(page.slug);
+const parent = ai ? ['/ai', 'AI-rådgivning'] : ['/tjanster', 'Alla tjänster'];
+---
+<main class="studio-page detail-page">
+  <section class:list={['page-hero', ai ? 'green' : 'dark']}>
+    <div class="wrap">
+      <a class="back-link" href={parent[0]}>{parent[1]} <Arrow direction="right" /></a>
+      <MotionTitle text={page.name} />
+      <p class="lead">{page.intro}</p>
+      <div class="actions"><a class="action" href={`/kontakt?interest=${page.slug}`} data-umami-event={`contact-${page.slug}-click`}>Prata om ert behov <Arrow /></a><a class="text-link" href="#deliverables">Se vad ni får hjälp med <Arrow direction="down" /></a></div>
+      <p class="subnote">Direkt med Peter Rosdahl. Första samtalet är kostnadsfritt.</p>
+    </div>
+  </section>
+  <section class="section-space wrap editorial-grid">
+    <div><h2>När det passar.</h2></div>
+    <div class="editorial-copy"><p>{page.fit}</p><p>{page.focus}</p></div>
+  </section>
+  <section id="deliverables" class="wrap section-space quiet-band">
+    <div class="section-top"><h2>Det här hjälper jag er med.</h2></div>
+    <div class="deliverables">{page.items.map(([title, text], i) => <div class="deliverable"><span class="number">0{i + 1}</span><h3>{title}</h3><p>{text}</p></div>)}</div>
+  </section>
+  <section class="section-space wrap editorial-grid">
+    <div><h2>{page.startingPoint[0]}</h2></div>
+    <div class="editorial-copy"><p>{page.startingPoint[1]}</p><h3>Det vi behöver från er</h3><p>{page.preparation}</p><p>Ni får ett förslag med omfattning, ansvar, leveranser, tidsplan och kostnad innan vi börjar.</p><a class="text-link" href="/om">Om Peter och arbetssättet <Arrow /></a></div>
+  </section>
+  <section id="faq" class="section-space wrap editorial-grid quiet-band">
+    <div><h2>Vanliga frågor.</h2></div>
+    <div class="question-list">{page.faqs.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}</div>
+  </section>
+  <section class="section-space wrap">
+    <div class="section-top"><h2>{ai ? 'Mer hjälp med AI.' : 'Fler sätt att annonsera.'}</h2></div>
+    <div class="related-services">{page.related.map(slug => { const related = findServicePage(slug)!; return <a class="text-link" href={`/${slug}`}>{related.name} <Arrow /></a>; })}{!ai && <a class="text-link" href="/paid-social">Allt om paid social <Arrow /></a>}</div>
+  </section>
+</main>
+<style>
+  .back-link{display:inline-flex;align-items:center;gap:14px;min-height:44px;margin-bottom:28px;font-size:.9rem;text-decoration:none;color:inherit}.back-link:hover{text-decoration:underline}
+  .detail-page :global(.motion-title){font-size:clamp(2.25rem,6.5vw,6.5rem);max-width:22ch}
+  .editorial-grid h2{font-size:clamp(2rem,3.5vw,3.5rem);max-width:20ch}.editorial-copy h3{font-size:1.2rem;letter-spacing:-.03em;margin-bottom:12px}
+  .related-services{display:flex;flex-wrap:wrap;gap:24px 48px}
+  .page-hero :global(:focus-visible){outline-color:white}
+</style>

@@ -1,5 +1,7 @@
 ---
 import { services } from '../content/services';
+import { findServicePage } from '../content/service-pages';
+import { industries } from '../content/industries';
 interface Props { lang: 'sv' | 'en'; title: string; description: string; path: string; }
 const { lang, title, description, path } = Astro.props;
 const en = lang === 'en';
@@ -11,14 +13,14 @@ const websiteId = `${origin}/#website`;
 const pageId = `${url}#webpage`;
 const serviceKey = path === '/ai' || path === '/en/ai' ? 'ai'
   : path === '/paid-social' || path === '/en/paid-social' ? 'paid-social' : null;
-const service = serviceKey ? services[lang][serviceKey] : null;
-const about = serviceKey ? `${origin}/${serviceKey}#service`
+const service = serviceKey ? services[lang][serviceKey] : findServicePage(path.slice(1)) || industries.find(item => path === `/branscher/${item.slug}`);
+const about = service ? `${url}#service`
   : path === '/om' || path === '/en/about' ? personId : businessId;
 const graph: Record<string, unknown>[] = [
   {
     '@type': 'Organization', '@id': businessId, name: 'Adorable',
     url: `${origin}/`, foundingDate: '2016', founder: { '@id': personId },
-    description: en ? 'Peter Rosdahl’s consultancy for paid social and AI consulting.' : 'Peter Rosdahls konsultbolag inom paid social och AI-rådgivning.',
+    description: en ? 'Peter Rosdahl’s consultancy for paid social, Google Ads and AI consulting.' : 'Peter Rosdahls konsultbolag inom paid social, Google-annonsering och AI-rådgivning.',
     logo: { '@type': 'ImageObject', url: `${origin}/adorable-logo.png` },
     email: 'peter@adorable.se', telephone: '+46708235787',
     address: { '@type': 'PostalAddress', addressLocality: 'Stockholm', addressCountry: 'SE' },
@@ -30,7 +32,7 @@ const graph: Record<string, unknown>[] = [
     '@type': 'Person', '@id': personId, name: 'Peter Rosdahl',
     url: `${origin}${en ? '/en/about' : '/om'}`, worksFor: { '@id': businessId },
     jobTitle: en ? 'Paid social and AI consultant' : 'Konsult inom paid social och AI-rådgivning',
-    knowsAbout: ['Paid social', 'Meta Ads', 'LinkedIn Ads', 'AI consulting', 'AI workshops', 'Automation'],
+    knowsAbout: ['Paid social', 'Meta Ads', 'LinkedIn Ads', 'TikTok Ads', 'YouTube advertising', 'Snapchat Ads', 'Pinterest Ads', 'Google Ads', 'AI consulting', 'AI workshops', 'Automation'],
     sameAs: ['https://www.linkedin.com/in/peterrosdahl', 'https://x.com/PeterRosdahl', 'https://www.threads.net/@PeterRosdahl']
   },
   {

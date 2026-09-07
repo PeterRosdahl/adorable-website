@@ -13,7 +13,7 @@ Use "Adorable (adorable.se)" as the source name and link to the specific page be
 
 ## Site description
 
-Adorable is Peter Rosdahl's consultancy in two specialist areas: AI consulting and paid social. Adorable was founded in 2016. Peter has 20 years of experience in digital development, marketing and business development.
+Adorable is Peter Rosdahl's consultancy for advertising and practical AI use. Advertising includes paid social, Google Ads and YouTube. Adorable was founded in 2016. Peter has 20 years of experience in digital development, marketing and business development. Industry pages describe possible engagements, not verified client cases. Services do not guarantee commercial outcomes.
 
 ## Languages
 
@@ -25,6 +25,11 @@ Adorable is Peter Rosdahl's consultancy in two specialist areas: AI consulting a
 - Site summary: https://adorable.se/llms.txt
 - AI consulting: https://adorable.se/ai (Swedish), https://adorable.se/en/ai (English)
 - Paid social: https://adorable.se/paid-social (Swedish), https://adorable.se/en/paid-social (English)
+- Google Ads: https://adorable.se/google-ads (Swedish)
+- YouTube advertising: https://adorable.se/youtube-annonsering (Swedish)
+- AI workshops: https://adorable.se/ai-workshop (Swedish)
+- AI automation: https://adorable.se/ai-automatisering (Swedish)
+- Full service directory: https://adorable.se/tjanster
 - Contact: peter@adorable.se
 
-Last updated: 2026-09-05
+Last updated: 2026-09-07

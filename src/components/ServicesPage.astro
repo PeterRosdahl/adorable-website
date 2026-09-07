@@ -1,9 +1,16 @@
 ---
 import MotionTitle from './MotionTitle.astro';
 import OfferPair from './OfferPair.astro';
+import ServiceDirectory from './ServiceDirectory.astro';
+import Arrow from './Arrow.astro';
 
 interface Props { lang?: 'sv'|'en'; }
 const { lang = 'sv' } = Astro.props;
 const en = lang === 'en';
 ---
-<main class="studio-page"><section class="page-hero wrap"><MotionTitle text={en ? 'Services.' : 'Tjänster.'} /><p class="lead">{en ? 'Advertising that needs to perform better, or AI you want to put to work. Bring in senior support for one area or both.' : 'Annonsering som behöver fungera bättre, eller AI som ni vill använda i verksamheten. Ta hjälp med ett område eller båda.'}</p></section><section class="wrap" style="padding-bottom:80px" aria-label={en ? 'Services' : 'Tjänster'}><OfferPair lang={lang}/></section></main>
+<main class="studio-page">
+  <section class="page-hero wrap"><MotionTitle text={en ? 'Services.' : 'Tjänster.'} /><p class="lead">{en ? 'Advertising that needs to perform better, or AI you want to put to work. Bring in senior support for one area or both.' : 'Annonsering som behöver fungera bättre, eller AI som ni vill använda i verksamheten. Ta hjälp med ett område eller båda.'}</p></section>
+  <section class="wrap" style="padding-bottom:80px" aria-label={en ? 'Services' : 'Tjänster'}><OfferPair lang={lang}/></section>
+  <section class="section-space wrap quiet-band"><div class="section-top"><h2>{en ? 'Find the help you need.' : 'Hitta rätt hjälp.'}</h2><p>{en ? 'Choose by channel or task. We agree on scope and responsibilities before starting.' : 'Välj efter kanal eller uppgift. Vi bestämmer omfattning och ansvar innan vi börjar.'}</p></div><ServiceDirectory lang={lang} /></section>
+  <section class="section-space wrap editorial-grid"><div><h2 style="font-size:clamp(2rem,4vw,4rem)">{en ? 'Adapted to your business.' : 'Anpassat till er verksamhet.'}</h2></div><div class="editorial-copy"><p>{en ? 'A property company, a B2B team and an online shop need different approaches. Explore examples of how we can work together, with the scope and responsibilities made clear.' : 'Ett fastighetsbolag, ett B2B-team och en e-handel behöver olika upplägg. Se exempel på hur vi kan arbeta tillsammans, med tydliga leveranser och ansvar.'}</p><a class="text-link" href="/branscher">{en ? 'Industry examples (in Swedish)' : 'Se branscherna'} <Arrow /></a></div></section>
+</main>
