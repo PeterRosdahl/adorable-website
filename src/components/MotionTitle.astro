@@ -3,8 +3,9 @@ interface Props { text: string; }
 const { text, ...attributes } = Astro.props;
 let index = 0;
 ---
-<h1 {...attributes} class="motion-title" aria-label={text}>
-  {(text.match(/\s+|[^\s-]+-?/g) || []).map(word => /\s/.test(word)
+<h1 {...attributes} class="motion-title">
+  <span class="motion-title-text">{text}</span>
+  <span aria-hidden="true">{(text.match(/\s+|[^\s-]+-?/g) || []).map(word => /\s/.test(word)
     ? word
-    : <><span class="motion-word" aria-hidden="true">{[...word].map(letter => <span class="motion-letter" style={`--letter-index:${index++}`}>{letter}</span>)}</span>{word.endsWith('-') && <wbr />}</>)}
+    : <><span class="motion-word">{[...word].map(letter => <span class="motion-letter" style={`--letter-index:${index++}`}>{letter}</span>)}</span>{word.endsWith('-') && <wbr />}</>)}</span>
 </h1>
