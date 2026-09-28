@@ -35,6 +35,11 @@ for (const [path, html] of pages) {
   assert.ok(html.includes('data-domains="adorable.se,www.adorable.se"'), `${path}: preview visits excluded from production analytics`);
   assert.ok(html.includes('google-site-verification'), `${path}: Search Console verification retained`);
   const body = html.match(/<body[^>]*>([\s\S]*)<\/body>/)?.[1] || '';
+  const motionTitle = body.match(/<h1\b[^>]*class="motion-title"[^>]*>([\s\S]*?)<\/h1>/)?.[1];
+  if (motionTitle) {
+    assert.match(motionTitle, /<span class="motion-title-text">[^<]+<\/span>/, `${path}: complete heading text in HTML`);
+    assert.match(motionTitle, /<span aria-hidden="true">/, `${path}: decorative heading animation hidden from assistive technology`);
+  }
   for (const match of body.matchAll(/<a\b[^>]*href="([^"]+)"/g)) {
     const target = new URL(match[1].replaceAll('&amp;', '&'), url);
     if (target.origin === origin && target.pathname !== path) incoming.set(target.pathname, (incoming.get(target.pathname) || 0) + 1);

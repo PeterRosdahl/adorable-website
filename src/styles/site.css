@@ -49,6 +49,7 @@ button{cursor:pointer}img{max-width:100%;height:auto}a,button{touch-action:manip
 @keyframes exit-page{to{transform:translateY(-4vh) scale(.98);opacity:.45}}
 @keyframes enter-page{from{clip-path:inset(100% 0 0 0);transform:translateY(5vh)}to{clip-path:inset(0);transform:none}}
 .motion-word{display:inline-block;overflow:clip;vertical-align:top;padding-bottom:.14em;margin-bottom:-.14em}
+.motion-title-text{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .motion-letter{display:inline-block;transform-origin:0 100%}
 @keyframes unfold-letter{from{transform:translateY(115%) rotate(7deg)}to{transform:none}}
 @keyframes wordmark-arrive{from{transform:translateY(100%)}to{transform:none}}
