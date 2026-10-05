@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import AstorFeedback from '../components/AstorFeedback.astro';
 
 interface Props {
   title: string;
@@ -80,6 +81,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       src="https://cloud.umami.is/script.js" 
       data-website-id="REPLACE_WITH_UMAMI_WEBSITE_ID"
     ></script>
+    <AstorFeedback />
   </head>
   <body>
     <slot />

@@ -3,6 +3,7 @@ import SiteNavigation from '../components/SiteNavigation.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteSchema from '../components/SiteSchema.astro';
 import SiteMotion from '../components/SiteMotion.astro';
+import AstorFeedback from '../components/AstorFeedback.astro';
 import '../styles/site.css';
 
 // Self-hosted fonts (faster than Google Fonts)
@@ -78,6 +79,7 @@ const canonicalURL = new URL(normalizedPath, Astro.site);
 		
 		<!-- Structured Data -->
 		<SiteSchema lang="en" title={title} description={description} path={normalizedPath} />
+		<AstorFeedback />
 	</head>
 	<body>
 		<a class="skip-link" href="#main-content">Skip to content</a>
