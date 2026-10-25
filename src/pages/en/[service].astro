@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout-en.astro';
+import DetailServicePage from '../../components/DetailServicePage.astro';
+import { servicePages } from '../../content/service-pages';
+import { serviceCopyEn } from '../../content/service-pages.en';
+
+export function getStaticPaths() {
+  return servicePages.map(page => ({
+    params: { service: serviceCopyEn[page.slug].slug },
+    props: { svSlug: page.slug }
+  }));
+}
+const { svSlug } = Astro.props;
+const copy = serviceCopyEn[svSlug];
+---
+<Layout title={copy.title} description={copy.description}>
+  <DetailServicePage svSlug={svSlug} lang="en" />
+</Layout>

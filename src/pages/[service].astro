@@ -8,5 +8,5 @@ export function getStaticPaths() {
 const { page } = Astro.props;
 ---
 <Layout title={page.title} description={page.description}>
-  <DetailServicePage page={page} />
+  <DetailServicePage svSlug={page.slug} />
 </Layout>

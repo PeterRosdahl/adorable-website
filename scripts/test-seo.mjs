@@ -57,13 +57,13 @@ for (const [path, html] of pages) {
   for (const match of body.matchAll(/<a\b[^>]*href="([^"]+)"/g)) {
     const target = new URL(match[1].replaceAll('&amp;', '&'), url);
     if (target.origin === origin && target.pathname !== path) incoming.set(target.pathname, (incoming.get(target.pathname) || 0) + 1);
-    if (target.pathname === '/kontakt' && target.searchParams.has('interest')) {
+    if ((target.pathname === '/kontakt' || target.pathname === '/en/contact') && target.searchParams.has('interest')) {
       const value = target.searchParams.get('interest');
-      assert.ok(pages.get('/kontakt').includes(`value="${value}"`), `${path}: supported contact interest`);
+      assert.ok(pages.get(target.pathname).includes(`value="${value}"`), `${path}: supported contact interest`);
     }
-    if (target.pathname === '/kontakt' && target.searchParams.has('industry')) {
+    if ((target.pathname === '/kontakt' || target.pathname === '/en/contact') && target.searchParams.has('industry')) {
       const value = target.searchParams.get('industry');
-      assert.ok(pages.get('/kontakt').includes(`value="${value}"`), `${path}: supported industry context`);
+      assert.ok(pages.get(target.pathname).includes(`value="${value}"`), `${path}: supported industry context`);
     }
   }
   const en = path === '/en' || path.startsWith('/en/');
@@ -74,7 +74,7 @@ for (const [path, html] of pages) {
   const isContact = path === '/kontakt' || path === '/en/contact';
   assert.equal(Boolean(nav), !isHome, `${path}: no empty header on homepage`);
   assert.equal(/class="wordmark"/.test(nav), !isHome, `${path}: small logo only on subpages`);
-  assert.equal([...nav.matchAll(/<a\b/g)].length, isHome ? 0 : isContact ? 1 : 2, `${path}: only relevant navigation links`);
+  assert.equal([...nav.matchAll(/<a\b/g)].length, isHome ? 0 : isContact ? 2 : 3, `${path}: only relevant navigation links`);
   assert.equal(nav.includes(en ? 'Arrange a meeting' : 'Boka ett möte'), !isHome && !isContact, `${path}: meeting link only on other subpages`);
   if (isHome) assert.ok(html.includes('class="meeting-link"'), `${path}: main meeting CTA retained`);
   assert.ok(!/Pausa rörelse|Pause motion|data-motion-toggle/.test(html), `${path}: no standalone navigation pause control`);
@@ -86,11 +86,16 @@ for (const [path, html] of pages) {
   }
   assert.equal(listed.has(url), !/name="robots" content="[^"]*noindex/.test(html), `${path}: indexability agrees with sitemap`);
 
+  const languageLinks = [...html.matchAll(/<a\b[^>]*class="lang-switch"[^>]*href="([^"]+)"/g)].map(match => match[1]);
+  assert.ok(languageLinks.length >= 2, `${path}: language switcher in the header and footer`);
   for (const [language, target] of alternates(html)) {
     const targetHtml = pages.get(new URL(target).pathname);
     assert.ok(targetHtml, `${path}: alternate target exists`);
     assert.equal(alternates(targetHtml).get(en ? 'en' : 'sv'), url, `${path}: reciprocal ${language} alternate`);
   }
+  const paired = alternates(html).get(en ? 'sv' : 'en');
+  assert.ok(paired, `${path}: hreflang pair`);
+  for (const href of languageLinks) assert.equal(new URL(href, origin).href, paired, `${path}: language switcher targets the equivalent page`);
 
   const json = [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m => JSON.parse(m[1]));
   const graph = json.find(data => data['@graph'])?.['@graph'];
@@ -137,6 +142,13 @@ for (const url of listed) {
   const path = new URL(url).pathname;
   assert.ok(pages.has(path), `Sitemap target exists: ${url}`);
   assert.ok(incoming.has(path), `Indexable page has a real incoming link: ${path}`);
+}
+for (const block of sitemap.split('<url>').slice(1)) {
+  const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1];
+  const hrefs = new Map([...block.matchAll(/hreflang="([^"]+)" href="([^"]+)"/g)].map(match => [match[1], match[2]]));
+  assert.ok(hrefs.get('sv') && hrefs.get('en') && hrefs.get('x-default'), `${loc}: sitemap alternates`);
+  assert.equal(hrefs.get('x-default'), hrefs.get('sv'), `${loc}: x-default is Swedish`);
+  assert.equal(hrefs.get(new URL(loc).pathname === '/en' || new URL(loc).pathname.startsWith('/en/') ? 'en' : 'sv'), loc, `${loc}: sitemap self alternate`);
 }
 const reachable = new Set(['/']);
 const queue = ['/'];

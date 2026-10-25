@@ -1,16 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import MotionTitle from '../components/MotionTitle.astro';
-import Arrow from '../components/Arrow.astro';
-import { industries } from '../content/industries';
+import IndustryDirectory from '../components/IndustryDirectory.astro';
 ---
 <Layout title="Annonsering & AI i olika branscher | Adorable" description="Se hur annonsering, AI-utbildning och avgränsade arbetsflöden kan användas i olika verksamheter. Konkreta upplägg och tydligt ansvar med Peter Rosdahl.">
   <main class="studio-page">
     <section class="page-hero wrap"><MotionTitle text="Olika verksamheter. Olika behov." /><p class="lead">Samma tjänst behöver anpassas efter vem ni hjälper, hur ni arbetar och vilka krav ni har. Här finns exempel på hur annonsering och AI kan användas i er verksamhet.</p><p class="subnote">Sidorna beskriver möjliga uppdrag, inte en lista över kunder eller genomförda projekt.</p></section>
-    <section class="section-space wrap quiet-band" aria-label="Branscher"><div class="industry-directory">{industries.map(page => <a href={`/branscher/${page.slug}`}><h2>{page.name}</h2><p>{page.intro}</p><Arrow direction="right" /></a>)}</div></section>
+    <section class="section-space wrap quiet-band" aria-label="Branscher"><IndustryDirectory /></section>
   </main>
 </Layout>
-<style>
-  .industry-directory{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}.industry-directory a{display:grid;grid-template-columns:1fr auto;gap:20px;text-decoration:none;border-top:1px solid var(--line);padding-top:28px}.industry-directory h2{font-size:clamp(1.6rem,2.5vw,2.5rem)}.industry-directory p{grid-column:1;max-width:52ch;color:var(--muted)}.industry-directory .icon-arrow{grid-column:2;grid-row:1;color:var(--accent)}.industry-directory a:hover h2{color:var(--accent)}
-  @media(max-width:650px){.industry-directory{grid-template-columns:1fr}}
-</style>

@@ -4,6 +4,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 import SiteSchema from '../components/SiteSchema.astro';
 import SiteMotion from '../components/SiteMotion.astro';
 import AstorFeedback from '../components/AstorFeedback.astro';
+import { alternatePath } from '../i18n/catalog';
 import '../styles/site.css';
 
 // Self-hosted fonts (faster than Google Fonts)
@@ -21,10 +22,11 @@ interface Props {
 	robots?: string;
 }
 
-const { title, description, ogImage = '/og-image.png', englishPath, robots = 'index, follow, max-snippet:-1, max-image-preview:large' } = Astro.props;
+const { title, description, ogImage = '/og-image.png', robots = 'index, follow, max-snippet:-1, max-image-preview:large' } = Astro.props;
 const normalizedPath = Astro.url.pathname !== '/' ? Astro.url.pathname.replace(/\/$/, '') : '/';
 const canonicalURL = new URL(normalizedPath, Astro.site);
 const swedishPath = normalizedPath;
+const englishPath = Astro.props.englishPath ?? alternatePath(normalizedPath);
 ---
 
 <!doctype html>
@@ -90,7 +92,7 @@ const swedishPath = normalizedPath;
 		<a class="skip-link" href="#main-content">Hoppa till innehållet</a>
 		<SiteNavigation alternatePath={englishPath} />
 		<div id="main-content" tabindex="-1"><slot /></div>
-		<SiteFooter />
+		<SiteFooter alternatePath={englishPath} />
 		<SiteMotion />
 	</body>
 </html>

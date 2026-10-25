@@ -271,4 +271,4 @@ export const servicePages: DetailPage[] = [
 ];
 
 export const findServicePage = (slug: string) => servicePages.find(page => page.slug === slug);
-export const isAIPage = (slug: string) => slug.startsWith('ai-') || slug === 'chatgpt-utbildning';
+export const isAIPage = (slug: string) => slug.startsWith('ai-') || slug === 'chatgpt-utbildning' || slug === 'chatgpt-training';

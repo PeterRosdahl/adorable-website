@@ -1,7 +1,8 @@
 ---
 import Arrow from './Arrow.astro';
+import LangSwitch from './LangSwitch.astro';
 interface Props { lang?: 'sv' | 'en'; alternatePath?: string; }
-const { lang = 'sv' } = Astro.props;
+const { lang = 'sv', alternatePath } = Astro.props;
 const en = lang === 'en';
 const home = en ? '/en' : '/';
 const contact = en ? '/en/contact' : '/kontakt';
@@ -9,16 +10,23 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const isHome = path === home;
 const isContact = path === contact;
 ---
-{!isHome && <header class="site-header">
-  <nav class="wrap site-nav" aria-label={en ? 'Main navigation' : 'Huvudmeny'}>
-    <a class="wordmark" href={home} aria-label={en ? 'Adorable home' : 'Adorable startsida'}>Adorable.</a>
-    {!isContact && <a class="nav-contact" href={contact} data-umami-event="contact-nav-click">{en ? 'Arrange a meeting' : 'Boka ett möte'}<Arrow /></a>}
-  </nav>
-</header>}
+<header class:list={['site-header', { 'is-home': isHome }]}>
+  {isHome ? (
+    <div class="wrap home-tools">{alternatePath && <LangSwitch href={alternatePath} code={en ? 'sv' : 'en'} />}</div>
+  ) : (
+    <nav class="wrap site-nav" aria-label={en ? 'Main navigation' : 'Huvudmeny'}>
+      <a class="wordmark" href={home} aria-label={en ? 'Adorable home' : 'Adorable startsida'}>Adorable.</a>
+      {alternatePath && <LangSwitch href={alternatePath} code={en ? 'sv' : 'en'} />}
+      {!isContact && <a class="nav-contact" href={contact} data-umami-event="contact-nav-click">{en ? 'Arrange a meeting' : 'Boka ett möte'}<Arrow /></a>}
+    </nav>
+  )}
+</header>
 <style>
   .site-header{position:relative;z-index:20;background:var(--paper)}
-  .site-nav{min-height:92px;display:flex;align-items:center;justify-content:flex-end;gap:54px}
+  .site-header.is-home{position:absolute;inset:0 0 auto;background:transparent;width:100%}
+  .home-tools{display:flex;justify-content:flex-end;min-height:44px;padding-top:8px}
+  .site-nav{min-height:92px;display:flex;align-items:center;justify-content:flex-end;gap:28px}
   .wordmark{font-family:'Adorable Wordmark','DM Sans',sans-serif;font-size:1.7rem;letter-spacing:-.085em;text-decoration:none;margin-right:auto;line-height:1;min-height:44px;display:flex;align-items:center}
   .nav-contact{display:flex;align-items:center;gap:20px;text-decoration:none;color:var(--accent);border-bottom:1px solid currentColor;font-size:1.1rem;min-height:44px;white-space:nowrap;transition:color .3s}.nav-contact:hover{color:var(--ink)}
-  @media(max-width:760px){.site-nav{min-height:76px;gap:24px}.wordmark{font-size:1.35rem}.nav-contact{font-size:.9rem;gap:12px}}
+  @media(max-width:760px){.site-nav{min-height:76px;gap:16px}.wordmark{font-size:1.35rem}.nav-contact{font-size:.9rem;gap:12px}}
 </style>

@@ -3,6 +3,7 @@ import MotionTitle from './MotionTitle.astro';
 import { services } from '../content/services';
 import Arrow from './Arrow.astro';
 import ServiceDirectory from './ServiceDirectory.astro';
+import { serviceHref } from '../i18n/catalog';
 interface Props { lang?: 'sv'|'en'; service: 'ai'|'paid-social'; }
 const { lang = 'sv', service } = Astro.props;
 const en = lang === 'en';
@@ -15,7 +16,7 @@ const contact = `${en ? '/en/contact' : '/kontakt'}?interest=${service}`;
   <section class="section-space wrap">
     <div class="section-top"><h2>{service === 'ai' ? (en ? 'Choose where to start.' : 'Välj var ni vill börja.') : (en ? 'Advertising by channel.' : 'Annonsering per kanal.')}</h2></div>
     <ServiceDirectory group={service === 'ai' ? 'ai' : 'social'} lang={lang} />
-    {service === 'paid-social' && <div class="search-alternative"><p>{en ? 'Looking for paid search or YouTube video campaigns? Those are separate services, managed through Google Ads.' : 'Vill ni nå människor som söker, eller annonsera med video på YouTube? Det är separata upplägg som hanteras via Google Ads.'}</p><a class="text-link" href="/google-ads">{en ? 'Google Ads (in Swedish)' : 'Google-annonsering'} <Arrow /></a><a class="text-link" href="/youtube-annonsering">{en ? 'YouTube advertising (in Swedish)' : 'YouTube-annonsering'} <Arrow /></a></div>}
+    {service === 'paid-social' && <div class="search-alternative"><p>{en ? 'Looking for paid search or YouTube video campaigns? Those are separate services, managed through Google Ads.' : 'Vill ni nå människor som söker, eller annonsera med video på YouTube? Det är separata upplägg som hanteras via Google Ads.'}</p><a class="text-link" href={serviceHref('google-ads', lang)}>{en ? 'Google Ads' : 'Google-annonsering'} <Arrow /></a><a class="text-link" href={serviceHref('youtube-annonsering', lang)}>{en ? 'YouTube ads' : 'YouTube-annonsering'} <Arrow /></a></div>}
   </section>
   <section id="deliverables" class="wrap section-space quiet-band"><div class="section-top"><h2>{en ? 'What I help you with.' : 'Det här hjälper jag er med.'}</h2><p>{en ? 'We agree on the parts your team needs.' : 'Vi väljer de delar som ert team behöver.'}</p></div><div class="deliverables">{content.items.map(([title,text],i)=><div class="deliverable"><span class="number">0{i+1}</span><h3>{title}</h3><p>{text}</p></div>)}</div></section>
   <section class="section-space wrap"><div class="section-top"><h2>{en ? 'Three ways to work together.' : 'Tre sätt att ta hjälp.'}</h2></div><ol class="process-list">{content.examples.map(([title,text],i)=><li><span class="number">0{i+1}</span><h3>{title}</h3><p>{text}</p></li>)}</ol></section>

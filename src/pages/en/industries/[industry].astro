@@ -1,0 +1,14 @@
+---
+import IndustryPage from '../../../components/IndustryPage.astro';
+import { industries } from '../../../content/industries';
+import { industryCopyEn } from '../../../content/industries.en';
+
+export function getStaticPaths() {
+  return industries.map(page => ({
+    params: { industry: industryCopyEn[page.slug].slug },
+    props: { slug: page.slug }
+  }));
+}
+const { slug } = Astro.props;
+---
+<IndustryPage slug={slug} lang="en" />

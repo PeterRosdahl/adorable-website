@@ -68,11 +68,29 @@ Peter Rosdahl arbetar själv i uppdragen, från analys och rekommendation till i
 
 ## English
 
-- [Adorable](https://adorable.se/en): Peter Rosdahl's consultancy for paid social and practical AI use.
-- [AI consulting](https://adorable.se/en/ai): Training, strategy, tools and implementation.
-- [Paid social](https://adorable.se/en/paid-social): Advertising strategy, campaign management and measurement.
-- [About Peter](https://adorable.se/en/about): Background and working approach.
-- [Contact](https://adorable.se/en/contact): Enquiries and meeting requests.
+The English site mirrors the Swedish pages. Industry pages describe possible engagements, not verified client cases. Services do not guarantee commercial outcomes. An AI policy is practical guidance, not legal advice.
+
+- [Home](https://adorable.se/en): Paid social and AI consultant in Stockholm.
+- [Services](https://adorable.se/en/services): Advertising and AI consulting.
+- [AI consulting](https://adorable.se/en/ai): Training, tools, strategy and implementation.
+- [Paid social](https://adorable.se/en/paid-social): Strategy, campaigns and measurement.
+- [Meta ads](https://adorable.se/en/meta-ads): Facebook and Instagram.
+- [LinkedIn ads](https://adorable.se/en/linkedin-ads): B2B audiences and lead quality.
+- [TikTok ads](https://adorable.se/en/tiktok-ads): Video briefs, campaigns and tests.
+- [YouTube ads](https://adorable.se/en/youtube-ads): Paid video with a defined campaign goal.
+- [Snapchat ads](https://adorable.se/en/snapchat-ads): Mobile creative and a channel test.
+- [Pinterest ads](https://adorable.se/en/pinterest-ads): Visual ideas tied to the offer.
+- [Google Ads](https://adorable.se/en/google-ads): Paid search and campaign follow-up.
+- [AI workshop](https://adorable.se/en/ai-workshop): Practical training for leadership teams and employees.
+- [AI automation](https://adorable.se/en/ai-automation): Defined pilots, quality checks and handover.
+- [ChatGPT training](https://adorable.se/en/chatgpt-training): Training and adoption on the team’s own tasks. Other tools are used when they fit better. A finished ChatGPT solution is not included.
+- [AI strategy](https://adorable.se/en/ai-strategy): Prioritised use cases and a plan for the first test. No promised effect.
+- [AI policy](https://adorable.se/en/ai-policy): Practical rules for tools, data and review. Not legal advice. Team training is not included automatically.
+- [Industries](https://adorable.se/en/industries): Possible setups, not verified client cases.
+- [About Peter](https://adorable.se/en/about): Background and way of working.
+- [Contact](https://adorable.se/en/contact): Contact details and meeting requests. A time is booked only once it has been confirmed together.
+- [Privacy](https://adorable.se/en/privacy)
+- [Terms](https://adorable.se/en/terms)
 
 ## Kontakt
 

@@ -1,7 +1,7 @@
 ---
 import { services } from '../content/services';
-import { findServicePage, isAIPage } from '../content/service-pages';
-import { industries } from '../content/industries';
+import { isAIPage } from '../content/service-pages';
+import { industryByPath, serviceByPath } from '../i18n/catalog';
 interface Props { lang: 'sv' | 'en'; title: string; description: string; path: string; }
 const { lang, title, description, path } = Astro.props;
 const en = lang === 'en';
@@ -13,8 +13,10 @@ const websiteId = `${origin}/#website`;
 const pageId = `${url}#webpage`;
 const serviceKey = path === '/ai' || path === '/en/ai' ? 'ai'
   : path === '/paid-social' || path === '/en/paid-social' ? 'paid-social' : null;
-const detail = findServicePage(path.slice(1));
-const industry = industries.find(item => path === `/branscher/${item.slug}`);
+const detailHit = serviceByPath(path);
+const industryHit = industryByPath(path);
+const detail = detailHit?.page;
+const industry = industryHit?.page;
 const service = serviceKey ? services[lang][serviceKey] : detail || industry;
 const about = service ? `${url}#service`
   : path === '/om' || path === '/en/about' ? personId : businessId;
@@ -25,7 +27,8 @@ const areaServed = [
 const isHome = path === '/' || path === '/en';
 const pageLabels: Record<string, string> = en ? {
   '/en/services': 'Services', '/en/ai': 'AI consulting', '/en/paid-social': 'Paid social',
-  '/en/about': 'About', '/en/contact': 'Contact', '/en/privacy': 'Privacy', '/en/terms': 'Terms'
+  '/en/about': 'About', '/en/contact': 'Contact', '/en/privacy': 'Privacy', '/en/terms': 'Terms',
+  '/en/industries': 'Industries'
 } : {
   '/tjanster': 'Tjänster', '/ai': 'AI-rådgivning', '/paid-social': 'Paid social',
   '/om': 'Om', '/kontakt': 'Kontakt', '/branscher': 'Branscher', '/privacy': 'Integritet', '/tos': 'Villkor'
@@ -33,13 +36,13 @@ const pageLabels: Record<string, string> = en ? {
 const crumbs: { name: string; path: string }[] = [];
 if (!isHome) {
   crumbs.push({ name: en ? 'Home' : 'Start', path: en ? '/en' : '/' });
-  if (industry) {
-    crumbs.push({ name: 'Branscher', path: '/branscher' }, { name: industry.name, path });
-  } else if (detail) {
-    crumbs.push(isAIPage(detail.slug)
-      ? { name: 'AI-rådgivning', path: '/ai' }
-      : { name: 'Tjänster', path: '/tjanster' });
-    crumbs.push({ name: detail.name, path });
+  if (industryHit) {
+    crumbs.push({ name: en ? 'Industries' : 'Branscher', path: en ? '/en/industries' : '/branscher' }, { name: industryHit.page.name, path });
+  } else if (detailHit) {
+    crumbs.push(isAIPage(detailHit.svSlug)
+      ? { name: en ? 'AI consulting' : 'AI-rådgivning', path: en ? '/en/ai' : '/ai' }
+      : { name: en ? 'Services' : 'Tjänster', path: en ? '/en/services' : '/tjanster' });
+    crumbs.push({ name: detailHit.page.name, path });
   } else {
     crumbs.push({ name: pageLabels[path] || title.replace(/\s+\|\s+Adorable$/, ''), path });
   }
