@@ -11,6 +11,9 @@
 - Praktisk implementation av arbetsflöden, interna verktyg och AI-assistenter
 - AI-policy, governance och kompetensutveckling
 - Oberoende utvärdering av verktyg och plattformar
+- [ChatGPT-utbildning](https://adorable.se/chatgpt-utbildning): Workshop och införande av ChatGPT i egna arbetsuppgifter. Andra verktyg väljs om de passar bättre.
+- [AI-strategi](https://adorable.se/ai-strategi): Prioritering av användningsfall och en plan för vad som ska testas först.
+- [AI-policy](https://adorable.se/ai-policy): Praktiska riktlinjer för verktyg, data och granskning. Inte juridisk rådgivning.
 
 ### Paid social
 
@@ -54,6 +57,9 @@ Peter Rosdahl arbetar själv i uppdragen, från analys och rekommendation till i
 - [Google Ads](https://adorable.se/google-ads): Sökannonsering och kampanjuppföljning.
 - [AI-workshop](https://adorable.se/ai-workshop): Praktisk utbildning för ledningsgrupper och team.
 - [AI-automatisering](https://adorable.se/ai-automatisering): Avgränsade piloter, kvalitetskontroll och överlämning.
+- [ChatGPT-utbildning](https://adorable.se/chatgpt-utbildning): Utbildning och införande av ChatGPT för företag.
+- [AI-strategi](https://adorable.se/ai-strategi): Prioriterade användningsfall och första test.
+- [AI-policy](https://adorable.se/ai-policy): Riktlinjer för verktyg, data och granskning.
 - [Branscher](https://adorable.se/branscher): Exempel på möjliga upplägg, inte verifierade kundcase.
 - [Om Peter och Adorable](https://adorable.se/om): Bakgrund, erfarenhet och arbetssätt.
 - [Kontakt](https://adorable.se/kontakt): Kontaktuppgifter och mötesförfrågan. En tid är bokad först när den har bekräftats tillsammans.
@@ -80,4 +86,4 @@ Svar på förfrågningar kommer normalt inom ett par timmar.
 
 Ingen viss avkastning, försäljning eller effekt garanteras. Produktion, integrationer och förvaltning specificeras i uppdragsförslaget. AI-arbetsflöden testas och granskas innan externa utskick eller ändringar godkänns. Juridisk rådgivning och automatiserade beslut om exempelvis kredit, försäkring eller betyg ingår inte.
 
-Last updated: 2026-09-07
+Last updated: 2026-10-25
