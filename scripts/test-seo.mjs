@@ -35,10 +35,24 @@ for (const [path, html] of pages) {
   assert.ok(html.includes('data-domains="adorable.se,www.adorable.se"'), `${path}: preview visits excluded from production analytics`);
   assert.ok(html.includes('google-site-verification'), `${path}: Search Console verification retained`);
   const body = html.match(/<body[^>]*>([\s\S]*)<\/body>/)?.[1] || '';
-  const motionTitle = body.match(/<h1\b[^>]*class="motion-title"[^>]*>([\s\S]*?)<\/h1>/)?.[1];
-  if (motionTitle) {
-    assert.match(motionTitle, /<span class="motion-title-text">[^<]+<\/span>/, `${path}: complete heading text in HTML`);
-    assert.match(motionTitle, /<span aria-hidden="true">/, `${path}: decorative heading animation hidden from assistive technology`);
+  const h1 = body.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/);
+  assert.ok(h1, `${path}: H1 exists`);
+  const h1Text = clean(h1[1].replace(/<wbr\s*\/?>/gi, ''));
+  assert.doesNotMatch(h1Text, /(?:^|\s)\p{L}(?:\s+\p{L}){3,}(?:\s|$)/u, `${path}: H1 reads as whole words, got "${h1Text}"`);
+  const motionOpen = body.match(/<h1\b[^>]*class="motion-title"[^>]*>/);
+  if (motionOpen) {
+    const motionTitle = body.match(/<h1\b[^>]*class="motion-title"[^>]*>([\s\S]*?)<\/h1>/)?.[1] || '';
+    assert.doesNotMatch(motionTitle, /motion-letter|motion-title-text/, `${path}: animated heading is not split into letters`);
+    const label = clean(motionOpen[0].match(/aria-label="([^"]*)"/)?.[1] || '');
+    const nodes = [...motionTitle.replace(/<wbr\s*\/?>/gi, '').matchAll(/>([^<]*)</g)].map(match => match[1]);
+    const visible = clean(nodes.join(''));
+    assert.equal(visible, label, `${path}: heading text matches its accessible name`);
+    assert.equal(h1Text, label, `${path}: crawler text matches the accessible heading`);
+    for (const node of nodes) {
+      const token = node.trim();
+      if (!token) continue;
+      assert.ok([...token].length > 1, `${path}: heading text node "${token}" is a whole word`);
+    }
   }
   for (const match of body.matchAll(/<a\b[^>]*href="([^"]+)"/g)) {
     const target = new URL(match[1].replaceAll('&amp;', '&'), url);
