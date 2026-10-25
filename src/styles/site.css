@@ -19,7 +19,7 @@ button{cursor:pointer}img{max-width:100%;height:auto}a,button{touch-action:manip
 .arrow{font-family:Arial,sans-serif;font-weight:400;letter-spacing:0;line-height:1}
 /* Let the wordmark absorb viewport height; keep real content and contact links
    in normal flow so short screens and enlarged text can still scroll safely. */
-.home-hero{display:grid;grid-template-rows:auto minmax(6rem,1fr) auto;height:100svh;min-height:min-content;padding-top:clamp(24px,6svh,54px)}.home-intro{display:grid;grid-template-columns:1.7fr 1fr;gap:10%;align-items:start}.home-intro h1{font-size:clamp(1.55rem,2.75vw,2.8rem);font-weight:500;letter-spacing:-.055em;white-space:nowrap}.home-intro p{font-size:clamp(1rem,1.25vw,1.25rem);max-width:35ch;line-height:1.4}
+.home-hero{display:grid;grid-template-rows:auto minmax(6rem,1fr) auto;height:100svh;min-height:min-content;padding-top:clamp(24px,6svh,54px)}.home-intro{display:grid;grid-template-columns:1.7fr 1fr;gap:10%;align-items:start}.home-intro h1{font-size:clamp(1.55rem,2.75vw,2.8rem);font-weight:500;letter-spacing:-.055em;white-space:nowrap}.home-intro h1.home-title{white-space:normal;max-width:18ch}.home-intro p{font-size:clamp(1rem,1.25vw,1.25rem);max-width:35ch;line-height:1.4}
 .hero-scroll{justify-self:end;display:inline-flex;align-items:center;gap:12px;min-height:44px;white-space:nowrap;color:var(--ink);font-size:.85rem;text-decoration:none;transition:color .25s}.hero-scroll:hover{color:var(--accent)}.hero-scroll .icon-arrow{font-size:1.4rem}.home-services{scroll-margin-top:24px}
 @keyframes scroll-hint{0%,100%{translate:0 0}50%{translate:0 5px}}
 @media(prefers-reduced-motion:no-preference){.hero-scroll .icon-arrow{animation:scroll-hint 1.4s .8s 2}}

@@ -14,7 +14,7 @@ export const industries: Industry[] = [
     items:[['Annonsering med tydliga godkännanden','Kampanjplan, budskap och brief för exempelvis en företagstjänst eller en produktlansering. Vi bestämmer vem som godkänner innehåll och vilka begränsningar som gäller före publicering.'],['Uppföljning av förfrågningar','Vi skiljer på intresse, ansökningar och faktisk kundrelation. Mätningen utformas tillsammans med era ansvariga, utan löften om att varje steg går att spåra.'],['AI för marknadsteamet','Praktisk utbildning eller ett avgränsat test för exempelvis att strukturera godkända underlag och förbereda utkast. En människa granskar innan material används.']],
     boundary:'Uppdraget gäller marknadsföring och teamets arbetssätt, inte automatiserad kreditbedömning, investeringsrådgivning eller beslut om kunder. Juridik, informationssäkerhet och dataåtkomst godkänns av era ansvariga.',
     faqs:[['Kan ni garantera att vår annonsering följer alla regler?','Nej. Jag kan arbeta inom era godkända ramar och samordna kampanjarbetet, men juridisk granskning och produktansvar ligger hos era ansvariga.'],['Behöver vi dela kund- eller ansökningsdata?','Vi börjar med den minsta mängd information som behövs. Kunduppgifter ska inte användas i ett AI-test utan att behandling, verktyg och behörigheter först har godkänts.']],
-    related:['linkedin-annonsering','google-ads','ai-workshop']
+    related:['linkedin-annonsering','google-ads','ai-workshop','ai-policy']
   },
   {
     slug:'byggbranschen', name:'Byggföretag', title:'AI för byggföretag – utbildning & arbetsflöden | Adorable',
@@ -124,6 +124,6 @@ export const industries: Industry[] = [
     items:[['Workshop för personalen','Praktiska övningar på en nivå som passar deltagarna. Vi går igenom hur instruktioner påverkar resultatet och hur man kontrollerar fakta och källor.'],['Utkast som går att granska','Vi testar exempelvis att strukturera offentligt material eller göra ett första utkast till information. Ansvarig pedagog eller medarbetare granskar och anpassar resultatet.'],['Gemensamma arbetssätt','Underlag för vilka uppgifter ni vill pröva, vilka verktyg som är godkända och vem som ansvarar för uppföljning. Formella riktlinjer fastställs av verksamheten.']],
     boundary:'Jag erbjuder inte automatiserad betygssättning, antagningsbeslut eller prediktiv bedömning av elever. Pedagogiskt ansvar, rättslig grund och informationssäkerhet ligger hos verksamhetens ansvariga.',
     faqs:[['Måste vi använda riktiga elevarbeten i övningarna?','Nej. Vi kan arbeta med offentliga underlag och konstruerade exempel. Personuppgifter ska inte delas för att göra övningen mer realistisk.'],['Passar workshopen både nybörjare och vana användare?','Ja, upplägget anpassas efter deltagarnas erfarenhet och roller. Vi kan använda olika övningsnivåer och fokusera på gemensamma metoder för kvalitet och granskning.']],
-    related:['ai-workshop','ai-automatisering']
+    related:['ai-workshop','chatgpt-utbildning','ai-automatisering']
   }
 ];
