@@ -1,11 +1,13 @@
 ---
-interface Props { text: string; }
+interface Props { text: string }
 const { text, ...attributes } = Astro.props;
+const parts = text.match(/\s+|[^\s-]+-?/g) ?? [text];
 let index = 0;
+const pieces = parts.map(part => {
+  if (/^\s+$/.test(part)) return { kind: 'space' as const, value: part };
+  const start = index;
+  index += [...part].length;
+  return { kind: 'word' as const, value: part, start, breakAfter: part.endsWith('-') };
+});
 ---
-<h1 {...attributes} class="motion-title">
-  <span class="motion-title-text">{text}</span>
-  <span aria-hidden="true">{(text.match(/\s+|[^\s-]+-?/g) || []).map(word => /\s/.test(word)
-    ? word
-    : <><span class="motion-word">{[...word].map(letter => <span class="motion-letter" style={`--letter-index:${index++}`}>{letter}</span>)}</span>{word.endsWith('-') && <wbr />}</>)}</span>
-</h1>
+<h1 {...attributes} class="motion-title" aria-label={text}>{pieces.map(part => part.kind === 'space' ? part.value : <><span class="motion-word"><span class="motion-word-inner" style={`--letter-index:${part.start}`}>{part.value}</span></span>{part.breakAfter && <wbr />}</>)}</h1>
