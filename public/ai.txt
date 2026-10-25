@@ -25,14 +25,15 @@ Adorable is Peter Rosdahl's consultancy for advertising and practical AI use. Ad
 - Site summary: https://adorable.se/llms.txt
 - AI consulting: https://adorable.se/ai (Swedish), https://adorable.se/en/ai (English)
 - Paid social: https://adorable.se/paid-social (Swedish), https://adorable.se/en/paid-social (English)
-- Google Ads: https://adorable.se/google-ads (Swedish)
-- YouTube advertising: https://adorable.se/youtube-annonsering (Swedish)
-- AI workshops: https://adorable.se/ai-workshop (Swedish)
-- AI automation: https://adorable.se/ai-automatisering (Swedish)
-- ChatGPT training: https://adorable.se/chatgpt-utbildning (Swedish)
-- AI strategy: https://adorable.se/ai-strategi (Swedish)
-- AI policy: https://adorable.se/ai-policy (Swedish)
-- Full service directory: https://adorable.se/tjanster
+- Google Ads: https://adorable.se/google-ads (Swedish), https://adorable.se/en/google-ads (English)
+- YouTube advertising: https://adorable.se/youtube-annonsering (Swedish), https://adorable.se/en/youtube-ads (English)
+- AI workshops: https://adorable.se/ai-workshop (Swedish), https://adorable.se/en/ai-workshop (English)
+- AI automation: https://adorable.se/ai-automatisering (Swedish), https://adorable.se/en/ai-automation (English)
+- ChatGPT training: https://adorable.se/chatgpt-utbildning (Swedish), https://adorable.se/en/chatgpt-training (English)
+- AI strategy: https://adorable.se/ai-strategi (Swedish), https://adorable.se/en/ai-strategy (English)
+- AI policy: https://adorable.se/ai-policy (Swedish), https://adorable.se/en/ai-policy (English)
+- Industries: https://adorable.se/branscher (Swedish), https://adorable.se/en/industries (English)
+- Full service directory: https://adorable.se/tjanster (Swedish), https://adorable.se/en/services (English)
 - Contact: peter@adorable.se
 
 Last updated: 2026-10-25

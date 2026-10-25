@@ -1,0 +1,11 @@
+---
+interface Props { href: string; code: 'sv' | 'en'; }
+const { href, code } = Astro.props;
+---
+<a class="lang-switch" href={href} hreflang={code} lang={code}>{code === 'en' ? 'English' : 'Svenska'}</a>
+<style>
+  .lang-switch{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font-size:.85rem;letter-spacing:0;color:var(--muted)}
+  .lang-switch:hover{color:var(--ink);text-decoration:underline}
+  :global(.site-footer) .lang-switch{color:#bdbdbd;min-height:34px}
+  :global(.site-footer) .lang-switch:hover{color:white}
+</style>

@@ -1,21 +1,19 @@
 ---
 import Arrow from './Arrow.astro';
 import { servicePages, isAIPage } from '../content/service-pages';
-interface Props { group?: 'social' | 'ai' | 'all'; lang?: 'sv' | 'en'; }
+import { localizeService, serviceHref, type Lang } from '../i18n/catalog';
+interface Props { group?: 'social' | 'ai' | 'all'; lang?: Lang; }
 const { group = 'all', lang = 'sv' } = Astro.props;
-const en = lang === 'en';
-const pages = servicePages.filter(page => group === 'all' || (group === 'ai' ? isAIPage(page.slug) : !isAIPage(page.slug) && !['google-ads', 'youtube-annonsering'].includes(page.slug)));
-const labels: Record<string, string> = { 'meta-annonsering':'Meta advertising', 'linkedin-annonsering':'LinkedIn advertising', 'tiktok-annonsering':'TikTok advertising', 'youtube-annonsering':'YouTube advertising', 'snapchat-annonsering':'Snapchat advertising', 'pinterest-annonsering':'Pinterest advertising', 'google-ads':'Google Ads', 'ai-workshop':'AI workshops', 'ai-automatisering':'AI automation', 'chatgpt-utbildning':'ChatGPT training', 'ai-strategi':'AI strategy', 'ai-policy':'AI policy' };
+const excluded = new Set(['google-ads', 'youtube-annonsering']);
+const pages = servicePages.filter(page => group === 'all' || (group === 'ai' ? isAIPage(page.slug) : !isAIPage(page.slug) && !excluded.has(page.slug)));
 ---
 <div class="service-directory">
-  {pages.map(page => <a href={`/${page.slug}`}><span>{en ? labels[page.slug] : page.name}</span><Arrow direction="right" /></a>)}
+  {pages.map(page => { const copy = localizeService(page.slug, lang); return <a href={serviceHref(page.slug, lang)}><span>{copy.name}</span><Arrow direction="right" /></a>; })}
 </div>
-{en && <p class="directory-note">The detailed service pages are in Swedish. All services are also available in English.</p>}
 <style>
   .service-directory{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px}
   .service-directory a{display:flex;justify-content:space-between;align-items:center;gap:24px;border-top:1px solid var(--line);min-height:88px;padding:22px 0;font-size:clamp(1.25rem,2.2vw,2rem);letter-spacing:-.04em;text-decoration:none;transition:color .25s}
   .service-directory a:hover{color:var(--accent)}.service-directory .icon-arrow{color:var(--accent);flex-shrink:0;transition:transform .3s var(--ease)}.service-directory a:hover .icon-arrow{transform:translateX(6px)}
-  .directory-note{margin-top:24px;font-size:.9rem;color:var(--muted)}
   @media(max-width:600px){.service-directory{grid-template-columns:1fr}}
   @media(prefers-reduced-motion:reduce){.service-directory a,.service-directory .icon-arrow{transition:none}.service-directory a:hover .icon-arrow{transform:none}}
 </style>

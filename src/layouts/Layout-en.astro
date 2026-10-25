@@ -4,6 +4,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 import SiteSchema from '../components/SiteSchema.astro';
 import SiteMotion from '../components/SiteMotion.astro';
 import AstorFeedback from '../components/AstorFeedback.astro';
+import { alternatePath } from '../i18n/catalog';
 import '../styles/site.css';
 
 // Self-hosted fonts (faster than Google Fonts)
@@ -21,9 +22,10 @@ interface Props {
 	robots?: string;
 }
 
-const { title, description, ogImage = '/og-image.png', swedishPath = '/', robots = 'index, follow, max-snippet:-1, max-image-preview:large' } = Astro.props;
+const { title, description, ogImage = '/og-image.png', robots = 'index, follow, max-snippet:-1, max-image-preview:large' } = Astro.props;
 const normalizedPath = Astro.url.pathname !== '/' ? Astro.url.pathname.replace(/\/$/, '') : '/';
 const canonicalURL = new URL(normalizedPath, Astro.site);
+const swedishPath = Astro.props.swedishPath ?? alternatePath(normalizedPath);
 ---
 
 <!doctype html>
@@ -45,9 +47,13 @@ const canonicalURL = new URL(normalizedPath, Astro.site);
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		
 		<!-- Hreflang Tags -->
-		<link rel="alternate" hreflang="sv" href={`https://adorable.se${swedishPath}`} />
-		<link rel="alternate" hreflang="en" href={`https://adorable.se${normalizedPath}`} />
-		<link rel="alternate" hreflang="x-default" href={`https://adorable.se${swedishPath}`} />
+		{swedishPath && (
+			<>
+				<link rel="alternate" hreflang="sv" href={`https://adorable.se${swedishPath}`} />
+				<link rel="alternate" hreflang="en" href={`https://adorable.se${normalizedPath}`} />
+				<link rel="alternate" hreflang="x-default" href={`https://adorable.se${swedishPath}`} />
+			</>
+		)}
 		
 		<!-- Google Search Console Verification -->
 		<meta name="google-site-verification" content="adcqv8TZQSccrHknOJPPtFdt18C5USmNfa1iBagVNaM" />
@@ -85,7 +91,7 @@ const canonicalURL = new URL(normalizedPath, Astro.site);
 		<a class="skip-link" href="#main-content">Skip to content</a>
 		<SiteNavigation lang="en" alternatePath={swedishPath} />
 		<div id="main-content" tabindex="-1"><slot /></div>
-		<SiteFooter lang="en" />
+		<SiteFooter lang="en" alternatePath={swedishPath} />
 		<SiteMotion />
 	</body>
 </html>
