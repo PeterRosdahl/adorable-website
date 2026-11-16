@@ -5,7 +5,7 @@ interface Props { group?: 'social' | 'ai' | 'all'; lang?: 'sv' | 'en'; }
 const { group = 'all', lang = 'sv' } = Astro.props;
 const en = lang === 'en';
 const pages = servicePages.filter(page => group === 'all' || (group === 'ai' ? isAIPage(page.slug) : !isAIPage(page.slug) && !['google-ads', 'youtube-annonsering'].includes(page.slug)));
-const labels: Record<string, string> = { 'meta-annonsering':'Meta advertising', 'linkedin-annonsering':'LinkedIn advertising', 'tiktok-annonsering':'TikTok advertising', 'youtube-annonsering':'YouTube advertising', 'snapchat-annonsering':'Snapchat advertising', 'pinterest-annonsering':'Pinterest advertising', 'google-ads':'Google Ads', 'ai-workshop':'AI workshops', 'ai-automatisering':'AI automation' };
+const labels: Record<string, string> = { 'meta-annonsering':'Meta advertising', 'linkedin-annonsering':'LinkedIn advertising', 'tiktok-annonsering':'TikTok advertising', 'youtube-annonsering':'YouTube advertising', 'snapchat-annonsering':'Snapchat advertising', 'pinterest-annonsering':'Pinterest advertising', 'google-ads':'Google Ads', 'ai-workshop':'AI workshops', 'ai-automatisering':'AI automation', 'chatgpt-utbildning':'ChatGPT training', 'ai-strategi':'AI strategy', 'ai-policy':'AI policy' };
 ---
 <div class="service-directory">
   {pages.map(page => <a href={`/${page.slug}`}><span>{en ? labels[page.slug] : page.name}</span><Arrow direction="right" /></a>)}

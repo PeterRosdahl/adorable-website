@@ -182,7 +182,7 @@ export const servicePages: DetailPage[] = [
       ['Är det en utbildning i ChatGPT, Claude eller Gemini?', 'Vi väljer verktyg efter era förutsättningar. Det kan vara ChatGPT, Claude eller Gemini, men fokus är ett användbart arbetssätt och hur resultatet granskas — inte att visa varje funktion.'],
       ['Kan workshopen hållas på plats eller på engelska?', 'Ja, vi kan arbeta digitalt eller på plats enligt överenskommelse, på svenska eller engelska. Deltagare, längd och praktiska förutsättningar bestämmer vi innan start.'],
       ['Ingår en färdig AI-lösning?', 'Nej. Workshopen ger träning, underlag och prioriteringar. Om ni vill bygga ett arbetsflöde eller en assistent avgränsar vi det som ett separat pilotprojekt med egna leveranser och tester.']
-    ], related: ['ai-automatisering']
+    ], related: ['ai-automatisering', 'chatgpt-utbildning', 'ai-policy']
   },
   {
     slug: 'ai-automatisering', name: 'AI-automatisering',
@@ -203,9 +203,72 @@ export const servicePages: DetailPage[] = [
       ['Hur vet vi att automatiseringen sparar tid?', 'Vi jämför med hur uppgiften görs idag och räknar även in granskning, korrigeringar och underhåll. Ett snabbare utkast är inte en tidsvinst om det kräver mer efterarbete.'],
       ['Kan flödet skicka meddelanden eller ändra data själv?', 'Bara om det uttryckligen ingår och har godkänts. Vi börjar normalt med utkast eller läsbehörighet. Externa utskick och ändringar behöver tydliga tillstånd, tester och en väg att stoppa flödet.'],
       ['Ingår drift, juridik och informationssäkerhet?', 'Pilotens tekniska arbete och dokumentation avgränsas i förslaget. Drift och fortsatt förvaltning avtalas separat. Era ansvariga för IT, informationssäkerhet och juridik behöver godkänna de delar som berör deras områden.']
-    ], related: ['ai-workshop']
+    ], related: ['ai-workshop', 'ai-strategi']
+  },
+  {
+    slug: 'chatgpt-utbildning', name: 'ChatGPT-utbildning',
+    title: 'ChatGPT-utbildning och införande för företag | Adorable',
+    description: 'Praktisk ChatGPT-utbildning för team som vill använda verktyget i sina egna uppgifter. Peter Rosdahl håller workshop, tar fram instruktioner och följer upp införandet.',
+    intro: 'Jag hjälper ledningar och team att lära sig ChatGPT och börja använda det i arbetet. Vi utgår från era uppgifter, inte från en genomgång av alla funktioner.',
+    fit: 'Ni vill att fler ska kunna använda ChatGPT i vardagen. Eller så har några redan testat, men det saknas ett gemensamt sätt att arbeta och granska resultatet.',
+    focus: 'Deltagarna övar på instruktioner, källkontroll och att se när ett svar inte ska användas. Om ett annat verktyg passar bättre för uppgiften, eller om ni redan har ett godkänt verktyg, säger jag det. ChatGPT är ett av verktygen jag arbetar med, tillsammans med bland annat Claude och Gemini.',
+    items: [
+      ['Workshop med era uppgifter', 'Gemensamma genomgångar och eget arbete med återkoppling. Vi övar på uppgifter från er verksamhet och väljer exempel som går att använda utan känsliga uppgifter.'],
+      ['Införande efter utbildningen', 'Instruktioner, prioriterade användningsfall och vem som granskar resultatet. Ni får ett underlag att använda efter workshopen, inte en färdig AI-lösning.'],
+      ['Avstämning av verktyg och data', 'Vi stämmer av vilka verktyg ni får använda och vilken data som får delas. Riktlinjer för det kan tas vidare som en separat AI-policy om ni behöver det.']
+    ],
+    startingPoint: ['Ett team och uppgifter ni känner igen.', 'Vi börjar med vilka som deltar, vad de gör idag och vilket verktyg som är godkänt. Om ni ännu inte har tagit ställning till ChatGPT tar vi upp det i förberedelsen och väljer ett säkert övningsupplägg.'],
+    preparation: 'En kontaktperson, ett urval vardagsuppgifter och besked om vilka AI-verktyg ni får använda. Deltagare, längd och om vi ses digitalt eller på plats bestämmer vi innan start.',
+    faqs: [
+      ['Är utbildningen bara i ChatGPT?', 'Den kan utgå från ChatGPT. Om Claude, Gemini eller ett verktyg ni redan har passar uppgiften bättre använder vi det i stället. Fokus är ett arbetssätt och hur resultatet granskas.'],
+      ['Behöver deltagarna kunna AI sedan tidigare?', 'Nej. Vi anpassar nivån. Det viktigaste är att deltagarna känner igen arbetsuppgifterna vi tränar på.'],
+      ['Ingår en färdig ChatGPT-lösning?', 'Nej. Ni får träning, instruktioner och prioriterade nästa steg. Ett arbetsflöde, en assistent eller ett införande i era system avgränsas som ett eget upplägg med egna tester.'],
+      ['Kan utbildningen hållas på plats eller på engelska?', 'Ja. Vi kan arbeta digitalt eller på plats, på svenska eller engelska. Upplägget bestäms innan start.']
+    ], related: ['ai-workshop', 'ai-policy', 'ai-strategi']
+  },
+  {
+    slug: 'ai-strategi', name: 'AI-strategi',
+    title: 'AI-strategi för företag | Adorable',
+    description: 'Hjälp att prioritera var AI kan göra nytta. Peter Rosdahl går igenom era behov och tar fram en plan för vad ni ska testa först.',
+    intro: 'Jag hjälper ledningar att välja var AI är värt att testa, och vad som kan vänta. Strategin utgår från hur ni arbetar idag.',
+    fit: 'Ni har många idéer, eller svårt att gå från ett allmänt intresse till ett första test som går att granska.',
+    focus: 'Vi skiljer på det som kan testas nu, det som behöver bättre underlag och det som inte bör automatiseras. Ni får prioriterade användningsfall och en plan för vad ni ska testa först. Jag lovar inte en viss effekt.',
+    items: [
+      ['Genomgång av behov', 'Vi tittar på arbetsuppgifter, verktyg ni redan har och vad som får delas. Utgångspunkten är er verksamhet, inte en färdig lista med produkter.'],
+      ['Prioriterade användningsfall', 'En kort lista över vad som är värt att prova först, och vad som kan vänta. Varje fall har en ägare och något att jämföra resultatet med.'],
+      ['Plan för första testet', 'Vad som ska prövas, vilken data som får användas och hur resultatet ska granskas. Ett pilotprojekt eller en workshop kan vara nästa steg, om ni vill det.']
+    ],
+    startingPoint: ['En fråga, inte en färdig lösning.', 'Ni behöver inte veta vad ni vill bygga. Vi kan börja med en genomgång av arbetsuppgifterna och välja ett lämpligt första test tillsammans.'],
+    preparation: 'En kontaktperson som kan beskriva hur ni arbetar, vilka verktyg som redan används och om det finns begränsningar för data. Fler personer från ledning eller team tar vi med när det behövs.',
+    faqs: [
+      ['Måste vi veta vad vi vill bygga?', 'Nej. Vi kan börja med era arbetsuppgifter och välja ett första test tillsammans.'],
+      ['Ingår genomförandet i strategin?', 'Strategin pekar ut nästa steg. En workshop, ett arbetsflöde eller en AI-policy är separata upplägg med egna leveranser. Ni får ett förslag innan något av det startar.'],
+      ['Vilka verktyg utgår strategin från?', 'Verktyget väljs efter uppgiften, era krav på data och vad som redan finns. Jag arbetar bland annat med ChatGPT, Claude och Gemini.'],
+      ['Kan ni lova en viss effekt?', 'Nej. Ingen viss tidsvinst, försäljning eller avkastning garanteras. Vi bestämmer vad som ska prövas och när det är rimligt att utvärdera det.']
+    ], related: ['ai-policy', 'ai-workshop', 'ai-automatisering']
+  },
+  {
+    slug: 'ai-policy', name: 'AI-policy',
+    title: 'AI-policy för företag | Adorable',
+    description: 'Praktiska riktlinjer för AI-verktyg, vilken data som får delas och vem som granskar resultatet. Peter Rosdahl anpassar policyn till hur ni arbetar.',
+    intro: 'Jag hjälper er att skriva praktiska riktlinjer för vilka AI-verktyg ni använder, vilken data som får delas och vem som granskar resultatet.',
+    fit: 'Olika personer testar verktyg på egen hand. Eller så saknar ni ett gemensamt svar på vad som får klistras in i ett AI-verktyg.',
+    focus: 'Riktlinjerna ska gå att följa i vardagen. Vi utgår från era verktyg, era uppgifter och vem som redan ansvarar för information och beslut. Jag ersätter inte era jurister, IT eller informationssäkerhet.',
+    items: [
+      ['Godkända verktyg', 'Vilka verktyg teamet får använda, och för vilka uppgifter. Vi tar med sådant ni redan har, i stället för att börja med ett förbud eller en ny produkt.'],
+      ['Data som får delas', 'Praktiska exempel på vad som kan användas i ett verktyg och vad som ska hållas utanför. Känsliga uppgifter tar vi bara med om era ansvariga har godkänt det.'],
+      ['Granskning och ansvar', 'Vem som läser ett AI-svar innan det används, skickas eller blir underlag för ett beslut. Policyn säger också när ett svar inte ska användas.']
+    ],
+    startingPoint: ['Så ni arbetar idag.', 'Vi börjar med vilka verktyg som redan används och vilka uppgifter som är vanliga. Sedan formulerar vi riktlinjer som en medarbetare kan förstå utan en lång policytext.'],
+    preparation: 'En kontaktperson och besked om vem som ansvarar för IT, informationssäkerhet eller juridik hos er. Deras godkännande behövs för de delar som rör deras område. Jag ger inte juridisk rådgivning.',
+    faqs: [
+      ['Är en AI-policy juridisk rådgivning?', 'Nej. Jag hjälper er att formulera praktiska riktlinjer för arbetet. Juridik, informationssäkerhet och beslut om personuppgifter behöver godkännas av era ansvariga.'],
+      ['Måste vi förbjuda verktyg?', 'Nej. Utgångspunkten är vilka verktyg ni får använda, vilken data som får delas och vem som granskar resultatet. Omfattningen anpassar vi till hur ni arbetar.'],
+      ['Ingår utbildning av teamet?', 'Inte automatiskt. Policyn kan stå för sig. Vill ni att teamet ska öva tar vi det som en workshop, med egna uppgifter och ett eget upplägg.'],
+      ['Passar det om vi redan har riktlinjer?', 'Ja. Vi kan utgå från det ni har och se vad som saknas i vardagen: verktyg, data och granskning. Ni får ett förslag på vad som ska ändras innan vi skriver om något.']
+    ], related: ['ai-strategi', 'chatgpt-utbildning', 'ai-workshop']
   }
 ];
 
 export const findServicePage = (slug: string) => servicePages.find(page => page.slug === slug);
-export const isAIPage = (slug: string) => slug.startsWith('ai-');
+export const isAIPage = (slug: string) => slug.startsWith('ai-') || slug === 'chatgpt-utbildning';

@@ -6,7 +6,7 @@ import { industries } from '../content/industries';
 interface Props { lang?: 'sv' | 'en'; }
 const { lang = 'sv' } = Astro.props;
 const en = lang === 'en';
-const interestLabels: Record<string, string> = { 'meta-annonsering':'Meta advertising', 'linkedin-annonsering':'LinkedIn advertising', 'tiktok-annonsering':'TikTok advertising', 'youtube-annonsering':'YouTube advertising', 'snapchat-annonsering':'Snapchat advertising', 'pinterest-annonsering':'Pinterest advertising', 'google-ads':'Google Ads', 'ai-workshop':'AI workshop', 'ai-automatisering':'AI automation' };
+const interestLabels: Record<string, string> = { 'meta-annonsering':'Meta advertising', 'linkedin-annonsering':'LinkedIn advertising', 'tiktok-annonsering':'TikTok advertising', 'youtube-annonsering':'YouTube advertising', 'snapchat-annonsering':'Snapchat advertising', 'pinterest-annonsering':'Pinterest advertising', 'google-ads':'Google Ads', 'ai-workshop':'AI workshop', 'ai-automatisering':'AI automation', 'chatgpt-utbildning':'ChatGPT training', 'ai-strategi':'AI strategy', 'ai-policy':'AI policy' };
 // Add the public Google Calendar appointment-schedule URL when Peter has created it.
 const bookingUrl = import.meta.env.PUBLIC_BOOKING_URL?.trim();
 const validBookingUrl = bookingUrl && /^https:\/\/(calendar\.google\.com|calendar\.app\.google)\//.test(bookingUrl) ? bookingUrl : null;

@@ -97,12 +97,22 @@ for (const [path, html] of pages) {
   assert.ok(graph, `${path}: entity graph exists`);
   const ids = new Set(graph.map(entity => entity['@id']));
   assert.equal(ids.size, graph.length, `${path}: unique entity IDs`);
-  const company = graph.find(entity => entity['@type'] === 'Organization');
+  const typeList = value => [].concat(value);
+  const company = graph.find(entity => typeList(entity['@type']).includes('Organization'));
   const person = graph.find(entity => entity['@type'] === 'Person');
   const page = graph.find(entity => entity['@id'] === `${url}#webpage`);
   assert.equal(company.foundingDate, '2016');
   assert.equal(company.founder['@id'], person['@id']);
   assert.equal(person.name, 'Peter Rosdahl');
+  assert.ok(typeList(company['@type']).includes('ProfessionalService'), `${path}: ProfessionalService`);
+  const areas = [].concat(company.areaServed).map(area => area.name || area);
+  assert.ok(areas.includes('Stockholm') && areas.includes('Sweden'), `${path}: Stockholm and Sweden`);
+  for (const link of ['https://www.linkedin.com/in/peterrosdahl', 'https://www.linkedin.com/company/adorablemedia/']) {
+    assert.ok(company.sameAs.includes(link), `${path}: ${link}`);
+  }
+  const crumbs = graph.find(entity => typeList(entity['@type']).includes('BreadcrumbList'));
+  assert.equal(Boolean(crumbs), path !== '/' && path !== '/en', `${path}: BreadcrumbList on subpages`);
+  if (crumbs) assert.equal(page.breadcrumb['@id'], crumbs['@id']);
   assert.equal(page.inLanguage, en ? 'en' : 'sv');
   assert.equal(page.name, clean(html.match(/<title>(.*?)<\/title>/)?.[1] || ''));
   assert.ok(ids.has(page.about['@id']), `${path}: page subject resolves`);

@@ -38,7 +38,9 @@ export default defineConfig({
     filter: (page) => !page.endsWith('/tos') && !page.endsWith('/privacy') && !page.endsWith('/terms'),
     serialize(item) {
       const path = new URL(item.url).pathname.replace(/\/$/, '') || '/';
-      if (lastmodByPath.has(path) || path === '/branscher' || path.startsWith('/branscher/')) {
+      if (['/', '/ai', '/tjanster', '/paid-social', '/chatgpt-utbildning', '/ai-strategi', '/ai-policy', '/ai-workshop', '/ai-automatisering'].includes(path)) {
+        item.lastmod = '2026-10-25';
+      } else if (lastmodByPath.has(path) || path === '/branscher' || path.startsWith('/branscher/')) {
         item.lastmod = '2026-09-07';
       }
       return item;

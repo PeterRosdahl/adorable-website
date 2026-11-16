@@ -29,7 +29,10 @@ Adorable is Peter Rosdahl's consultancy for advertising and practical AI use. Ad
 - YouTube advertising: https://adorable.se/youtube-annonsering (Swedish)
 - AI workshops: https://adorable.se/ai-workshop (Swedish)
 - AI automation: https://adorable.se/ai-automatisering (Swedish)
+- ChatGPT training: https://adorable.se/chatgpt-utbildning (Swedish)
+- AI strategy: https://adorable.se/ai-strategi (Swedish)
+- AI policy: https://adorable.se/ai-policy (Swedish)
 - Full service directory: https://adorable.se/tjanster
 - Contact: peter@adorable.se
 
-Last updated: 2026-09-07
+Last updated: 2026-10-25
